@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>俄罗斯方块 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-tetra">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 俄罗斯方块</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html" class="active">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ⑥ · 压轴大关 · 完整手册</div>
+    <h1>俄罗斯方块</h1>
+    <p class="lead">五次课做出一个完整的街机游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-tetra.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">卡住才看参考做法</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-tetra.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/俄罗斯方块/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-tetra.html">▶ 俄罗斯方块 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>方块自动下落，←→移动、↑旋转、↓加速——拼满一行就消掉，堆到顶就输。</div><div class="log-card"><span class="lg-t">操作</span>← → 移动 / ↑ 旋转 / ↓ 加速</div><div class="log-card"><span class="lg-t">玩点在哪</span>差一格的强迫症；一次消行的爽快；拼图本身</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——先消几行找找感觉。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🗄️ 棋盘记忆<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">地图列表：180 格的家底</div></div><div class="lab-card"><div class="lb-do">⬇️ 活动方块<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">4 个克隆格一组下落</div></div><div class="lab-card"><div class="lb-do">📦 落定入图<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">停稳就写进地图、变成地形</div></div><div class="lab-card"><div class="lb-do">↺️ 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">移动 / 旋转 / 加速</div></div><div class="lab-card"><div class="lb-do">✨ 消行结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">满行消除、分数、加速</div></div></div><div class="cp-analogy">总思路：俄罗斯方块 = <b>一张会自己记事的棋盘（列表）+ 一组会叠积木的规则</b>。它是六门课最难的一关，克隆、列表、广播、公式全部上场——做出来，这六门课就都通了。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>一个角色就够：单格方块——七种颜色七个造型，一个克隆体就是一格。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/俄罗斯方块/方块-青.svg" alt="方块-青" loading="lazy"><span class="a-name">单格方块 ×7 色</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">⬅️➡️</span><span class="a-name">← → 移动 / ↑ 旋转</span><span class="a-tag own">自带</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">⬇️</span><span class="a-name">↓ 加速下落</span><span class="a-tag own">自带</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">🔲</span><span class="a-name">格子背景</span><span class="a-tag own">自带库搜 Grid</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/俄罗斯方块/单格方块.sprite3</b>（七色造型一次全到）；背景也在素材包里（背景-俄罗斯方块.svg：「选择一个背景」→ 上传）<b>Grid / Neon Grid</b>；音效 <b>zap</b>（消行）。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🗄️ 列表·地图</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">➗ 运算·格子</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🧩 变量·形状</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📦 列表搬移</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="d1">第 1 次 · 棋盘开机</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 棋盘开机</span><span class="st-text">先造一张会记事的棋盘——180 个格子，谁站没站住，它都记得。</span></div>
+<div class="hb-goal">只解决一件事：<em>地图列表</em>——180 项的棋盘建好，能手动点亮任意一格。</div>
+<div class="hb-chips"><span class="chip">⏱ 35 分钟</span><span class="chip">✅ 公式：编号 ↔ 行列 ↔ 像素</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:440px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;inset:8% 30% 8% 30%;background:#1a2233;border-radius:8px;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(18,1fr);"><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div></div><div style="position:absolute;left:44%;top:52%;width:6.4%;height:4.6%;background:#4a90d9;border-radius:3px;"></div><span class="sl-tag" style="left:6%; top:6%;">10 列 × 18 行</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">地图列表</span><span class="td-note">— 180 项，0=空 1=有</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子公式</span><span class="td-note">— 编号→行列→像素</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">点亮测试</span><span class="td-note">— 改一项+克隆显示</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 一个分身=一格</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">俄罗斯方块的核心是那张看不见的棋盘：10 列 × 18 行 = 180 格，用一个 180 项的列表"地图"记住每格有没有方块。格子换算公式（编号↔行列↔像素）打砖块/贪吃蛇都用过——这次它管全场。先用"手动点亮一格"把公式跑通。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 棋盘即列表</span></p>
+<p><strong>地图 = 棋盘的记性</strong></p><div class="cp-analogy">类比：舞台上看不见棋盘，列表里全记着：第 n 格有没有方块，看"地图"第 n 项是 0 还是 1。</div><ul class="cp-points">
+<li>10 列 × 18 行 = 180 项，开局全是 0</li><li>编号 n → 列 = 余数+1、行 = 取整+1（老朋友了）</li><li>像素：x = 列×20 − 190，y = 170 − 行×20</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">🗄️ 地图 180 项</div><span class="dg-arr"><small>查第 n 项</small>➜</span><div class="dg-box">0 空 / 1 有</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>建棋盘</strong>
+<pre class="blocks">当按下 [r] 键
+删除 [地图] 的全部项目
+重复执行 (180) 次
+    将 (0) 加入 [地图]</pre>
+<p><div class="sl-sub">一次性工具（跑完可留可删）；再建全局变量 <b>编号 / 列号 / 行号</b></div></p>
+<div class="see">✅ 监视窗：180 项，全是 0</div>
+</li>
+<li><strong>格子换算三连（复习）</strong>
+<pre class="blocks">将 [编号] 设为 (100)
+将 [列号] 设为 (((编号 - 1) 除以 (10) 的余数) + (1))
+将 [行号] 设为 (([向下取整] ((编号 - 1) / (10))) + (1))
+移到 x: (((列号 - 1) * (20)) - (190)) y: ((170) - ((行号 - 1) * (20)))</pre>
+<p><div class="sl-sub">先手算：编号 100 → 第 10 行第 10 列 → 像素 (0, −10)，对上再往下</div></p>
+<div class="see">✅ 单格方块本体精准站在第 100 格</div>
+</li>
+<li><strong>点亮一格 = 改列表 + 克隆显示</strong>
+<pre class="blocks">将 [地图] 的第 (100) 项替换为 (1)
+克隆 [自己]</pre>
+<p><div class="sl-sub">克隆体启动「显示」——记住这个套路：<b>数据变了，画面跟着变</b></div></p>
+<div class="see">✅ 第 100 格亮起一格蓝——这就是整个俄罗斯方块的原子操作</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🗄️ 180 项棋盘建好</li><li>📐 任意编号都能换算到正确像素</li><li>💡 点亮 = 改列表 + 克隆显示</li>
+</ul>
+<p>棋盘有了记忆——下一课让方块掉下来。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>棋盘实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">改第 55 项为 1</div><div class="lb-guess">猜猜看：亮在第几行？</div><div class="lb-why">编号→位置的直觉</div></div>
+<div class="lab-card"><div class="lb-do">连续点亮一整行</div><div class="lb-guess">猜猜看：编号有什么规律？</div><div class="lb-why">行=连续 10 个编号</div></div>
+<div class="lab-card"><div class="lb-do">格 20 改 24</div><div class="lb-guess">猜猜看：整个棋盘变宽？</div><div class="lb-why">像素公式联动</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>棋盘两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 格子亮错位置</div>公式抄错或没手算。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>先手算一个编号对答案。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 列表只有 1 项</div>「将…加入」写在了重复外。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>重复 180 次包住它。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">棋盘边框</div><div class="ad-what">画一圈墙</div><div class="ad-how">画一个边框角色贴边<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">出生预览</div><div class="ad-what">显示下一个方块</div><div class="ad-how">第二个角色做预览窗（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">网格背景</div><div class="ad-what">铺淡淡的格线</div><div class="ad-how">自带库搜 Grid 背景<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="d2">第 2 次 · 方块下落</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 方块下落</span><span class="st-text">四个分身捆成一个方块——从天上慢慢掉下来。</span></div>
+<div class="hb-goal">只解决一件事：<em>活动方块</em>——4 格一组、每 0.5 秒下落一格。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">✅ 一个竖条方块能匀速下落</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:280px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;left:46%;top:14%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:23%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:32%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:41%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">竖条：4 格一组</div></div><div class="fx-arrow">⬇️</div><div class="fx-ba"><div class="sl-stage" style="width:280px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;left:46%;top:40%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:49%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:58%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:67%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">每 0.5 秒下落一格</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">形状=偏移表</span><span class="td-note">— 形偏横/形偏竖 各 4 项</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">锚点</span><span class="td-note">— 一个格带三个兄弟</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">分组下落</span><span class="td-note">— 锚点动，全组动</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子公式</span><span class="td-note">— 偏移+锚点=位置</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">一个"方块"=4 个克隆格 + 一个形状编号。形状就是 4 组相对偏移（形偏横/形偏竖），先手动填一个"竖条"试跑。下落=锚点行号每拍 −1，4 个分身各自"锚点+偏移"算出位置。能不能落看"下一行"：先把形状写死，落定判断下一课做。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 形状即偏移</span></p>
+<p><strong>形状 = 4 个相对位置</strong></p><div class="cp-analogy">类比：竖条就是（0,0）（0,1）（0,2）（0,3）——四组"偏移"存进列表，任何形状都是这么写的。</div><ul class="cp-points">
+<li>形偏横 存横偏移、形偏竖 存竖偏移，各 4 项</li><li>锚点是形状的"领头格"：位置 = 锚点 + 偏移</li><li>七种方块就是七组偏移——先做一种，跑通再换</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">锚点 (5,1)</div><span class="dg-arr">＋偏移➜</span><div class="dg-box">🟦<br>🟦<br>🟦<br>🟦</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>手动填一个竖条</strong>
+<div class="sl-path">全局列表 <b>形偏横 / 形偏竖</b> 各填 4 项：形偏横 = 0,0,0,0；形偏竖 = 0,1,2,3（监视窗 ➕ 手填）——这就是"竖条"的配方</div>
+<div class="see">✅ 两条 4 项的偏移表就绪</div>
+</li>
+<li><strong>锚点 + 4 个分身</strong>
+<pre class="blocks">当按下 [空格] 键
+将 [锚列] 设为 (5)
+将 [锚行] 设为 (1)
+将 [格号] 设为 (0)
+重复执行 (4) 次
+    将 [格号] 增加 (1)
+    克隆 [自己]</pre>
+<p><div class="sl-sub">写在<b>单格方块本体</b>上；格号"仅适用于当前角色"，分身各带各的</div></p>
+<div class="see">✅ 按空格，天上出现 4 格蓝条</div>
+</li>
+<li><strong>分身各自算位置</strong>
+<pre class="blocks">当作为克隆体启动时
+将 [列号] 设为 ((锚列) + ([形偏横] 的第 (格号) 项))
+将 [行号] 设为 ((锚行) + ([形偏竖] 的第 (格号) 项))
+移到 x: (((列号 - 1) * (20)) - (190)) y: ((170) - ((行号 - 1) * (20)))
+换成 [方块-青] 造型
+显示
+重复执行
+    等待 (0.5) 秒
+    将 [行号] 设为 ((行号) - (1))
+    移到 x: (((列号 - 1) * (20)) - (190)) y: ((170) - ((行号 - 1) * (20)))</pre>
+<p><div class="sl-sub">每拍行号 −1 重算 y——四格同步下落；<b>偏移是私有变量</b>（格号、列号、行号都选仅当前角色）</div></p>
+<div class="see">✅ 蓝条每 0.5 秒落一格，四格整齐</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🧩 四格一组不掉队</li><li>⬇️ 匀速一格一格落</li><li>↩️ 空格能再发一个（本课可重叠）</li>
+</ul>
+<p>方块会落了——什么时候"停"？下一课。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>下落实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">0.5 改 0.2</div><div class="lb-guess">猜猜看：地狱速度！</div><div class="lb-why">拍速又来了</div></div>
+<div class="lab-card"><div class="lb-do">形偏竖 改 0,0,1,1 + 形偏横 改 0,1,0,1</div><div class="lb-guess">猜猜看：变成什么形状？</div><div class="lb-why">偏移表=形状配方</div></div>
+<div class="lab-card"><div class="lb-do">起点锚行改 0</div><div class="lb-guess">猜猜看：从天花板出生</div><div class="lb-why">出生区设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>下落三病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 四格叠成一格</div>格号没设成私有。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>格号选"仅适用于当前角色"。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 落得七零八落</div>偏移表填错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>形偏横/形偏竖 一一对应着填。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一按下空格疯狂生成</div>事件帽里还有循环。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>空格事件只管克隆四次。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">随机颜色</div><div class="ad-what">每次克隆随机造型</div><div class="ad-how">在 1 和 7 之间取随机数选造型<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+<div class="addon-card"><div class="ad-t">下落音效</div><div class="ad-what">嗒…嗒…嗒</div><div class="ad-how">每拍播放 pop（音量低）<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">影子预告</div><div class="ad-what">地面显示落点</div><div class="ad-how">第 3 课落定判断顺便能做（进阶）<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="d3">第 3 次 · 落地为安</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 落地为安</span><span class="st-text">方块落到底，就长在地上——从"客人"变成"地形"。</span></div>
+<div class="hb-goal">只解决一件事：<em>落定入图</em>——到底/压住就停，写进地图；顶部再发新块。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">⚠️ 本关核心枢纽</span><span class="chip">✅ 方块能一个个堆起来</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:400px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;left:38%;top:58%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:38%;top:66%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:44%;top:58%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:44%;top:66%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><span class="sl-tag" style="left:6%; top:8%;">落定 → 写进地图 → 变地形</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">卡住判断</span><span class="td-note">— 下一行出界/有 1</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">广播落定</span><span class="td-note">— 四格一起停</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">写进地图</span><span class="td-note">— 编号替换为 1</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">再发车</span><span class="td-note">— 回顶 + 随机形状</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">"停"的判断：下一行的格子出界或是地图里有 1 → 卡住。卡住时广播[落定]，4 个分身把自己的 (列,行) 折回编号写进地图=1，然后从"活动分身"变成"地形格"（最简单：不删，直接原地站岗，只是不再下移）。锚点回到顶部、换随机形状再发车——循环就转起来了。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>每格自己查"下面"</strong>
+<pre class="blocks">    将 [下面编号] 设为 ((((行号) - (2)) * (10)) + (列号))
+    如果 <<(行号) = (1)> 或 <([地图] 的第 (下面编号) 项) = (1)>> 那么
+        广播 [落定]
+        停止 [这个脚本]</pre>
+<p><div class="sl-sub">放进分身的下落循环、每拍移动<b>之前</b>查：行号=1 到底了；或下一行(行号−1)那格在地图里已是 1。查编号公式 = (行−1)×10＋列</div></p>
+<div class="see">✅ 方块落到地形上一瞬，四格齐停</div>
+</li>
+<li><strong>落定 = 写进地图</strong>
+<pre class="blocks">当接收到 [落定]
+将 [落定编号] 设为 ((((行号) - (1)) * (10)) + (列号))
+将 [地图] 的第 (落定编号) 项替换为 (1)</pre>
+<p><div class="sl-sub">落定的分身原地站岗不再下移（它已经是地形的一部分）</div></p>
+<div class="see">✅ 监视窗里地图一项项变 1——棋盘记住了一切</div>
+</li>
+<li><strong>回顶再发车</strong>
+<pre class="blocks">当接收到 [落定]
+等待 (0.3) 秒
+将 [锚列] 设为 (在 (4) 和 (7) 之间取随机数)
+将 [锚行] 设为 (1)
+将 [形状] 设为 (在 (1) 和 (2) 之间取随机数)
+广播 [换形状]</pre>
+<p><div class="sl-sub">本体脚本；"换形状"= 按形状号重填 形偏横/形偏竖（教学版先 1=竖条 2=方块，照第 2 课加料站配方填）；填完再克隆 4 格（第 2 课发车那段）</div></p>
+<div class="see">✅ 落一个、再来一个——游戏会自己转了</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>📦 方块落在地形上不再穿</li><li>🗄️ 地图实时记录每个落定格</li><li>🔄 自动发车，形状/颜色随机</li>
+</ul>
+<p>这是全关的枢纽——数据流彻底转起来了。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>落定实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">故意堆到半屏</div><div class="lb-guess">猜猜看：地图像什么？</div><div class="lb-why">地形=历史的化石</div></div>
+<div class="lab-card"><div class="lb-do">落定改"穿一格"</div><div class="lb-guess">猜猜看：手感变坏多少？</div><div class="lb-why">规则=公平感</div></div>
+<div class="lab-card"><div class="lb-do">换形状只留方块</div><div class="lb-guess">猜猜看：只玩 2×2 试试</div><div class="lb-why">先跑通再加形状</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>落定三病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 方块穿进地里</div>查"下面"的编号公式错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>(行−1)×10＋列，先手算一格。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一半停一半继续掉</div>四个分身判断不同步。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>任何一格卡住就广播落定，四格都停。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 新块和旧块叠住</div>发车没等旧块落定。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>落定后等 0.3 秒再发。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">七形状全配齐</div><div class="ad-what">形偏横/形偏竖 填 7 组</div><div class="ad-how">随机数 1~7 + 七段如果<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">落地音效</div><div class="ad-what">咚——</div><div class="ad-how">落定广播里播放 drop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">下一块预览</div><div class="ad-what">角落显示即将到来的块</div><div class="ad-how">预览角色读形状号（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="d4">第 4 次 · 移动与旋转</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 移动与旋转</span><span class="st-text">命运交回玩家手里：←→ 平移、↑ 旋转、↓ 加速。</span></div>
+<div class="hb-goal">只解决一件事：<em>玩家操控</em>——左右平移（带碰撞检查）、旋转（四向配方）、加速下落。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">✅ 手感成立，游戏可玩</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:280px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;left:46%;top:20%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:29%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:47%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">竖条一个方向</div></div><div class="fx-arrow">↺️</div><div class="fx-ba"><div class="sl-stage" style="width:280px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;left:44%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:51%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:58%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:65%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">按 ↑：换成横条配方</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">平移检查</span><span class="td-note">— 旁边格空才能动</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">旋转=换配方</span><span class="td-note">— 四向偏移表</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">加速下落</span><span class="td-note">— 等待秒数变小</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">先查后动</span><span class="td-note">— 落定同款思路</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">左移/右移 = 先检查"旁边的格子"（出界或有 1 就不动），可行就广播平移，全组列号 ±1。旋转教学版用"换方向配方"：每个形状预存 4 个方向的偏移表，按 ↑ 时切到下一组——比旋转公式直观。加速 = 把等待秒数改小。判断都是"先查地图，再动"，和落定同一套思路。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>左右平移（带检查）</strong>
+<pre class="blocks">当按下 [右箭头] 键
+广播 [检查右移]</pre>
+<p><div class="sl-sub">教学版简化：直接广播 [右移]，让每个活动分身列号 +1；想要严谨碰撞（旁边有 1 不动），照"查下面"的公式查旁边——进阶挑战有配方</div></p>
+<div class="see">✅ 按 ←/→，整组方块平移一格</div>
+</li>
+<li><strong>旋转 = 换一组偏移</strong>
+<pre class="blocks">当按下 [上箭头] 键
+将 [方向号] 增加 (1)
+如果 <(方向号) > (4)> 那么
+    将 [方向号] 设为 (1)
+广播 [重算位置]</pre>
+<p><div class="sl-sub">偏移表升级为 4 组：竖条 0°=(0,0,0,0 / 0,1,2,3)，90°=(0,1,2,3 / 0,0,0,0)……分身按 方向号 读对应一列；重算位置 = 重跑"锚点+偏移"那两行</div></p>
+<div class="see">✅ 按 ↑ 方块转身——竖条变横条</div>
+</li>
+<li><strong>加速下落</strong>
+<pre class="blocks">当按下 [下箭头] 键
+将 [拍速] 设为 (0.08)</pre>
+<p><div class="sl-sub">等一下——事件帽只能触发一次。正确做法：主循环里改用变量：等待 (拍速)，而 ↓ 事件把拍速设 0.08、松开由"重复执行直到不成立"等松手后恢复 0.5</div></p>
+<div class="see">✅ 按住 ↓ 直坠地面</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>↔️ 左右平移不掉格</li><li>↺️ 旋转四向循环</li><li>⬇️ 按住加速、松开恢复</li>
+</ul>
+<p>可玩性成立——就差最后一环：消行。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>手感实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">拍速 0.5 改 0.35</div><div class="lb-guess">猜猜看：高手模式</div><div class="lb-why">基础速度</div></div>
+<div class="lab-card"><div class="lb-do">旋转加音效</div><div class="lb-guess">猜猜看：咔哒</div><div class="lb-why">反馈音</div></div>
+<div class="lab-card"><div class="lb-do">左右移加碰撞检查</div><div class="lb-guess">猜猜看：撞墙不动</div><div class="lb-why">严谨版（进阶配方）</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>操控三病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 平移后格子散架</div>只动了锚点没重算分身。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播 [重算位置] 让四格各自重算。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 旋转飞出屏幕</div>偏移表某组填错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>一组一组手填，转一遍验一遍。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 加速停不下来</div>拍速没恢复。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>松手后把拍速设回 0.5。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">严谨碰撞平移</div><div class="ad-what">旁边有 1 就不动</div><div class="ad-how">照"查下面"公式查左右（进阶配方）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">软降锁定</div><div class="ad-what">长按 ↓ 2 格即锁</div><div class="ad-how">计步+落定（进阶）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">按键自定义</div><div class="ad-what">WASD 同款操作</div><div class="ad-how">再挂一组事件帽<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="d5">第 5 次 · 消行与收官</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">终章 · 一行消掉</span><span class="st-text">拼满一行，整行消失——俄俄罗斯方块最经典的瞬间，今天由你亲手写出来。</span></div>
+<div class="hb-goal">只解决一件事：<em>消行结算</em>——满行消除、上方下落、计分加速，然后为六门课收官。</div>
+<div class="hb-chips"><span class="chip">⏱ 45 分钟</span><span class="chip">🎯 六关的压轴一战</span><span class="chip">✅ 完整俄罗斯方块</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:280px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><div style="position:absolute;left:32%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:38%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:44%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:50%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:56%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:62%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:68%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:74%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:80%;top:56%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div></div><div class="fx-cap">差一格就满</div></div><div class="fx-arrow">✨</div><div class="fx-ba"><div class="sl-stage" style="width:280px;"><img class="sp-fill" src="../assets/sprites/俄罗斯方块/霓虹网格.svg" alt="霓虹网格" loading="lazy"><span class="sl-tag" style="left:22%; top:50%; background:#173a2b;">＋10 分</span></div><div class="fx-cap">满行消失，上方下落</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">满行检测</span><span class="td-note">— 数 10 个 1</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">行搬移</span><span class="td-note">— 上方整体下移</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">画面下移</span><span class="td-note">— 分身跟着跳行</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">计分加速</span><span class="td-note">— 难度公式收官</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">消行 = 落定后做一次"全盘体检"：从第 18 行往上，每行数 10 个格的地图值，全是 1 → 这行消除：该行清 0，同时把上方所有行整体"抄下来一行"（列表逐项搬移），画面上对应分身"跳下一格"（广播下移）。分数 +10、每消 2 行拍速 −0.03。做完这场压轴战，六门课全部通关。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 行搬移</span></p>
+<p><strong>消除 = 上方整体搬家</strong></p><div class="cp-analogy">类比：一行消失不是"删掉"那么简单——它上面的每一行都要整体往下抄一行，像抽掉书架一层、上面的书全落下来。</div><ul class="cp-points">
+<li>检测：该行 10 个编号的地图值全 = 1</li><li>搬移：从消除行往上，每行抄它上一行</li><li>顶行搬空后设 0——一行就消干净了</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">行5：1111111111 → 消！</div><span class="dg-arr">➜</span><div class="dg-box">行4 落到行5<br>行3 落到行4…</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>落定后体检：找满行</strong>
+<pre class="blocks">当接收到 [落定]
+将 [行数] 设为 (18)
+重复执行 (18) 次
+    将 [列数] 设为 (1)
+    重复执行 (10) 次
+        将 [查编号] 设为 ((行数 - 1) * (10))
+        将 [查编号] 设为 ((查编号) + (列数))
+        如果 <([地图] 的第 (查编号) 项) = (0)> 那么
+            将 [列数] 设为 (99)
+        将 [列数] 增加 (1)
+    如果 <(列数) = (11)> 那么
+        广播 [消行]</pre>
+<p><div class="sl-sub">写在<b>本体</b>上（本体管全局体检）；列数=99 是"发现空格，提前判死刑"的小技巧，广播消行时把 行数 一起报出去（简化：用全局变量 消除行）</div></p>
+<div class="see">✅ 哪行拼满，哪行触发消行</div>
+</li>
+<li><strong>数据搬家：整行下移</strong>
+<pre class="blocks">当接收到 [消行]
+将 [搬行] 设为 (消除行)
+重复执行 ((消除行) - (1)) 次
+    将 [列数] 设为 (1)
+    重复执行 (10) 次
+        将 [搬编号] 设为 ((搬行 - 1) * (10))
+        将 [搬编号] 设为 ((搬编号) + (列数))
+        将 [抄编号] 设为 ((搬行 - 2) * (10))
+        将 [抄编号] 设为 ((抄编号) + (列数))
+        将 [地图] 的第 (搬编号) 项替换为 ([地图] 的第 (抄编号) 项)
+        将 [列数] 增加 (1)
+    将 [搬行] 增加 (-1)
+重复执行 (10) 次
+    将 [地图] 的第 (列数) 项替换为 (0)
+    将 [列数] 增加 (1)</pre>
+<p><div class="sl-sub">从消除行往上，每行抄上一行的值；最后把第 1 行清 0——棋盘数据完成"抽层"</div></p>
+<div class="see">✅ 监视窗：满行上方的 1 整体下移一层</div>
+</li>
+<li><strong>画面跟着跳行 + 计分</strong>
+<pre class="blocks">当接收到 [消行]
+播放声音 [zap]
+将 [分数] 增加 (10)
+将 [拍速] 增加 (-0.01)
+广播 [全体下移]</pre>
+<p><div class="sl-sub">"全体下移"= 每个地形分身把自己的行号 +1、重算 y（分身脚本里再挂一个接收）；到顶（堆出屏幕）判负：体检发现第 1 行有 1 → 广播游戏结束</div></p>
+<div class="see">✅ 满行"唰"地消失、上方落下、分数 +10</div>
+</li>
+<li><strong>收官总结：三句话 + 六关回顾</strong>
+<p><div class="dg" style="gap:24px;"><div class="dg" style="flex-direction:column;gap:8px;"><div class="dg-box">🧱 打砖块</div><div class="dg-box">🐤 小鸟</div><div class="dg-box">🚀 太空</div></div><div class="dg" style="flex-direction:column;gap:8px;"><div class="dg-box">🐍 贪吃蛇</div><div class="dg-box">🏰 塔防</div><div class="dg-box ok">🟦 俄罗斯方块</div></div></div><div class="sl-sub">讲了什么、最难在哪、想怎么改——六门课，一次讲完</div></p>
+<div class="see">✅ 六个游戏，全部由你亲手写出</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>✨ 满行消除、上方下落</li><li>🎒 +10 分、越玩越快</li><li>💀 堆到顶判负</li><li>🎯 收官总结讲满三句</li>
+</ul>
+<p>六门课全部通关：输入、物理、克隆、列表、广播、公式——你都亲手用过一遍。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>收官调校</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">消一行 +10 改 +100</div><div class="lb-guess">猜猜看：痛快翻倍？</div><div class="lb-why">数值心理学</div></div>
+<div class="lab-card"><div class="lb-do">双倍行距地形开局</div><div class="lb-guess">猜猜看：从残局打起</div><div class="lb-why">开局设计</div></div>
+<div class="lab-card"><div class="lb-do">极限拍速 0.08</div><div class="lb-guess">猜猜看：人类不可能完成任务</div><div class="lb-why">封顶线</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>消行两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 消了行数据没动</div>只广播没搬移。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>消行广播里跑完整套搬移。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 画面和数据差一格</div>分身下移行号算错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>行号 +1 后用同一条像素公式。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">消行动画</div><div class="ad-what">整行闪白再消失</div><div class="ad-how">广播后延迟一拍再搬<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">连消奖励</div><div class="ad-what">一次消 2 行 ×3 分</div><div class="ad-how">体检时统计连续满行<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">发布到社区</div><div class="ad-what">分享给全世界</div><div class="ad-how">文件→保存，上传 scratch.mit.edu（先看社区规则）<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一个完整的俄罗斯方块：棋盘记忆、方块下落旋转、落定入图、满行消除。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">🗄️ 列表·地图</span></li><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">➗ 运算·格子</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">🧩 变量·形状</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">📣 广播</span></li><li class="td-item"><span class="td-mark new">第 5 课</span><span class="td-name">📦 列表搬移</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>棋盘即列表：180 项记着每格有没有方块</li><li>形状即偏移：锚点 + 偏移 = 任何形状</li><li>消行 = 上方整体搬家：数据搬移，画面跟随</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 6 关 · 压轴大关</div>
+        <div class="sl-cover-title">俄罗斯方块</div>
+        <div class="sl-cover-desc">五次课做出俄罗斯方块：方块下落、旋转、消行——六门课所有功夫的压轴一战。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><div style="position:absolute;inset:0;background:#11151f;"></div><div style="position:absolute;left:30%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:36%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:42%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:48%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:54%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:30%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:36%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:42%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:48%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:54%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:30%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:36%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:42%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:48%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:54%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:30%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:36%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:42%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:48%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:54%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:26%;top:36%;width:70%;height:2px;background:#37474f;"></div><span class="sl-tag" style="left:6%; top:8%;">一行消掉，分数 +10</span><span class="sl-tag" style="right:5%; top:8%;">分数 120</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>方块自动下落，←→移动、↑旋转、↓加速——拼满一行就消掉，堆到顶就输。</div>
+        <div class="log-card"><span class="lg-t">操作</span>← → 移动 / ↑ 旋转 / ↓ 加速</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>差一格的强迫症；一次消行的爽快；拼图本身</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——先消几行找找感觉。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🗄️ 棋盘记忆<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">地图列表：180 格的家底</div></div>
+        <div class="lab-card"><div class="lb-do">⬇️ 活动方块<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">4 个克隆格一组下落</div></div>
+        <div class="lab-card"><div class="lb-do">📦 落定入图<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">停稳就写进地图、变成地形</div></div>
+        <div class="lab-card"><div class="lb-do">↺️ 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">移动 / 旋转 / 加速</div></div>
+        <div class="lab-card"><div class="lb-do">✨ 消行结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">满行消除、分数、加速</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：俄罗斯方块 = <b>一张会自己记事的棋盘（列表）+ 一组会叠积木的规则</b>。它是六门课最难的一关，克隆、列表、广播、公式全部上场——做出来，这六门课就都通了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">一个角色就够：单格方块——七种颜色七个造型，一个克隆体就是一格。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="方块-青"></i><span class="a-name">单格方块 ×7 色</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">⬅️➡️</span><span class="a-name">← → 移动 / ↑ 旋转</span><span class="a-tag own">自带</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">⬇️</span><span class="a-name">↓ 加速下落</span><span class="a-tag own">自带</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">🔲</span><span class="a-name">格子背景</span><span class="a-tag own">自带库搜 Grid</span></div><div class="asset-card"><i class="sp-md" data-sp="霓虹网格"></i><span class="a-name">背景</span><span class="a-tag ">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/俄罗斯方块/单格方块.sprite3</b>（七色造型一次全到）；背景也在素材包里（背景-俄罗斯方块.svg：「选择一个背景」→ 上传）<b>Grid / Neon Grid</b>；音效 <b>zap</b>（消行）。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">压轴大关点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🗄️ 列表·地图</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">➗ 运算·格子</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🧩 变量·形状</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📦 列表搬移</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="e1" data-map="🗄️ 棋盘开机">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 棋盘开机</span><span class="st-text">先造一张会记事的棋盘——180 个格子，谁站没站住，它都记得。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>地图列表</em>——180 项的棋盘建好，能手动点亮任意一格。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 35 分钟</span><span class="sl-chip">✅ 公式：编号 ↔ 行列 ↔ 像素</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="方块-青"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🗄️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:440px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;inset:8% 30% 8% 30%;background:#1a2233;border-radius:8px;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(18,1fr);"><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div><div style="border:1px solid #232c40;"></div></div><div style="position:absolute;left:44%;top:52%;width:6.4%;height:4.6%;background:#4a90d9;border-radius:3px;"></div><span class="sl-tag" style="left:6%; top:6%;">10 列 × 18 行</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">地图列表</span><span class="td-note">— 180 项，0=空 1=有</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子公式</span><span class="td-note">— 编号→行列→像素</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">点亮测试</span><span class="td-note">— 改一项+克隆显示</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 一个分身=一格</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">俄罗斯方块的核心是那张看不见的棋盘：10 列 × 18 行 = 180 格，用一个 180 项的列表"地图"记住每格有没有方块。格子换算公式（编号↔行列↔像素）打砖块/贪吃蛇都用过——这次它管全场。先用"手动点亮一格"把公式跑通。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">概念 · 棋盘即列表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">地图 = 棋盘的记性</div>
+          <div class="cp-analogy">类比：舞台上看不见棋盘，列表里全记着：第 n 格有没有方块，看"地图"第 n 项是 0 还是 1。</div>
+          <ul class="cp-points">
+<li>10 列 × 18 行 = 180 项，开局全是 0</li><li>编号 n → 列 = 余数+1、行 = 取整+1（老朋友了）</li><li>像素：x = 列×20 − 190，y = 170 − 行×20</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">🗄️ 地图 180 项</div><span class="dg-arr"><small>查第 n 项</small>➜</span><div class="dg-box">0 空 / 1 有</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">建棋盘</div>
+          <pre class="blocks">当按下 [r] 键
+删除 [地图] 的全部项目
+重复执行 (180) 次
+    将 (0) 加入 [地图]</pre>
+          <div class="sl-sub">一次性工具（跑完可留可删）；再建全局变量 <b>编号 / 列号 / 行号</b></div>
+          <div class="stepv-see">✅ 监视窗：180 项，全是 0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">格子换算三连（复习）</div>
+          <pre class="blocks">将 [编号] 设为 (100)
+将 [列号] 设为 (((编号 - 1) 除以 (10) 的余数) + (1))
+将 [行号] 设为 (([向下取整] ((编号 - 1) / (10))) + (1))
+移到 x: (((列号 - 1) * (20)) - (190)) y: ((170) - ((行号 - 1) * (20)))</pre>
+          <div class="sl-sub">先手算：编号 100 → 第 10 行第 10 列 → 像素 (0, −10)，对上再往下</div>
+          <div class="stepv-see">✅ 单格方块本体精准站在第 100 格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">点亮一格 = 改列表 + 克隆显示</div>
+          <pre class="blocks">将 [地图] 的第 (100) 项替换为 (1)
+克隆 [自己]</pre>
+          <div class="sl-sub">克隆体启动「显示」——记住这个套路：<b>数据变了，画面跟着变</b></div>
+          <div class="stepv-see">✅ 第 100 格亮起一格蓝——这就是整个俄罗斯方块的原子操作</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🗄️ 180 项棋盘建好</li><li>📐 任意编号都能换算到正确像素</li><li>💡 点亮 = 改列表 + 克隆显示</li>
+      </ul>
+<div class="sl-sub">棋盘有了记忆——下一课让方块掉下来。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">棋盘实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">改第 55 项为 1</div><div class="lb-guess">猜猜看：亮在第几行？</div><div class="lb-why">编号→位置的直觉</div></div>
+          <div class="lab-card"><div class="lb-do">连续点亮一整行</div><div class="lb-guess">猜猜看：编号有什么规律？</div><div class="lb-why">行=连续 10 个编号</div></div>
+          <div class="lab-card"><div class="lb-do">格 20 改 24</div><div class="lb-guess">猜猜看：整个棋盘变宽？</div><div class="lb-why">像素公式联动</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">棋盘两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 格子亮错位置</div>公式抄错或没手算。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>先手算一个编号对答案。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 列表只有 1 项</div>「将…加入」写在了重复外。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>重复 180 次包住它。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">棋盘边框</div><div class="ad-what">画一圈墙</div><div class="ad-how">画一个边框角色贴边<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">出生预览</div><div class="ad-what">显示下一个方块</div><div class="ad-how">第二个角色做预览窗（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">网格背景</div><div class="ad-what">铺淡淡的格线</div><div class="ad-how">自带库搜 Grid 背景<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 方块下落</div>
+      <div class="sl-next-why">棋盘记性有了——让四格方块掉下来。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="e2" data-map="⬇️ 方块下落">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 方块下落</span><span class="st-text">四个分身捆成一个方块——从天上慢慢掉下来。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>活动方块</em>——4 格一组、每 0.5 秒下落一格。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">✅ 一个竖条方块能匀速下落</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="方块-青"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🧩</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:280px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;left:46%;top:14%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:23%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:32%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:41%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">竖条：4 格一组</div></div><div class="fx-arrow">⬇️</div><div class="fx-ba"><div class="sl-stage" style="width:280px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;left:46%;top:40%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:49%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:58%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:67%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">每 0.5 秒下落一格</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">形状=偏移表</span><span class="td-note">— 形偏横/形偏竖 各 4 项</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">锚点</span><span class="td-note">— 一个格带三个兄弟</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">分组下落</span><span class="td-note">— 锚点动，全组动</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子公式</span><span class="td-note">— 偏移+锚点=位置</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">一个"方块"=4 个克隆格 + 一个形状编号。形状就是 4 组相对偏移（形偏横/形偏竖），先手动填一个"竖条"试跑。下落=锚点行号每拍 −1，4 个分身各自"锚点+偏移"算出位置。能不能落看"下一行"：先把形状写死，落定判断下一课做。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">概念 · 形状即偏移</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">形状 = 4 个相对位置</div>
+          <div class="cp-analogy">类比：竖条就是（0,0）（0,1）（0,2）（0,3）——四组"偏移"存进列表，任何形状都是这么写的。</div>
+          <ul class="cp-points">
+<li>形偏横 存横偏移、形偏竖 存竖偏移，各 4 项</li><li>锚点是形状的"领头格"：位置 = 锚点 + 偏移</li><li>七种方块就是七组偏移——先做一种，跑通再换</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">锚点 (5,1)</div><span class="dg-arr">＋偏移➜</span><div class="dg-box">🟦<br>🟦<br>🟦<br>🟦</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">手动填一个竖条</div>
+          <div class="sl-path">全局列表 <b>形偏横 / 形偏竖</b> 各填 4 项：形偏横 = 0,0,0,0；形偏竖 = 0,1,2,3（监视窗 ➕ 手填）——这就是"竖条"的配方</div>
+          <div class="stepv-see">✅ 两条 4 项的偏移表就绪</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">锚点 + 4 个分身</div>
+          <pre class="blocks">当按下 [空格] 键
+将 [锚列] 设为 (5)
+将 [锚行] 设为 (1)
+将 [格号] 设为 (0)
+重复执行 (4) 次
+    将 [格号] 增加 (1)
+    克隆 [自己]</pre>
+          <div class="sl-sub">写在<b>单格方块本体</b>上；格号"仅适用于当前角色"，分身各带各的</div>
+          <div class="stepv-see">✅ 按空格，天上出现 4 格蓝条</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身各自算位置</div>
+          <pre class="blocks">当作为克隆体启动时
+将 [列号] 设为 ((锚列) + ([形偏横] 的第 (格号) 项))
+将 [行号] 设为 ((锚行) + ([形偏竖] 的第 (格号) 项))
+移到 x: (((列号 - 1) * (20)) - (190)) y: ((170) - ((行号 - 1) * (20)))
+换成 [方块-青] 造型
+显示
+重复执行
+    等待 (0.5) 秒
+    将 [行号] 设为 ((行号) - (1))
+    移到 x: (((列号 - 1) * (20)) - (190)) y: ((170) - ((行号 - 1) * (20)))</pre>
+          <div class="sl-sub">每拍行号 −1 重算 y——四格同步下落；<b>偏移是私有变量</b>（格号、列号、行号都选仅当前角色）</div>
+          <div class="stepv-see">✅ 蓝条每 0.5 秒落一格，四格整齐</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🧩 四格一组不掉队</li><li>⬇️ 匀速一格一格落</li><li>↩️ 空格能再发一个（本课可重叠）</li>
+      </ul>
+<div class="sl-sub">方块会落了——什么时候"停"？下一课。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">下落实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">0.5 改 0.2</div><div class="lb-guess">猜猜看：地狱速度！</div><div class="lb-why">拍速又来了</div></div>
+          <div class="lab-card"><div class="lb-do">形偏竖 改 0,0,1,1 + 形偏横 改 0,1,0,1</div><div class="lb-guess">猜猜看：变成什么形状？</div><div class="lb-why">偏移表=形状配方</div></div>
+          <div class="lab-card"><div class="lb-do">起点锚行改 0</div><div class="lb-guess">猜猜看：从天花板出生</div><div class="lb-why">出生区设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">下落三病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 四格叠成一格</div>格号没设成私有。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>格号选"仅适用于当前角色"。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 落得七零八落</div>偏移表填错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>形偏横/形偏竖 一一对应着填。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一按下空格疯狂生成</div>事件帽里还有循环。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>空格事件只管克隆四次。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">随机颜色</div><div class="ad-what">每次克隆随机造型</div><div class="ad-how">在 1 和 7 之间取随机数选造型<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+          <div class="addon-card"><div class="ad-t">下落音效</div><div class="ad-what">嗒…嗒…嗒</div><div class="ad-how">每拍播放 pop（音量低）<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">影子预告</div><div class="ad-what">地面显示落点</div><div class="ad-how">第 3 课落定判断顺便能做（进阶）<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 落地为安</div>
+      <div class="sl-next-why">会落了——落到底怎么办？写进地图，变成地形。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="e3" data-map="📦 落地为安">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 落地为安</span><span class="st-text">方块落到底，就长在地上——从"客人"变成"地形"。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>落定入图</em>——到底/压住就停，写进地图；顶部再发新块。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">⚠️ 本关核心枢纽</span><span class="sl-chip">✅ 方块能一个个堆起来</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="方块-黄"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="方块-紫"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">📦</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:400px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;left:38%;top:58%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:38%;top:66%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:44%;top:58%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:44%;top:66%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><span class="sl-tag" style="left:6%; top:8%;">落定 → 写进地图 → 变地形</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">卡住判断</span><span class="td-note">— 下一行出界/有 1</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">广播落定</span><span class="td-note">— 四格一起停</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">写进地图</span><span class="td-note">— 编号替换为 1</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">再发车</span><span class="td-note">— 回顶 + 随机形状</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">"停"的判断：下一行的格子出界或是地图里有 1 → 卡住。卡住时广播[落定]，4 个分身把自己的 (列,行) 折回编号写进地图=1，然后从"活动分身"变成"地形格"（最简单：不删，直接原地站岗，只是不再下移）。锚点回到顶部、换随机形状再发车——循环就转起来了。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">每格自己查"下面"</div>
+          <pre class="blocks">    将 [下面编号] 设为 ((((行号) - (2)) * (10)) + (列号))
+    如果 <<(行号) = (1)> 或 <([地图] 的第 (下面编号) 项) = (1)>> 那么
+        广播 [落定]
+        停止 [这个脚本]</pre>
+          <div class="sl-sub">放进分身的下落循环、每拍移动<b>之前</b>查：行号=1 到底了；或下一行(行号−1)那格在地图里已是 1。查编号公式 = (行−1)×10＋列</div>
+          <div class="stepv-see">✅ 方块落到地形上一瞬，四格齐停</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">落定 = 写进地图</div>
+          <pre class="blocks">当接收到 [落定]
+将 [落定编号] 设为 ((((行号) - (1)) * (10)) + (列号))
+将 [地图] 的第 (落定编号) 项替换为 (1)</pre>
+          <div class="sl-sub">落定的分身原地站岗不再下移（它已经是地形的一部分）</div>
+          <div class="stepv-see">✅ 监视窗里地图一项项变 1——棋盘记住了一切</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">回顶再发车</div>
+          <pre class="blocks">当接收到 [落定]
+等待 (0.3) 秒
+将 [锚列] 设为 (在 (4) 和 (7) 之间取随机数)
+将 [锚行] 设为 (1)
+将 [形状] 设为 (在 (1) 和 (2) 之间取随机数)
+广播 [换形状]</pre>
+          <div class="sl-sub">本体脚本；"换形状"= 按形状号重填 形偏横/形偏竖（教学版先 1=竖条 2=方块，照第 2 课加料站配方填）；填完再克隆 4 格（第 2 课发车那段）</div>
+          <div class="stepv-see">✅ 落一个、再来一个——游戏会自己转了</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>📦 方块落在地形上不再穿</li><li>🗄️ 地图实时记录每个落定格</li><li>🔄 自动发车，形状/颜色随机</li>
+      </ul>
+<div class="sl-sub">这是全关的枢纽——数据流彻底转起来了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">落定实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">故意堆到半屏</div><div class="lb-guess">猜猜看：地图像什么？</div><div class="lb-why">地形=历史的化石</div></div>
+          <div class="lab-card"><div class="lb-do">落定改"穿一格"</div><div class="lb-guess">猜猜看：手感变坏多少？</div><div class="lb-why">规则=公平感</div></div>
+          <div class="lab-card"><div class="lb-do">换形状只留方块</div><div class="lb-guess">猜猜看：只玩 2×2 试试</div><div class="lb-why">先跑通再加形状</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">落定三病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 方块穿进地里</div>查"下面"的编号公式错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>(行−1)×10＋列，先手算一格。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一半停一半继续掉</div>四个分身判断不同步。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>任何一格卡住就广播落定，四格都停。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 新块和旧块叠住</div>发车没等旧块落定。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>落定后等 0.3 秒再发。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">七形状全配齐</div><div class="ad-what">形偏横/形偏竖 填 7 组</div><div class="ad-how">随机数 1~7 + 七段如果<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">落地音效</div><div class="ad-what">咚——</div><div class="ad-how">落定广播里播放 drop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">下一块预览</div><div class="ad-what">角落显示即将到来的块</div><div class="ad-how">预览角色读形状号（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 移动与旋转</div>
+      <div class="sl-next-why">堆得起来了——给玩家左右移动和旋转的权力。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="e4" data-map="↺️ 移动与旋转">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 移动与旋转</span><span class="st-text">命运交回玩家手里：←→ 平移、↑ 旋转、↓ 加速。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>玩家操控</em>——左右平移（带碰撞检查）、旋转（四向配方）、加速下落。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">✅ 手感成立，游戏可玩</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">⬅️➡️</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">↺️</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⬇️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:280px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;left:46%;top:20%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:29%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:46%;top:47%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">竖条一个方向</div></div><div class="fx-arrow">↺️</div><div class="fx-ba"><div class="sl-stage" style="width:280px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;left:44%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:51%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:58%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:65%;top:38%;width:6%;height:8%;background:#26c6da;border-radius:3px;"></div></div><div class="fx-cap">按 ↑：换成横条配方</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">平移检查</span><span class="td-note">— 旁边格空才能动</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">旋转=换配方</span><span class="td-note">— 四向偏移表</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">加速下落</span><span class="td-note">— 等待秒数变小</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">先查后动</span><span class="td-note">— 落定同款思路</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">左移/右移 = 先检查"旁边的格子"（出界或有 1 就不动），可行就广播平移，全组列号 ±1。旋转教学版用"换方向配方"：每个形状预存 4 个方向的偏移表，按 ↑ 时切到下一组——比旋转公式直观。加速 = 把等待秒数改小。判断都是"先查地图，再动"，和落定同一套思路。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">左右平移（带检查）</div>
+          <pre class="blocks">当按下 [右箭头] 键
+广播 [检查右移]</pre>
+          <div class="sl-sub">教学版简化：直接广播 [右移]，让每个活动分身列号 +1；想要严谨碰撞（旁边有 1 不动），照"查下面"的公式查旁边——进阶挑战有配方</div>
+          <div class="stepv-see">✅ 按 ←/→，整组方块平移一格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">旋转 = 换一组偏移</div>
+          <pre class="blocks">当按下 [上箭头] 键
+将 [方向号] 增加 (1)
+如果 <(方向号) > (4)> 那么
+    将 [方向号] 设为 (1)
+广播 [重算位置]</pre>
+          <div class="sl-sub">偏移表升级为 4 组：竖条 0°=(0,0,0,0 / 0,1,2,3)，90°=(0,1,2,3 / 0,0,0,0)……分身按 方向号 读对应一列；重算位置 = 重跑"锚点+偏移"那两行</div>
+          <div class="stepv-see">✅ 按 ↑ 方块转身——竖条变横条</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">加速下落</div>
+          <pre class="blocks">当按下 [下箭头] 键
+将 [拍速] 设为 (0.08)</pre>
+          <div class="sl-sub">等一下——事件帽只能触发一次。正确做法：主循环里改用变量：等待 (拍速)，而 ↓ 事件把拍速设 0.08、松开由"重复执行直到不成立"等松手后恢复 0.5</div>
+          <div class="stepv-see">✅ 按住 ↓ 直坠地面</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>↔️ 左右平移不掉格</li><li>↺️ 旋转四向循环</li><li>⬇️ 按住加速、松开恢复</li>
+      </ul>
+<div class="sl-sub">可玩性成立——就差最后一环：消行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">手感实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">拍速 0.5 改 0.35</div><div class="lb-guess">猜猜看：高手模式</div><div class="lb-why">基础速度</div></div>
+          <div class="lab-card"><div class="lb-do">旋转加音效</div><div class="lb-guess">猜猜看：咔哒</div><div class="lb-why">反馈音</div></div>
+          <div class="lab-card"><div class="lb-do">左右移加碰撞检查</div><div class="lb-guess">猜猜看：撞墙不动</div><div class="lb-why">严谨版（进阶配方）</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">操控三病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 平移后格子散架</div>只动了锚点没重算分身。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播 [重算位置] 让四格各自重算。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 旋转飞出屏幕</div>偏移表某组填错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>一组一组手填，转一遍验一遍。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 加速停不下来</div>拍速没恢复。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>松手后把拍速设回 0.5。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">严谨碰撞平移</div><div class="ad-what">旁边有 1 就不动</div><div class="ad-how">照"查下面"公式查左右（进阶配方）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">软降锁定</div><div class="ad-what">长按 ↓ 2 格即锁</div><div class="ad-how">计步+落定（进阶）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">按键自定义</div><div class="ad-what">WASD 同款操作</div><div class="ad-how">再挂一组事件帽<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">最后一课</div>
+      <div class="sl-next-title">第 5 课 · 消行与收官</div>
+      <div class="sl-next-why">所有零件就位——最后拼上"消行"。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="e5" data-map="✨ 消行与收官">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">终章 · 一行消掉</span><span class="st-text">拼满一行，整行消失——俄俄罗斯方块最经典的瞬间，今天由你亲手写出来。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>消行结算</em>——满行消除、上方下落、计分加速，然后为六门课收官。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 45 分钟</span><span class="sl-chip">🎯 六关的压轴一战</span><span class="sl-chip">✅ 完整俄罗斯方块</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">✨</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎒</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎓</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:280px;"><i class="sp-fill" data-sp="霓虹网格"></i><div style="position:absolute;left:32%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:38%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:44%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:50%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:56%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:62%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:68%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:74%;top:56%;width:5.6%;height:7%;background:#37474f;border-radius:3px;"></div><div style="position:absolute;left:80%;top:56%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div></div><div class="fx-cap">差一格就满</div></div><div class="fx-arrow">✨</div><div class="fx-ba"><div class="sl-stage" style="width:280px;"><i class="sp-fill" data-sp="霓虹网格"></i><span class="sl-tag" style="left:22%; top:50%; background:#173a2b;">＋10 分</span></div><div class="fx-cap">满行消失，上方下落</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">满行检测</span><span class="td-note">— 数 10 个 1</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">行搬移</span><span class="td-note">— 上方整体下移</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">画面下移</span><span class="td-note">— 分身跟着跳行</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">计分加速</span><span class="td-note">— 难度公式收官</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">消行 = 落定后做一次"全盘体检"：从第 18 行往上，每行数 10 个格的地图值，全是 1 → 这行消除：该行清 0，同时把上方所有行整体"抄下来一行"（列表逐项搬移），画面上对应分身"跳下一格"（广播下移）。分数 +10、每消 2 行拍速 −0.03。做完这场压轴战，六门课全部通关。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">概念 · 行搬移</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">消除 = 上方整体搬家</div>
+          <div class="cp-analogy">类比：一行消失不是"删掉"那么简单——它上面的每一行都要整体往下抄一行，像抽掉书架一层、上面的书全落下来。</div>
+          <ul class="cp-points">
+<li>检测：该行 10 个编号的地图值全 = 1</li><li>搬移：从消除行往上，每行抄它上一行</li><li>顶行搬空后设 0——一行就消干净了</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">行5：1111111111 → 消！</div><span class="dg-arr">➜</span><div class="dg-box">行4 落到行5<br>行3 落到行4…</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">落定后体检：找满行</div>
+          <pre class="blocks">当接收到 [落定]
+将 [行数] 设为 (18)
+重复执行 (18) 次
+    将 [列数] 设为 (1)
+    重复执行 (10) 次
+        将 [查编号] 设为 ((行数 - 1) * (10))
+        将 [查编号] 设为 ((查编号) + (列数))
+        如果 <([地图] 的第 (查编号) 项) = (0)> 那么
+            将 [列数] 设为 (99)
+        将 [列数] 增加 (1)
+    如果 <(列数) = (11)> 那么
+        广播 [消行]</pre>
+          <div class="sl-sub">写在<b>本体</b>上（本体管全局体检）；列数=99 是"发现空格，提前判死刑"的小技巧，广播消行时把 行数 一起报出去（简化：用全局变量 消除行）</div>
+          <div class="stepv-see">✅ 哪行拼满，哪行触发消行</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">数据搬家：整行下移</div>
+          <pre class="blocks">当接收到 [消行]
+将 [搬行] 设为 (消除行)
+重复执行 ((消除行) - (1)) 次
+    将 [列数] 设为 (1)
+    重复执行 (10) 次
+        将 [搬编号] 设为 ((搬行 - 1) * (10))
+        将 [搬编号] 设为 ((搬编号) + (列数))
+        将 [抄编号] 设为 ((搬行 - 2) * (10))
+        将 [抄编号] 设为 ((抄编号) + (列数))
+        将 [地图] 的第 (搬编号) 项替换为 ([地图] 的第 (抄编号) 项)
+        将 [列数] 增加 (1)
+    将 [搬行] 增加 (-1)
+重复执行 (10) 次
+    将 [地图] 的第 (列数) 项替换为 (0)
+    将 [列数] 增加 (1)</pre>
+          <div class="sl-sub">从消除行往上，每行抄上一行的值；最后把第 1 行清 0——棋盘数据完成"抽层"</div>
+          <div class="stepv-see">✅ 监视窗：满行上方的 1 整体下移一层</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">画面跟着跳行 + 计分</div>
+          <pre class="blocks">当接收到 [消行]
+播放声音 [zap]
+将 [分数] 增加 (10)
+将 [拍速] 增加 (-0.01)
+广播 [全体下移]</pre>
+          <div class="sl-sub">"全体下移"= 每个地形分身把自己的行号 +1、重算 y（分身脚本里再挂一个接收）；到顶（堆出屏幕）判负：体检发现第 1 行有 1 → 广播游戏结束</div>
+          <div class="stepv-see">✅ 满行"唰"地消失、上方落下、分数 +10</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">收官总结：三句话 + 六关回顾</div>
+          <div class="dg" style="gap:24px;"><div class="dg" style="flex-direction:column;gap:8px;"><div class="dg-box">🧱 打砖块</div><div class="dg-box">🐤 小鸟</div><div class="dg-box">🚀 太空</div></div><div class="dg" style="flex-direction:column;gap:8px;"><div class="dg-box">🐍 贪吃蛇</div><div class="dg-box">🏰 塔防</div><div class="dg-box ok">🟦 俄罗斯方块</div></div></div><div class="sl-sub">讲了什么、最难在哪、想怎么改——六门课，一次讲完</div>
+          <div class="stepv-see">✅ 六个游戏，全部由你亲手写出</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>✨ 满行消除、上方下落</li><li>🎒 +10 分、越玩越快</li><li>💀 堆到顶判负</li><li>🎯 收官总结讲满三句</li>
+      </ul>
+<div class="sl-sub">六门课全部通关：输入、物理、克隆、列表、广播、公式——你都亲手用过一遍。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">收官调校</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">消一行 +10 改 +100</div><div class="lb-guess">猜猜看：痛快翻倍？</div><div class="lb-why">数值心理学</div></div>
+          <div class="lab-card"><div class="lb-do">双倍行距地形开局</div><div class="lb-guess">猜猜看：从残局打起</div><div class="lb-why">开局设计</div></div>
+          <div class="lab-card"><div class="lb-do">极限拍速 0.08</div><div class="lb-guess">猜猜看：人类不可能完成任务</div><div class="lb-why">封顶线</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">消行两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 消了行数据没动</div>只广播没搬移。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>消行广播里跑完整套搬移。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 画面和数据差一格</div>分身下移行号算错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>行号 +1 后用同一条像素公式。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">消行动画</div><div class="ad-what">整行闪白再消失</div><div class="ad-how">广播后延迟一拍再搬<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">连消奖励</div><div class="ad-what">一次消 2 行 ×3 分</div><div class="ad-how">体检时统计连续满行<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">发布到社区</div><div class="ad-what">分享给全世界</div><div class="ad-how">文件→保存，上传 scratch.mit.edu（先看社区规则）<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><div style="position:absolute;inset:0;background:#11151f;"></div><div style="position:absolute;left:30%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:36%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:42%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:48%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:54%;top:12%;width:5.6%;height:7%;background:#26c6da;border-radius:3px;"></div><div style="position:absolute;left:30%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:36%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:42%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:48%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:54%;top:20%;width:5.6%;height:7%;background:#f8d347;border-radius:3px;"></div><div style="position:absolute;left:30%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:36%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:42%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:48%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:54%;top:28%;width:5.6%;height:7%;background:#ab47bc;border-radius:3px;"></div><div style="position:absolute;left:30%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:36%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:42%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:48%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:54%;top:36%;width:5.6%;height:7%;background:#4a90d9;border-radius:3px;"></div><div style="position:absolute;left:26%;top:36%;width:70%;height:2px;background:#37474f;"></div><span class="sl-tag" style="left:6%; top:8%;">一行消掉，分数 +10</span><span class="sl-tag" style="right:5%; top:8%;">分数 120</span></div>
+            <div class="cp-analogy" style="flex:1;">一个完整的俄罗斯方块：棋盘记忆、方块下落旋转、落定入图、满行消除。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>🗄️ 列表·地图 <span class="td-note">— 第 1 课</span></li><li>➗ 运算·格子 <span class="td-note">— 第 1 课</span></li><li>🧩 变量·形状 <span class="td-note">— 第 2 课</span></li><li>📣 广播 <span class="td-note">— 第 3 课</span></li><li>📦 列表搬移 <span class="td-note">— 第 5 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">棋盘即列表：180 项记着每格有没有方块</li><li class="">形状即偏移：锚点 + 偏移 = 任何形状</li><li class="">消行 = 上方整体搬家：数据搬移，画面跟随</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">六关全部通关</div>
+      <div class="sl-next-label">全部完成</div>
+      <div class="sl-next-title">六个游戏 · 一门课</div>
+      <div class="sl-next-why">打砖块、飞扬小鸟、太空射击、贪吃蛇、塔防、俄罗斯方块——输入、物理、克隆、列表、广播、公式，全部亲手用过。把你的作品讲给全家听。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-tower.html"><div class="dir">← 上一篇</div><div class="pager-title">⑤ 城堡塔防</div></a>
+<a class="next" href="games.html"><div class="dir">下一篇 →</div><div class="pager-title">游戏厅</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 256101c51a6fb01b2faf5a3d45dfb61444d82d85 machuan <machuan@local> 1792384583 +0800	commit (initial): Scratch 冒险乐园：9 页课程站 + 三国杀/林地小屋 sb3 实物与埋雷版
+256101c51a6fb01b2faf5a3d45dfb61444d82d85 0b2d4ec2c09f82032fcb76ff33fb6b48df47d793 machuan <machuan@local> 1792384761 +0800	commit: 修复13项审查问题：进度四线覆盖/导航顺序与pager链/术语表/埋雷版挂接/街机厅heads扫描修复
+0b2d4ec2c09f82032fcb76ff33fb6b48df47d793 fc11c37172dbf1bab7f6c76dd5f19b02d14f479e macnversion <chuan.ma@qq.com> 1792887522 +0800	commit: 文案精简、起点自测与三栏布局

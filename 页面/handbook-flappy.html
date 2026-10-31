@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飞扬的小鸟 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-flappy">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 飞扬的小鸟</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html" class="active">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ② · 入门 · 完整手册</div>
+    <h1>飞扬的小鸟</h1>
+    <p class="lead">五次课做出一个完整的街机游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-flappy.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">卡住才看参考做法</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-flappy.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/飞扬的小鸟/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-flappy.html">▶ 飞扬的小鸟 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>按空格让小鸟向上窜一下，不按就一直坠——穿过一根根管道，坚持越久分越高。</div><div class="log-card"><span class="lg-t">操作</span>空格 / 点击小鸟</div><div class="log-card"><span class="lg-t">玩点在哪</span>每次起跳都要判断：高点过还是低点钻</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——先看看自己怎么"死"的（笑）。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">📉 物理规则<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">重力：不点就一直加速下坠</div></div><div class="lab-card"><div class="lb-do">⚡ 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">点一下飞一下：起跳=给速度充值</div></div><div class="lab-card"><div class="lb-do">👥 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">管道克隆：随机高度、定时发车、左移</div></div><div class="lab-card"><div class="lb-do">🎯 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">碰管道/落地/顶天，一票出局</div></div><div class="lab-card"><div class="lb-do">🎒 计分难度<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">坚持秒数=分数，世界越来越快</div></div></div><div class="cp-analogy">总思路：小鸟其实没动——<b>是世界在动</b>。管道向左走，看起来就是小鸟在向右飞。抓住"重力 + 世界移动"两条线索，整个游戏就想通了。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>两个角色就够：小鸟、管道（素材包里有；背景用自带库）。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/飞扬小鸟/小鸟.svg" alt="小鸟" loading="lazy"><span class="a-name">小鸟</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/飞扬小鸟/管道.svg" alt="管道" loading="lazy"><span class="a-name">管道</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">👆</span><span class="a-name">空格 / 点击</span><span class="a-tag own">自带</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">☁️</span><span class="a-name">天空背景</span><span class="a-tag own">自带库搜 Blue Sky</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/飞扬小鸟/</b> 里的 .sprite3；背景「选择一个背景」搜 <b>Blue Sky</b>；音效搜 <b>wing</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📉 变量·速度</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">⚡ 事件·按键</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎲 随机数</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">⏱ 计时器</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="u1">第 1 课 · 自由落体</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 坠落的小鸟</span><span class="st-text">小鸟醒来发现翅膀失灵了——不点它，就一路往下掉。</span></div>
+<div class="hb-goal">只解决一件事：<em>重力</em>——小鸟越掉越快，落在地上就停住。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 小鸟加速下坠、落地停</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="小鸟" style="left:42%; top:16%;"></i><span class="sl-tag" style="left:8%; top:8%;">松手不管</span></div><div class="fx-cap">现在：悬着不动</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="小鸟" style="left:42%; bottom:4%;"></i><span class="sl-tag" style="left:8%; top:8%;">越掉越快</span></div><div class="fx-cap">本课后：加速下坠落地</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">速度变量</span><span class="td-note">— 下落越来越快</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">每帧积分</span><span class="td-note">— 先加速度再挪位置</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">地面判断</span><span class="td-note">— 落地就停住</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">为什么松手就掉、越掉越快？每帧做两件事：位置吃掉速度（y+速度），速度再吃掉重力（速度 −0.5）。速度是累积的，所以下坠会加速——两行积木，一个物理世界。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 速度</span></p>
+<p><strong>速度 = 每帧挪多少</strong></p><div class="cp-analogy">类比：滑梯：越滑越快。速度变量每帧 −0.5（坡度），y 每帧吃掉这个速度。</div><ul class="cp-points">
+<li>速度 0 起步，每帧加 −0.5（往下）</li><li>y 坐标每帧增加"速度"——负数就是掉</li><li>落地判断：y ≤ −160 就钉住</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:14px;"><div class="dg">速度 0 ➜ −0.5 ➜ −1 ➜ −1.5 …</div><div class="dg-box ok">越掉越快，像真的一样</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>导入小鸟，站到左侧</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (-100) y: (0)
+将 [速度] 设为 (0)</pre>
+<div class="sl-path">变量 <b>速度</b> 选「仅适用于当前角色」</div>
+<div class="see">✅ 小鸟停在左侧半空</div>
+</li>
+<li><strong>每帧：先挪，再加速</strong>
+<pre class="blocks">重复执行
+    将y坐标增加 (速度)
+    将 [速度] 增加 (-0.5)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#FF8C1A;">变量</span></div>
+<div class="see">✅ 小鸟越掉越快——自由落体</div>
+</li>
+<li><strong>落地就停住</strong>
+<pre class="blocks">    如果 <(y 坐标) < (-160)> 那么
+        将y坐标设为 (-160)
+        将 [速度] 设为 (0)</pre>
+<div class="see">✅ 落地不再下坠（判负第 4 课再说）</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>⬇️ 松手就加速下坠</li><li>🛑 落地停住不穿地</li><li>↩️ 绿旗回到起点</li>
+</ul>
+<p>重力是这游戏的基础——第 2 课给它一双翅膀。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>重力的手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">−0.5 改 −0.2</div><div class="lb-guess">猜猜看：像羽毛还是铁球？</div><div class="lb-why">重力系数=手感</div></div>
+<div class="lab-card"><div class="lb-do">−0.5 改 −1</div><div class="lb-guess">猜猜看：呢？</div><div class="lb-why">太重=游戏变难</div></div>
+<div class="lab-card"><div class="lb-do">起点 y 改 120</div><div class="lb-guess">猜猜看：从高处掉更久吗？</div><div class="lb-why">高度换时间</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>坠落两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 匀速下落</div>只改了 y 没加速度。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每帧先把速度加 −0.5，再动 y。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 穿地消失</div>没有落地判断。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>y < −160 就钉在 −160。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">下落旋转</div><div class="ad-what">坠落时鸟头朝下</div><div class="ad-how">「面向 (速度 × −15) 方向」放循环里<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">扇翅膀</div><div class="ad-what">两个造型来回切</div><div class="ad-how">「换成 [下一个] 造型」+ 等待 0.1<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">落地音效</div><div class="ad-what">"啪叽"一声</div><div class="ad-how">落地判断里播放 pop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="u2">第 2 课 · 点跳飞行</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 一双翅膀</span><span class="st-text">翅膀只能扑一下：按空格，速度瞬间变 +6——然后继续坠落。</span></div>
+<div class="hb-goal">只解决一件事：<em>点击起跳</em>——空格/点鼠标，小鸟向上窜一小段。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 点一下飞一下，节奏全在手上</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="小鸟" style="left:42%; bottom:30%;"></i><div class="sl-tag" style="left:8%; top:8%;">按空格 ×3</div></div><div class="fx-cap">点三下，飞三段</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="小鸟" style="left:42%; bottom:34%;"></i><div class="sl-tag" style="left:8%; top:8%;">不点 → 掉</div></div><div class="fx-cap">不点就掉</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重力循环</span><span class="td-note">— 第 1 课原样保留</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">当按下空格</span><span class="td-note">— 事件帽独立成段</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">速度 = 6</span><span class="td-note">— 起跳就是给速度充值</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">每帧积分</span><span class="td-note">— 充值花完继续掉</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">起跳不直接给 y 加数，而是把速度瞬间改成 +6——重力循环每帧都在，你只管充值，花完自然继续掉。两条时间线（循环 + 事件帽）同时跑、互不打断，这是 Scratch 最妙的地方。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 事件帽</span></p>
+<p><strong>当按下 = 另一条时间线</strong></p><div class="cp-analogy">类比：主循环管坠落，空格事件管起跳——两段脚本同时跑，互不打断。</div><ul class="cp-points">
+<li>「当按下 空格 键」自己就是循环</li><li>起跳只改速度，不动 y</li><li>事件里的改动，下一帧主循环就能用到</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:12px;"><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box">🔁 主循环：重力</div></div><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box ok">⚡ 空格：速度 = 6</div></div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>起跳脚本独立成段</strong>
+<pre class="blocks">当按下 [空格] 键
+将 [速度] 设为 (6)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#FF8C1A;">变量</span>（和主循环并排，不要塞进去）</div>
+<div class="see">✅ 按一下空格，小鸟向上窜一小段</div>
+</li>
+<li><strong>鼠标党同款</strong>
+<pre class="blocks">当角色被点击
+将 [速度] 设为 (6)</pre>
+<p><div class="sl-sub">想用"点舞台"：加「当舞台被点击」类积木或保留空格即可</div></p>
+<div class="see">✅ 鼠标点和空格都能飞</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>👆 点一下飞一下</li><li>⏬ 不点就一直掉</li><li>🚫 连点不能无限上天（撞顶留第 4 课）</li>
+</ul>
+<p>到这步，游戏"活"了——但还没有东西拦你。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>起跳手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">速度 6 改 8</div><div class="lb-guess">猜猜看：飞得更高？</div><div class="lb-why">初速度=跳跃高度</div></div>
+<div class="lab-card"><div class="lb-do">速度 6 改 4</div><div class="lb-guess">猜猜看：呢？</div><div class="lb-why">太肉=点得手酸</div></div>
+<div class="lab-card"><div class="lb-do">重力 −0.5 配 −0.3</div><div class="lb-guess">猜猜看：哪组最舒服？</div><div class="lb-why">重力+起跳=手感配方</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>飞不起来两种</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按空格没反应</div>事件脚本被塞进主循环肚子里。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「当按下空格」要独立放在代码区。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一飞冲天下不来</div>只给了速度忘了重力每帧还在减。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>别动主循环——它会自己把速度吃回去。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">连打音效</div><div class="ad-what">每次起跳"噗"一声</div><div class="ad-how">事件里播放 wing<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">双击大跳</div><div class="ad-what">快速两下=高跳</div><div class="ad-how">计时器判断双击间隔<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+<div class="addon-card"><div class="ad-t">隐身模式</div><div class="ad-what">小鸟忽隐忽现</div><div class="ad-how">循环里虚像特效来回<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="u3">第 3 课 · 管道来袭</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 无尽的管道</span><span class="st-text">绿色的管道从右边源源不断长出来，高低错落，越飞越窄。</span></div>
+<div class="hb-goal">只解决一件事：<em>克隆管道</em>——每隔一会儿从右侧生成、随机高度、向左移动、出界消失。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">⚠️ 克隆+随机</span><span class="chip">✅ 管道永动，高低随机</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="管道" style="right:6%; bottom:0; width:14%; height:45%;"></i><i class="sp-abs" data-sp="管道" style="left:30%; bottom:0; width:14%; height:70%;"></i><i class="sp-abs" data-sp="管道" style="left:0%; bottom:0; width:12%; height:55%; opacity:.4;"></i><i class="sp-abs" data-sp="小鸟" style="left:20%; bottom:42%;"></i><span class="sl-tag" style="left:8%; top:8%;">每隔 1.5 秒来一根</span><span class="sl-tag" style="right:5%; top:8%;">高度随机</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 打砖块学过的克隆</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">定时生成</span><span class="td-note">— 等待随机秒再克隆</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">随机高度</span><span class="td-note">— y 在区间取随机</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">移动+销毁</span><span class="td-note">— 出左界删除克隆体</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">管道不能一根根摆（摆不完），要"发车"：本体每隔 1.5 秒取一个随机高度、克隆一根；分身只干两件事——向左走、出界删。世界匀速左移 + 小鸟 x 不动 = 小鸟在飞的错觉。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>本体隐身，定时发车</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    等待 (1.5) 秒
+    移到 x: (250) y: (在 (-100) 和 (60) 之间取随机数)
+    克隆 [自己]</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#59C059;">运算</span></div>
+<div class="see">✅ 每 1.5 秒右侧冒出一根随机高度的管道</div>
+</li>
+<li><strong>分身：一路向左，出界消失</strong>
+<pre class="blocks">当作为克隆体启动时
+显示
+重复执行直到 <(x 坐标) < (-250)>
+    将x坐标增加 (-3)
+删除此克隆体</pre>
+<div class="see">✅ 管道排着队从右往左走，出屏即消失</div>
+</li>
+<li><strong>和世界连起来</strong>
+<p><div class="sl-sub">管道的 x 匀速、小鸟固定 x——<b>看起来是小鸟在飞，其实是世界在动</b>。这一招所有跑酷游戏都在用</div></p>
+<div class="see">✅ 理解"世界在动"，第 5 课加速就懂了</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🚰 管道间隔均匀不断档</li><li>🎲 高度每根都不一样</li><li>♻️ 永不叠机（出界即删）</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>节奏调校</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">等待 1.5 改 1.0</div><div class="lb-guess">猜猜看：管道密了多少？</div><div class="lb-why">间隔=难度</div></div>
+<div class="lab-card"><div class="lb-do">移动 −3 改 −6</div><div class="lb-guess">猜猜看：世界快了一倍</div><div class="lb-why">速度=刺激度</div></div>
+<div class="lab-card"><div class="lb-do">随机区间 −100~60 改 −40~20</div><div class="lb-guess">猜猜看：落差变温柔</div><div class="lb-why">区间=刁钻程度</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>管道三怪</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 管道越积越多卡死</div>克隆体没删除。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出左界立刻「删除此克隆体」。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 所有管道同一高度</div>随机数写在循环外了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每次克隆前重新取随机 y。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">上下双管</div><div class="ad-what">上下各一根留缝隙</div><div class="ad-how">克隆时造一对：一根 y 翻转<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">管道渐变色</div><div class="ad-what">越远越淡</div><div class="ad-how">虚像特效随 x 变化<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">移动的洞</div><div class="ad-what">缝隙上下飘</div><div class="ad-how">克隆体 y 每帧小幅波动<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="u4">第 4 课 · 一触即溃</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 一触即溃</span><span class="st-text">世界开始有了危险：管道、地面、天空，碰上任何一个，故事重讲。</span></div>
+<div class="hb-goal">只解决一件事：<em>碰撞判负</em>——碰管道 / 落地 / 顶天，广播游戏结束。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 一碰就停，画面定格</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="小鸟" style="left:40%; bottom:30%;"></i><i class="sp-abs" data-sp="管道" style="right:8%; bottom:0; width:16%; height:60%;"></i></div><div class="fx-cap">正常飞行</div></div><div class="fx-arrow">💥</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="小鸟" style="left:52%; bottom:26%; opacity:.5;"></i><i class="sp-abs" data-sp="管道" style="right:8%; bottom:0; width:16%; height:60%;"></i><div class="sl-tag" style="left:8%; top:8%; background:#452c32;">Game Over</div></div><div class="fx-cap">碰到管道：出局定格</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到检测</span><span class="td-note">— 打砖块碎砖那招</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">三个条件拼一起</span><span class="td-note">— 碰到 / 落地 / 顶天，"或"起来</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">停止全部</span><span class="td-note">— 一票否决，全场冻结</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播</span><span class="td-note">— 喊一声游戏结束</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">三种死法（碰管、落地、顶天）用"或"并成一个判断，每帧查一次；成立就广播 + 全场停。能赢能输，游戏才成立。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>一个判断管三种死法</strong>
+<pre class="blocks">    如果 <<碰到 [管道]?> 或 <<(y 坐标) < (-158)> 或 <(y 坐标) > (175)>>> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+<div class="sl-where">🧰 积木在：放进小鸟主循环每帧检查；「或」把三种危险并联</div>
+<div class="see">✅ 撞管道、拍在地上、顶到天，任一发生立刻全场停</div>
+</li>
+<li><strong>结局画面</strong>
+<pre class="blocks">当接收到 [游戏结束]
+移到最 [前面]
+说 [Game Over · 按绿旗再来] (5) 秒</pre>
+<p><div class="sl-sub">可以在小鸟上"说"，也可以画一块 Game Over 横幅角色——自己画一次更爽</div></p>
+<div class="see">✅ 出局瞬间定格 + 提示重开</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>💥 碰管道立刻停</li><li>🛑 落地 / 顶天同样判负</li><li>↩️ 绿旗一切复原</li>
+</ul>
+<p>能赢能输，才算游戏。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>判定宽松度</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">给判定留 5px 余量</div><div class="lb-guess">猜猜看：更容易还是更难？</div><div class="lb-why">判定框=手感暗门</div></div>
+<div class="lab-card"><div class="lb-do">顶天不判负试试</div><div class="lb-guess">猜猜看：能无限挂机吗？</div><div class="lb-why">漏洞=设计漏洞</div></div>
+<div class="lab-card"><div class="lb-do">出局慢动作</div><div class="lb-guess">猜猜看：定格前先等 0.5 秒</div><div class="lb-why">演出感=打击感</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>判负两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 擦边没死</div>碰撞判定太晚。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>判断放在主循环每帧，别放在等待后面。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 死后还在飞</div>没停干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「停止 全部脚本」要广播之后立刻执行。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">死亡翻滚</div><div class="ad-what">出局时小鸟旋转坠落</div><div class="ad-how">结束后单独一段：方向每帧 +20<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">震屏</div><div class="ad-what">撞机瞬间屏幕抖一下</div><div class="ad-how">全场角色 x ±5 来回三帧<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">按 R 重开</div><div class="ad-what">不碰绿旗</div><div class="ad-how">「当按下 r 键」广播重开<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="u5">第 5 课 · 分数与收官</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 越飞越远</span><span class="st-text">天空开始计时，飞得越久分越高、世界越快——最后，把它讲给全家听。</span></div>
+<div class="hb-goal">只解决一件事：<em>计分与加速</em>——存活秒数即分数，越往后管道越快。然后办一场作品发布会。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">🎤 孩子主讲</span><span class="chip">✅ 完整通关</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/飞扬小鸟/白日晴空.svg" alt="白日晴空" loading="lazy"><i class="sp-abs" data-sp="管道" style="left:16%; bottom:0; width:13%; height:62%;"></i><i class="sp-abs" data-sp="管道" style="right:10%; bottom:0; width:13%; height:50%;"></i><i class="sp-abs" data-sp="小鸟" style="left:40%; bottom:46%;"></i><span class="sl-tag" style="left:8%; top:8%;">分数 = 坚持秒数</span><span class="sl-tag" style="right:5%; top:8%;">世界速度 3 → 6</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">计时器计分</span><span class="td-note">— 活着就有分</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">难度曲线</span><span class="td-note">— 速度随分数涨</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播判负</span><span class="td-note">— 第 4 课</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">分数用最诚实的算法：活着每秒 +1。难度不用手工换挡——把"世界速度"装进变量，分数每过 10 就 +1 挡，玩家自然会感到变快。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 难度曲线</span></p>
+<p><strong>难度 = 会涨的数字</strong></p><div class="cp-analogy">类比：好游戏会自己变难：把"世界速度"做成变量，分数越高，速度越快。</div><ul class="cp-points">
+<li>速度先用变量装，别写死</li><li>每 5 分速度 +0.5，封顶 6</li><li>玩家能感觉到在变快就够了</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">分数 0 → 速度 3</div><span class="dg-arr">+5分➜</span><div class="dg-box">3.5</div><span class="dg-arr">+5分➜</span><div class="dg-box no">6（封顶）</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>分数 = 坚持的秒数</strong>
+<pre class="blocks">当绿旗被点击
+将 [分数] 设为 (0)
+计时器归零
+重复执行
+    等待 (1) 秒
+    将 [分数] 增加 (1)</pre>
+<div class="sl-where">🧰 积木在：写在舞台绿旗脚本；「计时器归零」「计时器」在侦测（本页没用计时器值，纯秒表节奏也可以）</div>
+<div class="see">✅ 活着每秒 +1，出局即停</div>
+</li>
+<li><strong>世界速度做成变量</strong>
+<pre class="blocks">当绿旗被点击
+将 [世界速度] 设为 (3)
+重复执行
+    如果 <(分数) > (10)> 那么
+        将 [世界速度] 设为 (4)
+    如果 <(分数) > (20)> 那么
+        将 [世界速度] 设为 (5)</pre>
+<p><div class="sl-sub">管道克隆体里"将x坐标增加 (−3)"的 3 换成 <b>(世界速度)</b>（全局变量）</div></p>
+<div class="see">✅ 10 分后世界明显变快</div>
+</li>
+<li><strong>发布会：三句话</strong>
+<p><div class="dg"><div class="dg-box ok">1️⃣ 我做了什么</div><div class="dg-box ok">2️⃣ 最难在哪</div><div class="dg-box ok">3️⃣ 想怎么改</div></div><div class="sl-sub">全家围观你打一局最高分</div></p>
+<div class="see">✅ 讲满三句，本作收官</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🎒 分数随时间上涨</li><li>⚡ 分数越高世界越快</li><li>🥇 记下自己的最高分</li><li>🎤 发布会讲满三句</li>
+</ul>
+<p>第二个街机游戏完成——下一关去太空打陨石。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>曲线手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">每 10 分加速改成每 5 分</div><div class="lb-guess">猜猜看：什么时候开始慌？</div><div class="lb-why">曲线陡=短促刺激</div></div>
+<div class="lab-card"><div class="lb-do">速度封顶 6 改 8</div><div class="lb-guess">猜猜看：人类极限在哪？</div><div class="lb-why">封顶=公平底线</div></div>
+<div class="lab-card"><div class="lb-do">分数只算到 50</div><div class="lb-guess">猜猜看：50 分后还有什么追求？</div><div class="lb-why">软目标设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>计分两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 死后分数还在涨</div>计分循环没停。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>判负要「停止 全部脚本」。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 速度乱跳</div>好几段如果互相覆盖。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>从低到高排好顺序，或改成算式。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">最高分记录</div><div class="ad-what">本地留存</div><div class="ad-how">最高分变量替换制<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">过管音效</div><div class="ad-what">穿过一根"叮"一声</div><div class="ad-how">克隆体 x 过鸟时播放<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">日夜切换</div><div class="ad-what">每 20 分背景换一次</div><div class="ad-how">「换成 … 背景」+ 广播<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一只怎么也飞不稳的小鸟：重力下坠、点击起跳、无尽的管道、坚持秒数的分数。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">📉 变量·速度</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">⚡ 事件·按键</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">👥 克隆</span></li><li class="td-item"><span class="td-mark new">第 4 课</span><span class="td-name">🎯 侦测·碰到</span></li><li class="td-item"><span class="td-mark new">第 5 课</span><span class="td-name">⏱ 计时器</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>世界在动的错觉：管道左移 = 小鸟右飞</li><li>速度积分：先加速度、再动位置 = 真实的坠落</li><li>事件帽与主循环：两条时间线同时跑、互不打断</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 2 关</div>
+        <div class="sl-cover-title">飞扬的小鸟</div>
+        <div class="sl-cover-desc">五次课做出 Flappy Bird：点一下飞一下、穿过管道、坚持得越久分越高——"手残"游戏为什么让人上瘾。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><div style="position:absolute;inset:0;background:#4ec0ca;"></div><i class="sp-abs" data-sp="管道" style="right:16%; bottom:0; width:14%; height:55%;"></i><i class="sp-abs" data-sp="管道" style="left:14%; bottom:0; width:14%; height:75%;"></i><i class="sp-abs" data-sp="小鸟" style="left:44%; bottom:40%;"></i><span class="sl-tag" style="left:8%; top:8%;">点一下 → 飞一下</span><span class="sl-tag" style="right:6%; top:8%;">分数 17</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>按空格让小鸟向上窜一下，不按就一直坠——穿过一根根管道，坚持越久分越高。</div>
+        <div class="log-card"><span class="lg-t">操作</span>空格 / 点击小鸟</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>每次起跳都要判断：高点过还是低点钻</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——先看看自己怎么"死"的（笑）。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">📉 物理规则<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">重力：不点就一直加速下坠</div></div>
+        <div class="lab-card"><div class="lb-do">⚡ 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">点一下飞一下：起跳=给速度充值</div></div>
+        <div class="lab-card"><div class="lb-do">👥 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">管道克隆：随机高度、定时发车、左移</div></div>
+        <div class="lab-card"><div class="lb-do">🎯 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">碰管道/落地/顶天，一票出局</div></div>
+        <div class="lab-card"><div class="lb-do">🎒 计分难度<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">坚持秒数=分数，世界越来越快</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：小鸟其实没动——<b>是世界在动</b>。管道向左走，看起来就是小鸟在向右飞。抓住"重力 + 世界移动"两条线索，整个游戏就想通了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">两个角色就够：小鸟、管道（素材包里有；背景用自带库）。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="小鸟"></i><span class="a-name">小鸟</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="管道"></i><span class="a-name">管道</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">👆</span><span class="a-name">空格 / 点击</span><span class="a-tag own">自带</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">☁️</span><span class="a-name">天空背景</span><span class="a-tag own">自带库搜 Blue Sky</span></div><div class="asset-card"><i class="sp-md" data-sp="白日晴空"></i><span class="a-name">背景</span><span class="a-tag ">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/飞扬小鸟/</b> 里的 .sprite3；背景「选择一个背景」搜 <b>Blue Sky</b>；音效搜 <b>wing</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📉 变量·速度</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">⚡ 事件·按键</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎲 随机数</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">⏱ 计时器</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="f1" data-map="🐤 自由落体">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 坠落的小鸟</span><span class="st-text">小鸟醒来发现翅膀失灵了——不点它，就一路往下掉。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>重力</em>——小鸟越掉越快，落在地上就停住。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 小鸟加速下坠、落地停</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="小鸟"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⬇️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="小鸟" style="left:42%; top:16%;"></i><span class="sl-tag" style="left:8%; top:8%;">松手不管</span></div><div class="fx-cap">现在：悬着不动</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="小鸟" style="left:42%; bottom:4%;"></i><span class="sl-tag" style="left:8%; top:8%;">越掉越快</span></div><div class="fx-cap">本课后：加速下坠落地</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">速度变量</span><span class="td-note">— 下落越来越快</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">每帧积分</span><span class="td-note">— 先加速度再挪位置</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">地面判断</span><span class="td-note">— 落地就停住</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">为什么松手就掉、越掉越快？每帧做两件事：位置吃掉速度（y+速度），速度再吃掉重力（速度 −0.5）。速度是累积的，所以下坠会加速——两行积木，一个物理世界。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">概念 · 速度</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">速度 = 每帧挪多少</div>
+          <div class="cp-analogy">类比：滑梯：越滑越快。速度变量每帧 −0.5（坡度），y 每帧吃掉这个速度。</div>
+          <ul class="cp-points">
+<li>速度 0 起步，每帧加 −0.5（往下）</li><li>y 坐标每帧增加"速度"——负数就是掉</li><li>落地判断：y ≤ −160 就钉住</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:14px;"><div class="dg">速度 0 ➜ −0.5 ➜ −1 ➜ −1.5 …</div><div class="dg-box ok">越掉越快，像真的一样</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">导入小鸟，站到左侧</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (-100) y: (0)
+将 [速度] 设为 (0)</pre>
+          <div class="sl-path">变量 <b>速度</b> 选「仅适用于当前角色」</div>
+          <div class="stepv-see">✅ 小鸟停在左侧半空</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">每帧：先挪，再加速</div>
+          <pre class="blocks">重复执行
+    将y坐标增加 (速度)
+    将 [速度] 增加 (-0.5)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#FF8C1A;">变量</span></div>
+          <div class="stepv-see">✅ 小鸟越掉越快——自由落体</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">落地就停住</div>
+          <pre class="blocks">    如果 <(y 坐标) < (-160)> 那么
+        将y坐标设为 (-160)
+        将 [速度] 设为 (0)</pre>
+          <div class="stepv-see">✅ 落地不再下坠（判负第 4 课再说）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>⬇️ 松手就加速下坠</li><li>🛑 落地停住不穿地</li><li>↩️ 绿旗回到起点</li>
+      </ul>
+<div class="sl-sub">重力是这游戏的基础——第 2 课给它一双翅膀。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">重力的手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">−0.5 改 −0.2</div><div class="lb-guess">猜猜看：像羽毛还是铁球？</div><div class="lb-why">重力系数=手感</div></div>
+          <div class="lab-card"><div class="lb-do">−0.5 改 −1</div><div class="lb-guess">猜猜看：呢？</div><div class="lb-why">太重=游戏变难</div></div>
+          <div class="lab-card"><div class="lb-do">起点 y 改 120</div><div class="lb-guess">猜猜看：从高处掉更久吗？</div><div class="lb-why">高度换时间</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">坠落两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 匀速下落</div>只改了 y 没加速度。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每帧先把速度加 −0.5，再动 y。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 穿地消失</div>没有落地判断。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>y < −160 就钉在 −160。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">下落旋转</div><div class="ad-what">坠落时鸟头朝下</div><div class="ad-how">「面向 (速度 × −15) 方向」放循环里<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">扇翅膀</div><div class="ad-what">两个造型来回切</div><div class="ad-how">「换成 [下一个] 造型」+ 等待 0.1<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">落地音效</div><div class="ad-what">"啪叽"一声</div><div class="ad-how">落地判断里播放 pop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 一双翅膀</div>
+      <div class="sl-next-why">会掉了——点一下，飞一下。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="f2" data-map="🪽 点跳飞行">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 一双翅膀</span><span class="st-text">翅膀只能扑一下：按空格，速度瞬间变 +6——然后继续坠落。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>点击起跳</em>——空格/点鼠标，小鸟向上窜一小段。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 点一下飞一下，节奏全在手上</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="小鸟"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🪽</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="小鸟" style="left:42%; bottom:30%;"></i><div class="sl-tag" style="left:8%; top:8%;">按空格 ×3</div></div><div class="fx-cap">点三下，飞三段</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="小鸟" style="left:42%; bottom:34%;"></i><div class="sl-tag" style="left:8%; top:8%;">不点 → 掉</div></div><div class="fx-cap">不点就掉</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重力循环</span><span class="td-note">— 第 1 课原样保留</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">当按下空格</span><span class="td-note">— 事件帽独立成段</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">速度 = 6</span><span class="td-note">— 起跳就是给速度充值</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">每帧积分</span><span class="td-note">— 充值花完继续掉</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">起跳不直接给 y 加数，而是把速度瞬间改成 +6——重力循环每帧都在，你只管充值，花完自然继续掉。两条时间线（循环 + 事件帽）同时跑、互不打断，这是 Scratch 最妙的地方。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">概念 · 事件帽</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">当按下 = 另一条时间线</div>
+          <div class="cp-analogy">类比：主循环管坠落，空格事件管起跳——两段脚本同时跑，互不打断。</div>
+          <ul class="cp-points">
+<li>「当按下 空格 键」自己就是循环</li><li>起跳只改速度，不动 y</li><li>事件里的改动，下一帧主循环就能用到</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:12px;"><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box">🔁 主循环：重力</div></div><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box ok">⚡ 空格：速度 = 6</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 1/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">起跳脚本独立成段</div>
+          <pre class="blocks">当按下 [空格] 键
+将 [速度] 设为 (6)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#FF8C1A;">变量</span>（和主循环并排，不要塞进去）</div>
+          <div class="stepv-see">✅ 按一下空格，小鸟向上窜一小段</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 2/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">鼠标党同款</div>
+          <pre class="blocks">当角色被点击
+将 [速度] 设为 (6)</pre>
+          <div class="sl-sub">想用"点舞台"：加「当舞台被点击」类积木或保留空格即可</div>
+          <div class="stepv-see">✅ 鼠标点和空格都能飞</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>👆 点一下飞一下</li><li>⏬ 不点就一直掉</li><li>🚫 连点不能无限上天（撞顶留第 4 课）</li>
+      </ul>
+<div class="sl-sub">到这步，游戏"活"了——但还没有东西拦你。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">起跳手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">速度 6 改 8</div><div class="lb-guess">猜猜看：飞得更高？</div><div class="lb-why">初速度=跳跃高度</div></div>
+          <div class="lab-card"><div class="lb-do">速度 6 改 4</div><div class="lb-guess">猜猜看：呢？</div><div class="lb-why">太肉=点得手酸</div></div>
+          <div class="lab-card"><div class="lb-do">重力 −0.5 配 −0.3</div><div class="lb-guess">猜猜看：哪组最舒服？</div><div class="lb-why">重力+起跳=手感配方</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">飞不起来两种</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按空格没反应</div>事件脚本被塞进主循环肚子里。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「当按下空格」要独立放在代码区。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一飞冲天下不来</div>只给了速度忘了重力每帧还在减。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>别动主循环——它会自己把速度吃回去。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">连打音效</div><div class="ad-what">每次起跳"噗"一声</div><div class="ad-how">事件里播放 wing<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">双击大跳</div><div class="ad-what">快速两下=高跳</div><div class="ad-how">计时器判断双击间隔<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+          <div class="addon-card"><div class="ad-t">隐身模式</div><div class="ad-what">小鸟忽隐忽现</div><div class="ad-how">循环里虚像特效来回<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 无尽的管道</div>
+      <div class="sl-next-why">会飞了——天上该长出管道了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="f3" data-map="🚰 管道来袭">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 无尽的管道</span><span class="st-text">绿色的管道从右边源源不断长出来，高低错落，越飞越窄。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>克隆管道</em>——每隔一会儿从右侧生成、随机高度、向左移动、出界消失。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">⚠️ 克隆+随机</span><span class="sl-chip">✅ 管道永动，高低随机</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="管道"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎲</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="管道" style="right:6%; bottom:0; width:14%; height:45%;"></i><i class="sp-abs" data-sp="管道" style="left:30%; bottom:0; width:14%; height:70%;"></i><i class="sp-abs" data-sp="管道" style="left:0%; bottom:0; width:12%; height:55%; opacity:.4;"></i><i class="sp-abs" data-sp="小鸟" style="left:20%; bottom:42%;"></i><span class="sl-tag" style="left:8%; top:8%;">每隔 1.5 秒来一根</span><span class="sl-tag" style="right:5%; top:8%;">高度随机</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 打砖块学过的克隆</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">定时生成</span><span class="td-note">— 等待随机秒再克隆</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">随机高度</span><span class="td-note">— y 在区间取随机</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">移动+销毁</span><span class="td-note">— 出左界删除克隆体</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">管道不能一根根摆（摆不完），要"发车"：本体每隔 1.5 秒取一个随机高度、克隆一根；分身只干两件事——向左走、出界删。世界匀速左移 + 小鸟 x 不动 = 小鸟在飞的错觉。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">本体隐身，定时发车</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    等待 (1.5) 秒
+    移到 x: (250) y: (在 (-100) 和 (60) 之间取随机数)
+    克隆 [自己]</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#59C059;">运算</span></div>
+          <div class="stepv-see">✅ 每 1.5 秒右侧冒出一根随机高度的管道</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身：一路向左，出界消失</div>
+          <pre class="blocks">当作为克隆体启动时
+显示
+重复执行直到 <(x 坐标) < (-250)>
+    将x坐标增加 (-3)
+删除此克隆体</pre>
+          <div class="stepv-see">✅ 管道排着队从右往左走，出屏即消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">和世界连起来</div>
+          <div class="sl-sub">管道的 x 匀速、小鸟固定 x——<b>看起来是小鸟在飞，其实是世界在动</b>。这一招所有跑酷游戏都在用</div>
+          <div class="stepv-see">✅ 理解"世界在动"，第 5 课加速就懂了</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-split">
+        <div class="sl-split-txt">
+          <ul class="sl-check ok">
+<li>🚰 管道间隔均匀不断档</li><li>🎲 高度每根都不一样</li><li>♻️ 永不叠机（出界即删）</li>
+          </ul>
+
+        </div>
+        <div class="sl-split-vis">
+<div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="管道" style="left:10%; bottom:0; width:14%; height:66%;"></i><i class="sp-abs" data-sp="管道" style="right:12%; bottom:0; width:14%; height:50%;"></i><i class="sp-abs" data-sp="小鸟" style="left:40%; bottom:44%;"></i></div>
+<div class="vis-cap">小鸟 + 移动管道：跑酷的骨架</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">节奏调校</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">等待 1.5 改 1.0</div><div class="lb-guess">猜猜看：管道密了多少？</div><div class="lb-why">间隔=难度</div></div>
+          <div class="lab-card"><div class="lb-do">移动 −3 改 −6</div><div class="lb-guess">猜猜看：世界快了一倍</div><div class="lb-why">速度=刺激度</div></div>
+          <div class="lab-card"><div class="lb-do">随机区间 −100~60 改 −40~20</div><div class="lb-guess">猜猜看：落差变温柔</div><div class="lb-why">区间=刁钻程度</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">管道三怪</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 管道越积越多卡死</div>克隆体没删除。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出左界立刻「删除此克隆体」。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 所有管道同一高度</div>随机数写在循环外了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每次克隆前重新取随机 y。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">上下双管</div><div class="ad-what">上下各一根留缝隙</div><div class="ad-how">克隆时造一对：一根 y 翻转<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">管道渐变色</div><div class="ad-what">越远越淡</div><div class="ad-how">虚像特效随 x 变化<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">移动的洞</div><div class="ad-what">缝隙上下飘</div><div class="ad-how">克隆体 y 每帧小幅波动<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 撞了就算输</div>
+      <div class="sl-next-why">管道会动了——碰到它、撞地、顶天，立刻出局。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="f4" data-map="💥 一触即溃">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 一触即溃</span><span class="st-text">世界开始有了危险：管道、地面、天空，碰上任何一个，故事重讲。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>碰撞判负</em>——碰管道 / 落地 / 顶天，广播游戏结束。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 一碰就停，画面定格</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="小鸟"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">💀</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="小鸟" style="left:40%; bottom:30%;"></i><i class="sp-abs" data-sp="管道" style="right:8%; bottom:0; width:16%; height:60%;"></i></div><div class="fx-cap">正常飞行</div></div><div class="fx-arrow">💥</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="小鸟" style="left:52%; bottom:26%; opacity:.5;"></i><i class="sp-abs" data-sp="管道" style="right:8%; bottom:0; width:16%; height:60%;"></i><div class="sl-tag" style="left:8%; top:8%; background:#452c32;">Game Over</div></div><div class="fx-cap">碰到管道：出局定格</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到检测</span><span class="td-note">— 打砖块碎砖那招</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">三个条件拼一起</span><span class="td-note">— 碰到 / 落地 / 顶天，"或"起来</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">停止全部</span><span class="td-note">— 一票否决，全场冻结</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播</span><span class="td-note">— 喊一声游戏结束</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">三种死法（碰管、落地、顶天）用"或"并成一个判断，每帧查一次；成立就广播 + 全场停。能赢能输，游戏才成立。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 1/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">一个判断管三种死法</div>
+          <pre class="blocks">    如果 <<碰到 [管道]?> 或 <<(y 坐标) < (-158)> 或 <(y 坐标) > (175)>>> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+          <div class="sl-where">🧰 积木在：放进小鸟主循环每帧检查；「或」把三种危险并联</div>
+          <div class="stepv-see">✅ 撞管道、拍在地上、顶到天，任一发生立刻全场停</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 2/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">结局画面</div>
+          <pre class="blocks">当接收到 [游戏结束]
+移到最 [前面]
+说 [Game Over · 按绿旗再来] (5) 秒</pre>
+          <div class="sl-sub">可以在小鸟上"说"，也可以画一块 Game Over 横幅角色——自己画一次更爽</div>
+          <div class="stepv-see">✅ 出局瞬间定格 + 提示重开</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>💥 碰管道立刻停</li><li>🛑 落地 / 顶天同样判负</li><li>↩️ 绿旗一切复原</li>
+      </ul>
+<div class="sl-sub">能赢能输，才算游戏。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">判定宽松度</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">给判定留 5px 余量</div><div class="lb-guess">猜猜看：更容易还是更难？</div><div class="lb-why">判定框=手感暗门</div></div>
+          <div class="lab-card"><div class="lb-do">顶天不判负试试</div><div class="lb-guess">猜猜看：能无限挂机吗？</div><div class="lb-why">漏洞=设计漏洞</div></div>
+          <div class="lab-card"><div class="lb-do">出局慢动作</div><div class="lb-guess">猜猜看：定格前先等 0.5 秒</div><div class="lb-why">演出感=打击感</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">判负两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 擦边没死</div>碰撞判定太晚。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>判断放在主循环每帧，别放在等待后面。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 死后还在飞</div>没停干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「停止 全部脚本」要广播之后立刻执行。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">死亡翻滚</div><div class="ad-what">出局时小鸟旋转坠落</div><div class="ad-how">结束后单独一段：方向每帧 +20<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">震屏</div><div class="ad-what">撞机瞬间屏幕抖一下</div><div class="ad-how">全场角色 x ±5 来回三帧<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">按 R 重开</div><div class="ad-what">不碰绿旗</div><div class="ad-how">「当按下 r 键」广播重开<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 分数与收官</div>
+      <div class="sl-next-why">能玩能死了——加上分数、难度和一场发布会。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="f5" data-map="🏆 分数与收官">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 越飞越远</span><span class="st-text">天空开始计时，飞得越久分越高、世界越快——最后，把它讲给全家听。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>计分与加速</em>——存活秒数即分数，越往后管道越快。然后办一场作品发布会。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">🎤 孩子主讲</span><span class="sl-chip">✅ 完整通关</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">🎒</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⚡</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="白日晴空"></i><i class="sp-abs" data-sp="管道" style="left:16%; bottom:0; width:13%; height:62%;"></i><i class="sp-abs" data-sp="管道" style="right:10%; bottom:0; width:13%; height:50%;"></i><i class="sp-abs" data-sp="小鸟" style="left:40%; bottom:46%;"></i><span class="sl-tag" style="left:8%; top:8%;">分数 = 坚持秒数</span><span class="sl-tag" style="right:5%; top:8%;">世界速度 3 → 6</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">计时器计分</span><span class="td-note">— 活着就有分</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">难度曲线</span><span class="td-note">— 速度随分数涨</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播判负</span><span class="td-note">— 第 4 课</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">分数用最诚实的算法：活着每秒 +1。难度不用手工换挡——把"世界速度"装进变量，分数每过 10 就 +1 挡，玩家自然会感到变快。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">概念 · 难度曲线</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">难度 = 会涨的数字</div>
+          <div class="cp-analogy">类比：好游戏会自己变难：把"世界速度"做成变量，分数越高，速度越快。</div>
+          <ul class="cp-points">
+<li>速度先用变量装，别写死</li><li>每 5 分速度 +0.5，封顶 6</li><li>玩家能感觉到在变快就够了</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">分数 0 → 速度 3</div><span class="dg-arr">+5分➜</span><div class="dg-box">3.5</div><span class="dg-arr">+5分➜</span><div class="dg-box no">6（封顶）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分数 = 坚持的秒数</div>
+          <pre class="blocks">当绿旗被点击
+将 [分数] 设为 (0)
+计时器归零
+重复执行
+    等待 (1) 秒
+    将 [分数] 增加 (1)</pre>
+          <div class="sl-where">🧰 积木在：写在舞台绿旗脚本；「计时器归零」「计时器」在侦测（本页没用计时器值，纯秒表节奏也可以）</div>
+          <div class="stepv-see">✅ 活着每秒 +1，出局即停</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">世界速度做成变量</div>
+          <pre class="blocks">当绿旗被点击
+将 [世界速度] 设为 (3)
+重复执行
+    如果 <(分数) > (10)> 那么
+        将 [世界速度] 设为 (4)
+    如果 <(分数) > (20)> 那么
+        将 [世界速度] 设为 (5)</pre>
+          <div class="sl-sub">管道克隆体里"将x坐标增加 (−3)"的 3 换成 <b>(世界速度)</b>（全局变量）</div>
+          <div class="stepv-see">✅ 10 分后世界明显变快</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">发布会：三句话</div>
+          <div class="dg"><div class="dg-box ok">1️⃣ 我做了什么</div><div class="dg-box ok">2️⃣ 最难在哪</div><div class="dg-box ok">3️⃣ 想怎么改</div></div><div class="sl-sub">全家围观你打一局最高分</div>
+          <div class="stepv-see">✅ 讲满三句，本作收官</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🎒 分数随时间上涨</li><li>⚡ 分数越高世界越快</li><li>🥇 记下自己的最高分</li><li>🎤 发布会讲满三句</li>
+      </ul>
+<div class="sl-sub">第二个街机游戏完成——下一关去太空打陨石。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">曲线手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">每 10 分加速改成每 5 分</div><div class="lb-guess">猜猜看：什么时候开始慌？</div><div class="lb-why">曲线陡=短促刺激</div></div>
+          <div class="lab-card"><div class="lb-do">速度封顶 6 改 8</div><div class="lb-guess">猜猜看：人类极限在哪？</div><div class="lb-why">封顶=公平底线</div></div>
+          <div class="lab-card"><div class="lb-do">分数只算到 50</div><div class="lb-guess">猜猜看：50 分后还有什么追求？</div><div class="lb-why">软目标设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">计分两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 死后分数还在涨</div>计分循环没停。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>判负要「停止 全部脚本」。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 速度乱跳</div>好几段如果互相覆盖。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>从低到高排好顺序，或改成算式。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">最高分记录</div><div class="ad-what">本地留存</div><div class="ad-how">最高分变量替换制<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">过管音效</div><div class="ad-what">穿过一根"叮"一声</div><div class="ad-how">克隆体 x 过鸟时播放<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">日夜切换</div><div class="ad-what">每 20 分背景换一次</div><div class="ad-how">「换成 … 背景」+ 广播<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><div style="position:absolute;inset:0;background:#4ec0ca;"></div><i class="sp-abs" data-sp="管道" style="right:16%; bottom:0; width:14%; height:55%;"></i><i class="sp-abs" data-sp="管道" style="left:14%; bottom:0; width:14%; height:75%;"></i><i class="sp-abs" data-sp="小鸟" style="left:44%; bottom:40%;"></i><span class="sl-tag" style="left:8%; top:8%;">点一下 → 飞一下</span><span class="sl-tag" style="right:6%; top:8%;">分数 17</span></div>
+            <div class="cp-analogy" style="flex:1;">一只怎么也飞不稳的小鸟：重力下坠、点击起跳、无尽的管道、坚持秒数的分数。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>📉 变量·速度 <span class="td-note">— 第 1 课</span></li><li>⚡ 事件·按键 <span class="td-note">— 第 2 课</span></li><li>👥 克隆 <span class="td-note">— 第 3 课</span></li><li>🎯 侦测·碰到 <span class="td-note">— 第 4 课</span></li><li>⏱ 计时器 <span class="td-note">— 第 5 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">世界在动的错觉：管道左移 = 小鸟右飞</li><li class="">速度积分：先加速度、再动位置 = 真实的坠落</li><li class="">事件帽与主循环：两条时间线同时跑、互不打断</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">小鸟收官</div>
+      <div class="sl-next-label">下一关</div>
+      <div class="sl-next-title">第 3 关 · 太空射击</div>
+      <div class="sl-next-why">两门游戏连过——去太空，一只手开船一只手开炮。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-brick.html"><div class="dir">← 上一篇</div><div class="pager-title">① 弹球打砖块</div></a>
+<a class="next" href="handbook-shooter.html"><div class="dir">下一篇 →</div><div class="pager-title">③ 太空射击</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

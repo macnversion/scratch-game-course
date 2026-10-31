@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首页 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="home">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="页面/outline.html">开始之前（家长读）</a>
+<a href="页面/handbook-brick.html">① 弹球打砖块</a><a href="页面/handbook-flappy.html">② 飞扬的小鸟</a><a href="页面/handbook-shooter.html">③ 太空射击</a><a href="页面/handbook-snake.html">④ 贪吃蛇</a><a href="页面/handbook-tower.html">⑤ 城堡塔防</a><a href="页面/handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="页面/games.html">游戏厅</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="页面/toolbox.html">探索工具箱</a>
+<a href="页面/resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">给 9 岁探险家的六门游戏课</div>
+    <h1>Scratch 冒险乐园</h1>
+    <p class="lead">六个街机游戏，<strong>全部亲手做出</strong>——每个游戏五次课：<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。</p>
+    <div class="chips">
+      <span class="chip">6 个游戏 · 30 次课</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">难度递进：打砖块 → 俄罗斯方块</span>
+    </div>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 六门游戏课（由易到难，从上往下）</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">①</span><strong><a href="放映版/deck-brick.html">弹球打砖块</a> · 入门</strong>：5 次课 · <a href="页面/handbook-brick.html">手册</a></div>
+      <div class="start-step"><span class="n">②</span><strong><a href="放映版/deck-flappy.html">飞扬的小鸟</a> · 入门</strong>：5 次课 · <a href="页面/handbook-flappy.html">手册</a></div>
+      <div class="start-step"><span class="n">③</span><strong><a href="放映版/deck-shooter.html">太空射击</a> · 进阶</strong>：5 次课 · <a href="页面/handbook-shooter.html">手册</a></div>
+      <div class="start-step"><span class="n">④</span><strong><a href="放映版/deck-snake.html">贪吃蛇</a> · 进阶</strong>：5 次课 · <a href="页面/handbook-snake.html">手册</a></div>
+      <div class="start-step"><span class="n">⑤</span><strong><a href="放映版/deck-tower.html">城堡塔防</a> · 进阶</strong>：5 次课 · <a href="页面/handbook-tower.html">手册</a></div>
+      <div class="start-step"><span class="n">⑥</span><strong><a href="放映版/deck-tetra.html">俄罗斯方块</a> · 压轴大关</strong>：5 次课 · <a href="页面/handbook-tetra.html">手册</a></div>
+    </div>
+    <a class="start-go" href="放映版/deck-brick.html">▶ 从第一门开始：打砖块</a>
+    <span class="start-note">上课用放映版；手册只作备课与查进度；素材包在 示例项目/素材包/。</span>
+  </div>
+
+  <h2>先玩为敬</h2>
+  <p>每门课都从「先玩 1 分钟成品」开始——想去试玩，进<a href="页面/games.html">游戏厅</a>——六款全部可以直接玩。</p>
+
+  </div><!-- /md-content -->
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="assets/main.js"></script>
+</body>
+</html>

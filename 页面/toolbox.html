@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧰 探索工具箱 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="toolbox">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">给 9 岁探险家的编程乐园</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始冒险</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+<div class="doc-header"><div class="kicker">探索工具箱 · 自助自救<span class="aud-chip kid">孩子自己看</span></div><h1>🧰 探索工具箱：卡住怎么办</h1><p class="doc-desc">素材来源、想法太大、Bug、卡顿、保存分享、数学、下一步、术语。</p></div><div class="md-content">
+
+<h2>一、素材从哪来、能不能用</h2>
+<p>先认来源，再动手。三类来源，三种规矩。</p>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>能不能用</th>
+<th>发布到 Scratch 社区时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① Scratch 内置素材库</strong><br>角色、背景、声音</td>
+<td>可以，随便用</td>
+<td>不用署名。可自由用于作品</td>
+</tr>
+<tr>
+<td><strong>② 自己画、自己录</strong></td>
+<td>可以，版权是自己的</td>
+<td>不用署名。说明里写一句「自己画的」更好</td>
+</tr>
+<tr>
+<td><strong>③ 网上找的图 / 音</strong></td>
+<td>看许可。<span class="lic cc0">CC0</span> 可用；<span class="lic ccby">CC BY</span> 可用，但要署名。没写许可的不用</td>
+<td>必须写「素材来自谁 + 什么许可」。来源不明的<strong>只在家玩，不公开发布</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>「课堂内部练习」和「发布到 Scratch 社区」是两套要求。</strong>只给自己和家人看，宽松些；发布到社区就是公开作品，授权必须写清。拿不准，就只在家用。</p>
+</blockquote>
+<h3 id="license">版权三句话</h3>
+<blockquote>
+<p>① <strong>CC0</strong>：随便用，不用署名。② <strong>CC BY（署名）</strong>：能用，说明里写「素材来自谁」。③ <strong>别人的 Scratch 作品默认 CC BY-SA</strong>：可改编，分享时写「改编自 XX」。④ <strong>没标许可</strong>：当它不能用。</p>
+</blockquote>
+<p>照抄这句就行：「飞船素材：作者名，CC BY 4.0，来自 opengameart.org」。</p>
+<h3>按顺序试五招</h3>
+<p>前两招解决八成需求。</p>
+<table>
+<thead>
+<tr>
+<th>来源</th>
+<th>什么时候用</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① Scratch 自带库</strong></td>
+<td>默认首选</td>
+<td>角色库、背景库、声音库都能搜。关键词用英文：cat、ball、goal、brick。没想法点「惊喜」</td>
+</tr>
+<tr>
+<td><strong>② 改造自带素材</strong></td>
+<td>接近但不满意</td>
+<td>选相近角色，进造型改颜色、擦一部分、加帽子武器。比自己画快十倍，官方也这么做</td>
+</tr>
+<tr>
+<td><strong>③ 自己画</strong></td>
+<td>要独一份</td>
+<td>位图模式加铅笔，一格格涂（像素风，见<a href="https://www.bilibili.com/video/BV1hJ411c73i">像素画 24 集教程</a>）。先画方格纸草稿，再照填。教程只看画法，别把教程里的图搬进作品</td>
+</tr>
+<tr>
+<td><strong>④ 上传图片</strong></td>
+<td>照片 / 网上找的图</td>
+<td>网上找的图，先按本节开头第 ③ 类看许可。PNG 透明底最好。不透明照片在位图模式用「橡皮擦」抠背景（家长可用 <a href="https://www.remove.bg">remove.bg</a>）。上传后<strong>必设造型中心</strong>（十字准星）</td>
+</tr>
+<tr>
+<td><strong>⑤ 录音配音</strong></td>
+<td>音效和台词</td>
+<td>声音标签页可直接录音。「文字转语音」扩展能让电脑读台词</td>
+</tr>
+</tbody>
+</table>
+<h3>免费素材站（三个已确认可用）</h3>
+<ul>
+<li><strong>游戏图片：</strong><a href="https://kenney.nl">Kenney.nl</a>。授权 CC0，不用署名，最推荐。</li>
+<li><strong>图片 + 音乐：</strong><a href="https://opengameart.org">OpenGameArt.org</a>。老牌素材库。CC0 和 CC BY 混在一起，<strong>每个下载页逐个看标签</strong>。</li>
+<li><strong>音效：</strong>先翻 Scratch 声音库，再试 Kenney 的 <a href="https://kenney.nl/assets/category:Audio">音频包</a>（CC0），最后才去 <a href="https://freesound.org">Freesound.org</a>。Freesound 下载要免费注册，<span class="parent-gate">🧑‍🏫 用家长账号</span>；左侧勾 <span class="lic cc0">Creative Commons 0</span> 再挑。</li>
+</ul>
+<p><strong>另外两个，链接可能变动：</strong><a href="https://itch.io/game-assets/assets-cc0">itch.io 的 CC0 专区</a>、<a href="https://pixabay.com">Pixabay</a>（Pixabay 会拦自动访问，浏览器里能开）。用前照样看授权标签。</p>
+<p><strong>中文社区：</strong><a href="https://assets.ccw.site">共创世界素材集市</a>。授权标签杂，家长先确认「免费可商用」。</p>
+<p><strong>去这些站怎么找？</strong>所有站一个套路：<a href="#hunt">搜索 → 认授权 → 下载 → 解压 → 导入</a>，往下有跟着鼠标走的完整实练。</p>
+<h3>素材的坑</h3>
+<ul>
+<li><strong>造型中心没对准</strong>：角色一旋转就飞出。选中造型，点十字准星重设；</li>
+<li><strong>位图放大就糊</strong>：像素画别拉伸。要大就重画，或用矢量模式；</li>
+<li><strong>背景画进了角色</strong>（或反过来）：背景属舞台，角色才能动。画错就剪切过去；</li>
+<li><strong>图片太大占满舞台</strong>：上传前缩小，角色一般 30–80 像素高。</li>
+</ul>
+<h3 id="hunt">🔍 寻宝三步：搜什么 → 认授权 → 存到哪</h3>
+<p>任何素材站都一个套路，先把口诀记住：</p>
+<ol class="steps">
+<li class="step"><span class="step-num">1</span><div class="step-body"><strong>搜：</strong>站内搜索框用<strong>英文短词</strong>。要飞船搜 <code>spaceship</code>，要激光音效搜 <code>laser</code>——词越短结果越准。</div></li>
+<li class="step"><span class="step-num">2</span><div class="step-body"><strong>认：</strong>下载前看授权标签。<span class="lic cc0">CC0</span> 随便用不用署名；<span class="lic ccby">CC BY</span> 能用，但要在作品说明里写「素材来自谁」；没标签或看不懂的，先不用。<span class="parent-gate">🧑‍🏫 这一眼家长把</span></div></li>
+<li class="step"><span class="step-num">3</span><div class="step-body"><strong>存：</strong>下载的东西统一放进一个「素材库」文件夹（比如 <code>下载/素材库/太空</code>）。下次做游戏直接翻，不用重找。</div></li>
+</ol>
+<p><strong>英文搜索词速查：</strong></p>
+<table>
+<thead>
+<tr>
+<th>想要什么</th>
+<th>搜什么</th>
+<th>想要什么</th>
+<th>搜什么</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>飞船 / 飞机</td><td><code>spaceship</code> / <code>plane</code></td><td>激光 / 爆炸音效</td><td><code>laser</code> / <code>explosion</code></td></tr>
+<tr><td>像素小人</td><td><code>pixel character</code></td><td>跳跃 / 拾取声</td><td><code>jump</code> / <code>pick up</code></td></tr>
+<tr><td>草地 / 石块贴图</td><td><code>grass tile</code> / <code>rock tile</code></td><td>背景音乐</td><td><code>8bit music</code> / <code>chiptune</code></td></tr>
+<tr><td>金币 / 道具</td><td><code>coin</code> / <code>item</code></td><td>怪物叫声</td><td><code>monster roar</code></td></tr>
+</tbody>
+</table>
+
+<h3>🧭 实练：从 Kenney 找太空素材进 Scratch（约 15 分钟）</h3>
+<p>目标：给太空射击游戏找一艘飞船，走通「浏览器 → 下载 → 解压 → 导入」整条路。孩子握鼠标，第 3、8 步家长把关。到了网站会看到这样的页面（红圈号对应下面的步骤）：</p>
+<div class="browser-mock" aria-hidden="true">
+<div class="bm-bar"><span class="bm-dots"><i></i><i></i><i></i></span><span class="bm-url">🔒 kenney.nl/assets</span></div>
+<div class="bm-body">
+<div class="bm-search"><span class="hs">2</span> 🔍 输入 <code>space shooter</code> 后回车</div>
+<div class="bm-card"><span class="bm-thumb"></span><b>Space Shooter（Remastered）</b> <span class="lic cc0"><span class="hs">3</span> CC0</span> <span class="bm-dl"><span class="hs">4</span> ⬇ Download</span></div>
+<div class="bm-card dim"><span class="bm-thumb t2"></span> Puzzle Pack <span class="lic cc0">CC0</span> <span class="bm-dl">⬇ Download</span></div>
+</div>
+</div>
+<ol class="steps">
+<li class="step"><span class="step-num">1</span><div class="step-body"><strong>打开宝库：</strong>打开浏览器，在<strong>地址栏</strong>输入 <span class="ui-path">kenney.nl/assets</span>，回车。<div class="see">✅ 你会看到：满屏素材卡片，顶部有 All / 2D / 3D / Audio 分类按钮。</div></div></li>
+<li class="step"><span class="step-num">2</span><div class="step-body"><strong>搜索：</strong>点页面右上角 🔍，输入 <code>space shooter</code> 回车；或跳过搜索，直接打开 <a href="https://kenney.nl/assets/space-shooter-redux">Space Shooter 素材包直达链接</a>。<div class="see">✅ 你会看到：一排飞船、陨石、子弹的预览图（站内名字是 Space Shooter Remastered，就是它）。</div></div></li>
+<li class="step"><span class="step-num">3</span><div class="step-body"><strong>认授权：</strong>页面写着 License: Creative Commons <span class="lic cc0">CC0</span>——不用署名，随便用。<span class="parent-gate">🧑‍🏫 家长确认这一眼；若是 CC BY，把作者名记下来，之后写进作品说明。</span></div></li>
+<li class="step"><span class="step-num">4</span><div class="step-body"><strong>下载：</strong>点绿色的 <span class="ui-path">⬇ Download</span> 按钮。<div class="see">✅ 你会看到：浏览器右上角出现下载进度圈或进度条。</div></div></li>
+<li class="step"><span class="step-num">5</span><div class="step-body"><strong>找到文件：</strong>点浏览器右上角的「下载」图标 → 在列表里找到 <code>kenney_space-shooter-redux.zip</code> → 点「在文件夹中显示」。找不到就按 <span class="ui-path">Ctrl / ⌘ + J</span> 打开下载记录。</div></li>
+<li class="step"><span class="step-num">6</span><div class="step-body"><strong>解压（打开行李箱）：</strong>zip 是装满文件的行李箱。Mac 直接<strong>双击</strong>；Windows <strong>右键 → <span class="ui-path">全部解压缩</span></strong>。<div class="see">✅ 你会看到：旁边多出一个同名文件夹。</div>
+<div class="browser-mock" aria-hidden="true">
+<div class="bm-bar"><span class="bm-dots"><i></i><i></i><i></i></span><span class="bm-url">📁 space-shooter-redux（解压出来的文件夹）</span></div>
+<div class="bm-body bm-files">
+<span>📁 PNG ← 进这里挑</span><span>📁 Spritesheet</span><span>📄 License.txt</span>
+<br>点开 PNG 后：
+<span>🚀 ship_0001.png</span><span>🪨 meteorLarge.png</span><span>✨ laser_001.png</span>
+</div>
+</div></div></li>
+<li class="step"><span class="step-num">7</span><div class="step-body"><strong>挑文件：</strong>进 PNG 子文件夹，挑一艘喜欢的飞船（如 <code>ship_0001.png</code>）。认准<strong>以 .png 结尾</strong>的图片；.svg（矢量）和 .ttf（字体）这次不用。</div></li>
+<li class="step"><span class="step-num">8</span><div class="step-body"><strong>导入 Scratch：</strong>打开本地 Scratch → 鼠标移到<strong>右下角角色区</strong>的 <span class="ui-path">⊕ 上传角色</span> → 选刚才的 png。<span class="parent-gate">🧑‍🏫 别点成舞台的「上传背景」。</span><div class="see">✅ 你会看到：舞台出现一艘「巨大」的飞船——正常，下一步缩小。</div></div></li>
+<li class="step"><span class="step-num">9</span><div class="step-body"><strong>缩小 + 设中心：</strong>角色属性面板把「大小」从 100 改成 35 左右；再进造型，点左下角 ⊞ 把<strong>造型中心</strong>（十字准星）对准机身中间。</div></li>
+<li class="step"><span class="step-num">10</span><div class="step-body"><strong>试玩收工：</strong>随便搭个「按 → 键，x 增加 10」跑一下，飞船能动就 <span class="ui-path">文件 → 保存到电脑</span>，命名 <code>太空射击-1030-找到飞船.sb3</code>。🎉</div></li>
+</ol>
+<p><strong>这条路走通之后，上面清单里的每个素材站都一样：</strong>搜索 → 认授权 → 下载 → 解压 → 导入。</p>
+<p><strong>实练卡点：</strong></p>
+<ul>
+<li><strong>zip 找不到了</strong> → <span class="ui-path">Ctrl / ⌘ + J</span> 打开下载记录，点「在文件夹中显示」；</li>
+<li><strong>导入后有白色底</strong> → 选到了 jpg 或截图，回文件夹重选 .png；</li>
+<li><strong>图片进去了但不动，铺满全屏</strong> → 点成了舞台的「上传背景」。删掉，改用右下角角色区的 ⊕；</li>
+<li><strong>网站打不开</strong> → 换共创世界 / Pixabay，套路一模一样。</li>
+</ul>
+
+<h3>🔊 实练：给游戏配音效（约 6 分钟）</h3>
+<ol class="steps">
+<li class="step"><span class="step-num">1</span><div class="step-body"><strong>先翻自家仓库：</strong>Scratch 编辑器 → 点角色 → 左上「声音」标签 → <span class="ui-path">⊕ 添加声音</span> → 搜 <code>laser</code>，逐个点开试听，挑一个接上「播放声音」积木。<strong>八成情况到这一步就结束了。</strong></div></li>
+<li class="step"><span class="step-num">2</span><div class="step-body"><strong>不够酷才出海：</strong>新标签页打开 <a href="https://freesound.org/search/?q=laser">Freesound 搜 laser</a>（下载要免费注册，<span class="parent-gate">🧑‍🏫 用家长账号</span>），或 <a href="https://pixabay.com/sound-effects/search/laser/">Pixabay 搜 laser</a>（一般不用注册，<strong>链接可能变动</strong>）。</div></li>
+<li class="step"><span class="step-num">3</span><div class="step-body"><strong>认授权：</strong>Freesound 左侧筛选勾选 <span class="lic cc0">Creative Commons 0</span> 再挑；Pixabay 内容可免费使用。</div></li>
+<li class="step"><span class="step-num">4</span><div class="step-body"><strong>试听挑一个</strong> → 点 <span class="ui-path">Download</span>（Freesound 选 mp3 格式）。</div></li>
+<li class="step"><span class="step-num">5</span><div class="step-body"><strong>回 Scratch：</strong>声音面板 <span class="ui-path">⊕ 上传声音</span> → 选刚下载的文件。<div class="see">✅ 你会看到：一段波形出现在声音面板里。</div></div></li>
+<li class="step"><span class="step-num">6</span><div class="step-body"><strong>接积木试听：</strong>「播放声音 [刚传的]」接进脚本，点绿旗听一下，满意就保存。</div></li>
+</ol>
+<h2>二、想法太大（选题病）</h2>
+<p>顺序：<strong>梦想清单 → 最小可玩版 → 每周加一味</strong>。</p>
+<ol>
+<li>写下完整梦想，画画也行。这是「梦想清单」；</li>
+<li>问：「去掉哪些，游戏就玩不起来了？」剩下的 2–3 件是<strong>最小可玩版</strong>。吃豆人最小版 = 一条通道 + 一颗豆 + 一只追你的幽灵；</li>
+<li>最小版能玩后，每周只加一个功能：加墙、加豆、加第二只幽灵。</li>
+</ol>
+<p>判断只有一句：<strong>今天结束能不能玩？</strong></p>
+<h2>三、Bug 抓不出来</h2>
+<p>按顺序自问三句：</p>
+<ol>
+<li><strong>哪个角色出的问题？</strong>只看它的脚本；</li>
+<li><strong>哪一段脚本？</strong>临时拖一个「说 ()」进去，念出变量和坐标。数字停在哪步不对，Bug 就在那步；</li>
+<li><strong>预期和实际差在哪？</strong>用一句话说「我以为是 A，结果是 B」。</li>
+</ol>
+<p>还不行就<strong>隔离运行</strong>：只双击运行可疑那段（克隆类脚本用绿旗，防止越点越多）。一次只改一处，改完立刻试。</p>
+<h3>求助的四句话公式</h3>
+<p>「我在做 <strong>什么游戏</strong> + 我给 <strong>哪个角色</strong> 搭了 <strong>什么积木</strong> + 我期望发生 <strong>什么</strong> + 实际发生 <strong>什么</strong>」。发到 <a href="https://scratch.mit.edu/discuss/">Scratch 官方论坛</a>（有中文板块）、问家长、问 AI。</p>
+<h2>四、电脑变卡了怎么办</h2>
+<ul>
+<li><strong>克隆太多</strong>：同时刻克隆上限约 300，越多越卡。用完就删（「删除此克隆体」），别让子弹敌机堆积；</li>
+<li><strong>画笔没擦</strong>：用画笔扩展要「全部擦除」，否则越画越重；</li>
+<li><strong>整套大项目</strong>：用 <a href="https://desktop.turbowarp.org">TurboWarp</a> 跑（快 10 倍以上）。做完可用 <a href="https://packager.turbowarp.org">Packager</a> 打包成独立程序发朋友。</li>
+</ul>
+<h2>五、保存、分享与安全</h2>
+<ul>
+<li><strong>版本习惯</strong>：每课结束「另存副本」，命名 = 名字-日期-新功能（如 <code>打砖块-1030-会连击.sb3</code>）。电脑坏了只丢一节课；</li>
+<li><strong>分享前家长一起过</strong>：不出现真实姓名、学校、住址、照片。用了别人的素材，写清「改编自谁」；</li>
+<li><strong>本地也可以</strong>：不上传社区、只在家玩也行。</li>
+</ul>
+<h2>六、数学不够用怎么办</h2>
+<p><strong>九成游戏用不到中学数学</strong>。加减乘除、随机数、取整、「面向 + 移动」够做街机游戏。两个场景要用：</p>
+<ul>
+<li><strong>想转圈/画圆/瞄准射击</strong>：运算类有 sin/cos/atan。先用「面向 [目标] 方向 + 移动」，多数不用算角度；</li>
+<li><strong>真需要三角函数</strong>（子弹飞向鼠标处）：家长陪看 griffpatch 数学专题（见<a href="resources.html">资源百宝箱</a>），或记进梦想清单。</li>
+</ul>
+<h2>七、学完 Scratch 之后去哪</h2>
+<p>收官信号：嫌积木拼起来太慢、想做 Scratch 做不到的事（联网对战、真 3D、读取文件）、问「真正的游戏用什么写」。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>玩什么</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scratch 内进阶</td>
+<td>画笔、音乐、视频侦测、micro:bit 扩展</td>
+<td>在熟悉环境里进阶</td>
+</tr>
+<tr>
+<td>网页小游戏</td>
+<td>HTML + JavaScript（本乐园首页那几款）</td>
+<td>从玩家到读代码</td>
+</tr>
+<tr>
+<td>Python</td>
+<td><a href="https://codinghou.cn/course/coursedetail/42">侯老师《Python 开发我的世界》</a></td>
+<td>文字代码第一站</td>
+</tr>
+<tr>
+<td>更远处</td>
+<td>Minecraft 模组 / Roblox / Unity</td>
+<td>兴趣驱动</td>
+</tr>
+</tbody>
+</table>
+<h2>八、两岸术语对照</h2>
+<p>台湾教程用词不同（如 STEAM 教育學習網）。查表：</p>
+<table>
+<thead>
+<tr>
+<th>我们教的（大陆）</th>
+<th>台湾教程常见</th>
+<th>指什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>克隆</td>
+<td>分身</td>
+<td>运行时副本</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>清单</td>
+<td>一串数据</td>
+</tr>
+<tr>
+<td>变量</td>
+<td>变数</td>
+<td>会变的数</td>
+</tr>
+<tr>
+<td>自定义积木</td>
+<td>函式积木 / 自制积木</td>
+<td>自己封装的函数</td>
+</tr>
+<tr>
+<td>随机数</td>
+<td>乱数</td>
+<td>运算里的随机整数</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>字串</td>
+<td>一串文字</td>
+</tr>
+<tr>
+<td>脚本</td>
+<td>程式 / 脚本</td>
+<td>一段积木</td>
+</tr>
+<tr>
+<td>注释</td>
+<td>注解</td>
+<td>说明文字</td>
+</tr>
+<tr>
+<td>舞台 / 角色 / 造型</td>
+<td>舞台 / 角色 / 造型</td>
+<td>相同 ✓</td>
+</tr>
+</tbody>
+</table>
+<h2>九、家长锦囊（自己不会答怎么办）</h2>
+<ul>
+<li><strong>诚实但不当甩手掌柜</strong>：「我也不知道，我们一起查」。示范怎么找答案；</li>
+<li><strong>把问题丢回去</strong>：「电脑现在知道什么？还不知道什么？」；</li>
+<li><strong>让孩子当老师</strong>：每周听孩子讲一次「这周做了什么」。讲得出 = 真懂了；</li>
+<li><strong>用 AI 但别代劳</strong>：让孩子口述「四句话公式」去问。AI 给的方案，孩子自己在 Scratch 里搭一遍。</li>
+</ul>
+
+</div>
+<div class="pager">
+<a href="handbook-tetra.html"><div class="dir">← 上一篇</div><div class="pager-title">⑥ 俄罗斯方块</div></a>
+<a class="next" href="resources.html"><div class="dir">下一篇 →</div><div class="pager-title">🔗 资源百宝箱</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 给家里的 9 岁探险家 ·
+    素材包在 示例项目/素材包/ ·
+    积木图由 <a href="https://scratchblocks.github.io/" target="_blank">scratchblocks</a> 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/main.js"></script>
+</body>
+</html>

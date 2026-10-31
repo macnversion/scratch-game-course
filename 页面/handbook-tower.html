@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>城堡塔防 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-tower">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 城堡塔防</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html" class="active">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ⑤ · 进阶 · 完整手册</div>
+    <h1>城堡塔防</h1>
+    <p class="lead">五次课做出一个完整的街机游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-tower.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">卡住才看参考做法</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-tower.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/城堡塔防/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-tower.html">▶ 城堡塔防 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>敌人沿路进攻基地，你花金币造炮塔自动开火——击杀掉宝（金袋/红心），守住 3 波就赢。</div><div class="log-card"><span class="lg-t">操作</span>点击造炮塔；点击掉落的宝物拾取</div><div class="log-card"><span class="lg-t">玩点在哪</span>攒钱摆阵的算账乐趣；看炮塔自动守家的踏实</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——先摆一座塔感受下。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🗺️ 敌人 AI<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">路径点导航：不用方向键的移动</div></div><div class="lab-card"><div class="lb-do">💰 玩家决策<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">花金币造塔：策略在这课</div></div><div class="lab-card"><div class="lb-do">🔫 自动战斗<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">子弹生成→锁定→命中</div></div><div class="lab-card"><div class="lb-do">⚔️ 数值系统<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">血量、金币、波次的经济循环</div></div><div class="lab-card"><div class="lb-do">🏁 胜负结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">守住 3 波 / 基地陷落</div></div></div><div class="cp-analogy">总思路：前四关游戏都是"你操控一个角色"；塔防反过来——<b>你只负责花钱摆阵，打仗交给程序</b>。这课的重心从操作挪到数值与系统。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>五个角色：敌人、炮塔、子弹、基地、金币——素材包全有。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/敌人.svg" alt="敌人" loading="lazy"><span class="a-name">敌人</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/炮塔.svg" alt="炮塔" loading="lazy"><span class="a-name">炮塔</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/公用/子弹.svg" alt="子弹" loading="lazy"><span class="a-name">子弹</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/基地.svg" alt="基地" loading="lazy"><span class="a-name">基地</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/金币.svg" alt="金币" loading="lazy"><span class="a-name">金币</span><span class="a-tag">计分用（可只做变量）</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/塔防/</b> 里的 .sprite3；背景也在素材包里（背景-塔防.svg：「选择一个背景」→ 上传）<b>Desert / Castle</b>；音效 <b>laser</b>、<b>pop</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🗺️ 列表·路径点</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">💰 变量·金币</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">➗ 运算·逼近</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="w1">第 1 次 · 敌人上路</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 敌人上路</span><span class="st-text">敌人不认方向键——它们只认路：一串写死的坐标点。</span></div>
+<div class="hb-goal">只解决一件事：<em>路径导航</em>——敌人沿 8 个路径点平滑走完全程。</div>
+<div class="hb-chips"><span class="chip">⏱ 35 分钟</span><span class="chip">✅ 敌人自己会走路</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:12%; top:36%;"></i><span class="sl-tag" style="left:6%; top:8%;">出生点 ➜ 一路走到基地</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">路径点列表</span><span class="td-note">— 点横 / 点竖 各 8 项</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">逼近移动</span><span class="td-note">— 每帧走差值的 1/8</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">换点判断</span><span class="td-note">— 够近就下一个</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重复执行</span><span class="td-note">— 永动机</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">敌人不用方向键，靠"路径点列表"导航：把路当一串坐标点(点横/点竖)，敌人每帧朝"当前点"靠近八分之一——距离近了就换下一个点。除法逼近不用三角函数，效果却丝滑，这招以后做追踪、做镜头都好用。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 路径点</span></p>
+<p><strong>路径 = 一串地标</strong></p><div class="cp-analogy">类比：把路画成 8 个地标，敌人只干一件事：朝"下一个地标"走，走到了就换下一个。</div><ul class="cp-points">
+<li>点横、点竖 两条列表，第 n 项是第 n 个地标</li><li>逼近公式：差值 × 1/8，每帧走一点</li><li>离地标足够近（距离 < 5）就换下一个</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">📍点1</div><span class="dg-arr">➜</span><div class="dg-box">📍点2</div><span class="dg-arr">➜</span><div class="dg-box">📍点3</div><span class="dg-arr">…</span><div class="dg-box ok">🏠基地</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>手工填 8 个地标</strong>
+<div class="sl-path">建全局列表 <b>点横 / 点竖</b>，监视窗里点 ➕ 手动加 8 项——左下出生 (-220,-120) → (0,-120) → (0,100) → (220,100)，再自己绕两个弯，最后一项放在基地旁 (200,60)</div>
+<div class="see">✅ 监视窗里两条 8 项的路线</div>
+</li>
+<li><strong>敌人沿地标走</strong>
+<pre class="blocks">当绿旗被点击
+将 [当前点] 设为 (1)
+重复执行
+    将 [dx] 设为 ((([点横] 的第 (当前点) 项) - (x 坐标)) / (8))
+    将 [dy] 设为 ((([点竖] 的第 (当前点) 项) - (y 坐标)) / (8))
+    将x坐标增加 (dx)
+    将y坐标增加 (dy)
+    如果 <(([平方] (dx)) + ([平方] (dy))) < (4)> 那么
+        将 [当前点] 增加 (1)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FF8C1A;">变量</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#59C059;">运算</span>（「平方」和「向下取整」一样，套在方括号里）</div>
+<p><div class="sl-sub">dx、dy 选"仅适用于当前角色"——每帧走差值的 1/8，越近走越慢，天然的减速进站</div></p>
+<div class="see">✅ 敌人从出生点一路溜达到基地，全程不用你管</div>
+</li>
+<li><strong>实时报告自己的位置</strong>
+<pre class="blocks">    将 [敌x] 设为 (x 坐标)
+    将 [敌y] 设为 (y 坐标)</pre>
+<p><div class="sl-sub">加在循环末尾（全局变量 敌x/敌y）——下一课的子弹就瞄着它</div></p>
+<div class="see">✅ 监视窗里敌x、敌y 实时跳动</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🗺️ 全程贴路走不穿帮</li><li>🐢 快到点自然减速</li><li>🏠 走到最后一点停住</li>
+</ul>
+<p>敌人会走路了——你还没法还手，下一课造炮塔。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>路径的手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">除数 8 改 4</div><div class="lb-guess">猜猜看：走得更快更冲？</div><div class="lb-why">除数=油门</div></div>
+<div class="lab-card"><div class="lb-do">换点距离 4 改 9</div><div class="lb-guess">猜猜看：切弯更利落还是切早？</div><div class="lb-why">判定半径</div></div>
+<div class="lab-card"><div class="lb-do">地标加到 12 个</div><div class="lb-guess">猜猜看：路更绕了</div><div class="lb-why">路径=关卡设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>走路两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 原地抖动不走</div>当前点没加到、或地标填错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>到了就"当前点 +1"，地标成对填。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 抄近路切直线</div>点太少、拐角太急。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>拐角处多加一个地标。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">敌人排队出生</div><div class="ad-what">一个接一个上路</div><div class="ad-how">本体定时克隆（第 4 课正式做）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">路径可视化</div><div class="ad-what">虚线画出路线</div><div class="ad-how">画一个路径装饰角色<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">蛇形走位</div><div class="ad-what">敌人左右摇摆</div><div class="ad-how">循环里 y 加正弦（进阶）<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="w2">第 2 次 · 花钱造塔</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 花钱造塔</span><span class="st-text">金币是战爭的燃料——点一下，30 金币换一座炮塔。</span></div>
+<div class="hb-goal">只解决一件事：<em>点击造塔</em>——金币 ≥30 才能造，塔位记录在案，防连点。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 金币要花在刀刃上</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="炮塔" style="left:38%; bottom:24%;"></i><i class="sp-abs" data-sp="炮塔" style="right:20%; bottom:40%; opacity:.8;"></i><i class="sp-abs" data-sp="金币" style="left:8%; top:8%;"></i><span class="sl-tag" style="left:22%; top:12%;">金币 65 → 造一座 −30</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">金币变量</span><span class="td-note">— 经济系统开机</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">点击检测</span><span class="td-note">— 按下鼠标 + 坐标</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">塔位列表</span><span class="td-note">— 塔横/塔竖 存档</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 塔也是分身</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">造塔的本质是"花金币买一个克隆体"：点击时先查钱够不够，够就扣钱、把点击坐标记进 塔横/塔竖 列表（下一课子弹从这读）、在原地克隆一座炮塔。等待松手防止一次点击连造一排。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>开局发军饷</strong>
+<pre class="blocks">当绿旗被点击
+将 [金币] 设为 (80)</pre>
+<div class="see">✅ 开局 80 金币，够造两座</div>
+</li>
+<li><strong>点击 = 造塔</strong>
+<pre class="blocks">当绿旗被点击
+重复执行
+    如果 <<按下鼠标?> 与 <(金币) > (29)>> 那么
+        将 [金币] 增加 (-30)
+        将 (鼠标的x坐标) 加入 [塔横]
+        将 (鼠标的y坐标) 加入 [塔竖]
+        移到 x: (鼠标的x坐标) y: (鼠标的y坐标)
+        克隆 [自己]
+        播放声音 [pop]
+    等待 <<按下鼠标?> 不成立></pre>
+<div class="sl-where">🧰 积木在：写在<b>炮塔</b>角色上；「等待不成立」防连点，一下只造一座</div>
+<div class="see">✅ 点哪塔立哪，金币哗哗扣</div>
+</li>
+<li><strong>分身亮出来站岗</strong>
+<pre class="blocks">当作为克隆体启动时
+显示</pre>
+<div class="see">✅ 塔立在点击处，一动不动站岗</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>💰 钱不够点不动</li><li>🗼 点哪造哪不叠塔</li><li>↩️ 绿旗：金币回 80、清塔</li>
+</ul>
+<p>有塔没钱开火——下一课上子弹。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>经济手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">塔价 30 改 60</div><div class="lb-guess">猜猜看：攒钱压力变多大？</div><div class="lb-why">价格=节奏阀门</div></div>
+<div class="lab-card"><div class="lb-do">开局 80 改 40</div><div class="lb-guess">猜猜看：开局只能造一座！</div><div class="lb-why">启动资金=开局策略</div></div>
+<div class="lab-card"><div class="lb-do">显示金币面板</div><div class="lb-guess">猜猜看：时刻看得见余额</div><div class="lb-why">变量显示在角落</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>造塔两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一次点出一排塔</div>没等松手。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>结尾加「等待 不按下鼠标」。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 钱扣了塔没出</div>克隆写在别处/本体没隐藏。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>本体绿旗「隐藏」，克隆体「显示」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">塔位网格化</div><div class="ad-what">只能造在格点上</div><div class="ad-how">坐标取整落格（俄罗斯方块同款）<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+<div class="addon-card"><div class="ad-t">拆塔退钱</div><div class="ad-what">右键拆塔回 15 金</div><div class="ad-how">广播+列表删除（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">塔价随数量涨</div><div class="ad-what">越买越贵</div><div class="ad-how">价格 = 30 + 已造数量 × 5<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="w3">第 3 次 · 自动开火</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 自动开火</span><span class="st-text">指挥官只管造塔，仗让子弹自己打。</span></div>
+<div class="hb-goal">只解决一件事：<em>自动战斗</em>——子弹定时从塔出发、锁定敌人、命中掉血。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">✅ 挂机也能守住</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:40%; top:34%;"></i><i class="sp-abs" data-sp="炮塔" style="left:20%; bottom:20%;"></i></div><div class="fx-cap">敌人进入射程</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:40%; top:34%; opacity:.4;"></i><i class="sp-abs" data-sp="炮塔" style="left:20%; bottom:20%;"></i><span class="sl-tag" style="left:30%; top:20%;">💥 命中</span></div><div class="fx-cap">子弹锁定→命中→敌人掉血</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">定时开火</span><span class="td-note">— 每 0.8 秒一发</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">锁定目标</span><span class="td-note">— 记下敌人当时坐标</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">命中掉血</span><span class="td-note">— 敌人血量变量</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">逼近移动</span><span class="td-note">— 第 1 课的 1/6 走法</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">自动战斗分两段：子弹每 0.8 秒从随机一座塔出发（塔多火力密）；"瞄准"教学版锁场上唯一敌人——敌人每帧广播自己的坐标（第 1 课已埋好），子弹出生时记下目标点，然后每帧走差值的 1/6 直扑过去；命中用"碰到敌人"互认，敌掉血、弹自删。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>敌人先有血</strong>
+<pre class="blocks">当绿旗被点击
+将 [敌血] 设为 (3)</pre>
+<div class="see">✅ 敌人血量 3（监视窗可见）</div>
+</li>
+<li><strong>子弹从随机塔出发</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    等待 (0.8) 秒
+    如果 <([塔横] 的项目数) > (0)> 那么
+        将 [选塔] 设为 (在 (1) 和 ([塔横] 的项目数) 之间取随机数)
+        移到 x: ([塔横] 的第 (选塔) 项) y: ([塔竖] 的第 (选塔) 项)
+        克隆 [自己]</pre>
+<div class="sl-where">🧰 积木在：写在<b>子弹</b>角色上——塔越多，火力越密</div>
+<div class="see">✅ 每隔 0.8 秒，从某座塔冒出一颗子弹</div>
+</li>
+<li><strong>锁定 + 直扑目标</strong>
+<pre class="blocks">当作为克隆体启动时
+显示
+将 [目标x] 设为 (敌x)
+将 [目标y] 设为 (敌y)
+重复执行直到 <<碰到 [敌人]?> 或 <(y 坐标) < (-170)>>
+    将x坐标增加 (((目标x) - (x 坐标)) / (6))
+    将y坐标增加 (((目标y) - (y 坐标)) / (6))
+如果 <碰到 [敌人]?> 那么
+    广播 [命中]
+删除此克隆体</pre>
+<p><div class="sl-sub">出生瞬间拍下目标的"照片"（目标x/y）——之后直线扑过去，简单可靠</div></p>
+<div class="see">✅ 子弹斜着飞向敌人，撞上消失</div>
+</li>
+<li><strong>敌人挨打</strong>
+<pre class="blocks">当接收到 [命中]
+将 [敌血] 增加 (-1)
+播放声音 [pop]
+如果 <(敌血) < (1)> 那么
+    将 [金币] 增加 (5)
+    隐藏
+    等待 (1) 秒
+    将 [敌血] 设为 (3)
+    显示</pre>
+<p><div class="sl-sub">教学版敌人打倒 1 秒后原地复活（波次下一课做）；击杀奖励 5 金币——经济循环转起来了</div></p>
+<div class="see">✅ 打三发倒一次，金币 +5，敌人复活重来</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🔫 全自动：造好塔就能挂机</li><li>💥 三发击倒、奖励 5 金币</li><li>💰 打怪挣钱 → 挣钱造塔</li>
+</ul>
+<p>核心循环转起来了：塔打怪、怪生钱、钱造塔。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>火力手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">0.8 秒改 0.3 秒</div><div class="lb-guess">猜猜看：弹幕如雨？</div><div class="lb-why">射速=输出</div></div>
+<div class="lab-card"><div class="lb-do">敌血 3 改 6</div><div class="lb-guess">猜猜看：塔贵了还是怪硬了？</div><div class="lb-why">血量=压力</div></div>
+<div class="lab-card"><div class="lb-do">子弹速度 /6 改 /3</div><div class="lb-guess">猜猜看：快弹 vs 慢弹</div><div class="lb-why">弹速=命中率</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>开火三病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹原地不动</div>目标没记、或除数为 0。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出生先记目标x/y，再走差值。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹全从一座塔出</div>选塔没随机。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>在 1 和塔数之间取随机数。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 敌人无敌不掉血</div>命中广播没接上。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>敌人要写「当接收到 命中」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">射程限制</div><div class="ad-what">太远的敌人不打</div><div class="ad-how">出生时算距离，超远就删子弹<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+<div class="addon-card"><div class="ad-t">炮塔转向</div><div class="ad-what">塔口始终对着敌人</div><div class="ad-how">「面向 敌人」（教学版直接用）<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">连发三连</div><div class="ad-what">一次出三颗</div><div class="ad-how">克隆三次稍偏角度<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="w4">第 4 次 · 一波又一波</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 一波又一波</span><span class="st-text">单挑结束，战争开始了——敌人成波涌来，基地只有 10 颗心。</span></div>
+<div class="hb-goal">只解决一件事：<em>波次系统</em>——8 个一波、波间喘息、到基地扣血。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">✅ 撑过一波是一波</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:10%; top:36%;"></i><i class="sp-abs" data-sp="敌人" style="left:30%; top:36%; opacity:.8;"></i><i class="sp-abs" data-sp="敌人" style="left:50%; top:36%; opacity:.6;"></i><i class="sp-abs" data-sp="基地" style="right:6%; top:36%;"></i><span class="sl-tag" style="left:6%; top:8%;">第 1 波 × 8</span><span class="sl-tag" style="right:20%; top:8%;">基地 ❤ 10</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">发车员</span><span class="td-note">— 本体克隆 8 连发</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">波号变量</span><span class="td-note">— 波次计数 + 难度</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">基地血</span><span class="td-note">— 终点有了代价</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆体自删</span><span class="td-note">— 死/到站都回收</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">波次=让敌人本体当"发车员"：每 2 秒克隆一个（共 8 个一波），克隆体走完路或被打死都自删，波号 +1 后下一波更快。敌人走到最后一个地标时扣基地血——把"终点"变成真正的威胁。血量/速度随波号微涨，难度就有了骨架。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>基地先有血</strong>
+<pre class="blocks">当绿旗被点击
+将 [基地血] 设为 (10)
+将 [波号] 设为 (1)</pre>
+<div class="see">✅ 基地 ❤×10、波号 1</div>
+</li>
+<li><strong>发车员：一波 8 个</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    重复执行 (8) 次
+        移到 x: (-220) y: (-120)
+        克隆 [自己]
+        等待 (2) 秒
+    等待 (8) 秒
+    将 [波号] 增加 (1)</pre>
+<div class="sl-where">🧰 积木在：写在<b>敌人本体</b>上（本体从此不下场，只发车）</div>
+<p><div class="sl-sub">波间 8 秒喘息——给玩家攒钱补塔的窗口</div></p>
+<div class="see">✅ 敌人一个接一个上场，一波结束歇 8 秒</div>
+</li>
+<li><strong>到基地 = 扣血</strong>
+<pre class="blocks">    如果 <(当前点) > ([点横] 的项目数)> 那么
+        将 [基地血] 增加 (-1)
+        删除此克隆体</pre>
+<p><div class="sl-sub">加在敌人克隆体的走路循环里——走完最后一个地标，基地 −1、自己消失</div></p>
+<div class="see">✅ 漏网之鱼钻进基地，红心少一格</div>
+</li>
+<li><strong>死亡也回收</strong>
+<pre class="blocks">当接收到 [命中]
+    如果 <(敌血) < (1)> 那么
+        将 [金币] 增加 (5)
+        删除此克隆体</pre>
+<p><div class="sl-sub">升级第 3 课的"复活"脚本：击杀改成直接删除克隆体——尸体不清，路会堵</div></p>
+<div class="see">✅ 打死的敌人当场消失，不占路</div>
+</li>
+<li><strong>战利品：击杀掉宝</strong>
+<pre class="blocks">当接收到 [命中]
+    如果 <(敌血) < (1)> 那么
+        将 [掉什么] 设为 (在 (1) 和 (4) 之间取随机数)
+        如果 <(掉什么) = (1)> 那么
+            移到 x: (x 坐标) y: (y 坐标)
+            克隆 [宝物]</pre>
+<div class="sl-where">🧰 积木在：写在<b>宝物</b>角色（本体隐藏，两造型：金袋 / 红心）；25% 概率</div>
+<p><div class="sl-sub">击杀奖励从固定 +5 金升级为"可能掉宝"——打怪有了惊喜</div></p>
+<div class="see">✅ 敌人倒下可能弹出一个金袋或红心</div>
+</li>
+<li><strong>宝物分身：小跳落地 + 点击拾取</strong>
+<pre class="blocks">当作为克隆体启动时
+    将 [宝物类型] 设为 (在 (1) 和 (2) 之间取随机数)
+    如果 <(宝物类型) = (1)> 那么
+        换成 [火力宝物] 造型
+    显示
+    重复执行直到 <(计时器) > (4)>
+        等待 (0.05) 秒
+    删除此克隆体</pre>
+<p><div class="sl-sub">宝物本体加「当角色被点击」→ 广播 [拾取]：类型 1→金币+10，类型 2→基地血+1（上限 12）；<b>4 秒不捡就消失</b>（闪烁提醒）</div></p>
+<div class="see">✅ 点击金袋 +10 金；点击红心回一格基地血</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>⚔️ 一波 8 个、波间喘息</li><li>🏠 漏一个扣一心</li><li>💰 击杀回收干净</li>
+</ul>
+<p>有血、有钱、有波次——只差一个结局。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>波次手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">波间 8 秒改 4 秒</div><div class="lb-guess">猜猜看：还攒得起钱吗？</div><div class="lb-why">喘息=经济窗口</div></div>
+<div class="lab-card"><div class="lb-do">一波 8 改 12</div><div class="lb-guess">猜猜看：防线扛得住？</div><div class="lb-why">波容量=压力</div></div>
+<div class="lab-card"><div class="lb-do">敌血随波号 +1</div><div class="lb-guess">猜猜看：后期怪变肉</div><div class="lb-why">波号=难度旋钮</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>波次两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 敌人叠成一个</div>发车没间隔。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆后等待 2 秒再发下一个。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 敌人走完赖着不走</div>到终点没自删。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>走完最后一点立刻删克隆体。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">精英怪</div><div class="ad-what">每波最后一个血 ×3</div><div class="ad-how">克隆时按计数换体型<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">漏怪提示</div><div class="ad-what">基地被扣血时闪红</div><div class="ad-how">广播+基地造型切换<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">塔升级</div><div class="ad-what">点旧塔花 50 升级</div><div class="ad-how">广播+等级造型（大工程）<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="w5">第 5 次 · 荣耀或陷落</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 荣耀或陷落</span><span class="st-text">第 3 波打完就是黎明——前提是，基地还在。</span></div>
+<div class="hb-goal">只解决一件事：<em>胜负结算</em>——守住 3 波 = 胜利；基地血空 = 失败，再办一场作品发布会。</div>
+<div class="hb-chips"><span class="chip">⏱ 35 分钟</span><span class="chip">🎤 孩子主讲</span><span class="chip">✅ 完整通关</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><span class="sl-tag" style="left:16%; top:40%; background:#173a2b;">🏰 守住了 3 波！</span></div><div class="fx-cap">胜利</div></div><div class="fx-arrow">/</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><span class="sl-tag" style="left:16%; top:40%; background:#452c32;">💔 基地陷落…</span></div><div class="fx-cap">失败</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">基地血 / 波号</span><span class="td-note">— 第 4 课的变量</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">胜利判定</span><span class="td-note">— 撑过 3 波</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">失败判定</span><span class="td-note">— 血 <1</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">结局还是那两个"如果"：基地血 <1 → 失败；波号 >3 → 胜利。胜利判定挂在发车员发完第 3 波后：等 10 秒（清场时间）再查基地血。面板+发布会收尾——六关里的"系统课"收官。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>两种结局</strong>
+<pre class="blocks">    如果 <(基地血) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]
+    如果 <(波号) > (3)> 那么
+        等待 (10) 秒
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+<p><div class="sl-sub">挂在发车员循环末尾：每发完一波查一次；胜利前等 10 秒清场</div></p>
+<div class="see">✅ 基地血空立刻输；撑过第 3 波清场后赢</div>
+</li>
+<li><strong>结局面板</strong>
+<pre class="blocks">当接收到 [游戏结束]
+如果 <(基地血) < (1)> 那么
+    说 [基地陷落 · 按绿旗再战] (3) 秒
+否则
+    说 [守住了！城堡万岁] (3) 秒</pre>
+<div class="see">✅ 结局一句话，胜负分明</div>
+</li>
+<li><strong>发布会：三句话</strong>
+<p><div class="dg"><div class="dg-box">1️⃣ 我做了什么</div><div class="dg-box">2️⃣ 最难在哪</div><div class="dg-box">3️⃣ 想怎么改</div></div><div class="sl-sub">现场打一局给全家看：你的阵，你的经济，你的胜利</div></p>
+<div class="see">✅ 讲满三句，塔防收官</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🏰 守 3 波判胜</li><li>💔 基地血空判负</li><li>↩️ 绿旗全复原</li><li>🎤 发布会讲满三句</li>
+</ul>
+<p>塔防完成——最后一关：俄罗斯方块。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>终局平衡</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">3 波改 5 波</div><div class="lb-guess">猜猜看：经济够撑吗？</div><div class="lb-why">波数=游戏时长</div></div>
+<div class="lab-card"><div class="lb-do">基地血 10 改 5</div><div class="lb-guess">猜猜看：漏 5 个就输</div><div class="lb-why">容错=紧张度</div></div>
+<div class="lab-card"><div class="lb-do">胜利后无尽模式</div><div class="lb-guess">猜猜看：继续打看能撑几波</div><div class="lb-why">胜利之外的留客设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>终局两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 清场时间没等就判胜</div>场上还有怪。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>胜利判定前等待 10 秒。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 输了塔还能造</div>没停干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播后「停止 全部脚本」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">无尽模式</div><div class="ad-what">通关后继续无限波</div><div class="ad-how">胜负改成波号封顶记录<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">战报画面</div><div class="ad-what">结束时报击杀数/剩血</div><div class="ad-how">再开两个统计变量<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">Boss 波</div><div class="ad-what">每 3 波来一个巨型 Boss</div><div class="ad-how">波号整除时克隆大敌<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一座要你守住的城堡：路径敌人、金币造塔、子弹自动追踪、三波定胜负。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">🗺️ 列表·路径点</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">💰 变量·金币</span></li><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">➗ 运算·逼近</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">📣 广播</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>敌人不认方向键：路径点导航 + 逼近公式</li><li>经济循环：塔打怪、怪生钱、钱再造塔</li><li>追踪 = 拍下目标照片，再直线扑过去</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 5 关</div>
+        <div class="sl-cover-title">城堡塔防</div>
+        <div class="sl-cover-desc">五次课做出塔防：敌人沿路进攻、金币造炮塔、子弹自动追踪——第一次做"会自己打仗"的游戏。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><div style="position:absolute;inset:0;background:#2a2118;"></div><div style="position:absolute;left:8%;top:44%;width:84%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:14%; top:36%;"></i><i class="sp-abs" data-sp="敌人" style="left:34%; top:36%; opacity:.7;"></i><i class="sp-abs" data-sp="炮塔" style="left:40%; bottom:28%;"></i><i class="sp-abs" data-sp="炮塔" style="right:22%; bottom:44%; opacity:.8;"></i><i class="sp-abs" data-sp="金币" style="left:8%; top:8%;"></i><i class="sp-abs" data-sp="基地" style="right:6%; top:36%;"></i><span class="sl-tag" style="left:20%; top:12%;">金币 65</span><span class="sl-tag" style="right:20%; top:12%;">基地 ❤ 10</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>敌人沿路进攻基地，你花金币造炮塔自动开火——击杀掉宝（金袋/红心），守住 3 波就赢。</div>
+        <div class="log-card"><span class="lg-t">操作</span>点击造炮塔；点击掉落的宝物拾取</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>攒钱摆阵的算账乐趣；看炮塔自动守家的踏实</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——先摆一座塔感受下。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🗺️ 敌人 AI<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">路径点导航：不用方向键的移动</div></div>
+        <div class="lab-card"><div class="lb-do">💰 玩家决策<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">花金币造塔：策略在这课</div></div>
+        <div class="lab-card"><div class="lb-do">🔫 自动战斗<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">子弹生成→锁定→命中</div></div>
+        <div class="lab-card"><div class="lb-do">⚔️ 数值系统<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">血量、金币、波次的经济循环</div></div>
+        <div class="lab-card"><div class="lb-do">🏁 胜负结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">守住 3 波 / 基地陷落</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：前四关游戏都是"你操控一个角色"；塔防反过来——<b>你只负责花钱摆阵，打仗交给程序</b>。这课的重心从操作挪到数值与系统。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五个角色：敌人、炮塔、子弹、基地、金币——素材包全有。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="敌人"></i><span class="a-name">敌人</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="炮塔"></i><span class="a-name">炮塔</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="子弹"></i><span class="a-name">子弹</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="基地"></i><span class="a-name">基地</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="金币"></i><span class="a-name">金币</span><span class="a-tag ">计分用（可只做变量）</span></div><div class="asset-card"><i class="sp-md" data-sp="荒漠要道"></i><span class="a-name">背景</span><span class="a-tag ">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/塔防/</b> 里的 .sprite3；背景也在素材包里（背景-塔防.svg：「选择一个背景」→ 上传）<b>Desert / Castle</b>；音效 <b>laser</b>、<b>pop</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🗺️ 列表·路径点</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">💰 变量·金币</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">➗ 运算·逼近</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="t1" data-map="🗺️ 敌人上路">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 敌人上路</span><span class="st-text">敌人不认方向键——它们只认路：一串写死的坐标点。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>路径导航</em>——敌人沿 8 个路径点平滑走完全程。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 35 分钟</span><span class="sl-chip">✅ 敌人自己会走路</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="敌人"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🗺️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="荒漠要道"></i><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:12%; top:36%;"></i><span class="sl-tag" style="left:6%; top:8%;">出生点 ➜ 一路走到基地</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">路径点列表</span><span class="td-note">— 点横 / 点竖 各 8 项</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">逼近移动</span><span class="td-note">— 每帧走差值的 1/8</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">换点判断</span><span class="td-note">— 够近就下一个</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重复执行</span><span class="td-note">— 永动机</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">敌人不用方向键，靠"路径点列表"导航：把路当一串坐标点(点横/点竖)，敌人每帧朝"当前点"靠近八分之一——距离近了就换下一个点。除法逼近不用三角函数，效果却丝滑，这招以后做追踪、做镜头都好用。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">概念 · 路径点</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">路径 = 一串地标</div>
+          <div class="cp-analogy">类比：把路画成 8 个地标，敌人只干一件事：朝"下一个地标"走，走到了就换下一个。</div>
+          <ul class="cp-points">
+<li>点横、点竖 两条列表，第 n 项是第 n 个地标</li><li>逼近公式：差值 × 1/8，每帧走一点</li><li>离地标足够近（距离 < 5）就换下一个</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">📍点1</div><span class="dg-arr">➜</span><div class="dg-box">📍点2</div><span class="dg-arr">➜</span><div class="dg-box">📍点3</div><span class="dg-arr">…</span><div class="dg-box ok">🏠基地</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">手工填 8 个地标</div>
+          <div class="sl-path">建全局列表 <b>点横 / 点竖</b>，监视窗里点 ➕ 手动加 8 项——左下出生 (-220,-120) → (0,-120) → (0,100) → (220,100)，再自己绕两个弯，最后一项放在基地旁 (200,60)</div>
+          <div class="stepv-see">✅ 监视窗里两条 8 项的路线</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">敌人沿地标走</div>
+          <pre class="blocks">当绿旗被点击
+将 [当前点] 设为 (1)
+重复执行
+    将 [dx] 设为 ((([点横] 的第 (当前点) 项) - (x 坐标)) / (8))
+    将 [dy] 设为 ((([点竖] 的第 (当前点) 项) - (y 坐标)) / (8))
+    将x坐标增加 (dx)
+    将y坐标增加 (dy)
+    如果 <(([平方] (dx)) + ([平方] (dy))) < (4)> 那么
+        将 [当前点] 增加 (1)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FF8C1A;">变量</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#59C059;">运算</span>（「平方」和「向下取整」一样，套在方括号里）</div>
+          <div class="sl-sub">dx、dy 选"仅适用于当前角色"——每帧走差值的 1/8，越近走越慢，天然的减速进站</div>
+          <div class="stepv-see">✅ 敌人从出生点一路溜达到基地，全程不用你管</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">实时报告自己的位置</div>
+          <pre class="blocks">    将 [敌x] 设为 (x 坐标)
+    将 [敌y] 设为 (y 坐标)</pre>
+          <div class="sl-sub">加在循环末尾（全局变量 敌x/敌y）——下一课的子弹就瞄着它</div>
+          <div class="stepv-see">✅ 监视窗里敌x、敌y 实时跳动</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🗺️ 全程贴路走不穿帮</li><li>🐢 快到点自然减速</li><li>🏠 走到最后一点停住</li>
+      </ul>
+<div class="sl-sub">敌人会走路了——你还没法还手，下一课造炮塔。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">路径的手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">除数 8 改 4</div><div class="lb-guess">猜猜看：走得更快更冲？</div><div class="lb-why">除数=油门</div></div>
+          <div class="lab-card"><div class="lb-do">换点距离 4 改 9</div><div class="lb-guess">猜猜看：切弯更利落还是切早？</div><div class="lb-why">判定半径</div></div>
+          <div class="lab-card"><div class="lb-do">地标加到 12 个</div><div class="lb-guess">猜猜看：路更绕了</div><div class="lb-why">路径=关卡设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">走路两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 原地抖动不走</div>当前点没加到、或地标填错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>到了就"当前点 +1"，地标成对填。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 抄近路切直线</div>点太少、拐角太急。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>拐角处多加一个地标。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">敌人排队出生</div><div class="ad-what">一个接一个上路</div><div class="ad-how">本体定时克隆（第 4 课正式做）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">路径可视化</div><div class="ad-what">虚线画出路线</div><div class="ad-how">画一个路径装饰角色<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">蛇形走位</div><div class="ad-what">敌人左右摇摆</div><div class="ad-how">循环里 y 加正弦（进阶）<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 花钱造塔</div>
+      <div class="sl-next-why">敌人来了——掏金币，造炮塔。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="t2" data-map="💰 花钱造塔">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 花钱造塔</span><span class="st-text">金币是战爭的燃料——点一下，30 金币换一座炮塔。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>点击造塔</em>——金币 ≥30 才能造，塔位记录在案，防连点。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 金币要花在刀刃上</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="炮塔"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="金币"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="荒漠要道"></i><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="炮塔" style="left:38%; bottom:24%;"></i><i class="sp-abs" data-sp="炮塔" style="right:20%; bottom:40%; opacity:.8;"></i><i class="sp-abs" data-sp="金币" style="left:8%; top:8%;"></i><span class="sl-tag" style="left:22%; top:12%;">金币 65 → 造一座 −30</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">金币变量</span><span class="td-note">— 经济系统开机</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">点击检测</span><span class="td-note">— 按下鼠标 + 坐标</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">塔位列表</span><span class="td-note">— 塔横/塔竖 存档</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 塔也是分身</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">造塔的本质是"花金币买一个克隆体"：点击时先查钱够不够，够就扣钱、把点击坐标记进 塔横/塔竖 列表（下一课子弹从这读）、在原地克隆一座炮塔。等待松手防止一次点击连造一排。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">开局发军饷</div>
+          <pre class="blocks">当绿旗被点击
+将 [金币] 设为 (80)</pre>
+          <div class="stepv-see">✅ 开局 80 金币，够造两座</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">点击 = 造塔</div>
+          <pre class="blocks">当绿旗被点击
+重复执行
+    如果 <<按下鼠标?> 与 <(金币) > (29)>> 那么
+        将 [金币] 增加 (-30)
+        将 (鼠标的x坐标) 加入 [塔横]
+        将 (鼠标的y坐标) 加入 [塔竖]
+        移到 x: (鼠标的x坐标) y: (鼠标的y坐标)
+        克隆 [自己]
+        播放声音 [pop]
+    等待 <<按下鼠标?> 不成立></pre>
+          <div class="sl-where">🧰 积木在：写在<b>炮塔</b>角色上；「等待不成立」防连点，一下只造一座</div>
+          <div class="stepv-see">✅ 点哪塔立哪，金币哗哗扣</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身亮出来站岗</div>
+          <pre class="blocks">当作为克隆体启动时
+显示</pre>
+          <div class="stepv-see">✅ 塔立在点击处，一动不动站岗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>💰 钱不够点不动</li><li>🗼 点哪造哪不叠塔</li><li>↩️ 绿旗：金币回 80、清塔</li>
+      </ul>
+<div class="sl-sub">有塔没钱开火——下一课上子弹。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">经济手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">塔价 30 改 60</div><div class="lb-guess">猜猜看：攒钱压力变多大？</div><div class="lb-why">价格=节奏阀门</div></div>
+          <div class="lab-card"><div class="lb-do">开局 80 改 40</div><div class="lb-guess">猜猜看：开局只能造一座！</div><div class="lb-why">启动资金=开局策略</div></div>
+          <div class="lab-card"><div class="lb-do">显示金币面板</div><div class="lb-guess">猜猜看：时刻看得见余额</div><div class="lb-why">变量显示在角落</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">造塔两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一次点出一排塔</div>没等松手。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>结尾加「等待 不按下鼠标」。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 钱扣了塔没出</div>克隆写在别处/本体没隐藏。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>本体绿旗「隐藏」，克隆体「显示」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">塔位网格化</div><div class="ad-what">只能造在格点上</div><div class="ad-how">坐标取整落格（俄罗斯方块同款）<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+          <div class="addon-card"><div class="ad-t">拆塔退钱</div><div class="ad-what">右键拆塔回 15 金</div><div class="ad-how">广播+列表删除（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">塔价随数量涨</div><div class="ad-what">越买越贵</div><div class="ad-how">价格 = 30 + 已造数量 × 5<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 自动开火</div>
+      <div class="sl-next-why">塔立好了——教它自己瞄准、自己开火。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="t3" data-map="🔫 自动开火">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 自动开火</span><span class="st-text">指挥官只管造塔，仗让子弹自己打。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>自动战斗</em>——子弹定时从塔出发、锁定敌人、命中掉血。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">✅ 挂机也能守住</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="炮塔"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="子弹"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="敌人"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="荒漠要道"></i><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:40%; top:34%;"></i><i class="sp-abs" data-sp="炮塔" style="left:20%; bottom:20%;"></i></div><div class="fx-cap">敌人进入射程</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="荒漠要道"></i><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:40%; top:34%; opacity:.4;"></i><i class="sp-abs" data-sp="炮塔" style="left:20%; bottom:20%;"></i><span class="sl-tag" style="left:30%; top:20%;">💥 命中</span></div><div class="fx-cap">子弹锁定→命中→敌人掉血</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">定时开火</span><span class="td-note">— 每 0.8 秒一发</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">锁定目标</span><span class="td-note">— 记下敌人当时坐标</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">命中掉血</span><span class="td-note">— 敌人血量变量</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">逼近移动</span><span class="td-note">— 第 1 课的 1/6 走法</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">自动战斗分两段：子弹每 0.8 秒从随机一座塔出发（塔多火力密）；"瞄准"教学版锁场上唯一敌人——敌人每帧广播自己的坐标（第 1 课已埋好），子弹出生时记下目标点，然后每帧走差值的 1/6 直扑过去；命中用"碰到敌人"互认，敌掉血、弹自删。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">敌人先有血</div>
+          <pre class="blocks">当绿旗被点击
+将 [敌血] 设为 (3)</pre>
+          <div class="stepv-see">✅ 敌人血量 3（监视窗可见）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹从随机塔出发</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    等待 (0.8) 秒
+    如果 <([塔横] 的项目数) > (0)> 那么
+        将 [选塔] 设为 (在 (1) 和 ([塔横] 的项目数) 之间取随机数)
+        移到 x: ([塔横] 的第 (选塔) 项) y: ([塔竖] 的第 (选塔) 项)
+        克隆 [自己]</pre>
+          <div class="sl-where">🧰 积木在：写在<b>子弹</b>角色上——塔越多，火力越密</div>
+          <div class="stepv-see">✅ 每隔 0.8 秒，从某座塔冒出一颗子弹</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">锁定 + 直扑目标</div>
+          <pre class="blocks">当作为克隆体启动时
+显示
+将 [目标x] 设为 (敌x)
+将 [目标y] 设为 (敌y)
+重复执行直到 <<碰到 [敌人]?> 或 <(y 坐标) < (-170)>>
+    将x坐标增加 (((目标x) - (x 坐标)) / (6))
+    将y坐标增加 (((目标y) - (y 坐标)) / (6))
+如果 <碰到 [敌人]?> 那么
+    广播 [命中]
+删除此克隆体</pre>
+          <div class="sl-sub">出生瞬间拍下目标的"照片"（目标x/y）——之后直线扑过去，简单可靠</div>
+          <div class="stepv-see">✅ 子弹斜着飞向敌人，撞上消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">敌人挨打</div>
+          <pre class="blocks">当接收到 [命中]
+将 [敌血] 增加 (-1)
+播放声音 [pop]
+如果 <(敌血) < (1)> 那么
+    将 [金币] 增加 (5)
+    隐藏
+    等待 (1) 秒
+    将 [敌血] 设为 (3)
+    显示</pre>
+          <div class="sl-sub">教学版敌人打倒 1 秒后原地复活（波次下一课做）；击杀奖励 5 金币——经济循环转起来了</div>
+          <div class="stepv-see">✅ 打三发倒一次，金币 +5，敌人复活重来</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🔫 全自动：造好塔就能挂机</li><li>💥 三发击倒、奖励 5 金币</li><li>💰 打怪挣钱 → 挣钱造塔</li>
+      </ul>
+<div class="sl-sub">核心循环转起来了：塔打怪、怪生钱、钱造塔。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">火力手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">0.8 秒改 0.3 秒</div><div class="lb-guess">猜猜看：弹幕如雨？</div><div class="lb-why">射速=输出</div></div>
+          <div class="lab-card"><div class="lb-do">敌血 3 改 6</div><div class="lb-guess">猜猜看：塔贵了还是怪硬了？</div><div class="lb-why">血量=压力</div></div>
+          <div class="lab-card"><div class="lb-do">子弹速度 /6 改 /3</div><div class="lb-guess">猜猜看：快弹 vs 慢弹</div><div class="lb-why">弹速=命中率</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">开火三病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹原地不动</div>目标没记、或除数为 0。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出生先记目标x/y，再走差值。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹全从一座塔出</div>选塔没随机。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>在 1 和塔数之间取随机数。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 敌人无敌不掉血</div>命中广播没接上。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>敌人要写「当接收到 命中」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">射程限制</div><div class="ad-what">太远的敌人不打</div><div class="ad-how">出生时算距离，超远就删子弹<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+          <div class="addon-card"><div class="ad-t">炮塔转向</div><div class="ad-what">塔口始终对着敌人</div><div class="ad-how">「面向 敌人」（教学版直接用）<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">连发三连</div><div class="ad-what">一次出三颗</div><div class="ad-how">克隆三次稍偏角度<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 一波又一波</div>
+      <div class="sl-next-why">战斗自动化了——让敌人成波涌来。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="t4" data-map="⚔️ 一波又一波">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 一波又一波</span><span class="st-text">单挑结束，战争开始了——敌人成波涌来，基地只有 10 颗心。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>波次系统</em>——8 个一波、波间喘息、到基地扣血。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">✅ 撑过一波是一波</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="敌人"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">❤️</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⚔️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="荒漠要道"></i><div style="position:absolute;left:6%;top:44%;width:88%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:10%; top:36%;"></i><i class="sp-abs" data-sp="敌人" style="left:30%; top:36%; opacity:.8;"></i><i class="sp-abs" data-sp="敌人" style="left:50%; top:36%; opacity:.6;"></i><i class="sp-abs" data-sp="基地" style="right:6%; top:36%;"></i><span class="sl-tag" style="left:6%; top:8%;">第 1 波 × 8</span><span class="sl-tag" style="right:20%; top:8%;">基地 ❤ 10</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">发车员</span><span class="td-note">— 本体克隆 8 连发</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">波号变量</span><span class="td-note">— 波次计数 + 难度</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">基地血</span><span class="td-note">— 终点有了代价</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆体自删</span><span class="td-note">— 死/到站都回收</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">波次=让敌人本体当"发车员"：每 2 秒克隆一个（共 8 个一波），克隆体走完路或被打死都自删，波号 +1 后下一波更快。敌人走到最后一个地标时扣基地血——把"终点"变成真正的威胁。血量/速度随波号微涨，难度就有了骨架。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 1/6</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">基地先有血</div>
+          <pre class="blocks">当绿旗被点击
+将 [基地血] 设为 (10)
+将 [波号] 设为 (1)</pre>
+          <div class="stepv-see">✅ 基地 ❤×10、波号 1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 2/6</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">发车员：一波 8 个</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    重复执行 (8) 次
+        移到 x: (-220) y: (-120)
+        克隆 [自己]
+        等待 (2) 秒
+    等待 (8) 秒
+    将 [波号] 增加 (1)</pre>
+          <div class="sl-where">🧰 积木在：写在<b>敌人本体</b>上（本体从此不下场，只发车）</div>
+          <div class="sl-sub">波间 8 秒喘息——给玩家攒钱补塔的窗口</div>
+          <div class="stepv-see">✅ 敌人一个接一个上场，一波结束歇 8 秒</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 3/6</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">到基地 = 扣血</div>
+          <pre class="blocks">    如果 <(当前点) > ([点横] 的项目数)> 那么
+        将 [基地血] 增加 (-1)
+        删除此克隆体</pre>
+          <div class="sl-sub">加在敌人克隆体的走路循环里——走完最后一个地标，基地 −1、自己消失</div>
+          <div class="stepv-see">✅ 漏网之鱼钻进基地，红心少一格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 4/6</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">死亡也回收</div>
+          <pre class="blocks">当接收到 [命中]
+    如果 <(敌血) < (1)> 那么
+        将 [金币] 增加 (5)
+        删除此克隆体</pre>
+          <div class="sl-sub">升级第 3 课的"复活"脚本：击杀改成直接删除克隆体——尸体不清，路会堵</div>
+          <div class="stepv-see">✅ 打死的敌人当场消失，不占路</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 5/6</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">5</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">战利品：击杀掉宝</div>
+          <pre class="blocks">当接收到 [命中]
+    如果 <(敌血) < (1)> 那么
+        将 [掉什么] 设为 (在 (1) 和 (4) 之间取随机数)
+        如果 <(掉什么) = (1)> 那么
+            移到 x: (x 坐标) y: (y 坐标)
+            克隆 [宝物]</pre>
+          <div class="sl-where">🧰 积木在：写在<b>宝物</b>角色（本体隐藏，两造型：金袋 / 红心）；25% 概率</div>
+          <div class="sl-sub">击杀奖励从固定 +5 金升级为"可能掉宝"——打怪有了惊喜</div>
+          <div class="stepv-see">✅ 敌人倒下可能弹出一个金袋或红心</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 6/6</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">6</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">宝物分身：小跳落地 + 点击拾取</div>
+          <pre class="blocks">当作为克隆体启动时
+    将 [宝物类型] 设为 (在 (1) 和 (2) 之间取随机数)
+    如果 <(宝物类型) = (1)> 那么
+        换成 [火力宝物] 造型
+    显示
+    重复执行直到 <(计时器) > (4)>
+        等待 (0.05) 秒
+    删除此克隆体</pre>
+          <div class="sl-sub">宝物本体加「当角色被点击」→ 广播 [拾取]：类型 1→金币+10，类型 2→基地血+1（上限 12）；<b>4 秒不捡就消失</b>（闪烁提醒）</div>
+          <div class="stepv-see">✅ 点击金袋 +10 金；点击红心回一格基地血</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>⚔️ 一波 8 个、波间喘息</li><li>🏠 漏一个扣一心</li><li>💰 击杀回收干净</li>
+      </ul>
+<div class="sl-sub">有血、有钱、有波次——只差一个结局。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">波次手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">波间 8 秒改 4 秒</div><div class="lb-guess">猜猜看：还攒得起钱吗？</div><div class="lb-why">喘息=经济窗口</div></div>
+          <div class="lab-card"><div class="lb-do">一波 8 改 12</div><div class="lb-guess">猜猜看：防线扛得住？</div><div class="lb-why">波容量=压力</div></div>
+          <div class="lab-card"><div class="lb-do">敌血随波号 +1</div><div class="lb-guess">猜猜看：后期怪变肉</div><div class="lb-why">波号=难度旋钮</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">波次两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 敌人叠成一个</div>发车没间隔。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆后等待 2 秒再发下一个。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 敌人走完赖着不走</div>到终点没自删。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>走完最后一点立刻删克隆体。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">精英怪</div><div class="ad-what">每波最后一个血 ×3</div><div class="ad-how">克隆时按计数换体型<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">漏怪提示</div><div class="ad-what">基地被扣血时闪红</div><div class="ad-how">广播+基地造型切换<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">塔升级</div><div class="ad-what">点旧塔花 50 升级</div><div class="ad-how">广播+等级造型（大工程）<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 荣耀或陷落</div>
+      <div class="sl-next-why">最后一课：给它一个结局。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="t5" data-map="🏰 荣耀或陷落">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 荣耀或陷落</span><span class="st-text">第 3 波打完就是黎明——前提是，基地还在。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>胜负结算</em>——守住 3 波 = 胜利；基地血空 = 失败，再办一场作品发布会。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 35 分钟</span><span class="sl-chip">🎤 孩子主讲</span><span class="sl-chip">✅ 完整通关</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="基地"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🏁</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="荒漠要道"></i><span class="sl-tag" style="left:16%; top:40%; background:#173a2b;">🏰 守住了 3 波！</span></div><div class="fx-cap">胜利</div></div><div class="fx-arrow">/</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="荒漠要道"></i><span class="sl-tag" style="left:16%; top:40%; background:#452c32;">💔 基地陷落…</span></div><div class="fx-cap">失败</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">基地血 / 波号</span><span class="td-note">— 第 4 课的变量</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">胜利判定</span><span class="td-note">— 撑过 3 波</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">失败判定</span><span class="td-note">— 血 <1</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">结局还是那两个"如果"：基地血 <1 → 失败；波号 >3 → 胜利。胜利判定挂在发车员发完第 3 波后：等 10 秒（清场时间）再查基地血。面板+发布会收尾——六关里的"系统课"收官。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">两种结局</div>
+          <pre class="blocks">    如果 <(基地血) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]
+    如果 <(波号) > (3)> 那么
+        等待 (10) 秒
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+          <div class="sl-sub">挂在发车员循环末尾：每发完一波查一次；胜利前等 10 秒清场</div>
+          <div class="stepv-see">✅ 基地血空立刻输；撑过第 3 波清场后赢</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">结局面板</div>
+          <pre class="blocks">当接收到 [游戏结束]
+如果 <(基地血) < (1)> 那么
+    说 [基地陷落 · 按绿旗再战] (3) 秒
+否则
+    说 [守住了！城堡万岁] (3) 秒</pre>
+          <div class="stepv-see">✅ 结局一句话，胜负分明</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">发布会：三句话</div>
+          <div class="dg"><div class="dg-box">1️⃣ 我做了什么</div><div class="dg-box">2️⃣ 最难在哪</div><div class="dg-box">3️⃣ 想怎么改</div></div><div class="sl-sub">现场打一局给全家看：你的阵，你的经济，你的胜利</div>
+          <div class="stepv-see">✅ 讲满三句，塔防收官</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🏰 守 3 波判胜</li><li>💔 基地血空判负</li><li>↩️ 绿旗全复原</li><li>🎤 发布会讲满三句</li>
+      </ul>
+<div class="sl-sub">塔防完成——最后一关：俄罗斯方块。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">终局平衡</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">3 波改 5 波</div><div class="lb-guess">猜猜看：经济够撑吗？</div><div class="lb-why">波数=游戏时长</div></div>
+          <div class="lab-card"><div class="lb-do">基地血 10 改 5</div><div class="lb-guess">猜猜看：漏 5 个就输</div><div class="lb-why">容错=紧张度</div></div>
+          <div class="lab-card"><div class="lb-do">胜利后无尽模式</div><div class="lb-guess">猜猜看：继续打看能撑几波</div><div class="lb-why">胜利之外的留客设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">终局两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 清场时间没等就判胜</div>场上还有怪。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>胜利判定前等待 10 秒。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 输了塔还能造</div>没停干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播后「停止 全部脚本」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">无尽模式</div><div class="ad-what">通关后继续无限波</div><div class="ad-how">胜负改成波号封顶记录<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">战报画面</div><div class="ad-what">结束时报击杀数/剩血</div><div class="ad-how">再开两个统计变量<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">Boss 波</div><div class="ad-what">每 3 波来一个巨型 Boss</div><div class="ad-how">波号整除时克隆大敌<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><div style="position:absolute;inset:0;background:#2a2118;"></div><div style="position:absolute;left:8%;top:44%;width:84%;height:10%;background:#5d4a33;border-radius:8px;"></div><i class="sp-abs" data-sp="敌人" style="left:14%; top:36%;"></i><i class="sp-abs" data-sp="敌人" style="left:34%; top:36%; opacity:.7;"></i><i class="sp-abs" data-sp="炮塔" style="left:40%; bottom:28%;"></i><i class="sp-abs" data-sp="炮塔" style="right:22%; bottom:44%; opacity:.8;"></i><i class="sp-abs" data-sp="金币" style="left:8%; top:8%;"></i><i class="sp-abs" data-sp="基地" style="right:6%; top:36%;"></i><span class="sl-tag" style="left:20%; top:12%;">金币 65</span><span class="sl-tag" style="right:20%; top:12%;">基地 ❤ 10</span></div>
+            <div class="cp-analogy" style="flex:1;">一座要你守住的城堡：路径敌人、金币造塔、子弹自动追踪、三波定胜负。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>🗺️ 列表·路径点 <span class="td-note">— 第 1 课</span></li><li>💰 变量·金币 <span class="td-note">— 第 2 课</span></li><li>➗ 运算·逼近 <span class="td-note">— 第 1 课</span></li><li>📣 广播 <span class="td-note">— 第 3 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">敌人不认方向键：路径点导航 + 逼近公式</li><li class="">经济循环：塔打怪、怪生钱、钱再造塔</li><li class="">追踪 = 拍下目标照片，再直线扑过去</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">塔防收官</div>
+      <div class="sl-next-label">最后一关</div>
+      <div class="sl-next-title">第 6 关 · 俄罗斯方块</div>
+      <div class="sl-next-why">五关连过——最后一关，也是最烧脑的一关。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-snake.html"><div class="dir">← 上一篇</div><div class="pager-title">④ 贪吃蛇</div></a>
+<a class="next" href="handbook-tetra.html"><div class="dir">下一篇 →</div><div class="pager-title">⑥ 俄罗斯方块</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

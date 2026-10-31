@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>贪吃蛇 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-snake">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 贪吃蛇</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html" class="active">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ④ · 进阶 · 完整手册</div>
+    <h1>贪吃蛇</h1>
+    <p class="lead">五次课做出一个完整的街机游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-snake.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">卡住才看参考做法</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-snake.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/贪吃蛇/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-snake.html">▶ 贪吃蛇 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>方向键控制蛇前进，吃食物变长——撞墙或咬到自己就出局。</div><div class="log-card"><span class="lg-t">操作</span>↑ ↓ ← → 四个方向键（不能 180 度掉头）</div><div class="log-card"><span class="lg-t">玩点在哪</span>身体越长越难掉头；为一个食物冒险的取舍</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——看看能长到多少节。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🔲 物理规则<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">格子世界：一步一格，不贪快</div></div><div class="lab-card"><div class="lb-do">🧭 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">方向键改方向，禁止直接掉头</div></div><div class="lab-card"><div class="lb-do">🗄️ 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">食物随机 + 身体存进列表</div></div><div class="lab-card"><div class="lb-do">🎯 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">撞墙、咬自己：两种出局</div></div><div class="lab-card"><div class="lb-do">⚡ 计分难度<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">越吃越快 + 最高分</div></div></div><div class="cp-analogy">总思路：贪吃蛇的世界不是连续的，是<b>一格一格</b>的——先接受"格子世界"这个设定，移动、碰撞、变长全都变简单了。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>三个角色：蛇头、蛇身、食物——素材包全有。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/贪吃蛇/蛇头.svg" alt="蛇头" loading="lazy"><span class="a-name">蛇头</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/贪吃蛇/蛇身.svg" alt="蛇身" loading="lazy"><span class="a-name">蛇身</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/贪吃蛇/食物.svg" alt="食物" loading="lazy"><span class="a-name">食物</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">⬆️</span><span class="a-name">方向键</span><span class="a-tag own">自带</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/贪吃蛇/</b> 里的 .sprite3；背景用自带库搜 <b>Dot Grid / Stars</b>（有点阵更利于对格）；音效 <b>chomp</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🔲 坐标·格子</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🧭 变量·方向</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🗄️ 列表</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="a1">第 1 次 · 格子世界</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 格子世界</span><span class="st-text">这条蛇住在一格一格的世界里——每"嗒"一声，走一格。</span></div>
+<div class="hb-goal">只解决一件事：<em>格子移动</em>——蛇头每 0.25 秒向右走一格（20 像素），出右边从左边回来。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 匀速一格一格走</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><div style="position:absolute;left:8%;top:46%;width:6%;height:8%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:15%;top:46%;width:6%;height:8%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:22%;top:46%;width:6%;height:8%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:29%;top:46%;width:6%;height:8%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><span class="sl-tag" style="left:6%; top:8%;">嗒——嗒——嗒（每 0.25 秒一格）</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">格子尺寸</span><span class="td-note">— 一格 = 20 像素</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">节拍</span><span class="td-note">— 等待 0.25 秒</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">穿墙回绕</span><span class="td-note">— 出右进左</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重复执行</span><span class="td-note">— 每帧？不——每拍</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">像素世界太自由，蛇会斜着走。所以先立规矩：一格 20 像素，每 0.25 秒走一格——"将x坐标增加 (20)"就是一步，等待管节拍。这一课先只向右走，撞右边就wrap 回左边（穿墙模式），把"格子"的手感找到。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 格子世界</span></p>
+<p><strong>一格 = 20 像素的地砖</strong></p><div class="cp-analogy">类比：整块舞台铺满地砖，蛇只能踩在地砖正中间走——像素世界瞬间变得规矩。</div><ul class="cp-points">
+<li>x 加 20 = 向右一格；y 加 20 = 向上一格</li><li>格子中心坐标都是 20 的倍数加偏移</li><li>俄罗斯方块用同一套格子——这里学会了那边直接用</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">⬜⬜⬜⬜⬜</div><div class="dg-box">⬜🐍⬜⬜⬜</div><div class="dg-box">⬜⬜⬜⬜⬜</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>蛇头就位，向右走格</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (-100) y: (0)
+重复执行
+    将x坐标增加 (20)
+    等待 (0.25) 秒</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#FFAB19;">控制</span></div>
+<div class="see">✅ 蛇头一格一格向右挪，像上了发条</div>
+</li>
+<li><strong>出右边，从左边回来</strong>
+<pre class="blocks">    如果 <(x 坐标) > (220)> 那么
+        将x坐标设为 (-220)</pre>
+<p><div class="sl-sub">本课先"穿墙"，第 4 课再改成撞墙出局</div></p>
+<div class="see">✅ 走出右边界，从左边重新进场</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🔲 匀速一格一格走</li><li>↔️ 出右回左不断头</li><li>⏱ 拍子稳定不忽快忽慢</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>节拍与格宽</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">0.25 改 0.12</div><div class="lb-guess">猜猜看：蛇疯了吗？</div><div class="lb-why">拍速=游戏速度</div></div>
+<div class="lab-card"><div class="lb-do">格 20 改 40</div><div class="lb-guess">猜猜看：世界变粗糙了</div><div class="lb-why">格宽=精度</div></div>
+<div class="lab-card"><div class="lb-do">改成 y 加 20</div><div class="lb-guess">猜猜看：变成向上爬</div><div class="lb-why">轴=方向</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>格子两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 滑着走不是一格一格</div>没用等待，或步长不是 20。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>移动 20 + 等待 0.25 成对出现。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 走出屏幕回不来</div>没有回绕判断。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出界就设到对面坐标。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">倒计时开局</div><div class="ad-what">3、2、1 再动</div><div class="ad-how">循环前「说 3…2…1」<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">移动音效</div><div class="ad-what">嗒、嗒、嗒</div><div class="ad-how">每步播放 pop，音量调低<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">穿墙四方向版</div><div class="ad-what">四边都穿</div><div class="ad-how">四个边都加回绕<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="a2">第 2 次 · 掉头的艺术</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 掉头的艺术</span><span class="st-text">方向盘装上了——但现实规则：蛇不能瞬间 180 度掉头咬自己。</span></div>
+<div class="hb-goal">只解决一件事：<em>方向键转向</em>——方向数 1上 2右 3下 4左，禁止直接反向。</div>
+<div class="hb-chips"><span class="chip">⏱ 35 分钟</span><span class="chip">✅ 四键转向、不掉头</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:460px;"><img class="sp-fill" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><div style="position:absolute;left:16%;top:56%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:22%;top:56%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:28%;top:56%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:34%;top:42%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><span class="sl-tag" style="left:6%; top:8%;">↑：改上 · ↓：改下</span><span class="sl-tag" style="right:5%; top:8%;">正朝右时按 ← 无效</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">方向数</span><span class="td-note">— 一个变量当方向盘</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">禁止反向</span><span class="td-note">— 「不成立」挡掉 180°</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子移动</span><span class="td-note">— 四段"如果"分头行动</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">四个方向不能写四段移动脚本（会打架）——用一个"方向数"当方向盘：按键只改数字，移动只看数字。1上2右3下4左，按"不能 180 掉头"的规则，按键时先检查当前方向不是相反方向。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 方向数</span></p>
+<p><strong>方向数 = 方向盘</strong></p><div class="cp-analogy">类比：把"往哪走"变成一个数字：1 上、2 右、3 下、4 左。按键只改数字，移动只看数字——两边不打架。</div><ul class="cp-points">
+<li>为什么不放四段移动脚本：会同时触发</li><li>反向检查：朝右(2)时按左(4)无效</li><li>"不成立"积木=不是这种情况</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">1 ⬆️</div><div class="dg-box">2 ➡️</div><div class="dg-box">3 ⬇️</div><div class="dg-box">4 ⬅️</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>按键只改方向盘</strong>
+<pre class="blocks">当按下 [上箭头] 键
+如果 <<(方向数) = (3)> 不成立> 那么
+    将 [方向数] 设为 (1)
+当按下 [右箭头] 键
+如果 <<(方向数) = (4)> 不成立> 那么
+    将 [方向数] 设为 (2)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#FF8C1A;">变量</span><span class="cat" style="background:#59C059;">运算</span></div>
+<p><div class="sl-sub">下、左照样子补全（下 ≠ 1，左 ≠ 2）——四段事件帽并排放</div></p>
+<div class="see">✅ 按方向键蛇头转向；朝右时按左没反应</div>
+</li>
+<li><strong>移动只看方向盘</strong>
+<pre class="blocks">    如果 <(方向数) = (1)> 那么
+        将y坐标增加 (20)
+    如果 <(方向数) = (2)> 那么
+        将x坐标增加 (20)
+    如果 <(方向数) = (3)> 那么
+        将y坐标增加 (-20)
+    如果 <(方向数) = (4)> 那么
+        将x坐标增加 (-20)
+    等待 (0.25) 秒</pre>
+<p><div class="sl-sub">替换第 1 课的"向右走"那两行；回绕判断保留并补齐四边（进阶挑战）</div></p>
+<div class="see">✅ 四个方向自由走，一格一格不乱</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🧭 四键都能转</li><li>🚫 永不 180 掉头</li><li>🔲 依旧一格一格</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>手感实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">拍速 0.25 改 0.15</div><div class="lb-guess">猜猜看：转得过来吗？</div><div class="lb-why">速度=操作压力</div></div>
+<div class="lab-card"><div class="lb-do">允许掉头试试</div><div class="lb-guess">猜猜看：立刻咬到自己？</div><div class="lb-why">规则为什么存在</div></div>
+<div class="lab-card"><div class="lb-do">对角键组合</div><div class="lb-guess">猜猜看：能斜走吗？</div><div class="lb-why">格子世界没有斜线</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>转向两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按了没反应</div>反向检查写死了当前方向。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>检查条件是"相反方向不成立"才允许。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 斜着飞</div>移动没有互斥。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>一格只执行一个方向（如果链天然互斥）。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">WASD 版</div><div class="ad-what">电脑玩家习惯</div><div class="ad-how">再补四段 w/a/s/d 事件<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+<div class="addon-card"><div class="ad-t">转向音效</div><div class="ad-what">咔哒一声</div><div class="ad-how">改方向成功才播放<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">边界墙可视化</div><div class="ad-what">画一圈边框</div><div class="ad-how">画一个边框角色贴边<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="a3">第 3 次 · 越吃越长</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 越吃越长</span><span class="st-text">蛇的每节身体都带着一本日记——蛇头走到哪，日记记到哪。</span></div>
+<div class="hb-goal">只解决一件事：<em>列表当身体</em>——吃食物身长 +1，克隆的蛇身按"日记"排成长队。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">⚠️ 本课新概念最多</span><span class="chip">✅ 吃一口长一节，长队跟上</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><div style="position:absolute;left:10%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:16%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:22%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:28%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:34%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:40%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:46%;top:50%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><i class="sp-abs" data-sp="食物" style="right:16%; top:28%;"></i><span class="sl-tag" style="left:6%; top:8%;">吃到 🍎 → 身长 +1</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">列表=日记</span><span class="td-note">— 头走一步记一行</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">克隆身体</span><span class="td-note">— 30 节候命，各有节号</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">食物随机</span><span class="td-note">— 随机格子 + 换位</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子公式</span><span class="td-note">— 坐标↔格号互换</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">"变长"最难的是：身体每一节都要记住蛇头走过的路。办法：两条列表当日记本，蛇头每走一步，就把当前位置(x、y)写在日记最前面；日记只保留"身长"条。蛇身克隆体每人领一个节号，每拍去读日记里自己的那页，搬过去——身体就自己跟上了。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 列表当日记</span></p>
+<p><strong>列表 = 蛇的日记本</strong></p><div class="cp-analogy">类比：蛇头每走一步，把 (x, y) 写进日记最上面一行；身体每人认领一行，每拍搬过去——蛇就"活"了。</div><ul class="cp-points">
+<li>两条列表：身体横 记横、身体竖 记竖</li><li>日记超长就撕掉最后一行（删除末项）</li><li>身体克隆体的节号用"仅适用于当前角色"变量</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:12px;"><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box">日记第1行</div><div class="dg-box">第2行</div><div class="dg-box">第3行</div></div><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box ok">🟩🟩🟩 身体各认一行</div></div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>建两条日记 + 身长</strong>
+<div class="sl-path">全局列表 <b>身体横 / 身体竖</b>，全局变量 <b>身长</b>=3、<b>分数</b>=0；舞台绿旗：分数归零、身长设 3、两条列表「删除全部项目」</div>
+<div class="see">✅ 开局：空日记、身长 3</div>
+</li>
+<li><strong>蛇头每步写日记</strong>
+<pre class="blocks">    在 [身体横] 的第 (1) 项前插入 (x 坐标)
+    在 [身体竖] 的第 (1) 项前插入 (y 坐标)
+    如果 <([身体横] 的项目数) > (身长)> 那么
+        删除 [身体横] 的第 ([身体横] 的项目数) 项
+        删除 [身体竖] 的第 ([身体竖] 的项目数) 项
+    等待 (0.25) 秒</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FF8C1A;">变量</span>（"在第 n 项前插入"也在变量类别）</div>
+<p><div class="sl-sub">加在主循环"移动之后、等待之前"——先走、再记、再等</div></p>
+<div class="see">✅ 监视窗里日记一行行往下长，超过身长就裁掉</div>
+</li>
+<li><strong>蛇身：30 节候命</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+将 [节号] 设为 (0)
+重复执行 (30) 次
+    将 [节号] 增加 (1)
+    克隆 [自己]</pre>
+<p><div class="sl-sub">「节号」选<b>仅适用于当前角色</b>——每个分身记住自己是第几节</div></p>
+<div class="see">✅ 30 个隐形分身待命</div>
+</li>
+<li><strong>每节每拍对日记入座</strong>
+<pre class="blocks">当作为克隆体启动时
+重复执行
+    如果 <([身体横] 的项目数) < (节号)> 那么
+        隐藏
+    否则
+        显示
+        移到 x: ([身体横] 的第 (节号) 项) y: ([身体竖] 的第 (节号) 项)</pre>
+<div class="see">✅ 蛇身排成长队，跟蛇头走出完美队形</div>
+</li>
+<li><strong>吃到食物：长一节</strong>
+<pre class="blocks">    如果 <碰到 [食物]?> 那么
+        将 [身长] 增加 (1)
+        将 [分数] 增加 (1)
+        播放声音 [chomp]
+        将 [食物列] 设为 (在 (-10) 和 (10) 之间取随机数)
+        将 [食物行] 设为 (在 (-8) 和 (8) 之间取随机数)
+        移到 x: ((食物列) * (20)) y: ((食物行) * (20))</pre>
+<p><div class="sl-sub">加在蛇头主循环里；随机数乘 20 再取整落格，食物永远在格子中心</div></p>
+<div class="see">✅ 吃一口：分数 +1、身体长一节、食物跳到新格</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🍎 吃一口长一节</li><li>🟩 队形笔直不掉队</li><li>♻️ 绿旗重开：3 节从头来</li>
+</ul>
+<p>这是六关里最"数据"的一课——身体其实不存在，存在的是日记。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>身体的脾气</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">身长上限改成 5</div><div class="lb-guess">猜猜看：日记只留 5 行会怎样？</div><div class="lb-why">裁剪规则决定长度</div></div>
+<div class="lab-card"><div class="lb-do">食物只出现在上半场</div><div class="lb-guess">猜猜看：玩法变吗？</div><div class="lb-why">随机区间=地形设计</div></div>
+<div class="lab-card"><div class="lb-do">插入改成"加到末尾"</div><div class="lb-guess">猜猜看：队形变什么鬼？</div><div class="lb-why">顺序=因果</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>身体三病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 身体全叠在蛇头上</div>日记没先写或没裁剪。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每步先插入、再裁剪，顺序别反。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 身体一节都不显示</div>克隆体判断写反（< 写成 >）。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>日记长度小于节号才隐藏。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 身体断成两截</div>身长和克隆数没对上。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆 30 节是上限，实际长度由身长管。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">蛇身渐变色</div><div class="ad-what">越靠尾越浅</div><div class="ad-how">按节号换造型/透明度<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">食物会逃跑</div><div class="ad-what">每 5 秒换一格</div><div class="ad-how">食物本体加计时循环<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">双倍食物</div><div class="ad-what">同时出现两个</div><div class="ad-how">克隆食物（进阶）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="a4">第 4 次 · 咬到自己</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 咬到自己</span><span class="st-text">穿墙术失效了——墙是真的墙，身体是真的身体，碰上就出局。</span></div>
+<div class="hb-goal">只解决一件事：<em>两种出局</em>——撞墙、咬到自己（第 4 节起）。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 能赢能输</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><div style="position:absolute;left:12%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:18%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:24%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:30%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:36%;top:50%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div></div><div class="fx-cap">蛇头正在逼近自己的身体…</div></div><div class="fx-arrow">💥</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><span class="sl-tag" style="left:20%; top:44%; background:#452c32;">Game Over</span></div><div class="fx-cap">碰到即出局定格</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">出界判负</span><span class="td-note">— 拆掉穿墙回绕</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">身体碰头</span><span class="td-note">— 分身侧检测</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">跳过头三节</span><span class="td-note">— 防贴身误判</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播结束</span><span class="td-note">— 打砖块同款</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">危险只有两种：头出界（把第 1 课的"穿墙"改成出界判负）和头撞身体。撞身体的检测放在身体那一侧最省事：第 4 节之后的分身只要"碰到蛇头"就广播结束——前 3 节永远贴着头，跳过它们防误判。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>拆穿墙，装真墙</strong>
+<pre class="blocks">    如果 <<(x 坐标) > (220)> 或 <<(x 坐标) < (-220)> 或 <<(y 坐标) > (170)> 或 <(y 坐标) < (-170)>>>> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+<p><div class="sl-sub">删掉第 1 课的回绕判断，换成这段——四个边用"或"并联</div></p>
+<div class="see">✅ 撞上任何一边，全场停</div>
+</li>
+<li><strong>身体那侧盯梢</strong>
+<pre class="blocks">        如果 <<(节号) > (3)> 与 <碰到 [蛇头]?>> 那么
+            广播 [游戏结束]
+            停止 [全部脚本]</pre>
+<p><div class="sl-sub">塞进蛇身克隆体"重复执行"的肚子里，和入座判断并排</div></p>
+<div class="see">✅ 头咬到第 4 节之后的身体，立刻出局</div>
+</li>
+<li><strong>结局一句话</strong>
+<pre class="blocks">当接收到 [游戏结束]
+移到最 [前面]
+说 [咬到自己了 · 按绿旗再来] (3) 秒</pre>
+<div class="see">✅ 出局定格 + 重开提示</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🧱 四边撞墙判负</li><li>🐍 咬到身体判负（第 4 节起）</li><li>↩️ 绿旗复原</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>判定实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">跳过节数 3 改 1</div><div class="lb-guess">猜猜看：还能好好转弯吗？</div><div class="lb-why">贴身误判的来源</div></div>
+<div class="lab-card"><div class="lb-do">只判撞墙不判咬身</div><div class="lb-guess">猜猜看：无输了？</div><div class="lb-why">规则完整性</div></div>
+<div class="lab-card"><div class="lb-do">出局前身体变红</div><div class="lb-guess">猜猜看：死因看得见</div><div class="lb-why">演出=可读性</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>出局两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 贴着头的节总误杀</div>没跳过头 3 节。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>节号 > 3 才判。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 死了还能动</div>没停干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播后紧跟「停止 全部脚本」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">死亡慢放</div><div class="ad-what">出局后蛇逐节闪红</div><div class="ad-how">广播后单独演出循环<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">无敌前 3 秒</div><div class="ad-what">开局不会立刻死</div><div class="ad-how">开局计时内不判碰撞<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">穿墙模式开关</div><div class="ad-what">按 M 切换规则</div><div class="ad-how">变量做模式开关<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="a5">第 5 次 · 越吃越快</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 越吃越快</span><span class="st-text">每吃三口，世界快一分。</span></div>
+<div class="hb-goal">只解决一件事：<em>难度曲线与最高分</em>——拍速随分数变快、记录最高分，然后办一场作品发布会。</div>
+<div class="hb-chips"><span class="chip">⏱ 35 分钟</span><span class="chip">🎤 孩子主讲</span><span class="chip">✅ 完整通关</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/贪吃蛇/苔原格阵.svg" alt="苔原格阵" loading="lazy"><div style="position:absolute;left:10%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:15%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:20%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:25%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:30%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:35%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:40%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:45%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><span class="sl-tag" style="left:6%; top:8%;">分数 3 → 拍速快一档</span><span class="sl-tag" style="right:5%; top:8%;">最高分 34</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">拍速变量</span><span class="td-note">— 等待也听变量的</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">公式化难度</span><span class="td-note">— 每 3 分 −0.02 秒</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">最高分</span><span class="td-note">— 谁大留谁</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">"越吃越快"不用分档写死：把等待秒数变成变量 拍速，分数每涨 3 分就减 0.02（下限 0.1）——公式比一堆"如果"更干净。最高分用"谁大留谁"的替换制。最后一场发布会，收官。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 难度公式</span></p>
+<p><strong>难度 = 一个会变的等待</strong></p><div class="cp-analogy">类比：把"等待 0.25 秒"里的 0.25 换成变量——它一动，全游戏节奏跟着动。</div><ul class="cp-points">
+<li>拍速 = 0.25 − 分数 × 0.02（下限 0.1）</li><li>公式比分档"如果"更干净</li><li>下限保底：再快也没法玩就没意思了</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">分数 0 → 0.25 秒/格</div><span class="dg-arr">+3分➜</span><div class="dg-box">0.19</div><span class="dg-arr">+3分➜</span><div class="dg-box no">0.1（封顶）</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>等待听变量的</strong>
+<pre class="blocks">当绿旗被点击
+将 [拍速] 设为 (0.25)</pre>
+<p><div class="sl-sub">主循环里"等待 (0.25) 秒"换成"等待 (拍速) 秒"</div></p>
+<div class="see">✅ 一切照旧——但现在节奏可控</div>
+</li>
+<li><strong>每口快一点</strong>
+<pre class="blocks">    将 [拍速] 设为 ((0.25) - ((分数) * (0.02)))
+    如果 <(拍速) < (0.1)> 那么
+        将 [拍速] 设为 (0.1)</pre>
+<p><div class="sl-sub">放在"吃到食物"分支里——吃一口重算一次</div></p>
+<div class="see">✅ 分数涨，蛇肉眼可见地变快</div>
+</li>
+<li><strong>最高分：谁大留谁</strong>
+<pre class="blocks">当接收到 [游戏结束]
+如果 <(分数) > (最高分)> 那么
+    将 [最高分] 设为 (分数)
+说 (连接 [本局 ] 和 (分数)) (2) 秒</pre>
+<p><div class="sl-sub">最高分变量别在绿旗里清零——它是跨越局的存在</div></p>
+<div class="see">✅ 破纪录时最高分被刷新</div>
+</li>
+<li><strong>发布会：三句话</strong>
+<p><div class="dg"><div class="dg-box">1️⃣ 我做了什么</div><div class="dg-box">2️⃣ 最难在哪</div><div class="dg-box">3️⃣ 想怎么改</div></div></p>
+<div class="see">✅ 打一局最高分给全家看</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>⚡ 分数越高蛇越快（有下限）</li><li>🥇 最高分跨局保留</li><li>🎤 发布会讲满三句</li>
+</ul>
+<p>贪吃蛇完成——下一关，守住你的基地。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>节奏曲线</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">每口 −0.02 改 −0.05</div><div class="lb-guess">猜猜看：几口就起飞？</div><div class="lb-why">曲线陡度</div></div>
+<div class="lab-card"><div class="lb-do">下限 0.1 改 0.05</div><div class="lb-guess">猜猜看：人类反应极限？</div><div class="lb-why">保底线</div></div>
+<div class="lab-card"><div class="lb-do">拍速改成先快后慢</div><div class="lb-guess">猜猜看：开头刺激？</div><div class="lb-why">曲线也能倒着设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>节奏两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一下快到没法玩</div>没设下限。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>拍速 <0.1 就钉在 0.1。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 最高分每局归零</div>被绿旗清掉了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>最高分不在绿旗里初始化。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">障碍物</div><div class="ad-what">场上随机长墙</div><div class="ad-how">地图列表（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">双人模式</div><div class="ad-what">两条蛇抢食物</div><div class="ad-how">克隆第二蛇（大工程）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">通关目标</div><div class="ad-what">到 30 分弹出胜利</div><div class="ad-how">复用打砖块胜负公式<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一条越吃越长的蛇：格子世界、方向键掉头、食物变长、撞墙咬身判负。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">🔲 坐标·格子</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">🧭 变量·方向</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">🗄️ 列表</span></li><li class="td-item"><span class="td-mark new">第 4 课</span><span class="td-name">🎯 侦测·碰到</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>格子世界：一步一格，先立规矩再谈速度</li><li>列表 = 蛇的日记：头走一步记一行</li><li>身体是数据不是角色：日记长，蛇就长</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 4 关</div>
+        <div class="sl-cover-title">贪吃蛇</div>
+        <div class="sl-cover-desc">五次课做出贪吃蛇：格子世界里掉头、吃食物、身体越吃越长——第一次用"列表"当身体的记忆。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><div style="position:absolute;inset:0;background:#1d2b22;"></div><div style="position:absolute;left:8%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:14%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:20%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:26%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:34%;top:46%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><i class="sp-abs" data-sp="食物" style="right:14%; top:30%;"></i><span class="sl-tag" style="left:6%; top:8%;">吃一口，长一节</span><span class="sl-tag" style="right:5%; top:8%;">分数 12 · 最高 34</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>方向键控制蛇前进，吃食物变长——撞墙或咬到自己就出局。</div>
+        <div class="log-card"><span class="lg-t">操作</span>↑ ↓ ← → 四个方向键（不能 180 度掉头）</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>身体越长越难掉头；为一个食物冒险的取舍</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——看看能长到多少节。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🔲 物理规则<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">格子世界：一步一格，不贪快</div></div>
+        <div class="lab-card"><div class="lb-do">🧭 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">方向键改方向，禁止直接掉头</div></div>
+        <div class="lab-card"><div class="lb-do">🗄️ 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">食物随机 + 身体存进列表</div></div>
+        <div class="lab-card"><div class="lb-do">🎯 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">撞墙、咬自己：两种出局</div></div>
+        <div class="lab-card"><div class="lb-do">⚡ 计分难度<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">越吃越快 + 最高分</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：贪吃蛇的世界不是连续的，是<b>一格一格</b>的——先接受"格子世界"这个设定，移动、碰撞、变长全都变简单了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">三个角色：蛇头、蛇身、食物——素材包全有。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="蛇头"></i><span class="a-name">蛇头</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="蛇身"></i><span class="a-name">蛇身</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="食物"></i><span class="a-name">食物</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">⬆️</span><span class="a-name">方向键</span><span class="a-tag own">自带</span></div><div class="asset-card"><i class="sp-md" data-sp="苔原格阵"></i><span class="a-name">背景</span><span class="a-tag ">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/贪吃蛇/</b> 里的 .sprite3；背景用自带库搜 <b>Dot Grid / Stars</b>（有点阵更利于对格）；音效 <b>chomp</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🔲 坐标·格子</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🧭 变量·方向</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🗄️ 列表</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="n1" data-map="🐍 格子世界">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 格子世界</span><span class="st-text">这条蛇住在一格一格的世界里——每"嗒"一声，走一格。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>格子移动</em>——蛇头每 0.25 秒向右走一格（20 像素），出右边从左边回来。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 匀速一格一格走</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="蛇头"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⬜</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="苔原格阵"></i><div style="position:absolute;left:8%;top:46%;width:6%;height:8%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:15%;top:46%;width:6%;height:8%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:22%;top:46%;width:6%;height:8%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:29%;top:46%;width:6%;height:8%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><span class="sl-tag" style="left:6%; top:8%;">嗒——嗒——嗒（每 0.25 秒一格）</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">格子尺寸</span><span class="td-note">— 一格 = 20 像素</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">节拍</span><span class="td-note">— 等待 0.25 秒</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">穿墙回绕</span><span class="td-note">— 出右进左</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重复执行</span><span class="td-note">— 每帧？不——每拍</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">像素世界太自由，蛇会斜着走。所以先立规矩：一格 20 像素，每 0.25 秒走一格——"将x坐标增加 (20)"就是一步，等待管节拍。这一课先只向右走，撞右边就wrap 回左边（穿墙模式），把"格子"的手感找到。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">概念 · 格子世界</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">一格 = 20 像素的地砖</div>
+          <div class="cp-analogy">类比：整块舞台铺满地砖，蛇只能踩在地砖正中间走——像素世界瞬间变得规矩。</div>
+          <ul class="cp-points">
+<li>x 加 20 = 向右一格；y 加 20 = 向上一格</li><li>格子中心坐标都是 20 的倍数加偏移</li><li>俄罗斯方块用同一套格子——这里学会了那边直接用</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">⬜⬜⬜⬜⬜</div><div class="dg-box">⬜🐍⬜⬜⬜</div><div class="dg-box">⬜⬜⬜⬜⬜</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 1/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">蛇头就位，向右走格</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (-100) y: (0)
+重复执行
+    将x坐标增加 (20)
+    等待 (0.25) 秒</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#FFAB19;">控制</span></div>
+          <div class="stepv-see">✅ 蛇头一格一格向右挪，像上了发条</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">参考做法 · 2/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">出右边，从左边回来</div>
+          <pre class="blocks">    如果 <(x 坐标) > (220)> 那么
+        将x坐标设为 (-220)</pre>
+          <div class="sl-sub">本课先"穿墙"，第 4 课再改成撞墙出局</div>
+          <div class="stepv-see">✅ 走出右边界，从左边重新进场</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🔲 匀速一格一格走</li><li>↔️ 出右回左不断头</li><li>⏱ 拍子稳定不忽快忽慢</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">节拍与格宽</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">0.25 改 0.12</div><div class="lb-guess">猜猜看：蛇疯了吗？</div><div class="lb-why">拍速=游戏速度</div></div>
+          <div class="lab-card"><div class="lb-do">格 20 改 40</div><div class="lb-guess">猜猜看：世界变粗糙了</div><div class="lb-why">格宽=精度</div></div>
+          <div class="lab-card"><div class="lb-do">改成 y 加 20</div><div class="lb-guess">猜猜看：变成向上爬</div><div class="lb-why">轴=方向</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">格子两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 滑着走不是一格一格</div>没用等待，或步长不是 20。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>移动 20 + 等待 0.25 成对出现。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 走出屏幕回不来</div>没有回绕判断。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出界就设到对面坐标。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">倒计时开局</div><div class="ad-what">3、2、1 再动</div><div class="ad-how">循环前「说 3…2…1」<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">移动音效</div><div class="ad-what">嗒、嗒、嗒</div><div class="ad-how">每步播放 pop，音量调低<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">穿墙四方向版</div><div class="ad-what">四边都穿</div><div class="ad-how">四个边都加回绕<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 掉头的艺术</div>
+      <div class="sl-next-why">会走了——用方向键让它转弯，还不能直接掉头。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="n2" data-map="🧭 掉头的艺术">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 掉头的艺术</span><span class="st-text">方向盘装上了——但现实规则：蛇不能瞬间 180 度掉头咬自己。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>方向键转向</em>——方向数 1上 2右 3下 4左，禁止直接反向。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 35 分钟</span><span class="sl-chip">✅ 四键转向、不掉头</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="蛇头"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⬆️➡️⬇️⬅️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="苔原格阵"></i><div style="position:absolute;left:16%;top:56%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:22%;top:56%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:28%;top:56%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:34%;top:42%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><span class="sl-tag" style="left:6%; top:8%;">↑：改上 · ↓：改下</span><span class="sl-tag" style="right:5%; top:8%;">正朝右时按 ← 无效</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">方向数</span><span class="td-note">— 一个变量当方向盘</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">禁止反向</span><span class="td-note">— 「不成立」挡掉 180°</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子移动</span><span class="td-note">— 四段"如果"分头行动</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">四个方向不能写四段移动脚本（会打架）——用一个"方向数"当方向盘：按键只改数字，移动只看数字。1上2右3下4左，按"不能 180 掉头"的规则，按键时先检查当前方向不是相反方向。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">概念 · 方向数</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">方向数 = 方向盘</div>
+          <div class="cp-analogy">类比：把"往哪走"变成一个数字：1 上、2 右、3 下、4 左。按键只改数字，移动只看数字——两边不打架。</div>
+          <ul class="cp-points">
+<li>为什么不放四段移动脚本：会同时触发</li><li>反向检查：朝右(2)时按左(4)无效</li><li>"不成立"积木=不是这种情况</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">1 ⬆️</div><div class="dg-box">2 ➡️</div><div class="dg-box">3 ⬇️</div><div class="dg-box">4 ⬅️</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 1/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">按键只改方向盘</div>
+          <pre class="blocks">当按下 [上箭头] 键
+如果 <<(方向数) = (3)> 不成立> 那么
+    将 [方向数] 设为 (1)
+当按下 [右箭头] 键
+如果 <<(方向数) = (4)> 不成立> 那么
+    将 [方向数] 设为 (2)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#FF8C1A;">变量</span><span class="cat" style="background:#59C059;">运算</span></div>
+          <div class="sl-sub">下、左照样子补全（下 ≠ 1，左 ≠ 2）——四段事件帽并排放</div>
+          <div class="stepv-see">✅ 按方向键蛇头转向；朝右时按左没反应</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">参考做法 · 2/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">移动只看方向盘</div>
+          <pre class="blocks">    如果 <(方向数) = (1)> 那么
+        将y坐标增加 (20)
+    如果 <(方向数) = (2)> 那么
+        将x坐标增加 (20)
+    如果 <(方向数) = (3)> 那么
+        将y坐标增加 (-20)
+    如果 <(方向数) = (4)> 那么
+        将x坐标增加 (-20)
+    等待 (0.25) 秒</pre>
+          <div class="sl-sub">替换第 1 课的"向右走"那两行；回绕判断保留并补齐四边（进阶挑战）</div>
+          <div class="stepv-see">✅ 四个方向自由走，一格一格不乱</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🧭 四键都能转</li><li>🚫 永不 180 掉头</li><li>🔲 依旧一格一格</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">手感实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">拍速 0.25 改 0.15</div><div class="lb-guess">猜猜看：转得过来吗？</div><div class="lb-why">速度=操作压力</div></div>
+          <div class="lab-card"><div class="lb-do">允许掉头试试</div><div class="lb-guess">猜猜看：立刻咬到自己？</div><div class="lb-why">规则为什么存在</div></div>
+          <div class="lab-card"><div class="lb-do">对角键组合</div><div class="lb-guess">猜猜看：能斜走吗？</div><div class="lb-why">格子世界没有斜线</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">转向两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按了没反应</div>反向检查写死了当前方向。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>检查条件是"相反方向不成立"才允许。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 斜着飞</div>移动没有互斥。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>一格只执行一个方向（如果链天然互斥）。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">WASD 版</div><div class="ad-what">电脑玩家习惯</div><div class="ad-how">再补四段 w/a/s/d 事件<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+          <div class="addon-card"><div class="ad-t">转向音效</div><div class="ad-what">咔哒一声</div><div class="ad-how">改方向成功才播放<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">边界墙可视化</div><div class="ad-what">画一圈边框</div><div class="ad-how">画一个边框角色贴边<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 越吃越长</div>
+      <div class="sl-next-why">会转弯了——给它一张会记事的嘴：吃一口，长一节。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="n3" data-map="🍎 越吃越长">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 越吃越长</span><span class="st-text">蛇的每节身体都带着一本日记——蛇头走到哪，日记记到哪。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>列表当身体</em>——吃食物身长 +1，克隆的蛇身按"日记"排成长队。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">⚠️ 本课新概念最多</span><span class="sl-chip">✅ 吃一口长一节，长队跟上</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="蛇头"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="蛇身"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="食物"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="苔原格阵"></i><div style="position:absolute;left:10%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:16%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:22%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:28%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:34%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:40%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:46%;top:50%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><i class="sp-abs" data-sp="食物" style="right:16%; top:28%;"></i><span class="sl-tag" style="left:6%; top:8%;">吃到 🍎 → 身长 +1</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">列表=日记</span><span class="td-note">— 头走一步记一行</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">克隆身体</span><span class="td-note">— 30 节候命，各有节号</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">食物随机</span><span class="td-note">— 随机格子 + 换位</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">格子公式</span><span class="td-note">— 坐标↔格号互换</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">"变长"最难的是：身体每一节都要记住蛇头走过的路。办法：两条列表当日记本，蛇头每走一步，就把当前位置(x、y)写在日记最前面；日记只保留"身长"条。蛇身克隆体每人领一个节号，每拍去读日记里自己的那页，搬过去——身体就自己跟上了。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">概念 · 列表当日记</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">列表 = 蛇的日记本</div>
+          <div class="cp-analogy">类比：蛇头每走一步，把 (x, y) 写进日记最上面一行；身体每人认领一行，每拍搬过去——蛇就"活"了。</div>
+          <ul class="cp-points">
+<li>两条列表：身体横 记横、身体竖 记竖</li><li>日记超长就撕掉最后一行（删除末项）</li><li>身体克隆体的节号用"仅适用于当前角色"变量</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:12px;"><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box">日记第1行</div><div class="dg-box">第2行</div><div class="dg-box">第3行</div></div><div class="dg" style="flex-wrap:nowrap;"><div class="dg-box ok">🟩🟩🟩 身体各认一行</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 1/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">建两条日记 + 身长</div>
+          <div class="sl-path">全局列表 <b>身体横 / 身体竖</b>，全局变量 <b>身长</b>=3、<b>分数</b>=0；舞台绿旗：分数归零、身长设 3、两条列表「删除全部项目」</div>
+          <div class="stepv-see">✅ 开局：空日记、身长 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 2/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">蛇头每步写日记</div>
+          <pre class="blocks">    在 [身体横] 的第 (1) 项前插入 (x 坐标)
+    在 [身体竖] 的第 (1) 项前插入 (y 坐标)
+    如果 <([身体横] 的项目数) > (身长)> 那么
+        删除 [身体横] 的第 ([身体横] 的项目数) 项
+        删除 [身体竖] 的第 ([身体竖] 的项目数) 项
+    等待 (0.25) 秒</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FF8C1A;">变量</span>（"在第 n 项前插入"也在变量类别）</div>
+          <div class="sl-sub">加在主循环"移动之后、等待之前"——先走、再记、再等</div>
+          <div class="stepv-see">✅ 监视窗里日记一行行往下长，超过身长就裁掉</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 3/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">蛇身：30 节候命</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+将 [节号] 设为 (0)
+重复执行 (30) 次
+    将 [节号] 增加 (1)
+    克隆 [自己]</pre>
+          <div class="sl-sub">「节号」选<b>仅适用于当前角色</b>——每个分身记住自己是第几节</div>
+          <div class="stepv-see">✅ 30 个隐形分身待命</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 4/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">每节每拍对日记入座</div>
+          <pre class="blocks">当作为克隆体启动时
+重复执行
+    如果 <([身体横] 的项目数) < (节号)> 那么
+        隐藏
+    否则
+        显示
+        移到 x: ([身体横] 的第 (节号) 项) y: ([身体竖] 的第 (节号) 项)</pre>
+          <div class="stepv-see">✅ 蛇身排成长队，跟蛇头走出完美队形</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">参考做法 · 5/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">5</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">吃到食物：长一节</div>
+          <pre class="blocks">    如果 <碰到 [食物]?> 那么
+        将 [身长] 增加 (1)
+        将 [分数] 增加 (1)
+        播放声音 [chomp]
+        将 [食物列] 设为 (在 (-10) 和 (10) 之间取随机数)
+        将 [食物行] 设为 (在 (-8) 和 (8) 之间取随机数)
+        移到 x: ((食物列) * (20)) y: ((食物行) * (20))</pre>
+          <div class="sl-sub">加在蛇头主循环里；随机数乘 20 再取整落格，食物永远在格子中心</div>
+          <div class="stepv-see">✅ 吃一口：分数 +1、身体长一节、食物跳到新格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🍎 吃一口长一节</li><li>🟩 队形笔直不掉队</li><li>♻️ 绿旗重开：3 节从头来</li>
+      </ul>
+<div class="sl-sub">这是六关里最"数据"的一课——身体其实不存在，存在的是日记。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">身体的脾气</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">身长上限改成 5</div><div class="lb-guess">猜猜看：日记只留 5 行会怎样？</div><div class="lb-why">裁剪规则决定长度</div></div>
+          <div class="lab-card"><div class="lb-do">食物只出现在上半场</div><div class="lb-guess">猜猜看：玩法变吗？</div><div class="lb-why">随机区间=地形设计</div></div>
+          <div class="lab-card"><div class="lb-do">插入改成"加到末尾"</div><div class="lb-guess">猜猜看：队形变什么鬼？</div><div class="lb-why">顺序=因果</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">身体三病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 身体全叠在蛇头上</div>日记没先写或没裁剪。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每步先插入、再裁剪，顺序别反。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 身体一节都不显示</div>克隆体判断写反（< 写成 >）。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>日记长度小于节号才隐藏。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 身体断成两截</div>身长和克隆数没对上。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆 30 节是上限，实际长度由身长管。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">蛇身渐变色</div><div class="ad-what">越靠尾越浅</div><div class="ad-how">按节号换造型/透明度<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">食物会逃跑</div><div class="ad-what">每 5 秒换一格</div><div class="ad-how">食物本体加计时循环<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">双倍食物</div><div class="ad-what">同时出现两个</div><div class="ad-how">克隆食物（进阶）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 咬到自己</div>
+      <div class="sl-next-why">身体会跟了——现在，它成了最大的危险。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="n4" data-map="💥 咬到自己">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 咬到自己</span><span class="st-text">穿墙术失效了——墙是真的墙，身体是真的身体，碰上就出局。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>两种出局</em>——撞墙、咬到自己（第 4 节起）。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 能赢能输</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="蛇头"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="蛇身"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">💀</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="苔原格阵"></i><div style="position:absolute;left:12%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:18%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:24%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:30%;top:50%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:36%;top:50%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div></div><div class="fx-cap">蛇头正在逼近自己的身体…</div></div><div class="fx-arrow">💥</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="苔原格阵"></i><span class="sl-tag" style="left:20%; top:44%; background:#452c32;">Game Over</span></div><div class="fx-cap">碰到即出局定格</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">出界判负</span><span class="td-note">— 拆掉穿墙回绕</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">身体碰头</span><span class="td-note">— 分身侧检测</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">跳过头三节</span><span class="td-note">— 防贴身误判</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播结束</span><span class="td-note">— 打砖块同款</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">危险只有两种：头出界（把第 1 课的"穿墙"改成出界判负）和头撞身体。撞身体的检测放在身体那一侧最省事：第 4 节之后的分身只要"碰到蛇头"就广播结束——前 3 节永远贴着头，跳过它们防误判。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">拆穿墙，装真墙</div>
+          <pre class="blocks">    如果 <<(x 坐标) > (220)> 或 <<(x 坐标) < (-220)> 或 <<(y 坐标) > (170)> 或 <(y 坐标) < (-170)>>>> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+          <div class="sl-sub">删掉第 1 课的回绕判断，换成这段——四个边用"或"并联</div>
+          <div class="stepv-see">✅ 撞上任何一边，全场停</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">身体那侧盯梢</div>
+          <pre class="blocks">        如果 <<(节号) > (3)> 与 <碰到 [蛇头]?>> 那么
+            广播 [游戏结束]
+            停止 [全部脚本]</pre>
+          <div class="sl-sub">塞进蛇身克隆体"重复执行"的肚子里，和入座判断并排</div>
+          <div class="stepv-see">✅ 头咬到第 4 节之后的身体，立刻出局</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">结局一句话</div>
+          <pre class="blocks">当接收到 [游戏结束]
+移到最 [前面]
+说 [咬到自己了 · 按绿旗再来] (3) 秒</pre>
+          <div class="stepv-see">✅ 出局定格 + 重开提示</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🧱 四边撞墙判负</li><li>🐍 咬到身体判负（第 4 节起）</li><li>↩️ 绿旗复原</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">判定实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">跳过节数 3 改 1</div><div class="lb-guess">猜猜看：还能好好转弯吗？</div><div class="lb-why">贴身误判的来源</div></div>
+          <div class="lab-card"><div class="lb-do">只判撞墙不判咬身</div><div class="lb-guess">猜猜看：无输了？</div><div class="lb-why">规则完整性</div></div>
+          <div class="lab-card"><div class="lb-do">出局前身体变红</div><div class="lb-guess">猜猜看：死因看得见</div><div class="lb-why">演出=可读性</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">出局两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 贴着头的节总误杀</div>没跳过头 3 节。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>节号 > 3 才判。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 死了还能动</div>没停干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播后紧跟「停止 全部脚本」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">死亡慢放</div><div class="ad-what">出局后蛇逐节闪红</div><div class="ad-how">广播后单独演出循环<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">无敌前 3 秒</div><div class="ad-what">开局不会立刻死</div><div class="ad-how">开局计时内不判碰撞<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">穿墙模式开关</div><div class="ad-what">按 M 切换规则</div><div class="ad-how">变量做模式开关<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 越吃越快</div>
+      <div class="sl-next-why">能玩能死了——最后让蛇越跑越快，再办一场发布会。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="n5" data-map="⚡ 越吃越快">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 越吃越快</span><span class="st-text">每吃三口，世界快一分。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>难度曲线与最高分</em>——拍速随分数变快、记录最高分，然后办一场作品发布会。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 35 分钟</span><span class="sl-chip">🎤 孩子主讲</span><span class="sl-chip">✅ 完整通关</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">⚡</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🥇</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="苔原格阵"></i><div style="position:absolute;left:10%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:15%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:20%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:25%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:30%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:35%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:40%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:45%;top:50%;width:4.5%;height:7%;background:#27ae60;border-radius:4px;"></div><span class="sl-tag" style="left:6%; top:8%;">分数 3 → 拍速快一档</span><span class="sl-tag" style="right:5%; top:8%;">最高分 34</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">拍速变量</span><span class="td-note">— 等待也听变量的</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">公式化难度</span><span class="td-note">— 每 3 分 −0.02 秒</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">最高分</span><span class="td-note">— 谁大留谁</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">"越吃越快"不用分档写死：把等待秒数变成变量 拍速，分数每涨 3 分就减 0.02（下限 0.1）——公式比一堆"如果"更干净。最高分用"谁大留谁"的替换制。最后一场发布会，收官。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">概念 · 难度公式</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">难度 = 一个会变的等待</div>
+          <div class="cp-analogy">类比：把"等待 0.25 秒"里的 0.25 换成变量——它一动，全游戏节奏跟着动。</div>
+          <ul class="cp-points">
+<li>拍速 = 0.25 − 分数 × 0.02（下限 0.1）</li><li>公式比分档"如果"更干净</li><li>下限保底：再快也没法玩就没意思了</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">分数 0 → 0.25 秒/格</div><span class="dg-arr">+3分➜</span><div class="dg-box">0.19</div><span class="dg-arr">+3分➜</span><div class="dg-box no">0.1（封顶）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">等待听变量的</div>
+          <pre class="blocks">当绿旗被点击
+将 [拍速] 设为 (0.25)</pre>
+          <div class="sl-sub">主循环里"等待 (0.25) 秒"换成"等待 (拍速) 秒"</div>
+          <div class="stepv-see">✅ 一切照旧——但现在节奏可控</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">每口快一点</div>
+          <pre class="blocks">    将 [拍速] 设为 ((0.25) - ((分数) * (0.02)))
+    如果 <(拍速) < (0.1)> 那么
+        将 [拍速] 设为 (0.1)</pre>
+          <div class="sl-sub">放在"吃到食物"分支里——吃一口重算一次</div>
+          <div class="stepv-see">✅ 分数涨，蛇肉眼可见地变快</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">最高分：谁大留谁</div>
+          <pre class="blocks">当接收到 [游戏结束]
+如果 <(分数) > (最高分)> 那么
+    将 [最高分] 设为 (分数)
+说 (连接 [本局 ] 和 (分数)) (2) 秒</pre>
+          <div class="sl-sub">最高分变量别在绿旗里清零——它是跨越局的存在</div>
+          <div class="stepv-see">✅ 破纪录时最高分被刷新</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">发布会：三句话</div>
+          <div class="dg"><div class="dg-box">1️⃣ 我做了什么</div><div class="dg-box">2️⃣ 最难在哪</div><div class="dg-box">3️⃣ 想怎么改</div></div>
+          <div class="stepv-see">✅ 打一局最高分给全家看</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>⚡ 分数越高蛇越快（有下限）</li><li>🥇 最高分跨局保留</li><li>🎤 发布会讲满三句</li>
+      </ul>
+<div class="sl-sub">贪吃蛇完成——下一关，守住你的基地。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">节奏曲线</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">每口 −0.02 改 −0.05</div><div class="lb-guess">猜猜看：几口就起飞？</div><div class="lb-why">曲线陡度</div></div>
+          <div class="lab-card"><div class="lb-do">下限 0.1 改 0.05</div><div class="lb-guess">猜猜看：人类反应极限？</div><div class="lb-why">保底线</div></div>
+          <div class="lab-card"><div class="lb-do">拍速改成先快后慢</div><div class="lb-guess">猜猜看：开头刺激？</div><div class="lb-why">曲线也能倒着设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">节奏两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一下快到没法玩</div>没设下限。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>拍速 <0.1 就钉在 0.1。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 最高分每局归零</div>被绿旗清掉了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>最高分不在绿旗里初始化。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">障碍物</div><div class="ad-what">场上随机长墙</div><div class="ad-how">地图列表（进阶）<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">双人模式</div><div class="ad-what">两条蛇抢食物</div><div class="ad-how">克隆第二蛇（大工程）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">通关目标</div><div class="ad-what">到 30 分弹出胜利</div><div class="ad-how">复用打砖块胜负公式<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 次</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><div style="position:absolute;inset:0;background:#1d2b22;"></div><div style="position:absolute;left:8%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:14%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:20%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:26%;top:46%;width:5%;height:7%;background:#27ae60;border-radius:4px;"></div><div style="position:absolute;left:34%;top:46%;width:5%;height:7%;background:#2ecc71;border:2px solid #7ee0a8;border-radius:4px;"></div><i class="sp-abs" data-sp="食物" style="right:14%; top:30%;"></i><span class="sl-tag" style="left:6%; top:8%;">吃一口，长一节</span><span class="sl-tag" style="right:5%; top:8%;">分数 12 · 最高 34</span></div>
+            <div class="cp-analogy" style="flex:1;">一条越吃越长的蛇：格子世界、方向键掉头、食物变长、撞墙咬身判负。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>🔲 坐标·格子 <span class="td-note">— 第 1 课</span></li><li>🧭 变量·方向 <span class="td-note">— 第 2 课</span></li><li>🗄️ 列表 <span class="td-note">— 第 3 课</span></li><li>🎯 侦测·碰到 <span class="td-note">— 第 4 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">格子世界：一步一格，先立规矩再谈速度</li><li class="">列表 = 蛇的日记：头走一步记一行</li><li class="">身体是数据不是角色：日记长，蛇就长</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">贪吃蛇收官</div>
+      <div class="sl-next-label">下一关</div>
+      <div class="sl-next-title">第 5 关 · 塔防</div>
+      <div class="sl-next-why">数据课收官——去守住你的基地。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-shooter.html"><div class="dir">← 上一篇</div><div class="pager-title">③ 太空射击</div></a>
+<a class="next" href="handbook-tower.html"><div class="dir">下一篇 →</div><div class="pager-title">⑤ 城堡塔防</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

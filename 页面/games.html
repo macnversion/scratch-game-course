@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏厅 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="games">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html" class="active">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">玩 · 每门课都从玩成品开始</div>
+    <h1>游戏厅</h1>
+    <p class="lead">六门课要做的六个游戏，<strong>全部可以直接玩</strong>——玩的时候想：<strong>它是怎么知道我要做什么的？</strong>玩上头了，就去那门课亲手做出来。</p>
+  </div>
+
+  <div class="md-content">
+    <div class="game-frame">
+      <div class="game-title">① 弹球打砖块 <span class="game-tag">第 ① 门课成品</span></div>
+      <canvas id="breakoutCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="breakoutStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">🖱️ 鼠标移动挡板 · 清光砖墙</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-brick.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+    <div class="game-frame">
+      <div class="game-title">② 飞扬的小鸟 <span class="game-tag">第 ② 门课成品</span></div>
+      <canvas id="flappyCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="flappyStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">👆 点击 / 空格起跳 · 穿过管道</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-flappy.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+    <div class="game-frame">
+      <div class="game-title">③ 太空射击 <span class="game-tag">第 ③ 门课成品</span></div>
+      <canvas id="shooterCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="shooterStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">⬅️➡️ 驾驶 · 空格开火 · 陨石掉宝 · 300 分通关</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-shooter.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+    <div class="game-frame">
+      <div class="game-title">④ 贪吃蛇 <span class="game-tag">第 ④ 门课成品</span></div>
+      <canvas id="snakeCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="snakeStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">⬆️⬇️⬅️➡️ / WASD 转向 · 吃一口长一节</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-snake.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+    <div class="game-frame">
+      <div class="game-title">⑤ 城堡塔防 <span class="game-tag">第 ⑤ 门课成品</span></div>
+      <canvas id="towerCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="towerStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">🖱️ 点击造塔 · 击杀掉宝点击拾取 · 守住三波</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-tower.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+    <div class="game-frame">
+      <div class="game-title">⑥ 俄罗斯方块 <span class="game-tag">第 ⑥ 门课成品</span></div>
+      <canvas id="tetraCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="tetraStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">⬅️➡️ 移动 · ⬆️ 旋转 · ⬇️ 加速 · 空格速降</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-tetra.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+  </div><!-- /md-content -->
+
+<div class="pager">
+<a href="handbook-tetra.html"><div class="dir">← 上一篇</div><div class="pager-title">⑥ 俄罗斯方块</div></a>
+<a class="next" href="toolbox.html"><div class="dir">下一篇 →</div><div class="pager-title">探索工具箱</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/breakout.js"></script>
+<script src="../assets/flappy.js"></script>
+<script src="../assets/shooter.js"></script>
+<script src="../assets/snake.js"></script>
+<script src="../assets/tower.js"></script>
+<script src="../assets/tetra.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

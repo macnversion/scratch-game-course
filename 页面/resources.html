@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资源百宝箱 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="resources">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">查 · 备用弹药库</div>
+    <h1>资源百宝箱</h1>
+    <p class="lead">六门游戏课用得上的官方与非官方资源——<strong>按需取用，不必全看</strong>。</p>
+  </div>
+
+  <div class="md-content">
+
+  <h2>一、官方起点</h2>
+  <ul>
+    <li><a href="https://scratch.mit.edu/" target="_blank">scratch.mit.edu</a> —— 素材库与社区（本地版之外的补充）</li>
+    <li><a href="https://turbowarp.org/" target="_blank">TurboWarp</a> —— 备用：克隆多的项目跑得更顺</li>
+    <li>素材包（本站自带）：<strong>示例项目/素材包/</strong> 按六门课分文件夹，「上传角色」直接导入</li>
+  </ul>
+
+  <h2>二、卡住时点播（对照六门课）</h2>
+  <table>
+    <thead><tr><th>卡住的概念</th><th>在哪门课</th></tr></thead>
+    <tbody>
+      <tr><td>坐标、循环</td><td>① 打砖块 前两课</td></tr>
+      <tr><td>重力、下落加速</td><td>② 飞扬的小鸟 第 1 课</td></tr>
+      <tr><td>克隆、随机生成</td><td>① 第 3 课 / ③ 太空射击 第 3 课</td></tr>
+      <tr><td>列表（数据记忆）</td><td>④ 贪吃蛇 第 3 课</td></tr>
+      <tr><td>路径移动、经济</td><td>⑤ 城堡塔防 前两课</td></tr>
+      <tr><td>地图列表、消行算法</td><td>⑥ 俄罗斯方块 全部</td></tr>
+    </tbody>
+  </table>
+
+  <h2>三、想看别人怎么做</h2>
+  <ul>
+    <li><a href="https://scratch.mit.edu/studios/" target="_blank">Scratch 官方教程工作室</a> —— 官方入门系列</li>
+    <li>B 站搜「Scratch 打砖块 / 贪吃蛇 / 俄罗斯方块」—— 中文视频一堆，挑播放高的</li>
+    <li><a href="https://steam.oxxostudio.tw/" target="_blank">oxxo.studio（中文）</a> —— 台湾同好的大量 Scratch 示例</li>
+    <li>想看英文的：<a href="https://inventwithscratch.com/" target="_blank">Invent with Scratch</a> 免费章节</li>
+  </ul>
+
+  <h2>四、学完之后</h2>
+  <ul>
+    <li>把六个游戏发布到 Scratch 社区（先和家长一起过一遍社区规则，不放个人信息）</li>
+    <li>下一位朋友：用 <strong>TurboWarp Packager</strong> 把 .sb3 打包成独立程序，发给朋友双击就能玩</li>
+    <li>再往后： micro:bit / Arduino 实体编程，或 Python（图形库先玩 turtle / pyglet）</li>
+  </ul>
+
+  </div><!-- /md-content -->
+
+<div class="pager">
+<a href="toolbox.html"><div class="dir">← 上一篇</div><div class="pager-title">探索工具箱</div></a>
+<a class="next" href="../index.html"><div class="dir">下一篇 →</div><div class="pager-title">首页</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/main.js"></script>
+</body>
+</html>

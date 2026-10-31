@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>太空射击 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-shooter">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 太空射击</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html" class="active">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ③ · 进阶 · 完整手册</div>
+    <h1>太空射击</h1>
+    <p class="lead">五次课做出一个完整的街机游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-shooter.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">卡住才看参考做法</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-shooter.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/太空射击/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-shooter.html">▶ 太空射击 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>开飞船躲陨石、按空格发射子弹——陨石会掉宝（火力/护盾/赏金），撑到 300 分通关。</div><div class="log-card"><span class="lg-t">操作</span>←/→ 驾驶，空格开火，碰到宝物自动拾取</div><div class="log-card"><span class="lg-t">玩点在哪</span>在弹幕里穿行，连爆时分数连着涨</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——先打一局找找手感。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🚀 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">按住持续驾驶：体重秤式按键检测</div></div><div class="lab-card"><div class="lb-do">🔫 火力输出<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">子弹克隆：机头发射、出顶回收</div></div><div class="lab-card"><div class="lb-do">☄️ 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">陨石雨：随机间隔、随机落点</div></div><div class="lab-card"><div class="lb-do">💥 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">子弹 × 陨石：各删各的、分数 +1</div></div><div class="lab-card"><div class="lb-do">🛡️ 胜负结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">护盾三格、无敌帧、300 分通关</div></div></div><div class="cp-analogy">总思路：和打砖块同一张解剖图（<b>输入 → 物理 → 内容 → 判定 → 结算</b>），只是"物理"换成了"火力"——学会迁移，六个游戏其实是一门课。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>三个角色：飞船、子弹、陨石——素材包全有。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/太空射击/飞船.svg" alt="飞船" loading="lazy"><span class="a-name">飞船</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/公用/子弹.svg" alt="子弹" loading="lazy"><span class="a-name">子弹</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/太空射击/陨石.svg" alt="陨石" loading="lazy"><span class="a-name">陨石</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">🌌</span><span class="a-name">星空背景</span><span class="a-tag own">自带库搜 Stars</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/太空射击/</b> 里的 .sprite3；背景也在素材包里（背景-太空射击.svg：「选择一个背景」→ 上传）<b>Stars / Galaxy</b>；音效 <b>laser</b>、<b>pop</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">⚡ 事件·按键</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎲 随机数</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎒 变量</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="h1">第 1 课 · 飞船驾驶</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 陨石带边缘</span><span class="st-text">飞船降落在陨石带边缘——先学会躲闪，再谈开火。</span></div>
+<div class="hb-goal">只解决一件事：方向键驾驶飞船，<em>左右平移</em>不越界。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 左右键流畅驾驶</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><div style="position:absolute;left:12%;top:15%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:48%;top:10%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:80%;top:18%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:25%;top:45%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:70%;top:50%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:55%;top:30%;width:3px;height:3px;background:#fff;"></div><i class="sp-abs" data-sp="飞船" style="left:42%; bottom:10%;"></i><span class="sl-tag" style="left:6%; top:8%;">→ 键右移 · ← 键左移</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">按键事件</span><span class="td-note">— 打砖块加料站做过</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">持续按住检测</span><span class="td-note">— 「按下 … 键?」放进循环</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">边界限制</span><span class="td-note">— 左右墙 ±210</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">绿旗初始化</span><span class="td-note">— 出生点固定</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">驾驶要"按住就动"——不用"当按下"门铃，用"按下 …键?"体重秤放进重复执行，每帧称一次。另外循环里随时广播自己的 x（飞船x）：下一课子弹要从这里出发。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 按住 vs 按下</span></p>
+<p><strong>按住 = 每帧都在问</strong></p><div class="cp-analogy">类比：「当按下」是门铃，按一次响一次；「按下 … 键?」是体重秤——只要踩着就有数。</div><ul class="cp-points">
+<li>体重秤放进重复执行，每帧读一次</li><li>读到就移动 6 步，读不到就不动</li><li>按住不放 = 连续驾驶，松手急停</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:12px;"><div class="dg">🔔 当按下 = 门铃（响一次）</div><div class="dg-box ok">⚖️ 按下? = 体重秤（每帧称）</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>飞船就位，两种移动</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (0) y: (-130)
+重复执行
+    如果 <按下 [右箭头] 键?> 那么
+        将x坐标增加 (6)
+    如果 <按下 [左箭头] 键?> 那么
+        将x坐标增加 (-6)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#4C97FF;">运动</span></div>
+<div class="see">✅ 按住方向键，飞船平滑驾驶</div>
+</li>
+<li><strong>左右墙</strong>
+<pre class="blocks">    如果 <(x 坐标) > (210)> 那么
+        将x坐标设为 (210)
+    如果 <(x 坐标) < (-210)> 那么
+        将x坐标设为 (-210)</pre>
+<div class="see">✅ 贴边停住，不飞出战场</div>
+</li>
+<li><strong>报位置的无线电</strong>
+<pre class="blocks">    将 [飞船x] 设为 (x 坐标)</pre>
+<p><div class="sl-sub">加在主循环末尾——子弹下一课要从这里读出发位置（全局变量 <b>飞船x</b>）</div></p>
+<div class="see">✅ 监视窗里飞船x实时跳动</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🚀 按住连续驾驶、松手急停</li><li>🧱 左右不出界</li><li>📡 飞船x 实时更新</li>
+</ul>
+<p>会躲了——下一课开火。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>驾驶手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">速度 6 改 10</div><div class="lb-guess">猜猜看：像开战斗机还是卡车？</div><div class="lb-why">灵敏度=速度</div></div>
+<div class="lab-card"><div class="lb-do">加 "按下上箭头 y+4"</div><div class="lb-guess">猜猜看：能全屏飞了！</div><div class="lb-why">维度=玩法</div></div>
+<div class="lab-card"><div class="lb-do">移动加音效</div><div class="lb-guess">猜猜看：嗡——</div><div class="lb-why">推进器音效</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>驾驶两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按一下动一下</div>用了「当按下」事件帽。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>要用「按下 … 键?」+ 重复执行。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 斜着乱飘</div>坐标改错轴。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>左右只改 x。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">引擎尾焰</div><div class="ad-what">移动时喷火</div><div class="ad-how">循环尾加"移动中换成尾焰造型"<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">惯性驾驶</div><div class="ad-what">有加速和滑行</div><div class="ad-how">速度变量累加版驾驶<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">上下移动</div><div class="ad-what">全向飞行</div><div class="ad-how">再加上下两段判断<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="h2">第 2 课 · 弹幕初成</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 开火</span><span class="st-text">炮膛里装的是克隆：按一下空格，飞出一颗子弹。</span></div>
+<div class="hb-goal">只解决一件事：<em>子弹克隆</em>——从机头射出、向上飞、出顶删除。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 连按空格 = 弹幕</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:460px;"><img class="sp-fill" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><i class="sp-abs" data-sp="子弹" style="left:48%; top:30%;"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:55%; opacity:.6;"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:75%; opacity:.3;"></i><i class="sp-abs" data-sp="飞船" style="left:42%; bottom:8%;"></i><span class="sl-tag" style="left:6%; top:8%;">连按空格 = 一串子弹</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 第 1 关学的克隆</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">从机头发射</span><span class="td-note">— 读飞船x 定出生点</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">直线上膛</span><span class="td-note">— 每帧 y +10</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">出界自删</span><span class="td-note">— 到顶回收</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">子弹打不完，所以本体隐身、按空格克隆；分身出生时读"飞船x"定位机头，然后每帧 y+10 冲向天顶，到顶自删。发射 = 克隆，这一课用克隆做子弹。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>子弹本体隐身候命</strong>
+<pre class="blocks">当绿旗被点击
+隐藏</pre>
+<div class="see">✅ 舞台上只有飞船，子弹本体不上场</div>
+</li>
+<li><strong>空格 = 发射</strong>
+<pre class="blocks">当按下 [空格] 键
+克隆 [自己]</pre>
+<div class="sl-where">🧰 积木在：子弹角色上，独立事件帽</div>
+<div class="see">✅ 按一下空格，生成一颗子弹</div>
+</li>
+<li><strong>分身：从机头冲向天顶</strong>
+<pre class="blocks">当作为克隆体启动时
+移到 x: (飞船x) y: (-120)
+重复执行直到 <(y 坐标) > (175)>
+    将y坐标增加 (10)
+删除此克隆体</pre>
+<p><div class="sl-sub">发射音效：循环前加「播放声音 [laser]」</div></p>
+<div class="see">✅ 子弹从机头喷出，直冲天顶后消失</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🔫 每按一次出一发</li><li>🎯 总从机头正中射出</li><li>♻️ 到顶自动回收不卡机</li>
+</ul>
+<p>有炮没敌人——下一课下陨石雨。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>火力调校</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">y +10 改 +20</div><div class="lb-guess">猜猜看：弹速快了命中率呢？</div><div class="lb-why">弹速=手感+难度</div></div>
+<div class="lab-card"><div class="lb-do">子弹变大（大小 200）</div><div class="lb-guess">猜猜看：散弹感？</div><div class="lb-why">判定=像素×难度</div></div>
+<div class="lab-card"><div class="lb-do">加"最多同时 5 发"限制</div><div class="lb-guess">猜猜看：乱按惩罚</div><div class="lb-why">资源限制设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>子弹两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹从屏幕中间冒出</div>出生点没用飞船x。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆体启动先「移到 x: (飞船x) …」。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹到顶赖着不走</div>没删克隆体。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>循环结束后「删除此克隆体」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">双联炮</div><div class="ad-what">左右机头各一发</div><div class="ad-how">克隆两次，x ±14<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">射速限制</div><div class="ad-what">0.2 秒最多一发</div><div class="ad-how">事件里加等待/计时<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">彩色曳光</div><div class="ad-what">子弹带颜色拖影</div><div class="ad-how">外观特效渐隐<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="h3">第 3 课 · 陨石雨</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 陨石雨</span><span class="st-text">陨石带醒了——大小陨石带着随机间隔、随机位置砸下来。</span></div>
+<div class="hb-goal">只解决一件事：<em>陨石生成器</em>——随机时间、随机 x、持续下落、出底删除。</div>
+<div class="hb-chips"><span class="chip">⏱ 35 分钟</span><span class="chip">✅ 永不停的陨石雨</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><i class="sp-abs" data-sp="陨石" style="left:14%; top:12%;"></i><i class="sp-abs" data-sp="陨石" style="left:64%; top:30%; opacity:.8;"></i><i class="sp-abs" data-sp="陨石" style="left:40%; top:55%; opacity:.6;"></i><i class="sp-abs" data-sp="飞船" style="left:44%; bottom:8%;"></i><span class="sl-tag" style="left:6%; top:8%;">随机位置 × 随机间隔</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆+删除</span><span class="td-note">— 子弹同款流程</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">随机间隔</span><span class="td-note">— 等待 0.5~1.5 秒</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">随机落点</span><span class="td-note">— x 在 −220~220 取随机</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">变量</span><span class="td-note">— 陨石速度先写死 4</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">陨石要"乱"才像雨：发车间隔随机（0.5~1.5 秒）、落点随机（−220~220）。随机的秘密是每次克隆前重新取数——只取一次用到底，就成排队下落了。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>陨石本体：随机发车</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    等待 (在 (0.5) 和 (1.5) 之间取随机数) 秒
+    移到 x: (在 (-220) 和 (220) 之间取随机数) y: (180)
+    克隆 [自己]</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#59C059;">运算</span><span class="cat" style="background:#4C97FF;">运动</span></div>
+<div class="see">✅ 陨石忽密忽疏地砸下来——每次都不一样</div>
+</li>
+<li><strong>分身：下落 + 回收</strong>
+<pre class="blocks">当作为克隆体启动时
+显示
+重复执行直到 <(y 坐标) < (-185)>
+    将y坐标增加 (-4)
+删除此克隆体</pre>
+<div class="see">✅ 陨石砸出屏幕底就消失</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>☄️ 陨石永动、间隔不均</li><li>🎲 落点铺满全宽</li><li>♻️ 出底即删</li>
+</ul>
+<p>敌人会下饺子了——下一课把它们打爆。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>弹幕密度</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">间隔 0.5~1.5 改 0.2~0.5</div><div class="lb-guess">猜猜看：地狱难度！</div><div class="lb-why">密度=压迫感</div></div>
+<div class="lab-card"><div class="lb-do">下落 −4 改 −8</div><div class="lb-guess">猜猜看：快球来了</div><div class="lb-why">速度=反应窗口</div></div>
+<div class="lab-card"><div class="lb-do">陨石随机大小 50~150</div><div class="lb-guess">猜猜看：大小随机更乱真</div><div class="lb-why">大小=威胁分级</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>陨石两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 排队下落</div>随机数在循环外只取一次。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每次克隆前重新取随机。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 砸穿底部还在掉</div>没删克隆体。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出界「删除此克隆体」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">大陨石分裂</div><div class="ad-what">打碎变两颗小的</div><div class="ad-how">进阶：克隆时随机大小<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">旋转陨石</div><div class="ad-what">边掉边转</div><div class="ad-how">克隆体里「右转 5 度」<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">预警线</div><div class="ad-what">陨石落下前闪红线</div><div class="ad-how">克隆前广播+闪烁角色<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="h4">第 4 课 · 撞个正着</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 撞个正着</span><span class="st-text">子弹遇上陨石——火光、音效、分数，射击游戏最核心的一帧。</span></div>
+<div class="hb-goal">只解决一件事：<em>碰撞命中</em>——子弹碰到陨石，双方消失、分数 +1。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">✅ 打爆有分有响</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><i class="sp-abs" data-sp="陨石" style="left:42%; top:34%;"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:60%;"></i></div><div class="fx-cap">接近中…</div></div><div class="fx-arrow">💥</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><span class="sl-tag" style="left:30%; top:36%;">💥 +1</span></div><div class="fx-cap">命中：双方消失，分数 +1</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">克隆体互撞</span><span class="td-note">— 分身也能"碰到"分身</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">各删各的</span><span class="td-note">— 子弹删子弹、陨石删陨石</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">计分</span><span class="td-note">— 陨石侧加分</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">掉落与拾取</span><span class="td-note">— 击杀 22% 掉宝（雷电式）</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">删除此克隆体</span><span class="td-note">— 第 2 课</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">克隆体之间也能"碰到"。关键是各管各的：陨石分身碰到子弹 → 加分 + 自删；子弹分身碰到陨石 → 自删。谁也不指挥谁，两段各自的小循环就够。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>分数归零（舞台）</strong>
+<pre class="blocks">当绿旗被点击
+将 [分数] 设为 (0)</pre>
+<div class="see">✅ 开局 0 分</div>
+</li>
+<li><strong>陨石侧：命中就爆</strong>
+<pre class="blocks">    如果 <碰到 [子弹]?> 那么
+        将 [分数] 增加 (1)
+        播放声音 [pop]
+        删除此克隆体</pre>
+<p><div class="sl-sub">加在陨石克隆体"下落循环"的肚子里，每帧都查一次</div></p>
+<div class="see">✅ 陨石被打爆，分数 +1、响一声</div>
+</li>
+<li><strong>子弹侧：命中自毁</strong>
+<pre class="blocks">    如果 <碰到 [陨石]?> 那么
+        删除此克隆体</pre>
+<p><div class="sl-sub">同样塞进子弹的上升循环里——两边各自负责自己的消失，谁也不指挥谁</div></p>
+<div class="see">✅ 子弹穿爆即逝，不留残影</div>
+</li>
+<li><strong>雷电式宝物：击杀掉宝</strong>
+<pre class="blocks">当接收到 [击落]
+    将 [掉什么] 设为 (在 (1) 和 (5) 之间取随机数)
+    如果 <(掉什么) = (1)> 那么
+        将 [宝物类型] 设为 (在 (1) 和 (3) 之间取随机数)
+        移到 x: (击落x) y: (击落y)
+        克隆 [宝物]</pre>
+<div class="sl-where">🧰 积木在：写在<b>宝物</b>角色（本体隐藏，三造型：W 火力 / S 护盾 / $ 赏金）；击落时先记全局变量 击落x / 击落y</div>
+<p><div class="sl-sub">22% 概率掉宝——雷电的爽感来源</div></p>
+<div class="see">✅ 陨石爆了可能弹出一个彩色宝箱，缓缓下落</div>
+</li>
+<li><strong>宝物分身：下落 + 拾取</strong>
+<pre class="blocks">当作为克隆体启动时
+    如果 <(宝物类型) = (1)> 那么
+        换成 [火力宝物] 造型
+    显示
+    重复执行直到 <<碰到 [飞船]?> 或 <(y 坐标) < (-175)>>
+        将y坐标增加 (-2)
+    如果 <碰到 [飞船]?> 那么
+        广播 [拾取] 并等待
+    删除此克隆体</pre>
+<p><div class="sl-sub">飞船那头「当接收到 [拾取]」：类型 1→火力全开 10 秒（三连发+射速快）；类型 2→护盾+1（上限 5）；类型 3→分数+50</div></p>
+<div class="see">✅ 碰到宝物：火力变三连发！或护盾回满、赏金到账</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>💥 一颗子弹爆一颗陨石</li><li>🎒 分数稳定上涨</li><li>♻️ 不残留幽灵克隆体</li>
+</ul>
+<p>核心循环打通：躲 → 打 → 分。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>命中手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">爆照换造型</div><div class="lb-guess">猜猜看：爆炸帧闪一下再删</div><div class="lb-why">打击感来自动画</div></div>
+<div class="lab-card"><div class="lb-do">分数改 +10</div><div class="lb-guess">猜猜看：数字涨得快</div><div class="lb-why">涨分更直观</div></div>
+<div class="lab-card"><div class="lb-do">陨石血量 2</div><div class="lb-guess">猜猜看：两发一个</div><div class="lb-why">耐打=威胁</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>打不爆两种</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹穿过没反应</div>碰撞判断没在循环里。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>判断放进克隆体的移动循环，每帧查。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 爆一颗全场陨石陪葬</div>判断写在陨石本体上。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>本体不动，分身各管各的——写在克隆体循环里。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">连击计分</div><div class="ad-what">2 秒内连爆 ×2</div><div class="ad-how">计时器+连击变量<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">爆炸冲击波</div><div class="ad-what">爆时清屏小陨石</div><div class="ad-how">广播+范围判定（进阶）<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+<div class="addon-card"><div class="ad-t">击落音效随机</div><div class="ad-what">三种爆响轮着来</div><div class="ad-how">随机数选声音（进阶）<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="h5">第 5 课 · 最后的护盾</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 最后的护盾</span><span class="st-text">护盾只剩三格——撑得越久，陨石越快。今天把它做完，然后发布。</span></div>
+<div class="hb-goal">只解决一件事：<em>生命与胜负</em>——碰陨石掉护盾、无敌一秒；清到 300 分 = 胜利；护盾空 = 失败。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">🎤 孩子主讲</span><span class="chip">✅ 完整通关</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/太空射击/深空星域.svg" alt="深空星域" loading="lazy"><i class="sp-abs" data-sp="陨石" style="left:30%; top:20%; opacity:.7;"></i><i class="sp-abs" data-sp="飞船" style="left:44%; bottom:10%;"></i><span class="sl-tag" style="left:6%; top:8%;">护盾 ❤❤❤</span><span class="sl-tag" style="right:5%; top:8%;">目标 300 分</span><span class="sl-tag" style="left:10%; bottom:32%;">被砸 → 闪烁一秒无敌</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">生命变量</span><span class="td-note">— 护盾 3 格</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">无敌帧</span><span class="td-note">— 挨打后闪烁一秒</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">胜负广播</span><span class="td-note">— 打砖块第 5 课同款</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">挨打掉护盾，但同一秒不能连扣——加一秒"无敌帧"（闪烁）。胜负照旧两个"如果"：护盾 <1 输，分数 >299 赢。到这里，你已经能看懂大多数街机游戏的结构。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>护盾三格</strong>
+<pre class="blocks">当绿旗被点击
+将 [护盾] 设为 (3)
+将 [分数] 设为 (0)</pre>
+<div class="see">✅ 开局 ❤❤❤</div>
+</li>
+<li><strong>被砸：掉一格 + 无敌一秒</strong>
+<pre class="blocks">    如果 <碰到 [陨石]?> 那么
+        将 [护盾] 增加 (-1)
+        重复执行 (10) 次
+            隐藏
+            等待 (0.05) 秒
+            显示
+            等待 (0.05) 秒</pre>
+<p><div class="sl-sub">塞进飞船主循环——闪烁期间碰不到？把碰撞判断包进「如果 <<<碰到陨石?> 与 <(无敌) = (0)>>」再加个无敌变量更稳（进阶）</div></p>
+<div class="see">✅ 被砸闪白，一秒内不再连扣</div>
+</li>
+<li><strong>到线就结束</strong>
+<pre class="blocks">    如果 <(护盾) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]
+    如果 <(分数) > (299)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+<div class="see">✅ 护盾空或 300 分，全场停</div>
+</li>
+<li><strong>结局 + 发布会</strong>
+<pre class="blocks">当接收到 [游戏结束]
+如果 <(护盾) < (1)> 那么
+    说 [护盾耗尽 · 按绿旗再来] (3) 秒
+否则
+    说 [300 分达成！] (3) 秒</pre>
+<p><div class="dg"><div class="dg-box">1️⃣ 我做了什么</div><div class="dg-box">2️⃣ 最难在哪</div><div class="dg-box">3️⃣ 想怎么改</div></div></p>
+<div class="see">✅ 结局一句话 + 三句话发布会</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>❤ 被砸掉格、无敌一秒</li><li>🏁 护盾空判负 / 300 分判胜</li><li>↩️ 绿旗全复原</li><li>🎤 发布会讲满三句</li>
+</ul>
+<p>太空射击完成——三关连闯，下一关去玩一条会长的蛇。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>生存平衡</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">护盾 3 改 5</div><div class="lb-guess">猜猜看：能苟到多少分？</div><div class="lb-why">血量=容错</div></div>
+<div class="lab-card"><div class="lb-do">目标 300 改 500</div><div class="lb-guess">猜猜看：通关时长翻倍？</div><div class="lb-why">目标线=节奏</div></div>
+<div class="lab-card"><div class="lb-do">陨石随分数加速</div><div class="lb-guess">猜猜看：后期更疯狂</div><div class="lb-why">难度曲线回收</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>护盾两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一下被扣光</div>没有无敌帧，连帧碰撞。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>挨打后闪烁一秒再进战场。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 护盾变负数</div>判断在扣完之后才停。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>护盾 <1 立刻广播+停止。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">掉落护盾道具</div><div class="ad-what">陨石偶尔掉 +1 护盾</div><div class="ad-how">随机克隆道具（进阶）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">终极武器</div><div class="ad-what">满 100 分清屏一次</div><div class="ad-how">广播+全克隆体自删<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+<div class="addon-card"><div class="ad-t">本地最高分</div><div class="ad-what">记录最好成绩</div><div class="ad-how">最高分变量<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一场太空遭遇战：驾驶飞船、连发子弹、随机陨石雨、护盾与 300 分通关。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">👥 克隆</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">🎲 随机数</span></li><li class="td-item"><span class="td-mark new">第 4 课</span><span class="td-name">🎯 侦测·碰到</span></li><li class="td-item"><span class="td-mark new">第 5 课</span><span class="td-name">🎒 变量</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>体重秤式按键：「按下…键?」放进循环 = 按住持续动</li><li>克隆当火力与敌雨：生成 → 移动 → 回收，三步一套</li><li>克隆体互撞各删各的：互不指挥，各自循环</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 3 关</div>
+        <div class="sl-cover-title">太空射击</div>
+        <div class="sl-cover-desc">五次课做出太空射击：开飞船、发子弹、陨石雨、护盾生命——第一次拥有"火力"的游戏。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><div style="position:absolute;inset:0;background:#0b1026;"></div><div style="position:absolute;left:10%;top:12%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:30%;top:8%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:55%;top:15%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:75%;top:10%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:90%;top:20%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:15%;top:40%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:65%;top:45%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:40%;top:35%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:85%;top:60%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:20%;top:70%;width:3px;height:3px;background:#fff;"></div><i class="sp-abs" data-sp="陨石" style="left:20%; top:22%;"></i><i class="sp-abs" data-sp="陨石" style="right:18%; top:40%; opacity:.7;"></i><i class="sp-abs" data-sp="子弹" style="left:31%; top:48%;"></i><i class="sp-abs" data-sp="飞船" style="left:26%; bottom:8%;"></i><span class="sl-tag" style="left:6%; top:8%;">分数 240</span><span class="sl-tag" style="right:5%; top:8%;">护盾 ❤❤❤</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>开飞船躲陨石、按空格发射子弹——陨石会掉宝（火力/护盾/赏金），撑到 300 分通关。</div>
+        <div class="log-card"><span class="lg-t">操作</span>←/→ 驾驶，空格开火，碰到宝物自动拾取</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>在弹幕里穿行，连爆时分数连着涨</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——先打一局找找手感。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🚀 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">按住持续驾驶：体重秤式按键检测</div></div>
+        <div class="lab-card"><div class="lb-do">🔫 火力输出<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">子弹克隆：机头发射、出顶回收</div></div>
+        <div class="lab-card"><div class="lb-do">☄️ 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">陨石雨：随机间隔、随机落点</div></div>
+        <div class="lab-card"><div class="lb-do">💥 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">子弹 × 陨石：各删各的、分数 +1</div></div>
+        <div class="lab-card"><div class="lb-do">🛡️ 胜负结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">护盾三格、无敌帧、300 分通关</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：和打砖块同一张解剖图（<b>输入 → 物理 → 内容 → 判定 → 结算</b>），只是"物理"换成了"火力"——学会迁移，六个游戏其实是一门课。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">三个角色：飞船、子弹、陨石——素材包全有。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="飞船"></i><span class="a-name">飞船</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="子弹"></i><span class="a-name">子弹</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="陨石"></i><span class="a-name">陨石</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><span class="emo" style="font-size:56px;line-height:1.2;">🌌</span><span class="a-name">星空背景</span><span class="a-tag own">自带库搜 Stars</span></div><div class="asset-card"><i class="sp-md" data-sp="深空星域"></i><span class="a-name">背景</span><span class="a-tag ">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/太空射击/</b> 里的 .sprite3；背景也在素材包里（背景-太空射击.svg：「选择一个背景」→ 上传）<b>Stars / Galaxy</b>；音效 <b>laser</b>、<b>pop</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">⚡ 事件·按键</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎲 随机数</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎒 变量</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="s1" data-map="🚀 飞船驾驶">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 陨石带边缘</span><span class="st-text">飞船降落在陨石带边缘——先学会躲闪，再谈开火。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：方向键驾驶飞船，<em>左右平移</em>不越界。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 左右键流畅驾驶</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="飞船"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">⬅️➡️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="深空星域"></i><div style="position:absolute;left:12%;top:15%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:48%;top:10%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:80%;top:18%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:25%;top:45%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:70%;top:50%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:55%;top:30%;width:3px;height:3px;background:#fff;"></div><i class="sp-abs" data-sp="飞船" style="left:42%; bottom:10%;"></i><span class="sl-tag" style="left:6%; top:8%;">→ 键右移 · ← 键左移</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">按键事件</span><span class="td-note">— 打砖块加料站做过</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">持续按住检测</span><span class="td-note">— 「按下 … 键?」放进循环</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">边界限制</span><span class="td-note">— 左右墙 ±210</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">绿旗初始化</span><span class="td-note">— 出生点固定</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">驾驶要"按住就动"——不用"当按下"门铃，用"按下 …键?"体重秤放进重复执行，每帧称一次。另外循环里随时广播自己的 x（飞船x）：下一课子弹要从这里出发。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">概念 · 按住 vs 按下</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">按住 = 每帧都在问</div>
+          <div class="cp-analogy">类比：「当按下」是门铃，按一次响一次；「按下 … 键?」是体重秤——只要踩着就有数。</div>
+          <ul class="cp-points">
+<li>体重秤放进重复执行，每帧读一次</li><li>读到就移动 6 步，读不到就不动</li><li>按住不放 = 连续驾驶，松手急停</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:12px;"><div class="dg">🔔 当按下 = 门铃（响一次）</div><div class="dg-box ok">⚖️ 按下? = 体重秤（每帧称）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">飞船就位，两种移动</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (0) y: (-130)
+重复执行
+    如果 <按下 [右箭头] 键?> 那么
+        将x坐标增加 (6)
+    如果 <按下 [左箭头] 键?> 那么
+        将x坐标增加 (-6)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#4C97FF;">运动</span></div>
+          <div class="stepv-see">✅ 按住方向键，飞船平滑驾驶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">左右墙</div>
+          <pre class="blocks">    如果 <(x 坐标) > (210)> 那么
+        将x坐标设为 (210)
+    如果 <(x 坐标) < (-210)> 那么
+        将x坐标设为 (-210)</pre>
+          <div class="stepv-see">✅ 贴边停住，不飞出战场</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">报位置的无线电</div>
+          <pre class="blocks">    将 [飞船x] 设为 (x 坐标)</pre>
+          <div class="sl-sub">加在主循环末尾——子弹下一课要从这里读出发位置（全局变量 <b>飞船x</b>）</div>
+          <div class="stepv-see">✅ 监视窗里飞船x实时跳动</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🚀 按住连续驾驶、松手急停</li><li>🧱 左右不出界</li><li>📡 飞船x 实时更新</li>
+      </ul>
+<div class="sl-sub">会躲了——下一课开火。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">驾驶手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">速度 6 改 10</div><div class="lb-guess">猜猜看：像开战斗机还是卡车？</div><div class="lb-why">灵敏度=速度</div></div>
+          <div class="lab-card"><div class="lb-do">加 "按下上箭头 y+4"</div><div class="lb-guess">猜猜看：能全屏飞了！</div><div class="lb-why">维度=玩法</div></div>
+          <div class="lab-card"><div class="lb-do">移动加音效</div><div class="lb-guess">猜猜看：嗡——</div><div class="lb-why">推进器音效</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">驾驶两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按一下动一下</div>用了「当按下」事件帽。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>要用「按下 … 键?」+ 重复执行。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 斜着乱飘</div>坐标改错轴。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>左右只改 x。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">引擎尾焰</div><div class="ad-what">移动时喷火</div><div class="ad-how">循环尾加"移动中换成尾焰造型"<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">惯性驾驶</div><div class="ad-what">有加速和滑行</div><div class="ad-how">速度变量累加版驾驶<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">上下移动</div><div class="ad-what">全向飞行</div><div class="ad-how">再加上下两段判断<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 开火</div>
+      <div class="sl-next-why">飞船听话了——装一门会连发的炮。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="s2" data-map="🔫 弹幕初成">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 开火</span><span class="st-text">炮膛里装的是克隆：按一下空格，飞出一颗子弹。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>子弹克隆</em>——从机头射出、向上飞、出顶删除。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 连按空格 = 弹幕</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="子弹"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">👥</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="深空星域"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:30%;"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:55%; opacity:.6;"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:75%; opacity:.3;"></i><i class="sp-abs" data-sp="飞船" style="left:42%; bottom:8%;"></i><span class="sl-tag" style="left:6%; top:8%;">连按空格 = 一串子弹</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 第 1 关学的克隆</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">从机头发射</span><span class="td-note">— 读飞船x 定出生点</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">直线上膛</span><span class="td-note">— 每帧 y +10</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">出界自删</span><span class="td-note">— 到顶回收</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">子弹打不完，所以本体隐身、按空格克隆；分身出生时读"飞船x"定位机头，然后每帧 y+10 冲向天顶，到顶自删。发射 = 克隆，这一课用克隆做子弹。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹本体隐身候命</div>
+          <pre class="blocks">当绿旗被点击
+隐藏</pre>
+          <div class="stepv-see">✅ 舞台上只有飞船，子弹本体不上场</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">空格 = 发射</div>
+          <pre class="blocks">当按下 [空格] 键
+克隆 [自己]</pre>
+          <div class="sl-where">🧰 积木在：子弹角色上，独立事件帽</div>
+          <div class="stepv-see">✅ 按一下空格，生成一颗子弹</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身：从机头冲向天顶</div>
+          <pre class="blocks">当作为克隆体启动时
+移到 x: (飞船x) y: (-120)
+重复执行直到 <(y 坐标) > (175)>
+    将y坐标增加 (10)
+删除此克隆体</pre>
+          <div class="sl-sub">发射音效：循环前加「播放声音 [laser]」</div>
+          <div class="stepv-see">✅ 子弹从机头喷出，直冲天顶后消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🔫 每按一次出一发</li><li>🎯 总从机头正中射出</li><li>♻️ 到顶自动回收不卡机</li>
+      </ul>
+<div class="sl-sub">有炮没敌人——下一课下陨石雨。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">火力调校</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">y +10 改 +20</div><div class="lb-guess">猜猜看：弹速快了命中率呢？</div><div class="lb-why">弹速=手感+难度</div></div>
+          <div class="lab-card"><div class="lb-do">子弹变大（大小 200）</div><div class="lb-guess">猜猜看：散弹感？</div><div class="lb-why">判定=像素×难度</div></div>
+          <div class="lab-card"><div class="lb-do">加"最多同时 5 发"限制</div><div class="lb-guess">猜猜看：乱按惩罚</div><div class="lb-why">资源限制设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">子弹两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹从屏幕中间冒出</div>出生点没用飞船x。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆体启动先「移到 x: (飞船x) …」。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹到顶赖着不走</div>没删克隆体。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>循环结束后「删除此克隆体」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">双联炮</div><div class="ad-what">左右机头各一发</div><div class="ad-how">克隆两次，x ±14<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">射速限制</div><div class="ad-what">0.2 秒最多一发</div><div class="ad-how">事件里加等待/计时<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">彩色曳光</div><div class="ad-what">子弹带颜色拖影</div><div class="ad-how">外观特效渐隐<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 陨石雨</div>
+      <div class="sl-next-why">炮有了——天上该掉东西了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="s3" data-map="☄️ 陨石雨">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 陨石雨</span><span class="st-text">陨石带醒了——大小陨石带着随机间隔、随机位置砸下来。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>陨石生成器</em>——随机时间、随机 x、持续下落、出底删除。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 35 分钟</span><span class="sl-chip">✅ 永不停的陨石雨</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="陨石"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎲</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="深空星域"></i><i class="sp-abs" data-sp="陨石" style="left:14%; top:12%;"></i><i class="sp-abs" data-sp="陨石" style="left:64%; top:30%; opacity:.8;"></i><i class="sp-abs" data-sp="陨石" style="left:40%; top:55%; opacity:.6;"></i><i class="sp-abs" data-sp="飞船" style="left:44%; bottom:8%;"></i><span class="sl-tag" style="left:6%; top:8%;">随机位置 × 随机间隔</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆+删除</span><span class="td-note">— 子弹同款流程</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">随机间隔</span><span class="td-note">— 等待 0.5~1.5 秒</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">随机落点</span><span class="td-note">— x 在 −220~220 取随机</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">变量</span><span class="td-note">— 陨石速度先写死 4</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">陨石要"乱"才像雨：发车间隔随机（0.5~1.5 秒）、落点随机（−220~220）。随机的秘密是每次克隆前重新取数——只取一次用到底，就成排队下落了。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 1/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">陨石本体：随机发车</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    等待 (在 (0.5) 和 (1.5) 之间取随机数) 秒
+    移到 x: (在 (-220) 和 (220) 之间取随机数) y: (180)
+    克隆 [自己]</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#59C059;">运算</span><span class="cat" style="background:#4C97FF;">运动</span></div>
+          <div class="stepv-see">✅ 陨石忽密忽疏地砸下来——每次都不一样</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 2/2</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身：下落 + 回收</div>
+          <pre class="blocks">当作为克隆体启动时
+显示
+重复执行直到 <(y 坐标) < (-185)>
+    将y坐标增加 (-4)
+删除此克隆体</pre>
+          <div class="stepv-see">✅ 陨石砸出屏幕底就消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>☄️ 陨石永动、间隔不均</li><li>🎲 落点铺满全宽</li><li>♻️ 出底即删</li>
+      </ul>
+<div class="sl-sub">敌人会下饺子了——下一课把它们打爆。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">弹幕密度</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">间隔 0.5~1.5 改 0.2~0.5</div><div class="lb-guess">猜猜看：地狱难度！</div><div class="lb-why">密度=压迫感</div></div>
+          <div class="lab-card"><div class="lb-do">下落 −4 改 −8</div><div class="lb-guess">猜猜看：快球来了</div><div class="lb-why">速度=反应窗口</div></div>
+          <div class="lab-card"><div class="lb-do">陨石随机大小 50~150</div><div class="lb-guess">猜猜看：大小随机更乱真</div><div class="lb-why">大小=威胁分级</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">陨石两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 排队下落</div>随机数在循环外只取一次。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每次克隆前重新取随机。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 砸穿底部还在掉</div>没删克隆体。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>出界「删除此克隆体」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">大陨石分裂</div><div class="ad-what">打碎变两颗小的</div><div class="ad-how">进阶：克隆时随机大小<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">旋转陨石</div><div class="ad-what">边掉边转</div><div class="ad-how">克隆体里「右转 5 度」<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">预警线</div><div class="ad-what">陨石落下前闪红线</div><div class="ad-how">克隆前广播+闪烁角色<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 击落</div>
+      <div class="sl-next-why">子弹和陨石都到位——让它们相撞。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="s4" data-map="💥 撞个正着">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 撞个正着</span><span class="st-text">子弹遇上陨石——火光、音效、分数，射击游戏最核心的一帧。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>碰撞命中</em>——子弹碰到陨石，双方消失、分数 +1。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">✅ 打爆有分有响</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="陨石"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="子弹"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎒</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="深空星域"></i><i class="sp-abs" data-sp="陨石" style="left:42%; top:34%;"></i><i class="sp-abs" data-sp="子弹" style="left:48%; top:60%;"></i></div><div class="fx-cap">接近中…</div></div><div class="fx-arrow">💥</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="深空星域"></i><span class="sl-tag" style="left:30%; top:36%;">💥 +1</span></div><div class="fx-cap">命中：双方消失，分数 +1</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">克隆体互撞</span><span class="td-note">— 分身也能"碰到"分身</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">各删各的</span><span class="td-note">— 子弹删子弹、陨石删陨石</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">计分</span><span class="td-note">— 陨石侧加分</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">掉落与拾取</span><span class="td-note">— 击杀 22% 掉宝（雷电式）</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">删除此克隆体</span><span class="td-note">— 第 2 课</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">克隆体之间也能"碰到"。关键是各管各的：陨石分身碰到子弹 → 加分 + 自删；子弹分身碰到陨石 → 自删。谁也不指挥谁，两段各自的小循环就够。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 1/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分数归零（舞台）</div>
+          <pre class="blocks">当绿旗被点击
+将 [分数] 设为 (0)</pre>
+          <div class="stepv-see">✅ 开局 0 分</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 2/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">陨石侧：命中就爆</div>
+          <pre class="blocks">    如果 <碰到 [子弹]?> 那么
+        将 [分数] 增加 (1)
+        播放声音 [pop]
+        删除此克隆体</pre>
+          <div class="sl-sub">加在陨石克隆体"下落循环"的肚子里，每帧都查一次</div>
+          <div class="stepv-see">✅ 陨石被打爆，分数 +1、响一声</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 3/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹侧：命中自毁</div>
+          <pre class="blocks">    如果 <碰到 [陨石]?> 那么
+        删除此克隆体</pre>
+          <div class="sl-sub">同样塞进子弹的上升循环里——两边各自负责自己的消失，谁也不指挥谁</div>
+          <div class="stepv-see">✅ 子弹穿爆即逝，不留残影</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 4/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">雷电式宝物：击杀掉宝</div>
+          <pre class="blocks">当接收到 [击落]
+    将 [掉什么] 设为 (在 (1) 和 (5) 之间取随机数)
+    如果 <(掉什么) = (1)> 那么
+        将 [宝物类型] 设为 (在 (1) 和 (3) 之间取随机数)
+        移到 x: (击落x) y: (击落y)
+        克隆 [宝物]</pre>
+          <div class="sl-where">🧰 积木在：写在<b>宝物</b>角色（本体隐藏，三造型：W 火力 / S 护盾 / $ 赏金）；击落时先记全局变量 击落x / 击落y</div>
+          <div class="sl-sub">22% 概率掉宝——雷电的爽感来源</div>
+          <div class="stepv-see">✅ 陨石爆了可能弹出一个彩色宝箱，缓缓下落</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 5/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">5</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">宝物分身：下落 + 拾取</div>
+          <pre class="blocks">当作为克隆体启动时
+    如果 <(宝物类型) = (1)> 那么
+        换成 [火力宝物] 造型
+    显示
+    重复执行直到 <<碰到 [飞船]?> 或 <(y 坐标) < (-175)>>
+        将y坐标增加 (-2)
+    如果 <碰到 [飞船]?> 那么
+        广播 [拾取] 并等待
+    删除此克隆体</pre>
+          <div class="sl-sub">飞船那头「当接收到 [拾取]」：类型 1→火力全开 10 秒（三连发+射速快）；类型 2→护盾+1（上限 5）；类型 3→分数+50</div>
+          <div class="stepv-see">✅ 碰到宝物：火力变三连发！或护盾回满、赏金到账</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>💥 一颗子弹爆一颗陨石</li><li>🎒 分数稳定上涨</li><li>♻️ 不残留幽灵克隆体</li>
+      </ul>
+<div class="sl-sub">核心循环打通：躲 → 打 → 分。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">命中手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">爆照换造型</div><div class="lb-guess">猜猜看：爆炸帧闪一下再删</div><div class="lb-why">打击感来自动画</div></div>
+          <div class="lab-card"><div class="lb-do">分数改 +10</div><div class="lb-guess">猜猜看：数字涨得快</div><div class="lb-why">涨分更直观</div></div>
+          <div class="lab-card"><div class="lb-do">陨石血量 2</div><div class="lb-guess">猜猜看：两发一个</div><div class="lb-why">耐打=威胁</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">打不爆两种</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹穿过没反应</div>碰撞判断没在循环里。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>判断放进克隆体的移动循环，每帧查。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 爆一颗全场陨石陪葬</div>判断写在陨石本体上。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>本体不动，分身各管各的——写在克隆体循环里。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">连击计分</div><div class="ad-what">2 秒内连爆 ×2</div><div class="ad-how">计时器+连击变量<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">爆炸冲击波</div><div class="ad-what">爆时清屏小陨石</div><div class="ad-how">广播+范围判定（进阶）<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+          <div class="addon-card"><div class="ad-t">击落音效随机</div><div class="ad-what">三种爆响轮着来</div><div class="ad-how">随机数选声音（进阶）<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 护盾与收官</div>
+      <div class="sl-next-why">最后一块拼图：被砸会掉血，血空就结束。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="s5" data-map="🛡️ 最后的护盾">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 最后的护盾</span><span class="st-text">护盾只剩三格——撑得越久，陨石越快。今天把它做完，然后发布。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>生命与胜负</em>——碰陨石掉护盾、无敌一秒；清到 300 分 = 胜利；护盾空 = 失败。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">🎤 孩子主讲</span><span class="sl-chip">✅ 完整通关</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">❤️</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🏁</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="深空星域"></i><i class="sp-abs" data-sp="陨石" style="left:30%; top:20%; opacity:.7;"></i><i class="sp-abs" data-sp="飞船" style="left:44%; bottom:10%;"></i><span class="sl-tag" style="left:6%; top:8%;">护盾 ❤❤❤</span><span class="sl-tag" style="right:5%; top:8%;">目标 300 分</span><span class="sl-tag" style="left:10%; bottom:32%;">被砸 → 闪烁一秒无敌</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">生命变量</span><span class="td-note">— 护盾 3 格</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">无敌帧</span><span class="td-note">— 挨打后闪烁一秒</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">胜负广播</span><span class="td-note">— 打砖块第 5 课同款</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">挨打掉护盾，但同一秒不能连扣——加一秒"无敌帧"（闪烁）。胜负照旧两个"如果"：护盾 <1 输，分数 >299 赢。到这里，你已经能看懂大多数街机游戏的结构。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">护盾三格</div>
+          <pre class="blocks">当绿旗被点击
+将 [护盾] 设为 (3)
+将 [分数] 设为 (0)</pre>
+          <div class="stepv-see">✅ 开局 ❤❤❤</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">被砸：掉一格 + 无敌一秒</div>
+          <pre class="blocks">    如果 <碰到 [陨石]?> 那么
+        将 [护盾] 增加 (-1)
+        重复执行 (10) 次
+            隐藏
+            等待 (0.05) 秒
+            显示
+            等待 (0.05) 秒</pre>
+          <div class="sl-sub">塞进飞船主循环——闪烁期间碰不到？把碰撞判断包进「如果 <<<碰到陨石?> 与 <(无敌) = (0)>>」再加个无敌变量更稳（进阶）</div>
+          <div class="stepv-see">✅ 被砸闪白，一秒内不再连扣</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">到线就结束</div>
+          <pre class="blocks">    如果 <(护盾) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]
+    如果 <(分数) > (299)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+          <div class="stepv-see">✅ 护盾空或 300 分，全场停</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">结局 + 发布会</div>
+          <pre class="blocks">当接收到 [游戏结束]
+如果 <(护盾) < (1)> 那么
+    说 [护盾耗尽 · 按绿旗再来] (3) 秒
+否则
+    说 [300 分达成！] (3) 秒</pre>
+          <div class="dg"><div class="dg-box">1️⃣ 我做了什么</div><div class="dg-box">2️⃣ 最难在哪</div><div class="dg-box">3️⃣ 想怎么改</div></div>
+          <div class="stepv-see">✅ 结局一句话 + 三句话发布会</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>❤ 被砸掉格、无敌一秒</li><li>🏁 护盾空判负 / 300 分判胜</li><li>↩️ 绿旗全复原</li><li>🎤 发布会讲满三句</li>
+      </ul>
+<div class="sl-sub">太空射击完成——三关连闯，下一关去玩一条会长的蛇。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">生存平衡</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">护盾 3 改 5</div><div class="lb-guess">猜猜看：能苟到多少分？</div><div class="lb-why">血量=容错</div></div>
+          <div class="lab-card"><div class="lb-do">目标 300 改 500</div><div class="lb-guess">猜猜看：通关时长翻倍？</div><div class="lb-why">目标线=节奏</div></div>
+          <div class="lab-card"><div class="lb-do">陨石随分数加速</div><div class="lb-guess">猜猜看：后期更疯狂</div><div class="lb-why">难度曲线回收</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">护盾两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一下被扣光</div>没有无敌帧，连帧碰撞。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>挨打后闪烁一秒再进战场。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 护盾变负数</div>判断在扣完之后才停。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>护盾 <1 立刻广播+停止。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">掉落护盾道具</div><div class="ad-what">陨石偶尔掉 +1 护盾</div><div class="ad-how">随机克隆道具（进阶）<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">终极武器</div><div class="ad-what">满 100 分清屏一次</div><div class="ad-how">广播+全克隆体自删<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+          <div class="addon-card"><div class="ad-t">本地最高分</div><div class="ad-what">记录最好成绩</div><div class="ad-how">最高分变量<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><div style="position:absolute;inset:0;background:#0b1026;"></div><div style="position:absolute;left:10%;top:12%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:30%;top:8%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:55%;top:15%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:75%;top:10%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:90%;top:20%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:15%;top:40%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:65%;top:45%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:40%;top:35%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:85%;top:60%;width:3px;height:3px;background:#fff;"></div><div style="position:absolute;left:20%;top:70%;width:3px;height:3px;background:#fff;"></div><i class="sp-abs" data-sp="陨石" style="left:20%; top:22%;"></i><i class="sp-abs" data-sp="陨石" style="right:18%; top:40%; opacity:.7;"></i><i class="sp-abs" data-sp="子弹" style="left:31%; top:48%;"></i><i class="sp-abs" data-sp="飞船" style="left:26%; bottom:8%;"></i><span class="sl-tag" style="left:6%; top:8%;">分数 240</span><span class="sl-tag" style="right:5%; top:8%;">护盾 ❤❤❤</span></div>
+            <div class="cp-analogy" style="flex:1;">一场太空遭遇战：驾驶飞船、连发子弹、随机陨石雨、护盾与 300 分通关。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>👥 克隆 <span class="td-note">— 第 2 课</span></li><li>🎲 随机数 <span class="td-note">— 第 3 课</span></li><li>🎯 侦测·碰到 <span class="td-note">— 第 4 课</span></li><li>🎒 变量 <span class="td-note">— 第 5 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">体重秤式按键：「按下…键?」放进循环 = 按住持续动</li><li class="">克隆当火力与敌雨：生成 → 移动 → 回收，三步一套</li><li class="">克隆体互撞各删各的：互不指挥，各自循环</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">太空收官</div>
+      <div class="sl-next-label">下一关</div>
+      <div class="sl-next-title">第 4 关 · 贪吃蛇</div>
+      <div class="sl-next-why">射击完成——一条会越来越长的蛇在等你。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-flappy.html"><div class="dir">← 上一篇</div><div class="pager-title">② 飞扬的小鸟</div></a>
+<a class="next" href="handbook-snake.html"><div class="dir">下一篇 →</div><div class="pager-title">④ 贪吃蛇</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

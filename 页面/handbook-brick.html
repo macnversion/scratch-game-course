@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>弹球打砖块 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-brick">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 弹球打砖块</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html" class="active">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ① · 入门 · 完整手册</div>
+    <h1>弹球打砖块</h1>
+    <p class="lead">五次课做出一个完整的街机游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-brick.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">卡住才看参考做法</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-brick.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/弹球打砖块/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-brick.html">▶ 弹球打砖块 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>移动鼠标接住弹球，用球打碎顶部 32 块彩砖——砖清空就赢，漏接三次就输。</div><div class="log-card"><span class="lg-t">操作</span>鼠标左右移动（进阶挑战里有键盘版）</div><div class="log-card"><span class="lg-t">玩点在哪</span>球弹得越来越偏；一次好的斜弹能连碎一排砖</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——同一页面还有另外五门课的成品。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🖱️ 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">挡板跟鼠标：你的手就是游戏的一半</div></div><div class="lab-card"><div class="lb-do">⚪ 物理规则<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">球会飞、撞墙反弹、掉出重发</div></div><div class="lab-card"><div class="lb-do">👥 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">克隆铺出 4×8 砖墙，颜色按行</div></div><div class="lab-card"><div class="lb-do">🎯 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">球碰砖：砖碎、分涨、球弹回</div></div><div class="lab-card"><div class="lb-do">🏁 胜负结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">三条命、清砖即胜、发布会</div></div></div><div class="cp-analogy">总思路：几乎每个街机游戏都能拆成这五块——<b>输入 → 物理 → 内容 → 判定 → 结算</b>。五次课各做一块，每做完一块，游戏就完整一分。之后每个新游戏，都用这张解剖图开局。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>三个角色，素材包里全有：挡板、球、砖块（红橙绿蓝四个造型）。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/打砖块/挡板.svg" alt="挡板" loading="lazy"><span class="a-name">挡板</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/打砖块/球.svg" alt="球" loading="lazy"><span class="a-name">球</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/打砖块/砖块-红.svg" alt="砖块-红" loading="lazy"><span class="a-name">砖块 ×4 色</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><span class="emo" style="font-size:56px; line-height:1.2;">⌨️</span><span class="a-name">键盘 / 鼠标</span><span class="a-tag own">自带</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/打砖块/星空夜景.svg" alt="星空夜景" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
+</div><div class="sl-path">导入：角色区左下 <b>⊕ → 上传角色</b> → 选 <b>示例项目/素材包/打砖块/</b> 里的 .sprite3 文件。背景也在素材包里（背景-打砖块.svg：「选择一个背景」→ 上传）<b>Night City / Stars</b>，音效搜 <b>pop</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">↔️ 坐标·x</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🔁 循环</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎲 随机数</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎒 变量</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="k1">第 1 课 · 挡板听令</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 听话的挡板</span><span class="st-text">球还没上场，先把球拍握稳——你的挡板要跟着鼠标左右跑。</span></div>
+<div class="hb-goal">只解决一件事：挡板贴着屏幕底边，<em>鼠标往哪它往哪</em>，还不许出左右边界。</div>
+<div class="hb-chips"><span class="chip">⏱ 30–40 分钟</span><span class="chip">👦 孩子握鼠标</span><span class="chip">✅ 挡板跟手且不出界</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/打砖块/星空夜景.svg" alt="星空夜景" loading="lazy"><i class="sp-abs" data-sp="挡板" style="left:14%; bottom:10%; width:30%; height:5%;"></i><span class="sl-tag" style="left:8%; top:10%;">鼠标右移 → 挡板跟着右移</span><span class="sl-tag" style="right:6%; bottom:18%;">到边自动停</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">角色坐标</span><span class="td-note">— x 就是左右位置</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">重复执行</span><span class="td-note">— 每帧问一次鼠标在哪</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">边界限制</span><span class="td-note">— 左右各有一堵墙</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">上传角色</span><span class="td-note">— 素材包一步导入</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">挡板要"跟手"——鼠标每动一下，挡板就该到位。所以不是"按一下动一下"，而是每帧都问一次鼠标在哪（重复执行），答案直接写进 x；y 永远钉死在底边，它就只能左右滑。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · x 坐标</span></p>
+<p><strong>x 坐标 = 舞台上的左右刻度</strong></p><div class="cp-analogy">类比：一把横着的尺子：中心是 0，往右加到 240，往左减到 −240。</div><ul class="cp-points">
+<li>拖动角色，左下角属性面板实时显示 x</li><li>挡板只需要管 x——y 钉死在底边不动</li><li>x 到 ±180 就到底了（给球留点墙）</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box no">x = −240</div><div class="dg-box">中心 0</div><div class="dg-box no">x = 240</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>导入挡板，钉在底边</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (0) y: (-140)</pre>
+<div class="sl-path">角色区 ⊕ → 上传角色 → 选 <b>挡板.sprite3</b></div>
+<div class="see">✅ 挡板稳稳停在屏幕底部中间</div>
+</li>
+<li><strong>让挡板跟着鼠标跑</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (0) y: (-140)
+重复执行
+    将x坐标设为 (鼠标的x坐标)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#5CB1D6;">侦测</span>（「鼠标的x坐标」在侦测）</div>
+<div class="see">✅ 鼠标左右晃，挡板贴着底边跟着走</div>
+</li>
+<li><strong>加两堵墙，不许出去</strong>
+<pre class="blocks">    如果 <(x 坐标) > (180)> 那么
+        将x坐标设为 (180)
+    如果 <(x 坐标) < (-180)> 那么
+        将x坐标设为 (-180)</pre>
+<p><div class="sl-sub">接在「将x坐标设为 (鼠标的x坐标)」后面，同一个循环里</div></p>
+<div class="see">✅ 把鼠标甩到最边上，挡板停在墙前不出去</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🖱️ 挡板只在底边一条线上左右移动</li><li>🧱 左右都出不了界</li><li>↩️ 点绿旗永远回到中间</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>挡板的手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">把 y 从 −140 改成 −120</div><div class="lb-guess">猜猜看：球拍变高了？</div><div class="lb-why">y 决定高低，x 才管左右</div></div>
+<div class="lab-card"><div class="lb-do">边界 180 改成 100</div><div class="lb-guess">猜猜看：活动范围变多大？</div><div class="lb-why">墙往里挪，拍子跑不远</div></div>
+<div class="lab-card"><div class="lb-do">换成「将x坐标增加 4」按键控制</div><div class="lb-guess">猜猜看：跟鼠标版哪个好玩？</div><div class="lb-why">输入方式=手感设计</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>挡板不听话的三种病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 挡板斜着跑</div>y 没写死，被鼠标 y 带走了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>移到 x: … y: 固定值，每帧只改 x。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 挡板翻跟头</div>用了「移到 鼠标指针」。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>用「将x坐标设为 (鼠标的x坐标)」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">键盘模式</div><div class="ad-what">←/→ 键也能控制，双手党福音</div><div class="ad-how">两段「当按下左/右箭头 → 将x坐标增加 ∓8」<br><span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">挡板换肤</div><div class="ad-what">画一条霓虹光拍</div><div class="ad-how">造型里改颜色，或加「颜色特效」<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">开局倒计时</div><div class="ad-what">3、2、1 再开始跟鼠标</div><div class="ad-how">先「说 3…2…1」，再进循环<br><span class="cat" style="background:#9966FF;">外观</span><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="k2">第 2 课 · 弹球乱舞</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 会弹的球</span><span class="st-text">球被扔进了四面墙的房间——撞墙就拐弯，掉出下沿才认输。</span></div>
+<div class="hb-goal">只解决一件事：球<em>持续飞行、撞墙反弹</em>；掉到底外，回中心重新发球。</div>
+<div class="hb-chips"><span class="chip">⏱ 30–40 分钟</span><span class="chip">👦 孩子握鼠标</span><span class="chip">✅ 球永远在飞，撞墙就反弹</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/打砖块/星空夜景.svg" alt="星空夜景" loading="lazy"><i class="sp-abs" data-sp="球" style="left:44%; top:40%;"></i><span class="sl-tag" style="left:6%; top:8%;">撞墙 ➜ 自动反弹</span><span class="sl-tag" style="right:5%; bottom:30%;">掉出下沿 → 回中心重发</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">绿旗初始化</span><span class="td-note">— 第 1 课的写法</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">移动 + 步数</span><span class="td-note">— 每帧走几步</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">碰到边缘反弹</span><span class="td-note">— 四面墙自动拐弯</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">掉落重发</span><span class="td-note">— 出下沿回中心</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">球自己会走：给它一个方向，每帧移动 N 步，就是直线飞行。反弹不用自己算角度——「碰到边缘就反弹」就是四面现成的墙。唯一没墙的是底边，掉出去就回中心、换个随机角度重发。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 方向与反弹</span></p>
+<p><strong>反弹 = 方向自动翻转</strong></p><div class="cp-analogy">类比：皮球拍在墙上，墙会把它"顶"回去——「碰到边缘就反弹」就是这面墙。</div><ul class="cp-points">
+<li>「移动 N 步」沿着当前方向走</li><li>方向 45° 表示右斜上，−135° 是左斜下</li><li>先给球一个斜向，它才会满场乱飞</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">↗ 45°</div><div class="dg-box">↘ −45°</div><div class="dg-box">↙ −135°</div><div class="dg-box">↖ 135°</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>导入球，斜着起跑</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (0) y: (0)
+面向 (45) 方向</pre>
+<div class="see">✅ 球停在中心，箭头朝右上方</div>
+</li>
+<li><strong>飞起来，撞墙就反弹</strong>
+<pre class="blocks">重复执行
+    移动 (6) 步
+    如果碰到边缘就反弹</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#4C97FF;">运动</span>（「移动」「反弹」都在运动）</div>
+<div class="see">✅ 球满场乱飞，四面墙都弹得回来</div>
+</li>
+<li><strong>掉出下沿，回中心重发</strong>
+<pre class="blocks">    如果 <(y 坐标) < (-175)> 那么
+        移到 x: (0) y: (0)
+        面向 (在 (-150) 和 (-30) 之间取随机数)</pre>
+<p><div class="sl-sub">底边没有墙——球会掉出去；发球角度随机向上，每局都不一样</div></p>
+<div class="see">✅ 球掉下去一瞬回到中心，换个角度重新出发</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>⚪ 球永远在飞，不会卡死</li><li>↔️ 四面墙都能弹回</li><li>🎲 每次重发角度都不一样</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>球速与角度</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">移动 6 步改成 12 步</div><div class="lb-guess">猜猜看：球快了多少？</div><div class="lb-why">步数=速度</div></div>
+<div class="lab-card"><div class="lb-do">起跑改成 −45°</div><div class="lb-guess">猜猜看：往哪边飞？</div><div class="lb-why">方向决定航线</div></div>
+<div class="lab-card"><div class="lb-do">重发范围 −150~−30 改成 −100~−80</div><div class="lb-guess">猜猜看：发球变刁还是变乖？</div><div class="lb-why">角度区间=发球性格</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>球的两场事故</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 球卡在边上来回抖</div>角度太水平/垂直，贴着墙平行。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>发球用斜角；或加「转动 5 度再反弹」。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 球直接穿出屏幕</div>没加「碰到边缘就反弹」。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>循环里每帧都要检查反弹。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">拖尾特效</div><div class="ad-what">球飞过留下一串残影</div><div class="ad-how">克隆一个小球渐隐（进阶）或「虚像」循环<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">球加速</div><div class="ad-what">弹得越久飞得越快</div><div class="ad-how">每弹 10 次移动步数 +1<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">发球音效</div><div class="ad-what">重发时"哔"一声</div><div class="ad-how">播放声音 pop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="k3">第 3 课 · 一面砖墙</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 一面砖墙</span><span class="st-text">32 块彩砖一夜砌成——不用一块块摆，克隆一次铺满。</span></div>
+<div class="hb-goal">只解决一件事：<em>克隆</em>出 4 行 × 8 列的砖墙，颜色按行排好。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">⚠️ 本课数学最多</span><span class="chip">✅ 绿旗一点，砖墙整齐铺满</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/打砖块/星空夜景.svg" alt="星空夜景" loading="lazy"><div style="position:absolute;left:6.0%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:17.6%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:29.2%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:40.8%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:52.4%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:64.0%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:75.6%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:87.2%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:6.0%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:17.6%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:29.2%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:40.8%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:52.4%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:64.0%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:75.6%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:87.2%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:6.0%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:17.6%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:29.2%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:40.8%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:52.4%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:64.0%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:75.6%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:87.2%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:6.0%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:17.6%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:29.2%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:40.8%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:52.4%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:64.0%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:75.6%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:87.2%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><span class="sl-tag" style="right:5%; bottom:10%;">4 行 × 8 列 = 32 块</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">克隆</span><span class="td-note">— 本体喊号，分身站位</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">编号换坐标</span><span class="td-note">— 和第 1 关一样用公式</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">按行换造型</span><span class="td-note">— 第 1 行红、第 2 行橙……</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重复执行</span><span class="td-note">— 两层数字墙：4 行 × 8 列</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">32 块砖可以一块块拖……但克隆更快：本体喊号 1→32，每个分身拿自己的号算出第几行第几列，换算成 x、y 站过去，再按行号穿对应颜色的造型。编号换坐标是这一课唯一的新数学。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 克隆</span></p>
+<p><strong>克隆 = 影分身</strong></p><div class="cp-analogy">类比：本体只负责「喊号」1 到 32，每个分身听到自己的号，自己走到自己的位置。</div><ul class="cp-points">
+<li>本体绿旗脚本里「克隆自己」</li><li>分身的脚本从「当作为克隆体启动时」开始</li><li>「编号」选「仅适用于当前角色」——每个分身自己的号</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:16px;align-items:stretch;"><div class="dg" style="flex-wrap:nowrap;justify-content:center;"><div class="dg-box">📢 喊号 1 → 32</div></div><div class="dg" style="flex-wrap:nowrap;justify-content:center;"><div class="dg-box ok">🟥🟥🟥🟥 分身各自站位</div></div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>导入砖块，本体先藏起来</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+将 [编号] 设为 (0)</pre>
+<div class="see">✅ 舞台上干干净净，本体不上场</div>
+</li>
+<li><strong>两层数字墙，喊 32 个号</strong>
+<pre class="blocks">重复执行 (4) 次
+    重复执行 (8) 次
+        将 [编号] 增加 (1)
+        克隆 [自己]</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#FF8C1A;">变量</span>（变量「编号」选仅适用于当前角色）</div>
+<div class="see">✅ 编号一路涨到 32，32 个分身诞生</div>
+</li>
+<li><strong>分身按号入座</strong>
+<pre class="blocks">当作为克隆体启动时
+将 [列号] 设为 (((编号 - 1) 除以 (8) 的余数) + (1))
+将 [行号] 设为 (([向下取整] ((编号 - 1) / (8))) + (1))
+移到 x: (((列号 - 1) * (52)) - (182)) y: ((150) - ((行号 - 1) * (26)))</pre>
+<p><div class="sl-sub">先拿编号 9 手算一遍：列 = 1、行 = 2 → 位置 (−182, 124)，对上再写积木</div></p>
+<div class="see">✅ 32 个分身各就各位，排成整齐的墙</div>
+</li>
+<li><strong>按行穿衣服</strong>
+<pre class="blocks">如果 <(行号) = (1)> 那么
+    换成 [砖块-红] 造型
+如果 <(行号) = (2)> 那么
+    换成 [砖块-橙] 造型
+显示</pre>
+<p><div class="sl-sub">第 3、4 行照样子补绿、蓝；最后一定要「显示」</div></p>
+<div class="see">✅ 红橙绿蓝四色砖墙，绿旗一点铺满舞台</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🧱 4 行 × 8 列一次铺满</li><li>🌈 颜色按行排，不串色</li><li>♻️ 停止再绿旗：不叠块、不错位</li>
+</ul>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>墙的排法</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">4 × 8 改成 5 × 8</div><div class="lb-guess">猜猜看：公式要改哪些数？</div><div class="lb-why">行数变 5，列数不变</div></div>
+<div class="lab-card"><div class="lb-do">间距 52 改成 60</div><div class="lb-guess">猜猜看：墙变宽还是出界？</div><div class="lb-why">间距=砖墙宽度</div></div>
+<div class="lab-card"><div class="lb-do">颜色改成随机</div><div class="lb-guess">猜猜看：彩虹墙！</div><div class="lb-why">随机造型=新玩法</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>分身两宗罪</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 砖块全叠在一格</div>编号换坐标公式抄错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>让分身「说 (编号)」对答案。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 越点绿旗砖越多</div>分身在克隆自己。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆只写在绿旗脚本里。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">空心墙</div><div class="ad-what">中间挖两层洞，像拱门</div><div class="ad-how">行 2、3 的中段编号直接不克隆<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">砖块摇摆</div><div class="ad-what">整面墙轻轻呼吸</div><div class="ad-how">克隆体里「将y坐标增加 ±1」来回<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+<div class="addon-card"><div class="ad-t">掉落砖块</div><div class="ad-what">被打掉的砖上方砖往下掉一格</div><div class="ad-how">进阶：广播后上方块重算行号<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="k4">第 4 课 · 碎裂计分</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 碎裂与计分</span><span class="st-text">球撞上砖的一瞬，砖化成光点消失，分数跳一格——打砖块最痛快的一瞬。</span></div>
+<div class="hb-goal">只解决一件事：球碰到砖，砖<em>删除自己</em>、分数 +1，球被弹回。</div>
+<div class="hb-chips"><span class="chip">⏱ 30–40 分钟</span><span class="chip">✅ 碎一块涨一分</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/打砖块/星空夜景.svg" alt="星空夜景" loading="lazy"><div style="position:absolute;left:6.0%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:17.6%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:29.2%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:40.8%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:52.4%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:64.0%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:75.6%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:87.2%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:6.0%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:17.6%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:29.2%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:40.8%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;opacity:.15;"></div><div style="position:absolute;left:52.4%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:64.0%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:75.6%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:87.2%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:6.0%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:17.6%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:29.2%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:40.8%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:52.4%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:64.0%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:75.6%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:87.2%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:6.0%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:17.6%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:29.2%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:40.8%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:52.4%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:64.0%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:75.6%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:87.2%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><i class="sp-abs" data-sp="球" style="left:44%; top:22%;"></i><span class="sl-tag" style="right:5%; top:8%;">分数 7</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆体</span><span class="td-note">— 第 3 课的砖</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">碰到检测</span><span class="td-note">— 分身自己盯梢</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">删除此克隆体</span><span class="td-note">— 碎掉的砖消失</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">计分变量</span><span class="td-note">— 背包里第一枚分数</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">"碎"= 分身自己盯住球（碰到检测），碰上就三件事：加分、发声、删除自己。球那头同时补一个"碰到砖块就向上弹"，保证它不卡进砖堆——两边各管各的，互不指挥。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>建一枚分数</strong>
+<div class="sl-path">变量 → 建立一个变量 <b>分数</b> → 适用于所有角色；舞台绿旗脚本里「将 [分数] 设为 (0)」</div>
+<div class="see">✅ 开局分数归零，圆圈显示在角落</div>
+</li>
+<li><strong>砖块分身：盯住球，碰上就碎</strong>
+<pre class="blocks">当作为克隆体启动时
+显示
+重复执行直到 <碰到 [球]?>
+    等待 (0.05) 秒
+将 [分数] 增加 (1)
+播放声音 [pop]
+删除此克隆体</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#FF8C1A;">变量</span><span class="cat" style="background:#CF63CF;">声音</span><span class="cat" style="background:#FFAB19;">控制</span></div>
+<div class="see">✅ 球撞到哪块，哪块"啵"一声消失，分数 +1</div>
+</li>
+<li><strong>球被砖弹回</strong>
+<pre class="blocks">    如果 <碰到 [砖块]?> 那么
+        面向 (在 (-150) 和 (-30) 之间取随机数)
+        移动 (8) 步</pre>
+<p><div class="sl-sub">加进球的循环里（挡板反弹那段旁边）——随机向上弹，永远弹得回去</div></p>
+<div class="see">✅ 球打穿砖后立刻弹起，不会卡进砖堆</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>💥 每块砖只碎一次</li><li>🎒 碎一块涨一分，最多 32</li><li>↗️ 球永远向上弹回</li>
+</ul>
+<p>连打十块，分数一分不少。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>手感调校</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">音效换成 Laser</div><div class="lb-guess">猜猜看：打起来像什么游戏？</div><div class="lb-why">音效=手感的一半</div></div>
+<div class="lab-card"><div class="lb-do">砖碎加闪光</div><div class="lb-guess">猜猜看：换成白色造型闪一帧再删</div><div class="lb-why">两行外观积木的仪式感</div></div>
+<div class="lab-card"><div class="lb-do">不同行不同分</div><div class="lb-guess">猜猜看：红 4 分、蓝 1 分</div><div class="lb-why">按行号加分=策略</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>碎不掉和碎不停</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 球穿过砖，砖没反应</div>分身脚本里没盯梢。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「重复执行直到 碰到球」要写在显示之后。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一块砖碎成连环碎</div>分数一段一段涨。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>碎完立刻「删除此克隆体」，别让它赖着。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">连击奖励</div><div class="ad-what">3 秒内连碎 5 块 ×2 分</div><div class="ad-how">计时变量判断间隔<br><span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">砖块血量</div><div class="ad-what">蓝砖要打两下</div><div class="ad-how">分身变量「血」=2，碰一次 −1<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">掉落道具</div><div class="ad-what">偶尔掉一个加宽挡板</div><div class="ad-how">碎砖时随机克隆道具下落<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="k5">第 5 课 · 通关发布</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 通关与发布</span><span class="st-text">差一块砖就是胜利，漏一球就少一条命——给游戏装上结局和心跳。</span></div>
+<div class="hb-goal">只解决一件事：<em>生命与胜负</em>——3 条命，砖全碎 = 胜利；命耗尽 = 失败。最后当一回发布员。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">🎤 孩子主讲</span><span class="chip">✅ 完整通关</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:480px;"><img class="sp-fill" src="../assets/sprites/打砖块/星空夜景.svg" alt="星空夜景" loading="lazy"><div class="sl-tag" style="left:10%; top:12%; background:#173a2b;">🏆 全部砖块清除！</div><div class="sl-tag" style="left:10%; bottom:30%; background:#452c32;">💔 生命耗尽…</div><span class="sl-tag" style="right:6%; top:8%;">命 ❤❤❤</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">分数</span><span class="td-note">— 第 4 课</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">生命变量</span><span class="td-note">— 漏接一球 −1</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">胜负判断</span><span class="td-note">— 分数 = 32 / 生命 = 0</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">广播结束</span><span class="td-note">— 面板登台</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话讲作品</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">胜负就是两个判断，是两个"如果"：命 <1 输，分 >31 赢。到线就广播一声"游戏结束"，全场冻结，面板说一句结论。把分数、生命、球速摆在一起调，就是游戏设计本身。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 胜负条件</span></p>
+<p><strong>胜负 = 一个判断</strong></p><div class="cp-analogy">类比：游戏结束不是魔法：一个「如果」盯住分数或生命，到线就广播。</div><ul class="cp-points">
+<li>生命 0 → 失败；分数 32 → 胜利</li><li>「广播 [游戏结束]」只喊一声</li><li>面板角色听到后换造型、移到最前面</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box">❤❤❤ 生命 3</div><span class="dg-arr">漏接➜</span><div class="dg-box no">生命 0 → 失败</div></div><div class="dg"><div class="dg-box">🧱 32 → 分数 32 → 胜利</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>三条命</strong>
+<pre class="blocks">当绿旗被点击
+将 [生命] 设为 (3)
+将 [分数] 设为 (0)</pre>
+<div class="sl-path">变量 <b>生命</b> 适用于所有角色，写在舞台绿旗脚本里</div>
+<div class="see">✅ 开局：命 ❤❤❤、分 0</div>
+</li>
+<li><strong>漏接一球，少一条命</strong>
+<pre class="blocks">    如果 <(y 坐标) < (-175)> 那么
+        将 [生命] 增加 (-1)
+        移到 x: (0) y: (0)
+        面向 (在 (-150) 和 (-30) 之间取随机数)</pre>
+<p><div class="sl-sub">把第 2 课的"重发"那段升级：重发之前先扣命</div></p>
+<div class="see">✅ 漏接一球，命少一格</div>
+</li>
+<li><strong>到线就广播</strong>
+<pre class="blocks">    如果 <(生命) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]
+    如果 <(分数) > (31)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+<div class="sl-where">🧰 积木在：两个「如果」并排放在球的主循环里</div>
+<div class="see">✅ 命空或砖清空的一瞬，全场停</div>
+</li>
+<li><strong>面板：一块告示牌</strong>
+<pre class="blocks">当接收到 [游戏结束]
+如果 <(生命) < (1)> 那么
+    说 [差一点！按绿旗再来] (3) 秒
+否则
+    说 [全部清除！你赢了] (3) 秒
+移到最 [前面]</pre>
+<p><div class="sl-sub">面板可以用「说」，也可以画一块横幅造型——素材包里没有面板，正好自己画一次</p>
+<div class="see">✅ 结局一句话，胜负一目了然</div>
+</li>
+<li><strong>发布会：三句话</strong>
+<p><div class="dg"><div class="dg-box ok">1️⃣ 我做了什么</div><div class="dg-box ok">2️⃣ 最难在哪</div><div class="dg-box ok">3️⃣ 想怎么改</div></div></p>
+<div class="see">✅ 给全家演示一局，讲满三句</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>❤ 漏接扣命、命空判负</li><li>🏆 32 块清空判胜</li><li>🔁 绿旗重开全部复原</li><li>🎤 发布会讲满三句</li>
+</ul>
+<p>这一关通过，你的第一个完整街机游戏就完整做出来了。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>数值调平衡</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">生命 3 改 1</div><div class="lb-guess">猜猜看：一命通关什么感觉？</div><div class="lb-why">难度=数值设计</div></div>
+<div class="lab-card"><div class="lb-do">砖 32 改 16（两行）</div><div class="lb-guess">猜猜看：多快能通关？</div><div class="lb-why">内容量=游戏时长</div></div>
+<div class="lab-card"><div class="lb-do">球速 6 改 9</div><div class="lb-guess">猜猜看：还接得住吗？</div><div class="lb-why">速度曲线=难度曲线</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>结局三故障</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 命扣成负数还在掉</div>扣完没停住。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>生命 <1 就广播结束 + 停止全部。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 赢了却显示失败</div>面板判断写反。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>生命 <1 是失败，否则才是赢。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">按 R 重开</div><div class="ad-what">不用点绿旗</div><div class="ad-how">「当按下 r 键」重新初始化<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+<div class="addon-card"><div class="ad-t">最高分记录</div><div class="ad-what">本地留存最好成绩</div><div class="ad-how">最高分变量：分数更高就替换<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">一局 BGM</div><div class="ad-what">加一段循环背景音乐</div><div class="ad-how">「播放声音 … 等待播完」放循环里<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一个能赢能输的完整打砖块：鼠标挡板、反弹球、32 块可碎的砖墙、三条命与胜负结算。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">↔️ 坐标·x</span></li><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">🔁 循环</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">🎯 侦测·碰到</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">🎲 随机数</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">👥 克隆</span></li><li class="td-item"><span class="td-mark new">第 4 课</span><span class="td-name">🎒 变量</span></li><li class="td-item"><span class="td-mark new">第 5 课</span><span class="td-name">📣 广播</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>街机游戏万能公式：输入 → 物理 → 内容 → 判定 → 结算——之后每个游戏都用它开局</li><li>克隆 = 克隆：本体喊号，分身按号各就各位</li><li>胜负就是两个判断：两个"如果" + 一次广播</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 1 关</div>
+        <div class="sl-cover-title">弹球打砖块</div>
+        <div class="sl-cover-desc">五次课做出经典街机打砖块：挡板接球、砖墙碎裂、计分通关——第一次做出"真的游戏"的手感。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><i class="sp-fill" data-sp="砖块-红"></i><div style="position:absolute;inset:0;background:#1a2430;"></div><div class="sl-tag" style="left:8%; top:8%;">🟥🟥🟥🟥🟥🟥</div><div class="sl-tag" style="left:8%; top:16%;">🟧🟧🟧🟧🟧🟧</div><div class="sl-tag" style="left:8%; top:24%;">🟩🟩🟩🟩🟩🟩</div><div class="sl-tag" style="left:8%; top:32%;">🟦🟦🟦🟦🟦🟦</div><i class="sp-abs" data-sp="球" style="left:46%; top:52%;"></i><i class="sp-abs" data-sp="挡板" style="left:34%; bottom:8%; width:32%; height:4%;"></i><span class="sl-tag" style="right:6%; bottom:14%;">分数 12 / 32</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>移动鼠标接住弹球，用球打碎顶部 32 块彩砖——砖清空就赢，漏接三次就输。</div>
+        <div class="log-card"><span class="lg-t">操作</span>鼠标左右移动（进阶挑战里有键盘版）</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>球弹得越来越偏；一次好的斜弹能连碎一排砖</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——同一页面还有另外五门课的成品。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🖱️ 玩家输入<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">挡板跟鼠标：你的手就是游戏的一半</div></div>
+        <div class="lab-card"><div class="lb-do">⚪ 物理规则<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">球会飞、撞墙反弹、掉出重发</div></div>
+        <div class="lab-card"><div class="lb-do">👥 内容生成<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">克隆铺出 4×8 砖墙，颜色按行</div></div>
+        <div class="lab-card"><div class="lb-do">🎯 碰撞判定<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">球碰砖：砖碎、分涨、球弹回</div></div>
+        <div class="lab-card"><div class="lb-do">🏁 胜负结算<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">三条命、清砖即胜、发布会</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：几乎每个街机游戏都能拆成这五块——<b>输入 → 物理 → 内容 → 判定 → 结算</b>。五次课各做一块，每做完一块，游戏就完整一分。之后每个新游戏，都用这张解剖图开局。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">三个角色，素材包里全有：挡板、球、砖块（红橙绿蓝四个造型）。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="挡板"></i><span class="a-name">挡板</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="球"></i><span class="a-name">球</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="砖块-红"></i><span class="a-name">砖块 ×4 色</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><span class="emo" style="font-size:56px; line-height:1.2;">⌨️</span><span class="a-name">键盘 / 鼠标</span><span class="a-tag own">自带</span></div><div class="asset-card"><i class="sp-md" data-sp="星空夜景"></i><span class="a-name">背景</span><span class="a-tag ">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：角色区左下 <b>⊕ → 上传角色</b> → 选 <b>示例项目/素材包/打砖块/</b> 里的 .sprite3 文件。背景也在素材包里（背景-打砖块.svg：「选择一个背景」→ 上传）<b>Night City / Stars</b>，音效搜 <b>pop</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">↔️ 坐标·x</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🔁 循环</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎯 侦测·碰到</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎲 随机数</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👥 克隆</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎒 变量</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">📣 广播</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="b1" data-map="🧱 挡板听令">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 听话的挡板</span><span class="st-text">球还没上场，先把球拍握稳——你的挡板要跟着鼠标左右跑。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：挡板贴着屏幕底边，<em>鼠标往哪它往哪</em>，还不许出左右边界。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30–40 分钟</span><span class="sl-chip">👦 孩子握鼠标</span><span class="sl-chip">✅ 挡板跟手且不出界</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="挡板"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🖱️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="星空夜景"></i><i class="sp-abs" data-sp="挡板" style="left:14%; bottom:10%; width:30%; height:5%;"></i><span class="sl-tag" style="left:8%; top:10%;">鼠标右移 → 挡板跟着右移</span><span class="sl-tag" style="right:6%; bottom:18%;">到边自动停</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">角色坐标</span><span class="td-note">— x 就是左右位置</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">重复执行</span><span class="td-note">— 每帧问一次鼠标在哪</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">边界限制</span><span class="td-note">— 左右各有一堵墙</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">上传角色</span><span class="td-note">— 素材包一步导入</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">挡板要"跟手"——鼠标每动一下，挡板就该到位。所以不是"按一下动一下"，而是每帧都问一次鼠标在哪（重复执行），答案直接写进 x；y 永远钉死在底边，它就只能左右滑。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">概念 · x 坐标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">x 坐标 = 舞台上的左右刻度</div>
+          <div class="cp-analogy">类比：一把横着的尺子：中心是 0，往右加到 240，往左减到 −240。</div>
+          <ul class="cp-points">
+<li>拖动角色，左下角属性面板实时显示 x</li><li>挡板只需要管 x——y 钉死在底边不动</li><li>x 到 ±180 就到底了（给球留点墙）</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box no">x = −240</div><div class="dg-box">中心 0</div><div class="dg-box no">x = 240</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">导入挡板，钉在底边</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (0) y: (-140)</pre>
+          <div class="sl-path">角色区 ⊕ → 上传角色 → 选 <b>挡板.sprite3</b></div>
+          <div class="stepv-see">✅ 挡板稳稳停在屏幕底部中间</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">让挡板跟着鼠标跑</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (0) y: (-140)
+重复执行
+    将x坐标设为 (鼠标的x坐标)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#5CB1D6;">侦测</span>（「鼠标的x坐标」在侦测）</div>
+          <div class="stepv-see">✅ 鼠标左右晃，挡板贴着底边跟着走</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">加两堵墙，不许出去</div>
+          <pre class="blocks">    如果 <(x 坐标) > (180)> 那么
+        将x坐标设为 (180)
+    如果 <(x 坐标) < (-180)> 那么
+        将x坐标设为 (-180)</pre>
+          <div class="sl-sub">接在「将x坐标设为 (鼠标的x坐标)」后面，同一个循环里</div>
+          <div class="stepv-see">✅ 把鼠标甩到最边上，挡板停在墙前不出去</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-split">
+        <div class="sl-split-txt">
+          <ul class="sl-check ok">
+<li>🖱️ 挡板只在底边一条线上左右移动</li><li>🧱 左右都出不了界</li><li>↩️ 点绿旗永远回到中间</li>
+          </ul>
+
+        </div>
+        <div class="sl-split-vis">
+<div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="星空夜景"></i><i class="sp-abs" data-sp="挡板" style="left:38%; bottom:10%; width:30%; height:5%;"></i></div>
+<div class="vis-cap">过关画面：挡板贴底、居中待命</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挡板的手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">把 y 从 −140 改成 −120</div><div class="lb-guess">猜猜看：球拍变高了？</div><div class="lb-why">y 决定高低，x 才管左右</div></div>
+          <div class="lab-card"><div class="lb-do">边界 180 改成 100</div><div class="lb-guess">猜猜看：活动范围变多大？</div><div class="lb-why">墙往里挪，拍子跑不远</div></div>
+          <div class="lab-card"><div class="lb-do">换成「将x坐标增加 4」按键控制</div><div class="lb-guess">猜猜看：跟鼠标版哪个好玩？</div><div class="lb-why">输入方式=手感设计</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">挡板不听话的三种病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 挡板斜着跑</div>y 没写死，被鼠标 y 带走了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>移到 x: … y: 固定值，每帧只改 x。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 挡板翻跟头</div>用了「移到 鼠标指针」。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>用「将x坐标设为 (鼠标的x坐标)」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">键盘模式</div><div class="ad-what">←/→ 键也能控制，双手党福音</div><div class="ad-how">两段「当按下左/右箭头 → 将x坐标增加 ∓8」<br><span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">挡板换肤</div><div class="ad-what">画一条霓虹光拍</div><div class="ad-how">造型里改颜色，或加「颜色特效」<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">开局倒计时</div><div class="ad-what">3、2、1 再开始跟鼠标</div><div class="ad-how">先「说 3…2…1」，再进循环<br><span class="cat" style="background:#9966FF;">外观</span><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 会弹的球</div>
+      <div class="sl-next-why">拍子握稳了——放球上场，让它在四面墙上弹起来。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="b2" data-map="⚪ 弹球乱舞">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 会弹的球</span><span class="st-text">球被扔进了四面墙的房间——撞墙就拐弯，掉出下沿才认输。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：球<em>持续飞行、撞墙反弹</em>；掉到底外，回中心重新发球。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30–40 分钟</span><span class="sl-chip">👦 孩子握鼠标</span><span class="sl-chip">✅ 球永远在飞，撞墙就反弹</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="球"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">↗️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="星空夜景"></i><i class="sp-abs" data-sp="球" style="left:44%; top:40%;"></i><span class="sl-tag" style="left:6%; top:8%;">撞墙 ➜ 自动反弹</span><span class="sl-tag" style="right:5%; bottom:30%;">掉出下沿 → 回中心重发</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">绿旗初始化</span><span class="td-note">— 第 1 课的写法</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">移动 + 步数</span><span class="td-note">— 每帧走几步</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">碰到边缘反弹</span><span class="td-note">— 四面墙自动拐弯</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">掉落重发</span><span class="td-note">— 出下沿回中心</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">球自己会走：给它一个方向，每帧移动 N 步，就是直线飞行。反弹不用自己算角度——「碰到边缘就反弹」就是四面现成的墙。唯一没墙的是底边，掉出去就回中心、换个随机角度重发。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">概念 · 方向与反弹</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">反弹 = 方向自动翻转</div>
+          <div class="cp-analogy">类比：皮球拍在墙上，墙会把它"顶"回去——「碰到边缘就反弹」就是这面墙。</div>
+          <ul class="cp-points">
+<li>「移动 N 步」沿着当前方向走</li><li>方向 45° 表示右斜上，−135° 是左斜下</li><li>先给球一个斜向，它才会满场乱飞</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">↗ 45°</div><div class="dg-box">↘ −45°</div><div class="dg-box">↙ −135°</div><div class="dg-box">↖ 135°</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">导入球，斜着起跑</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (0) y: (0)
+面向 (45) 方向</pre>
+          <div class="stepv-see">✅ 球停在中心，箭头朝右上方</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">飞起来，撞墙就反弹</div>
+          <pre class="blocks">重复执行
+    移动 (6) 步
+    如果碰到边缘就反弹</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#4C97FF;">运动</span>（「移动」「反弹」都在运动）</div>
+          <div class="stepv-see">✅ 球满场乱飞，四面墙都弹得回来</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">掉出下沿，回中心重发</div>
+          <pre class="blocks">    如果 <(y 坐标) < (-175)> 那么
+        移到 x: (0) y: (0)
+        面向 (在 (-150) 和 (-30) 之间取随机数)</pre>
+          <div class="sl-sub">底边没有墙——球会掉出去；发球角度随机向上，每局都不一样</div>
+          <div class="stepv-see">✅ 球掉下去一瞬回到中心，换个角度重新出发</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-split">
+        <div class="sl-split-txt">
+          <ul class="sl-check ok">
+<li>⚪ 球永远在飞，不会卡死</li><li>↔️ 四面墙都能弹回</li><li>🎲 每次重发角度都不一样</li>
+          </ul>
+
+        </div>
+        <div class="sl-split-vis">
+<div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="星空夜景"></i><i class="sp-abs" data-sp="球" style="left:48%; top:44%;"></i><i class="sp-abs" data-sp="挡板" style="left:34%; bottom:6%; width:30%; height:5%;"></i></div>
+<div class="vis-cap">球 + 挡板同场，就是打砖块的骨架</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">球速与角度</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">移动 6 步改成 12 步</div><div class="lb-guess">猜猜看：球快了多少？</div><div class="lb-why">步数=速度</div></div>
+          <div class="lab-card"><div class="lb-do">起跑改成 −45°</div><div class="lb-guess">猜猜看：往哪边飞？</div><div class="lb-why">方向决定航线</div></div>
+          <div class="lab-card"><div class="lb-do">重发范围 −150~−30 改成 −100~−80</div><div class="lb-guess">猜猜看：发球变刁还是变乖？</div><div class="lb-why">角度区间=发球性格</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">球的两场事故</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 球卡在边上来回抖</div>角度太水平/垂直，贴着墙平行。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>发球用斜角；或加「转动 5 度再反弹」。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 球直接穿出屏幕</div>没加「碰到边缘就反弹」。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>循环里每帧都要检查反弹。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">拖尾特效</div><div class="ad-what">球飞过留下一串残影</div><div class="ad-how">克隆一个小球渐隐（进阶）或「虚像」循环<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">球加速</div><div class="ad-what">弹得越久飞得越快</div><div class="ad-how">每弹 10 次移动步数 +1<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">发球音效</div><div class="ad-what">重发时"哔"一声</div><div class="ad-how">播放声音 pop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 一面砖墙</div>
+      <div class="sl-next-why">球会弹了——给它一面可以打的墙，32 块砖排好队。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="b3" data-map="🧱 一面砖墙">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 一面砖墙</span><span class="st-text">32 块彩砖一夜砌成——不用一块块摆，克隆一次铺满。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>克隆</em>出 4 行 × 8 列的砖墙，颜色按行排好。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">⚠️ 本课数学最多</span><span class="sl-chip">✅ 绿旗一点，砖墙整齐铺满</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="砖块-红"></i><span style="font-size:20px;">×32</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">👥</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="星空夜景"></i><div style="position:absolute;left:6.0%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:17.6%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:29.2%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:40.8%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:52.4%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:64.0%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:75.6%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:87.2%;top:8%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:6.0%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:17.6%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:29.2%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:40.8%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:52.4%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:64.0%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:75.6%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:87.2%;top:17%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:6.0%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:17.6%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:29.2%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:40.8%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:52.4%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:64.0%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:75.6%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:87.2%;top:26%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:6.0%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:17.6%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:29.2%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:40.8%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:52.4%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:64.0%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:75.6%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:87.2%;top:35%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><span class="sl-tag" style="right:5%; bottom:10%;">4 行 × 8 列 = 32 块</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">克隆</span><span class="td-note">— 本体喊号，分身站位</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">编号换坐标</span><span class="td-note">— 和第 1 关一样用公式</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">按行换造型</span><span class="td-note">— 第 1 行红、第 2 行橙……</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重复执行</span><span class="td-note">— 两层数字墙：4 行 × 8 列</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">32 块砖可以一块块拖……但克隆更快：本体喊号 1→32，每个分身拿自己的号算出第几行第几列，换算成 x、y 站过去，再按行号穿对应颜色的造型。编号换坐标是这一课唯一的新数学。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">概念 · 克隆</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">克隆 = 影分身</div>
+          <div class="cp-analogy">类比：本体只负责「喊号」1 到 32，每个分身听到自己的号，自己走到自己的位置。</div>
+          <ul class="cp-points">
+<li>本体绿旗脚本里「克隆自己」</li><li>分身的脚本从「当作为克隆体启动时」开始</li><li>「编号」选「仅适用于当前角色」——每个分身自己的号</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:16px;align-items:stretch;"><div class="dg" style="flex-wrap:nowrap;justify-content:center;"><div class="dg-box">📢 喊号 1 → 32</div></div><div class="dg" style="flex-wrap:nowrap;justify-content:center;"><div class="dg-box ok">🟥🟥🟥🟥 分身各自站位</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">导入砖块，本体先藏起来</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+将 [编号] 设为 (0)</pre>
+          <div class="stepv-see">✅ 舞台上干干净净，本体不上场</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">两层数字墙，喊 32 个号</div>
+          <pre class="blocks">重复执行 (4) 次
+    重复执行 (8) 次
+        将 [编号] 增加 (1)
+        克隆 [自己]</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#FF8C1A;">变量</span>（变量「编号」选仅适用于当前角色）</div>
+          <div class="stepv-see">✅ 编号一路涨到 32，32 个分身诞生</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身按号入座</div>
+          <pre class="blocks">当作为克隆体启动时
+将 [列号] 设为 (((编号 - 1) 除以 (8) 的余数) + (1))
+将 [行号] 设为 (([向下取整] ((编号 - 1) / (8))) + (1))
+移到 x: (((列号 - 1) * (52)) - (182)) y: ((150) - ((行号 - 1) * (26)))</pre>
+          <div class="sl-sub">先拿编号 9 手算一遍：列 = 1、行 = 2 → 位置 (−182, 124)，对上再写积木</div>
+          <div class="stepv-see">✅ 32 个分身各就各位，排成整齐的墙</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">按行穿衣服</div>
+          <pre class="blocks">如果 <(行号) = (1)> 那么
+    换成 [砖块-红] 造型
+如果 <(行号) = (2)> 那么
+    换成 [砖块-橙] 造型
+显示</pre>
+          <div class="sl-sub">第 3、4 行照样子补绿、蓝；最后一定要「显示」</div>
+          <div class="stepv-see">✅ 红橙绿蓝四色砖墙，绿旗一点铺满舞台</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-split">
+        <div class="sl-split-txt">
+          <ul class="sl-check ok">
+<li>🧱 4 行 × 8 列一次铺满</li><li>🌈 颜色按行排，不串色</li><li>♻️ 停止再绿旗：不叠块、不错位</li>
+          </ul>
+
+        </div>
+        <div class="sl-split-vis">
+<div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="星空夜景"></i><div style="position:absolute;left:6.0%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:17.6%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:29.2%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:40.8%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:52.4%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:64.0%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:75.6%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:87.2%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:6.0%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:17.6%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:29.2%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:40.8%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:52.4%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:64.0%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:75.6%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:87.2%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:6.0%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:17.6%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:29.2%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:40.8%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:52.4%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:64.0%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:75.6%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:87.2%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:6.0%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:17.6%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:29.2%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:40.8%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:52.4%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:64.0%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:75.6%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:87.2%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><i class="sp-abs" data-sp="球" style="left:46%; bottom:16%;"></i></div>
+<div class="vis-cap">砖墙 + 球 + 挡板：打砖块成型</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">墙的排法</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">4 × 8 改成 5 × 8</div><div class="lb-guess">猜猜看：公式要改哪些数？</div><div class="lb-why">行数变 5，列数不变</div></div>
+          <div class="lab-card"><div class="lb-do">间距 52 改成 60</div><div class="lb-guess">猜猜看：墙变宽还是出界？</div><div class="lb-why">间距=砖墙宽度</div></div>
+          <div class="lab-card"><div class="lb-do">颜色改成随机</div><div class="lb-guess">猜猜看：彩虹墙！</div><div class="lb-why">随机造型=新玩法</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">分身两宗罪</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 砖块全叠在一格</div>编号换坐标公式抄错。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>让分身「说 (编号)」对答案。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 越点绿旗砖越多</div>分身在克隆自己。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>克隆只写在绿旗脚本里。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">空心墙</div><div class="ad-what">中间挖两层洞，像拱门</div><div class="ad-how">行 2、3 的中段编号直接不克隆<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">砖块摇摆</div><div class="ad-what">整面墙轻轻呼吸</div><div class="ad-how">克隆体里「将y坐标增加 ±1」来回<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+          <div class="addon-card"><div class="ad-t">掉落砖块</div><div class="ad-what">被打掉的砖上方砖往下掉一格</div><div class="ad-how">进阶：广播后上方块重算行号<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 碎裂与计分</div>
+      <div class="sl-next-why">墙有了——让球撞上去，砖碎、分数涨。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="b4" data-map="💥 碎裂计分">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 碎裂与计分</span><span class="st-text">球撞上砖的一瞬，砖化成光点消失，分数跳一格——打砖块最痛快的一瞬。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：球碰到砖，砖<em>删除自己</em>、分数 +1，球被弹回。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30–40 分钟</span><span class="sl-chip">✅ 碎一块涨一分</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="砖块-红"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎒</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="星空夜景"></i><div style="position:absolute;left:6.0%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:17.6%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:29.2%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:40.8%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:52.4%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:64.0%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:75.6%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:87.2%;top:10%;width:10%;height:6%;border-radius:3px;background:#e74c3c;"></div><div style="position:absolute;left:6.0%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:17.6%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:29.2%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:40.8%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;opacity:.15;"></div><div style="position:absolute;left:52.4%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:64.0%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:75.6%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:87.2%;top:19%;width:10%;height:6%;border-radius:3px;background:#f39c12;"></div><div style="position:absolute;left:6.0%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:17.6%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:29.2%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:40.8%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:52.4%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:64.0%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:75.6%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:87.2%;top:28%;width:10%;height:6%;border-radius:3px;background:#2ecc71;"></div><div style="position:absolute;left:6.0%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:17.6%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:29.2%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:40.8%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:52.4%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:64.0%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:75.6%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><div style="position:absolute;left:87.2%;top:37%;width:10%;height:6%;border-radius:3px;background:#4a90d9;"></div><i class="sp-abs" data-sp="球" style="left:44%; top:22%;"></i><span class="sl-tag" style="right:5%; top:8%;">分数 7</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆体</span><span class="td-note">— 第 3 课的砖</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">碰到检测</span><span class="td-note">— 分身自己盯梢</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">删除此克隆体</span><span class="td-note">— 碎掉的砖消失</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">计分变量</span><span class="td-note">— 背包里第一枚分数</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">"碎"= 分身自己盯住球（碰到检测），碰上就三件事：加分、发声、删除自己。球那头同时补一个"碰到砖块就向上弹"，保证它不卡进砖堆——两边各管各的，互不指挥。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">建一枚分数</div>
+          <div class="sl-path">变量 → 建立一个变量 <b>分数</b> → 适用于所有角色；舞台绿旗脚本里「将 [分数] 设为 (0)」</div>
+          <div class="stepv-see">✅ 开局分数归零，圆圈显示在角落</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">砖块分身：盯住球，碰上就碎</div>
+          <pre class="blocks">当作为克隆体启动时
+显示
+重复执行直到 <碰到 [球]?>
+    等待 (0.05) 秒
+将 [分数] 增加 (1)
+播放声音 [pop]
+删除此克隆体</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#FF8C1A;">变量</span><span class="cat" style="background:#CF63CF;">声音</span><span class="cat" style="background:#FFAB19;">控制</span></div>
+          <div class="stepv-see">✅ 球撞到哪块，哪块"啵"一声消失，分数 +1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">球被砖弹回</div>
+          <pre class="blocks">    如果 <碰到 [砖块]?> 那么
+        面向 (在 (-150) 和 (-30) 之间取随机数)
+        移动 (8) 步</pre>
+          <div class="sl-sub">加进球的循环里（挡板反弹那段旁边）——随机向上弹，永远弹得回去</div>
+          <div class="stepv-see">✅ 球打穿砖后立刻弹起，不会卡进砖堆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>💥 每块砖只碎一次</li><li>🎒 碎一块涨一分，最多 32</li><li>↗️ 球永远向上弹回</li>
+      </ul>
+<div class="sl-sub">连打十块，分数一分不少。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">手感调校</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">音效换成 Laser</div><div class="lb-guess">猜猜看：打起来像什么游戏？</div><div class="lb-why">音效=手感的一半</div></div>
+          <div class="lab-card"><div class="lb-do">砖碎加闪光</div><div class="lb-guess">猜猜看：换成白色造型闪一帧再删</div><div class="lb-why">两行外观积木的仪式感</div></div>
+          <div class="lab-card"><div class="lb-do">不同行不同分</div><div class="lb-guess">猜猜看：红 4 分、蓝 1 分</div><div class="lb-why">按行号加分=策略</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">碎不掉和碎不停</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 球穿过砖，砖没反应</div>分身脚本里没盯梢。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「重复执行直到 碰到球」要写在显示之后。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一块砖碎成连环碎</div>分数一段一段涨。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>碎完立刻「删除此克隆体」，别让它赖着。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">连击奖励</div><div class="ad-what">3 秒内连碎 5 块 ×2 分</div><div class="ad-how">计时变量判断间隔<br><span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">砖块血量</div><div class="ad-what">蓝砖要打两下</div><div class="ad-how">分身变量「血」=2，碰一次 −1<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">掉落道具</div><div class="ad-what">偶尔掉一个加宽挡板</div><div class="ad-how">碎砖时随机克隆道具下落<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 通关与发布</div>
+      <div class="sl-next-why">打碎所有砖就赢、漏接三球就输——给它一个结局，然后发布。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="b5" data-map="🏁 通关发布">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 通关与发布</span><span class="st-text">差一块砖就是胜利，漏一球就少一条命——给游戏装上结局和心跳。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>生命与胜负</em>——3 条命，砖全碎 = 胜利；命耗尽 = 失败。最后当一回发布员。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">🎤 孩子主讲</span><span class="sl-chip">✅ 完整通关</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">🎒</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🏁</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:480px;"><i class="sp-fill" data-sp="星空夜景"></i><div class="sl-tag" style="left:10%; top:12%; background:#173a2b;">🏆 全部砖块清除！</div><div class="sl-tag" style="left:10%; bottom:30%; background:#452c32;">💔 生命耗尽…</div><span class="sl-tag" style="right:6%; top:8%;">命 ❤❤❤</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">分数</span><span class="td-note">— 第 4 课</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">生命变量</span><span class="td-note">— 漏接一球 −1</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">胜负判断</span><span class="td-note">— 分数 = 32 / 生命 = 0</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">广播结束</span><span class="td-note">— 面板登台</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话讲作品</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">胜负就是两个判断，是两个"如果"：命 <1 输，分 >31 赢。到线就广播一声"游戏结束"，全场冻结，面板说一句结论。把分数、生命、球速摆在一起调，就是游戏设计本身。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">概念 · 胜负条件</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">胜负 = 一个判断</div>
+          <div class="cp-analogy">类比：游戏结束不是魔法：一个「如果」盯住分数或生命，到线就广播。</div>
+          <ul class="cp-points">
+<li>生命 0 → 失败；分数 32 → 胜利</li><li>「广播 [游戏结束]」只喊一声</li><li>面板角色听到后换造型、移到最前面</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box">❤❤❤ 生命 3</div><span class="dg-arr">漏接➜</span><div class="dg-box no">生命 0 → 失败</div></div><div class="dg"><div class="dg-box">🧱 32 → 分数 32 → 胜利</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 1/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">三条命</div>
+          <pre class="blocks">当绿旗被点击
+将 [生命] 设为 (3)
+将 [分数] 设为 (0)</pre>
+          <div class="sl-path">变量 <b>生命</b> 适用于所有角色，写在舞台绿旗脚本里</div>
+          <div class="stepv-see">✅ 开局：命 ❤❤❤、分 0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 2/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">漏接一球，少一条命</div>
+          <pre class="blocks">    如果 <(y 坐标) < (-175)> 那么
+        将 [生命] 增加 (-1)
+        移到 x: (0) y: (0)
+        面向 (在 (-150) 和 (-30) 之间取随机数)</pre>
+          <div class="sl-sub">把第 2 课的"重发"那段升级：重发之前先扣命</div>
+          <div class="stepv-see">✅ 漏接一球，命少一格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 3/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">到线就广播</div>
+          <pre class="blocks">    如果 <(生命) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]
+    如果 <(分数) > (31)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+          <div class="sl-where">🧰 积木在：两个「如果」并排放在球的主循环里</div>
+          <div class="stepv-see">✅ 命空或砖清空的一瞬，全场停</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 4/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">面板：一块告示牌</div>
+          <pre class="blocks">当接收到 [游戏结束]
+如果 <(生命) < (1)> 那么
+    说 [差一点！按绿旗再来] (3) 秒
+否则
+    说 [全部清除！你赢了] (3) 秒
+移到最 [前面]</pre>
+          <div class="sl-sub">面板可以用「说」，也可以画一块横幅造型——素材包里没有面板，正好自己画一次
+          <div class="stepv-see">✅ 结局一句话，胜负一目了然</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 5/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">5</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">发布会：三句话</div>
+          <div class="dg"><div class="dg-box ok">1️⃣ 我做了什么</div><div class="dg-box ok">2️⃣ 最难在哪</div><div class="dg-box ok">3️⃣ 想怎么改</div></div>
+          <div class="stepv-see">✅ 给全家演示一局，讲满三句</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>❤ 漏接扣命、命空判负</li><li>🏆 32 块清空判胜</li><li>🔁 绿旗重开全部复原</li><li>🎤 发布会讲满三句</li>
+      </ul>
+<div class="sl-sub">这一关通过，你的第一个完整街机游戏就完整做出来了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">数值调平衡</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">生命 3 改 1</div><div class="lb-guess">猜猜看：一命通关什么感觉？</div><div class="lb-why">难度=数值设计</div></div>
+          <div class="lab-card"><div class="lb-do">砖 32 改 16（两行）</div><div class="lb-guess">猜猜看：多快能通关？</div><div class="lb-why">内容量=游戏时长</div></div>
+          <div class="lab-card"><div class="lb-do">球速 6 改 9</div><div class="lb-guess">猜猜看：还接得住吗？</div><div class="lb-why">速度曲线=难度曲线</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">结局三故障</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 命扣成负数还在掉</div>扣完没停住。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>生命 <1 就广播结束 + 停止全部。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 赢了却显示失败</div>面板判断写反。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>生命 <1 是失败，否则才是赢。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">按 R 重开</div><div class="ad-what">不用点绿旗</div><div class="ad-how">「当按下 r 键」重新初始化<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+          <div class="addon-card"><div class="ad-t">最高分记录</div><div class="ad-what">本地留存最好成绩</div><div class="ad-how">最高分变量：分数更高就替换<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">一局 BGM</div><div class="ad-what">加一段循环背景音乐</div><div class="ad-how">「播放声音 … 等待播完」放循环里<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><i class="sp-fill" data-sp="砖块-红"></i><div style="position:absolute;inset:0;background:#1a2430;"></div><div class="sl-tag" style="left:8%; top:8%;">🟥🟥🟥🟥🟥🟥</div><div class="sl-tag" style="left:8%; top:16%;">🟧🟧🟧🟧🟧🟧</div><div class="sl-tag" style="left:8%; top:24%;">🟩🟩🟩🟩🟩🟩</div><div class="sl-tag" style="left:8%; top:32%;">🟦🟦🟦🟦🟦🟦</div><i class="sp-abs" data-sp="球" style="left:46%; top:52%;"></i><i class="sp-abs" data-sp="挡板" style="left:34%; bottom:8%; width:32%; height:4%;"></i><span class="sl-tag" style="right:6%; bottom:14%;">分数 12 / 32</span></div>
+            <div class="cp-analogy" style="flex:1;">一个能赢能输的完整打砖块：鼠标挡板、反弹球、32 块可碎的砖墙、三条命与胜负结算。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>↔️ 坐标·x <span class="td-note">— 第 1 课</span></li><li>🔁 循环 <span class="td-note">— 第 1 课</span></li><li>🎯 侦测·碰到 <span class="td-note">— 第 2 课</span></li><li>🎲 随机数 <span class="td-note">— 第 3 课</span></li><li>👥 克隆 <span class="td-note">— 第 3 课</span></li><li>🎒 变量 <span class="td-note">— 第 4 课</span></li><li>📣 广播 <span class="td-note">— 第 5 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">街机游戏万能公式：输入 → 物理 → 内容 → 判定 → 结算——之后每个游戏都用它开局</li><li class="">克隆 = 克隆：本体喊号，分身按号各就各位</li><li class="">胜负就是两个判断：两个"如果" + 一次广播</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">打砖块通关</div>
+      <div class="sl-next-label">下一关</div>
+      <div class="sl-next-title">第 2 关 · 飞扬的小鸟</div>
+      <div class="sl-next-why">第一个街机游戏完成——下一课，做一只怎么也飞不稳的小鸟。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="outline.html"><div class="dir">← 上一篇</div><div class="pager-title">开始之前（家长读）</div></a>
+<a class="next" href="handbook-flappy.html"><div class="dir">下一篇 →</div><div class="pager-title">② 飞扬的小鸟</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

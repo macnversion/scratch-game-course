@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>开始之前（家长读） · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="outline">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">六门游戏课</div>
+<a href="outline.html" class="active">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">家长读 · 开课之前 10 分钟</div>
+    <h1>开始之前</h1>
+    <p class="lead">六门游戏课，每门五次课做出一个完整街机游戏。这页只讲两件事：<strong>上课的节奏</strong>和<strong>素材包怎么导入</strong>（编辑器你已在用，不再赘述）。</p>
+  </div>
+
+  <div class="md-content">
+
+  <h2>一、上课节奏（每门 5 次课，每次 30–45 分钟）</h2>
+  <p>每一课都按同一条线走：<strong>先看成品效果 → 自上而下拆解 → 自己试 10 分钟 → 卡住才看参考做法 → 验收 → 试一试 / 排错 / 挑战</strong>。</p>
+  <ul>
+    <li>放映版（deck）是上课主界面：方向键翻页，F 全屏；手册页顶部的大按钮直达。</li>
+    <li>孩子握鼠标；卡住超 5 分钟才翻「参考做法」。</li>
+    <li>每课上完回手册勾一格，首页星星同步亮。</li>
+    <li>顺序建议 ①→⑥（难度递进），也可让孩子挑喜欢的先做。</li>
+  </ul>
+
+  <h2>二、素材包（不用现场画）</h2>
+  <p>每门课的全部角色都在 <strong>示例项目/素材包/</strong> 里，标准的 .sprite3 文件：角色区左下 <strong>⊕ → 上传角色</strong> 一步导入。背景和音效直接用 Scratch 自带素材库搜（课程里写好了关键词），不额外准备。</p>
+
+  <h2>三、路线图</h2>
+  <table>
+    <thead><tr><th>顺序</th><th>游戏</th><th>难度</th><th>练什么</th></tr></thead>
+    <tbody>
+      <tr><td>①</td><td><a href="handbook-brick.html">弹球打砖块</a></td><td>入门</td><td>坐标、循环、克隆、碰撞、计分——街机游戏万能公式</td></tr>
+      <tr><td>②</td><td><a href="handbook-flappy.html">飞扬的小鸟</a></td><td>入门</td><td>重力、事件、"世界在动"的错觉</td></tr>
+      <tr><td>③</td><td><a href="handbook-shooter.html">太空射击</a></td><td>进阶</td><td>弹幕克隆、随机生成、克隆体互撞</td></tr>
+      <tr><td>④</td><td><a href="handbook-snake.html">贪吃蛇</a></td><td>进阶</td><td>格子世界、列表当身体的记忆</td></tr>
+      <tr><td>⑤</td><td><a href="handbook-tower.html">城堡塔防</a></td><td>进阶</td><td>路径导航、经济系统、自动战斗</td></tr>
+      <tr><td>⑥</td><td><a href="handbook-tetra.html">俄罗斯方块</a></td><td>压轴大关</td><td>地图列表、形状数据、消行算法——全部功夫的答辩</td></tr>
+    </tbody>
+  </table>
+  <p>全部六门共 30 次课，按每周一次约 7 个月；速通约 2 个月。街机厅（games.html）里有更多游戏可作加餐。</p>
+
+  </div><!-- /md-content -->
+
+<div class="pager">
+<a href="../index.html"><div class="dir">← 上一篇</div><div class="pager-title">首页</div></a>
+<a class="next" href="handbook-brick.html"><div class="dir">下一篇 →</div><div class="pager-title">① 弹球打砖块</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/main.js"></script>
+</body>
+</html>
