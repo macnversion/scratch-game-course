@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-生成讲义 PPT：从 handbook-a / handbook-b / sg-plan 页面里的
-<template class="deck-src"> 内容源，产出独立自包含的 PPT 文件
-（deck-a.html / deck-b.html / deck-sg.html）。
+生成讲义 PPT：从 页面/handbook-<游戏>.html 里的
+<template class="deck-src"> 内容源，产出独立自包含的放映版
+（放映版/deck-<游戏>.html，八门课见下方 DECKS 配置）。
 
-- 双击即可打开放映（无需服务器、无外部资源引用；三国杀版内嵌 scratchblocks）
+- 双击即可打开放映（无需服务器、无外部资源引用；内嵌 scratchblocks 与中文语言包）
 - 全屏舞台、无侧栏：方位感在每页页眉（讲义名 + 课号徽章），目录做成议程页
 - 内容源改完后重跑本脚本即可再生成：python3 生成讲义PPT.py
 """
-import datetime
 import hashlib
 import pathlib
 import re
@@ -20,9 +19,6 @@ def sha12(text):
     """源的短指纹：改没改、重跑没重跑，看这一个字段就够。"""
     return hashlib.sha256(text.encode('utf-8')).hexdigest()[:12]
 
-
-def now_iso():
-    return datetime.datetime.now().astimezone().isoformat(timespec='seconds')
 
 DECKS = [
     dict(src="页面/handbook-brick.html", out="放映版/deck-brick.html",
@@ -618,14 +614,9 @@ def build(cfg):
     #    .md-content 作用域样式（否则生成的 PPT 里表格是无框裸表）
     body = body.replace('<div class="slide-body">', '<div class="slide-body md-content">')
 
-    # 0.1) 内容源里的网页版语境引用（Esc / 滚动模式）在独立放映文件中不存在，
-    #      统一改写为指向右下角「📖 完整手册」（网页手册即全文）
-    body = body.replace('「📖 完整版」', '「📖 完整手册」')
-    body = body.replace('（按 Esc 返回）', '')
-
-    # 0.15) deck-src 里的站内链接按 deck 所在目录（放映版/）改写
-    for _name in ('outline', 'handbook-a', 'handbook-b', 'plan-a', 'sg-plan', 'games', 'toolbox', 'resources'):
-        body = body.replace('href="%s.html' % _name, 'href="../页面/%s.html' % _name)
+    # 0.1) deck-src 里的站内链接是相对于 页面/ 的文件名，按 deck 所在目录（放映版/）改写
+    body = re.sub(r'href="((?:outline|games|toolbox|resources|handbook-[\w-]+)\.html)',
+                  r'href="../页面/\1', body)
     body = body.replace('href="index.html', 'href="../index.html')
 
     # 0.2) 精灵图占位替换为内联 SVG（deck 必须保持零外部资源、双击可放）

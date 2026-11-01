@@ -1,5 +1,5 @@
 /* ============================================================
-   Scratch 亲子课程 · Minecraft 主题 — 全站统一脚本
+   Scratch 冒险乐园 · 八门游戏课 — 全站统一脚本
    功能：目录与滚动定位、主题切换、移动端侧栏、返回顶部、
          积木图渲染（scratchblocks）与文本切换/复制、学习进度勾选
    ============================================================ */
@@ -42,8 +42,9 @@
     return null;
   };
 
-  // 选做课：不注入勾选框、不参与「下一课」串联、不计进度（分母仍算它，见 TOTALS 说明）
-  var OPTIONAL_LESSON = { l10: 1 };
+  // 选做课开关：填课次标题的 id（如 'k5'）即把该课标记为选做——不注入勾选框、
+  // 不参与「下一课」串联、不计进度（分母仍算它，见 TOTALS 说明）。当前八门课均无选做课。
+  var OPTIONAL_LESSON = {};
 
   /* ---------- 主题切换 ---------- */
   var themeBtns = [].slice.call(doc.querySelectorAll('.theme-btn'));
@@ -449,8 +450,8 @@
     });
     if (!lessons.length) return;
 
-    // 统一锚点：handbook-b 的小项目标题原本没有 id（TOC 给的是 sec-N），
-    // 这里补成 b1..b9，并同步改写已生成的目录链接，保证 #bN 可直接跳转。
+    // 统一锚点：把课次标题的 id 规范成 <前缀><序号>（如 k1、p3），
+    // 并同步改写已生成的目录链接，保证 #k1 这类地址可直接跳转。
     lessons.forEach(function (h, i) {
       var lm = matchLesson(h.textContent);
       var n = lm ? lm.num : i + 1;
@@ -467,7 +468,7 @@
       var key = h.id;
       var note = NOTES[key];
       if (!note) return;
-      // 选做课不算「下一课」，l9 直接接下一阶段首页
+      // 选做课不算「下一课」，直接跳到它后面第一门非选做课
       var next = null;
       for (var j = i + 1; j < lessons.length; j++) {
         if (!OPTIONAL_LESSON[lessons[j].id]) { next = lessons[j]; break; }
@@ -507,8 +508,8 @@
   })();
 
   /* ---------- 学习进度勾选 ---------- */
-  // handbook-a 的 h2「第 N 次课：…」与 handbook-b 的「小项目 N：…」可勾选完成，
-  // 第 10 次课（选做扩展）不注入勾选框；存 localStorage，侧边栏与首页进度条同步显示。
+  // 八本手册里识别为「第 N 课」的 h2/h3 可勾选完成（选做课除外，见 OPTIONAL_LESSON）；
+  // 存 localStorage，侧边栏与首页进度条同步显示。
   var PROGRESS_KEY = 'scratch-progress-v1';
   var pageId = doc.body.dataset.page || '';
   var progressStore = (function () {
@@ -517,9 +518,8 @@
   var saveProgress = function () {
     try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(progressStore)); } catch (e) {}
   };
-  // 进度分母：先数当前页 DOM 里的真实条目，数不出再用默认值。
+  // 进度分母：先数当前页 DOM 里的真实条目，数不出再用默认值（每门课 5 次）。
   // 关键点：派生失败一律回退，绝不让内容改动把用户进度清空。
-  // handbook-a 的分母 9：第 10 次课是选做扩展，不注入勾选框，不计入分母。
   var FALLBACK_TOTALS = {'handbook-brick': 5, 'handbook-flappy': 5, 'handbook-shooter': 5, 'handbook-snake': 5, 'handbook-tower': 5, 'handbook-tetra': 5, 'handbook-platform': 5, 'handbook-tank': 5};
   var KEY_PREFIX = {'handbook-brick': 'k', 'handbook-flappy': 'u', 'handbook-shooter': 'h', 'handbook-snake': 'a', 'handbook-tower': 'w', 'handbook-tetra': 'd', 'handbook-platform': 'p', 'handbook-tank': 'v'};
 
@@ -532,22 +532,6 @@
         var m = matchLesson(h.textContent);
         if (OPTIONAL_LESSON[h.id]) return;
         if (m && m.kind === kind && !m.isRange) n++;
-      });
-    } else if (pid === 'games') {
-      [].slice.call(content.querySelectorAll('h3')).forEach(function (h) {
-        var m = matchLesson(h.textContent);
-        if (!m || m.kind !== 'index') return;
-        // 第 14 项三国杀单列进 sg-plan，不计入 13 个游戏
-        if (h.id === 'g14' || m.num >= 14) return;
-        n++;
-      });
-    } else if (pid === 'sg-plan') {
-      [].slice.call(content.querySelectorAll('table')).forEach(function (tb) {
-        if (tb.textContent.indexOf('只解决什么') < 0) return;
-        [].slice.call(tb.querySelectorAll('tbody tr')).forEach(function (tr) {
-          var td = tr.querySelector('td');
-          if (td && /^\d+$/.test(td.textContent.trim())) n++;
-        });
       });
     }
     return n;
@@ -565,8 +549,8 @@
     return out;
   })();
 
-  // 当前课程结构里真实存在的勾选 key。只认这里列出的，旧版本残留（如已取消的 games::g14）
-  // 一律不计、并在启动时清掉——否则 12 个游戏会被算成 13/13。
+  // 当前课程结构里真实存在的勾选 key。只认这里列出的，旧版本残留
+  // 一律不计、并在启动时清掉，避免已下线页面的旧进度虚增计数。
   var VALID_KEYS = (function () {
     var out = {};
     Object.keys(KEY_PREFIX).forEach(function (pid) {
@@ -591,8 +575,7 @@
     for (var k in progressStore) if (progressStore[k] && valid[k]) n++;
     return n;
   };
-  // 四条进度线：A 阶段 9 课 + 1 选做 / B 阶段 9 小项目 / 街机厅 13 游戏 / 三国杀 10 课
-  // 三国杀（街机厅第 14 项）已归入 sg-plan 的 10 课，不在街机厅重复计
+  // 八条进度线：每门游戏课一条，各 5 次课
   var LABELS = {'handbook-brick': '① 弹球打砖块', 'handbook-flappy': '② 飞扬的小鸟', 'handbook-shooter': '③ 太空射击', 'handbook-snake': '④ 贪吃蛇', 'handbook-tower': '⑤ 城堡塔防', 'handbook-tetra': '⑥ 俄罗斯方块', 'handbook-platform': '⑦ 跳跳冒险', 'handbook-tank': '⑧ 坦克大战'};
 
   // 通用：注册一个勾选框并与进度存储联动
@@ -618,7 +601,7 @@
     return label;
   }
 
-  // 在对应页面注入复选框：A/B 手册=课次标题；街机厅=游戏 h3；三国杀=逐课表首列
+  // 在八本手册页注入课次勾选框：识别为「第 N 课」的 h2/h3
   if (content && (pageId === 'handbook-brick' || pageId === 'handbook-flappy' || pageId === 'handbook-shooter' || pageId === 'handbook-snake' || pageId === 'handbook-tower' || pageId === 'handbook-tetra' || pageId === 'handbook-platform' || pageId === 'handbook-tank')) {
     var lessonKind = 'lesson';
     heads.forEach(function (h) {
@@ -631,32 +614,6 @@
       h.insertBefore(makeLabel(pageId + '::' + h.id, h), h.firstChild);
     });
   }
-  if (content && pageId === 'games') {
-    heads.forEach(function (h) {
-      if (h.tagName !== 'H3') return;
-      var m = h.textContent.match(/^(\d+)\.\s/);
-      if (!m) return;
-      // 第 14 项是三国杀，进度统一在 sg-plan 页勾选，这里不注入，避免重复计数
-      if (h.id === 'g14' || m[1] === '14') return;
-      if (h.querySelector('.lesson-check')) return;
-      h.insertBefore(makeLabel('games::' + h.id, h), h.firstChild);
-    });
-  }
-  if (content && pageId === 'sg-plan') {
-    // 逐课表：表头含"课"的那张表，第一列是纯数字的行注入勾选框
-    [].slice.call(content.querySelectorAll('table')).forEach(function (tb) {
-      if (tb.textContent.indexOf('只解决什么') < 0) return;
-      [].slice.call(tb.querySelectorAll('tr')).forEach(function (tr, ri) {
-        if (ri === 0) return;
-        var td = tr.querySelector('td');
-        if (!td || td.querySelector('.lesson-check') || !/^\d+$/.test(td.textContent.trim())) return;
-        var n = td.textContent.trim();
-        var label = makeLabel('sg-plan::c' + n, null, '第 ' + n + ' 课');
-        label.style.marginRight = '6px';
-        td.insertBefore(label, td.firstChild);
-      });
-    });
-  }
 
   // 侧边栏进度行 + 首页进度卡
   var renderProgressLine = function () {
@@ -665,8 +622,7 @@
       line.innerHTML = Object.keys(TOTALS).map(function (pid) {
         var done = Math.min(countDone(pid), TOTALS[pid]);
         return '<span class="pl-item">' + LABELS[pid] + ' <b>' + done + '/' + TOTALS[pid] + '</b></span>';
-      }).join('') + '<span class="hint">勾选即记录进度' +
-        (pageId === 'handbook-a' ? ' · 第 10 课为选做扩展，不计进度' : '') + '</span>';
+      }).join('') + '<span class="hint">勾选即记录进度</span>';
     }
     Object.keys(TOTALS).forEach(function (pid) {
       var bar = doc.getElementById('bar-' + pid);
