@@ -43,6 +43,12 @@ DECKS = [
     dict(src="页面/handbook-tetra.html", out="放映版/deck-tetra.html",
          accent="#1f9aa8", accent_dark="#43b6c2", accent_soft="#dff2f4", label="⑥ 俄罗斯方块 · 游戏课", title="俄罗斯方块 · 讲义 · Scratch 冒险乐园",
          agenda_title="目录 · 5 次课", agenda="map"),
+    dict(src="页面/handbook-platform.html", out="放映版/deck-platform.html",
+         accent="#d97e2b", accent_dark="#e89a55", accent_soft="#faeede", label="⑦ 跳跳冒险 · 游戏课", title="跳跳冒险 · 讲义 · Scratch 冒险乐园",
+         agenda_title="目录 · 5 次课", agenda="map"),
+    dict(src="页面/handbook-tank.html", out="放映版/deck-tank.html",
+         accent="#5a7d8c", accent_dark="#7c99a6", accent_soft="#e2eaee", label="⑧ 坦克大战 · 游戏课", title="坦克大战 · 讲义 · Scratch 冒险乐园",
+         agenda_title="目录 · 5 次课", agenda="map"),
 ]
 
 ENGINE = r"""
@@ -131,17 +137,31 @@ ENGINE = r"""
   }
 
   /* 积木图（仅内嵌了 scratchblocks 的讲义需要）。
-     统一按 Scratch 3 外观渲染；步骤大卡（stepv）里的积木是页面主视觉，放大一档。 */
+     统一按 Scratch 3 外观渲染；步骤大卡（stepv）里的积木是页面主视觉，放大一档——
+     但脚本越长行数越高，一律 2.1 会撑爆画布：按行数分桶降档。 */
   if (window.scratchblocks && window.__SB_ZH_CN) {
     try {
       window.scratchblocks.loadLanguages({ 'zh-cn': window.__SB_ZH_CN });
+      [].slice.call(deck.querySelectorAll('section.stepv pre.blocks')).forEach(function (pre) {
+        var ls = pre.textContent.replace(/\s+$/, '').split('\n');
+        var units = function (t) { var u = 0; for (var i = 0; i < t.length; i++) u += t.charCodeAt(i) > 0x2e80 ? 2 : 1; return u; };
+        var maxU = 0;
+        ls.forEach(function (l) { maxU = Math.max(maxU, units(l)); });
+        var lines = ls.length;
+        pre.classList.add((lines >= 14) ? 'sb-xx' : (lines >= 12 || maxU >= 58) ? 'sb-xl' : (lines >= 8 || maxU >= 46) ? 'sb-lg' : 'sb-md');
+      });
       window.scratchblocks.renderMatching('section:not(.stepv) pre.blocks', { languages: ['zh-cn', 'en'], style: 'scratch3' });
-      window.scratchblocks.renderMatching('section.stepv pre.blocks', { languages: ['zh-cn', 'en'], style: 'scratch3', scale: 2.1 });
+      window.scratchblocks.renderMatching('pre.blocks.sb-md', { languages: ['zh-cn', 'en'], style: 'scratch3', scale: 2.1 });
+      window.scratchblocks.renderMatching('pre.blocks.sb-lg', { languages: ['zh-cn', 'en'], style: 'scratch3', scale: 1.7 });
+      window.scratchblocks.renderMatching('pre.blocks.sb-xl', { languages: ['zh-cn', 'en'], style: 'scratch3', scale: 1.35 });
+      window.scratchblocks.renderMatching('pre.blocks.sb-xx', { languages: ['zh-cn', 'en'], style: 'scratch3', scale: 1.0 });
     } catch (e) { console.warn('积木渲染失败', e); }
   }
 
   /* 手写页保底：内容超出画布（纵向或横向）时整体等比微缩（下限 0.8），
-     仍不够则允许页内滚动。在积木图渲染之后执行，保证 SVG 尺寸已计入。 */
+     仍不够则允许页内滚动。在积木图渲染之后执行，保证 SVG 尺寸已计入。
+     绝对定位的子元素（如步骤页数字水印）不搬进缩放容器——
+     搬进去会让它的定位参照从画布变成缩放层，水印就飞出屏幕了。 */
   [].slice.call(deck.querySelectorAll('.slide-body')).forEach(function (b) {
     var slide = b.closest('.slide');
     if (!slide || slide.classList.contains('cover') || slide.classList.contains('bridge')) return;
@@ -152,9 +172,12 @@ ENGINE = r"""
     inner.className = 'fit-inner';
     inner.style.transformOrigin = 'top left';
     inner.style.width = (100 / Math.max(s, 0.01)) + '%';
-    if (s >= 0.8) { inner.style.transform = 'scale(' + s + ')'; }
-    else { inner.style.transform = 'scale(0.8)'; b.style.overflowY = 'auto'; b.style.justifyContent = 'flex-start'; }
-    while (b.firstChild) inner.appendChild(b.firstChild);
+    if (s >= 0.75) { inner.style.transform = 'scale(' + s + ')'; }
+    else { inner.style.transform = 'scale(0.75)'; b.style.overflowY = 'auto'; b.style.justifyContent = 'flex-start'; }
+    var kids = [].slice.call(b.children).filter(function (el) {
+      return b.ownerDocument.defaultView.getComputedStyle(el).position !== 'absolute';
+    });
+    kids.forEach(function (el) { inner.appendChild(el); });
     b.appendChild(inner);
   });
 
@@ -241,10 +264,10 @@ svg.sp-tiny { height: 44px; }
 .sl-stage .vis-cap { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; }
 
 /* ---------- 一步一页的大字步骤卡：居中构图，巨号水印数字垫在右侧 ---------- */
-.slide-body.stepv-body { flex-direction: column; justify-content: center; align-items: center; gap: 46px; position: relative; }
+.slide-body.stepv-body { flex-direction: column; justify-content: center; align-items: center; gap: 36px; position: relative; }
 .stepv-side { position: absolute; right: 70px; top: 50%; transform: translateY(-50%); z-index: 0; }
 .stepv-n { font-size: 460px; font-weight: 800; line-height: .85; color: var(--accent); opacity: .12; font-variant-numeric: tabular-nums; }
-.stepv-main { position: relative; z-index: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 44px; max-width: 1460px; }
+.stepv-main { position: relative; z-index: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 32px; max-width: 1460px; }
 .stepv-say { font-size: 62px; font-weight: 800; line-height: 1.35; text-align: center; }
 .slide.stepv pre.blocks { font-size: 30px; margin: 0; }
 .slide.stepv pre.blocks svg { max-width: 100%; }

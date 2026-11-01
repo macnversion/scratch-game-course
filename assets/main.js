@@ -224,7 +224,7 @@
   };
   (function () {
     var pageKey = doc.body.getAttribute('data-page') || '';
-    if (!content || !(pageKey === 'handbook-brick' || pageKey === 'handbook-flappy' || pageKey === 'handbook-shooter' || pageKey === 'handbook-snake' || pageKey === 'handbook-tower' || pageKey === 'handbook-tetra')) return;
+    if (!content || !(pageKey === 'handbook-brick' || pageKey === 'handbook-flappy' || pageKey === 'handbook-shooter' || pageKey === 'handbook-snake' || pageKey === 'handbook-tower' || pageKey === 'handbook-tetra' || pageKey === 'handbook-platform' || pageKey === 'handbook-tank')) return;
     // "开场（5 分钟）：" -> "开场"；"开场（5 分钟）——广播的比喻：" -> "开场"；"⏳ 节奏提示：" -> "节奏提示"
     var normalize = function (text) {
       return text
@@ -383,8 +383,18 @@
       },
       'handbook-tetra': {
         prefix: 'd', kind: 'lesson',
-        tailHref: 'handbook-games.html',
-        tailLabel: '⑥ 俄罗斯方块完成 → 街机厅 · 更多游戏'
+        tailHref: 'handbook-platform.html',
+        tailLabel: '⑥ 俄罗斯方块完成 → ⑦ 跳跳冒险'
+      },
+      'handbook-platform': {
+        prefix: 'p', kind: 'lesson',
+        tailHref: 'handbook-tank.html',
+        tailLabel: '⑦ 跳跳冒险完成 → ⑧ 坦克大战'
+      },
+      'handbook-tank': {
+        prefix: 'v', kind: 'lesson',
+        tailHref: 'games.html',
+        tailLabel: '⑧ 坦克大战完成 → 游戏厅 · 把八款全部再玩一遍'
       }
     }[pageKey];
     if (!content || !cfg) return;
@@ -420,7 +430,17 @@
       d2: '方块会落了，下一课落地为安。',
       d3: '堆叠转起来了，下一课交出操控权。',
       d4: '操控成立，最后一课：消行毕业。',
-      d5: '这一课练熟了，下一课直接用。'
+      d5: '俄罗斯方块毕业，下一门跳跳冒险。',
+      p1: '会跑会跳了，下一课长出平台。',
+      p2: '地形有了，下一课放蘑菇出来。',
+      p3: '有风险了，下一课放金币奖励。',
+      p4: '收集有了，最后一课：旗杆和你自己的关卡。',
+      p5: '跳跳冒险毕业，最后一门：坦克大战。',
+      v1: '两辆车开起来了，下一课装炮。',
+      v2: '能开炮了，下一课砌掩体。',
+      v3: '有掩体了，下一课让挨炮变疼。',
+      v4: '能分胜负了，最后一课办成正式比赛。',
+      v5: '八门全通，去游戏厅把它们全部再玩一遍。'
     };
 
     var lessons = [].slice.call(content.querySelectorAll('h2, h3')).filter(function (h) {
@@ -500,13 +520,13 @@
   // 进度分母：先数当前页 DOM 里的真实条目，数不出再用默认值。
   // 关键点：派生失败一律回退，绝不让内容改动把用户进度清空。
   // handbook-a 的分母 9：第 10 次课是选做扩展，不注入勾选框，不计入分母。
-  var FALLBACK_TOTALS = {'handbook-brick': 5, 'handbook-flappy': 5, 'handbook-shooter': 5, 'handbook-snake': 5, 'handbook-tower': 5, 'handbook-tetra': 5};
-  var KEY_PREFIX = {'handbook-brick': 'k', 'handbook-flappy': 'u', 'handbook-shooter': 'h', 'handbook-snake': 'a', 'handbook-tower': 'w', 'handbook-tetra': 'd'};
+  var FALLBACK_TOTALS = {'handbook-brick': 5, 'handbook-flappy': 5, 'handbook-shooter': 5, 'handbook-snake': 5, 'handbook-tower': 5, 'handbook-tetra': 5, 'handbook-platform': 5, 'handbook-tank': 5};
+  var KEY_PREFIX = {'handbook-brick': 'k', 'handbook-flappy': 'u', 'handbook-shooter': 'h', 'handbook-snake': 'a', 'handbook-tower': 'w', 'handbook-tetra': 'd', 'handbook-platform': 'p', 'handbook-tank': 'v'};
 
   var countEntries = function (pid) {
     if (!content) return 0;
     var n = 0;
-    if (pid === 'handbook-brick' || pid === 'handbook-flappy' || pid === 'handbook-shooter' || pid === 'handbook-snake' || pid === 'handbook-tower' || pid === 'handbook-tetra') {
+    if (pid === 'handbook-brick' || pid === 'handbook-flappy' || pid === 'handbook-shooter' || pid === 'handbook-snake' || pid === 'handbook-tower' || pid === 'handbook-tetra' || pid === 'handbook-platform' || pid === 'handbook-tank') {
       var kind = 'lesson';
       [].slice.call(content.querySelectorAll('h2, h3')).forEach(function (h) {
         var m = matchLesson(h.textContent);
@@ -573,7 +593,7 @@
   };
   // 四条进度线：A 阶段 9 课 + 1 选做 / B 阶段 9 小项目 / 街机厅 13 游戏 / 三国杀 10 课
   // 三国杀（街机厅第 14 项）已归入 sg-plan 的 10 课，不在街机厅重复计
-  var LABELS = {'handbook-brick': '① 弹球打砖块', 'handbook-flappy': '② 飞扬的小鸟', 'handbook-shooter': '③ 太空射击', 'handbook-snake': '④ 贪吃蛇', 'handbook-tower': '⑤ 城堡塔防', 'handbook-tetra': '⑥ 俄罗斯方块'};
+  var LABELS = {'handbook-brick': '① 弹球打砖块', 'handbook-flappy': '② 飞扬的小鸟', 'handbook-shooter': '③ 太空射击', 'handbook-snake': '④ 贪吃蛇', 'handbook-tower': '⑤ 城堡塔防', 'handbook-tetra': '⑥ 俄罗斯方块', 'handbook-platform': '⑦ 跳跳冒险', 'handbook-tank': '⑧ 坦克大战'};
 
   // 通用：注册一个勾选框并与进度存储联动
   function bindBox(box, key, headingEl) {
@@ -599,7 +619,7 @@
   }
 
   // 在对应页面注入复选框：A/B 手册=课次标题；街机厅=游戏 h3；三国杀=逐课表首列
-  if (content && (pageId === 'handbook-brick' || pageId === 'handbook-flappy' || pageId === 'handbook-shooter' || pageId === 'handbook-snake' || pageId === 'handbook-tower' || pageId === 'handbook-tetra')) {
+  if (content && (pageId === 'handbook-brick' || pageId === 'handbook-flappy' || pageId === 'handbook-shooter' || pageId === 'handbook-snake' || pageId === 'handbook-tower' || pageId === 'handbook-tetra' || pageId === 'handbook-platform' || pageId === 'handbook-tank')) {
     var lessonKind = 'lesson';
     heads.forEach(function (h) {
       if (h.tagName !== 'H2' && h.tagName !== 'H3') return;

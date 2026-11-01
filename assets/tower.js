@@ -6,14 +6,14 @@
   var canvas = document.getElementById('towerCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var W = 480, H = 360;
+  var W = 480, H = 360, SCALE = canvas.width / W;
   // 路径点（格子 20px 坐标）→ 像素
   var PATH = [[1, 13], [8, 13], [8, 3], [14, 3], [14, 11], [19, 11], [19, 6], [22, 6]]
     .map(function (p) { return { x: p[0] * 20 + 10, y: p[1] * 20 + 10 }; });
-  var enemies, towers, bullets, drops, gold, baseHP, wave, spawned, spawnT, waveRest, state, kills;
+  var enemies, towers, bullets, drops, floats, gold, baseHP, wave, spawned, spawnT, waveRest, state, kills;
 
   function reset() {
-    enemies = []; towers = []; bullets = []; drops = [];
+    enemies = []; towers = []; bullets = []; drops = []; floats = [];
     gold = 80; baseHP = 10; wave = 1; spawned = 0; spawnT = 0; waveRest = 0; kills = 0;
     state = 'idle';
   }
@@ -28,15 +28,6 @@
     if (state === 'over' || state === 'win') { reset(); return; }
     if (state === 'idle') state = 'play';
     var p = pointerXY(e);
-    // 先看有没有点到宝物
-    for (var di = drops.length - 1; di >= 0; di--) {
-      var dp2 = drops[di];
-      if (Math.hypot(dp2.x - p.x, dp2.y - p.y) < 18) {
-        drops.splice(di, 1);
-        if (dp2.k === 'G') gold += 10; else baseHP = Math.min(12, baseHP + 1);
-        return;
-      }
-    }
     if (gold < 30) return;
     // 不许造在路上
     for (var i = 0; i < PATH.length - 1; i++) {
@@ -87,7 +78,7 @@
           e2.hp--; hit = true;
           if (e2.hp <= 0) {
             enemies.splice(j, 1); gold += 5; kills++;
-            if (Math.random() < .25) drops.push({ x: e2.x, y: e2.y, k: Math.random() < .7 ? 'G' : 'H', life: 4, vy: -60 });
+            if (Math.random() < .25) drops.push({ x: e2.x, y: e2.y, k: Math.random() < .7 ? 'G' : 'H', life: 4, vy: -60, t: 0 });
           }
           break;
         }
@@ -96,9 +87,22 @@
     }
     for (i = drops.length - 1; i >= 0; i--) {
       var dp = drops[i];
-      if (dp.vy < 0) { dp.y += dp.vy * dt; dp.vy += 300 * dt; if (dp.vy >= 0) dp.vy = 0; }
+      if (dp.vy < 0) { dp.y += dp.vy * dt; dp.vy += 300 * dt; if (dp.vy >= 0) { dp.vy = 0; dp.t = .45; } }
+      else if (dp.t > 0) {
+        dp.t -= dt;
+        if (dp.t <= 0) {                       // 落定即自动入账，不用追着点
+          if (dp.k === 'G') { gold += 10; floats.push({ x: dp.x, y: dp.y - 8, txt: '+10', c: '#f8d347', t: .9 }); }
+          else { baseHP = Math.min(12, baseHP + 1); floats.push({ x: dp.x, y: dp.y - 8, txt: '+1♥', c: '#e8776f', t: .9 }); }
+          drops.splice(i, 1);
+          continue;
+        }
+      }
       dp.life -= dt;
       if (dp.life <= 0) drops.splice(i, 1);
+    }
+    for (i = floats.length - 1; i >= 0; i--) {
+      floats[i].t -= dt; floats[i].y -= 34 * dt;
+      if (floats[i].t <= 0) floats.splice(i, 1);
     }
     // 波次
     if (spawned >= wave * 8 && !enemies.length) {
@@ -109,6 +113,7 @@
   }
 
   function draw() {
+    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     ctx.fillStyle = '#2a2118'; ctx.fillRect(0, 0, W, H);
     // 路
     ctx.strokeStyle = '#5d4a33'; ctx.lineWidth = 26; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
@@ -152,6 +157,13 @@
         ctx.fillRect(dp.x - 7, dp.y - 2, 14, 3); ctx.fillRect(dp.x - 4, dp.y + 1, 8, 3);
       }
     });
+    // 飘字（宝物自动入账提示）
+    floats.forEach(function (f) {
+      ctx.globalAlpha = Math.min(1, f.t / .5);
+      ctx.fillStyle = f.c; ctx.font = 'bold 14px "PingFang SC", monospace'; ctx.textAlign = 'center';
+      ctx.fillText(f.txt, f.x, f.y);
+      ctx.globalAlpha = 1; ctx.textAlign = 'left';
+    });
     // HUD
     ctx.fillStyle = 'rgba(20,30,25,.75)'; ctx.fillRect(8, 8, 200, 26);
     ctx.fillStyle = '#f8d347'; ctx.font = 'bold 15px monospace'; ctx.textAlign = 'left';
@@ -163,7 +175,7 @@
       ctx.fillStyle = 'rgba(42,33,24,.88)'; ctx.fillRect(W / 2 - 160, H / 2 - 48, 320, 96);
       ctx.fillStyle = '#fff'; ctx.font = 'bold 20px sans-serif'; ctx.textAlign = 'center';
       ctx.fillText('点击空地造炮塔（30 金）', W / 2, H / 2 - 10);
-      ctx.font = '15px sans-serif'; ctx.fillText('击杀可能掉宝（金袋+10 / 红心+1血）· 点击拾取 · 守 3 波', W / 2, H / 2 + 18);
+      ctx.font = '15px sans-serif'; ctx.fillText('击杀掉宝自动入账（金袋+10 / 红心+1血）· 守 3 波', W / 2, H / 2 + 18);
     }
     if (state === 'over' || state === 'win') {
       ctx.fillStyle = 'rgba(42,33,24,.9)'; ctx.fillRect(W / 2 - 130, H / 2 - 46, 260, 92);

@@ -6,7 +6,7 @@
   var canvas = document.getElementById('flappyCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var W = 480, H = 360;
+  var W = 480, H = 360, SCALE = canvas.width / W;
   var bird, pipes, score, best = 0, state, spawnT, worldSpeed;
 
   function reset() {
@@ -55,6 +55,7 @@
   }
 
   function draw() {
+    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     // 天空
     ctx.fillStyle = '#4ec0ca'; ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = 'rgba(255,255,255,.35)';

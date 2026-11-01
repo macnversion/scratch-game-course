@@ -19,14 +19,14 @@
 <aside class="sidebar">
   <a class="brand" href="../index.html">
     <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
-    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+    <span class="brand-sub">八门游戏课 · 给 9 岁探险家</span>
   </a>
   <button class="theme-btn">🌙</button>
   <nav class="nav">
 <div class="nav-zone learn">
-<div class="nav-label">六门游戏课</div>
+<div class="nav-label">八门游戏课</div>
 <a href="outline.html">开始之前（家长读）</a>
-<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a><a href="handbook-platform.html">⑦ 跳跳冒险</a><a href="handbook-tank.html">⑧ 坦克大战</a>
 </div>
 <div class="nav-zone play">
 <div class="nav-label">玩</div>
@@ -55,7 +55,7 @@
   <div class="hero">
     <div class="kicker">玩 · 每门课都从玩成品开始</div>
     <h1>游戏厅</h1>
-    <p class="lead">六门课要做的六个游戏，<strong>全部可以直接玩</strong>——玩的时候想：<strong>它是怎么知道我要做什么的？</strong>玩上头了，就去那门课亲手做出来。</p>
+    <p class="lead">八门课要做的八个游戏，<strong>全部可以直接玩</strong>——玩的时候想：<strong>它是怎么知道我要做什么的？</strong>玩上头了，就去那门课亲手做出来。</p>
   </div>
 
   <div class="md-content">
@@ -100,7 +100,7 @@
       <canvas id="towerCanvas" width="960" height="720" class="game"></canvas>
       <div class="game-bar">
         <button id="towerStart" class="game-btn primary">▶️ 开始</button>
-        <span class="game-hint">🖱️ 点击造塔 · 击杀掉宝点击拾取 · 守住三波</span>
+        <span class="game-hint">🖱️ 点击造塔 · 击杀掉宝自动入账 · 守住三波</span>
         <span class="game-hint" style="margin-left:auto;"><a href="handbook-tower.html">想自己做？→ 这门课</a></span>
       </div>
     </div>
@@ -113,15 +113,33 @@
         <span class="game-hint" style="margin-left:auto;"><a href="handbook-tetra.html">想自己做？→ 这门课</a></span>
       </div>
     </div>
+    <div class="game-frame">
+      <div class="game-title">⑦ 跳跳冒险 <span class="game-tag">第 ⑦ 门课成品</span></div>
+      <canvas id="platformCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="platformStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">⬅️➡️/AD 跑动 · 空格/⬆️ 跳 · 踩蘑菇顶砖摸旗过关</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-platform.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
+    <div class="game-frame">
+      <div class="game-title">⑧ 坦克大战 <span class="game-tag">第 ⑧ 门课成品 · 双人</span></div>
+      <canvas id="tankCanvas" width="960" height="720" class="game"></canvas>
+      <div class="game-bar">
+        <button id="tankStart" class="game-btn primary">▶️ 开始</button>
+        <span class="game-hint">绿 WASD+空格 · 蓝 方向键+回车 · 打土墙先胜两局</span>
+        <span class="game-hint" style="margin-left:auto;"><a href="handbook-tank.html">想自己做？→ 这门课</a></span>
+      </div>
+    </div>
   </div><!-- /md-content -->
 
 <div class="pager">
-<a href="handbook-tetra.html"><div class="dir">← 上一篇</div><div class="pager-title">⑥ 俄罗斯方块</div></a>
+<a href="handbook-tank.html"><div class="dir">← 上一篇</div><div class="pager-title">⑧ 坦克大战</div></a>
 <a class="next" href="toolbox.html"><div class="dir">下一篇 →</div><div class="pager-title">探索工具箱</div></a>
 </div>
   </article>
   <footer class="site-footer">
-    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/
+    Scratch 冒险乐园 · 八门游戏课 · 素材包在 示例项目/素材包/
   </footer>
 </main>
 
@@ -132,6 +150,8 @@
 <script src="../assets/snake.js"></script>
 <script src="../assets/tower.js"></script>
 <script src="../assets/tetra.js"></script>
+<script src="../assets/platform.js"></script>
+<script src="../assets/tank.js"></script>
 <script src="../assets/main.js"></script>
 </body>
 </html>

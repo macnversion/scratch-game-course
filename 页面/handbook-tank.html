@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>坦克大战 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-tank">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 坦克大战</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">八门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">八门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a><a href="handbook-platform.html">⑦ 跳跳冒险</a><a href="handbook-tank.html" class="active">⑧ 坦克大战</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ⑧ · 进阶 · 双人对战 · 完整手册</div>
+    <h1>坦克大战</h1>
+    <p class="lead">五次课做出一个双人对战游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-tank.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">绿：WASD+空格 · 蓝：方向键+回车</span>
+      <span class="chip">做完拉全家开战</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-tank.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/坦克大战/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-tank.html">▶ 坦克大战 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。这门课要两个人：孩子和家长各开一辆坦克。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>绿坦克 WASD 开、空格开炮；蓝坦克方向键开、回车开炮。土墙能打碎、钢墙打不动，先打光对方三条血的一方赢一局，三局两胜。</div><div class="log-card"><span class="lg-t">操作</span>绿：W A S D ＋ 空格 ｜ 蓝：← ↑ ↓ → ＋ 回车</div><div class="log-card"><span class="lg-t">玩点在哪</span>藏身土墙后 vs 一炮轰开掩体——攻和守都要算</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——先和家长真枪实弹打一局，看看谁负责防守谁负责拆墙。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🕹️ 双人操控<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">一套键盘两个人：WASD vs 方向键</div></div><div class="lab-card"><div class="lb-do">💥 开炮弹道<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">子弹带着坦克朝向飞出去</div></div><div class="lab-card"><div class="lb-do">🧱 地形攻防<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">土墙能拆、钢墙不能——掩体即战术</div></div><div class="lab-card"><div class="lb-do">❤️ 血量爆炸<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">中弹掉血、阵亡爆炸</div></div><div class="lab-card"><div class="lb-do">🏆 赛制颁奖<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">倒计时、三局两胜、颁奖</div></div></div><div class="cp-analogy">总思路：前七门都是"你一个人玩"；这门课把键盘掰成两半——<b>两个角色、两套按键、同一个舞台</b>。编程上没有新魔法，难的是"同时":两辆坦克、两路子弹同时跑。抓住"双人 + 回合"两条线索，对战游戏就想通了。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>六个角色加一块背景：坦克-绿、坦克-蓝（各带上/右/下/左四个造型）、子弹、土墙、钢墙、爆炸（两帧造型）——素材包全有。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/坦克大战/坦克-绿-上.svg" alt="坦克-绿" loading="lazy"><span class="a-name">坦克-绿</span><span class="a-tag">4 造型：上/右/下/左</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/坦克大战/坦克-蓝-上.svg" alt="坦克-蓝" loading="lazy"><span class="a-name">坦克-蓝</span><span class="a-tag">4 造型：上/右/下/左</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/公用/子弹.svg" alt="子弹" loading="lazy"><span class="a-name">子弹</span><span class="a-tag">上传两次：子弹-绿/子弹-蓝</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/坦克大战/土墙.svg" alt="土墙" loading="lazy"><span class="a-name">土墙</span><span class="a-tag">能被打碎</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/坦克大战/钢墙.svg" alt="钢墙" loading="lazy"><span class="a-name">钢墙</span><span class="a-tag">打不动</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/坦克大战/爆炸-2.svg" alt="爆炸" loading="lazy"><span class="a-name">爆炸</span><span class="a-tag">2 造型：炸1/炸2</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><span class="a-name">背景</span><span class="a-tag own">素材包自带</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/坦克大战/</b> 里的 .sprite3；<b>子弹上传两次</b>，改名 子弹-绿 / 子弹-蓝；音效搜 <b>laser</b> / <b>explosion</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🕹️ 双人操控</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎬 造型朝向</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🔫 带方向的子弹</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🧱 可破坏地形</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">❤️ 血量系统</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🏆 赛制回合</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="v1">第 1 课 · 两辆坦克</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 钢铁双雄</span><span class="st-text">绿坦克守左下角，蓝坦克守右上角——同一块键盘，两个人各开各的车。</span></div>
+<div class="hb-goal">只解决一件事：<em>双人操控</em>——绿方 WASD、蓝方方向键，四向移动 + 换朝向造型，不许开出场地。</div>
+<div class="hb-chips"><span class="chip">⏱ 30 分钟</span><span class="chip">🎮 家长一起开</span><span class="chip">✅ 两辆车同时动、朝向对</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><i class="sp-abs" data-sp="坦克-绿-上" style="left:12%; bottom:10%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:12%; top:10%;"></i><span class="sl-tag" style="left:8%; top:8%;">绿：W A S D</span><span class="sl-tag" style="right:5%; top:8%;">蓝：← ↑ ↓ →</span><span class="sl-tag" style="left:38%; top:46%;">谁先撞墙？墙下一课长出来</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">按键检测</span><span class="td-note">— 射击课开飞船同款</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">一套键盘分两半</span><span class="td-note">— 字母键 vs 方向键互不打架</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">造型即朝向</span><span class="td-note">— 换上/右/下/左四个造型</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">场地边界</span><span class="td-note">— 坐标夹住不许出界</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">坦克不转向、不漂移，像棋子一样四方移动——所以不用"面向方向"，直接<b>换造型</b>：按 W 换"上"再 y+3。两套脚本几乎一样，只是按键不同：写好绿坦克，复制给蓝坦克，把 W A S D 改成方向键——这就是"双人"的全部秘密。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：两辆坦克导入、各就各位；先让绿坦克动起来，再想蓝坦克怎么办；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 双人 = 两段一样的脚本</span></p>
+<p><strong>复制、改名、换按键</strong></p><div class="cp-analogy">类比：双胞胎穿一样的衣服，靠帽子颜色区分。绿坦克和蓝坦克的脚本一字不差地复制，只有按键（WASD ↔ 方向键）和变量名不同。</div><ul class="cp-points">
+<li>绿用字母键、蓝用方向键——键盘左右两半，互不打架</li><li>朝向用造型换，不用旋转：像素坦克看得清清楚楚</li><li>边界判定四条"如果"，把 x、y 夹在场地里</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box ok">🟢 坦克-绿<br><small>W A S D</small></div><span class="dg-arr">复制 ➜</span><div class="dg-box ok">🔵 坦克-蓝<br><small>← ↑ ↓ →</small></div><span class="dg-arr">只改按键</span><div class="dg-box ok">双人成立</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>绿坦克：先会上下</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (-180) y: (-120)
+重复执行
+    如果 <按下 [w] 键?> 那么
+        换成 [上] 造型
+        将y坐标增加 (3)
+    如果 <按下 [s] 键?> 那么
+        换成 [下] 造型
+        将y坐标增加 (-3)</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#9966FF;">外观</span><span class="cat" style="background:#4C97FF;">运动</span>——两件事一起做：换朝向造型 + 动坐标</div>
+<div class="see">✅ W 向上 S 向下，车头跟着转向</div>
+</li>
+<li><strong>再加左右，凑齐四方</strong>
+<pre class="blocks">    如果 <按下 [a] 键?> 那么
+        换成 [左] 造型
+        将x坐标增加 (-3)
+    如果 <按下 [d] 键?> 那么
+        换成 [右] 造型
+        将x坐标增加 (3)</pre>
+<div class="sl-path">接在刚才那个循环里——四个"如果"平级排，谁按谁动</div>
+<div class="see">✅ W A S D 四个方向全通，车头永远朝前进方向</div>
+</li>
+<li><strong>别开出场地</strong>
+<pre class="blocks">    如果 <(x 坐标) > (215)> 那么
+        将x坐标设为 (215)
+    如果 <(x 坐标) < (-215)> 那么
+        将x坐标设为 (-215)
+    如果 <(y 坐标) > (155)> 那么
+        将y坐标设为 (155)
+    如果 <(y 坐标) < (-155)> 那么
+        将y坐标设为 (-155)</pre>
+<div class="sl-path">接在移动积木后面同一个循环里——四堵看不见的墙</div>
+<div class="see">✅ 撞到场地边就停，不会消失在屏幕外</div>
+</li>
+<li><strong>蓝坦克：复制粘贴改按键</strong>
+<p><div class="sl-sub">右键绿坦克脚本区 → 复制到 <b>坦克-蓝</b>：移到 x:(180) y:(120)；把 W/S/A/D 全换成 <b>↑/↓/←/→</b>——其他一个字都不用改</div></p>
+<div class="see">✅ 两人同时开，互不干扰——双人对战的地基打好了</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🎮 两人同时开车互不卡顿</li><li>🧭 车头朝向永远和移动方向一致</li><li>🚧 谁都开不出场地</li><li>↩️ 绿旗双方回出生点</li>
+</ul>
+<p>车会动了——但还不会打架。下一课装炮。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>驾驶手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">速度 3 改 5</div><div class="lb-guess">猜猜看：像跑车还是像坦克？</div><div class="lb-why">速度=载具性格</div></div>
+<div class="lab-card"><div class="lb-do">斜着按（W+D）</div><div class="lb-guess">猜猜看：会斜着走吗？为什么？</div><div class="lb-why">造型只有一个朝向</div></div>
+<div class="lab-card"><div class="lb-do">出生点互换</div><div class="lb-guess">猜猜看：谁的地形更有利？</div><div class="lb-why">出生点=平衡性</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>双开两病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按键串门</div>蓝坦克也用了 W A S D。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>复制脚本后逐个检查按键下拉框，W→↑、S→↓……</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 车头不转身</div>只改坐标忘换造型。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每个"如果"里两件事：换造型 + 动坐标。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">车辙印</div><div class="ad-what">开过留下印子</div><div class="ad-how">落笔+抬笔，画笔颜色暗绿<br><span class="cat" style="background:#00B4C6;">画笔扩展</span></div></div>
+<div class="addon-card"><div class="ad-t">引擎声</div><div class="ad-what">一动就突突突</div><div class="ad-how">移动时循环播放 pop，停了停播<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">对角出生</div><div class="ad-what">换个战场格局</div><div class="ad-how">出生点改成上下对角<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="v2">第 2 课 · 开炮！</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 第一发炮弹</span><span class="st-text">空格、回车各管一炮——子弹从炮口出发，朝车头方向一路飞到墙边。</span></div>
+<div class="hb-goal">只解决一件事：<em>带方向的子弹</em>——按发射键从坦克炮口克隆一颗子弹，朝坦克朝向直飞、出界消失、有冷却。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">⚠️ 两个子弹角色</span><span class="chip">✅ 两边都能开火、不会机关枪</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><i class="sp-abs" data-sp="坦克-绿-右" style="left:14%; bottom:38%;"></i><i class="sp-abs" data-sp="子弹" style="left:34%; bottom:42%;"></i><i class="sp-abs" data-sp="子弹" style="left:52%; bottom:42%; opacity:.6;"></i><i class="sp-abs" data-sp="坦克-蓝-左" style="right:14%; bottom:34%;"></i><span class="sl-tag" style="left:8%; top:8%;">空格 ➜ 绿方炮弹</span><span class="sl-tag" style="right:5%; top:8%;">回车 ➜ 蓝方炮弹</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 老朋友了</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">读别人的坐标</span><span class="td-note">— ([坦克-绿] 的 x 坐标)</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">面向变量</span><span class="td-note">— 坦克把朝向存进变量</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">发射冷却</span><span class="td-note">— 计时器管住机关枪</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">子弹怎么知道从哪、朝哪飞？两步：坦克换造型时把 0/90/−90/180 存进「绿方向」变量；子弹发射前先<b>读坦克的坐标</b>（侦测里的"某某 的 x 坐标"）站上炮口，再「面向 (绿方向)」——然后一路"移动 12 步"就够了。冷却用计时器：刚打完 0.4 秒内不许再打。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：给坦克加上"方向变量"，再让子弹从炮口飞出去；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>坦克：换造型时记下方向</strong>
+<pre class="blocks">    如果 <按下 [w] 键?> 那么
+        换成 [上] 造型
+        将 [绿方向] 设为 (0)
+        将y坐标增加 (3)</pre>
+<p><div class="sl-sub">四个方向都加一行：上=0、右=90、下=180、左=−90（和 Scratch 方向盘一样）。蓝坦克用 <b>蓝方向</b> 变量</div></p>
+<div class="see">✅ 绿方向/蓝方向 始终等于车头朝向</div>
+</li>
+<li><strong>子弹-绿：站上炮口，朝向发射</strong>
+<pre class="blocks">当按下 [空格] 键
+如果 <(计时器) > (0.4)> 那么
+    计时器归零
+    移到 x: ([坦克-绿] 的 [x 坐标]) y: ([坦克-绿] 的 [y 坐标])
+    面向 (绿方向) 度
+    克隆 [自己]</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#5CB1D6;">侦测</span>——「…的 x 坐标」在侦测抽屉，下拉选 坦克-绿</div>
+<div class="see">✅ 空格一按，子弹从炮口冒头</div>
+</li>
+<li><strong>分身：一路直飞，出界删除</strong>
+<pre class="blocks">当作为克隆体启动时
+    显示
+    重复执行直到 <碰到 [边缘]?>
+        移动 (12) 步
+    删除此克隆体</pre>
+<div class="sl-path">「碰到边缘?」在侦测抽屉，下拉里选 边缘——撞墙的判定第 3 课再细化</div>
+<div class="see">✅ 炮弹笔直飞出屏幕自动消失</div>
+</li>
+<li><strong>子弹-蓝：同款改三个字</strong>
+<p><div class="sl-sub">复制 子弹-绿 → 改名 子弹-蓝：触发键换 <b>回车</b>、坐标读 <b>坦克-蓝</b>、面向 <b>蓝方向</b></div></p>
+<div class="see">✅ 回车也能开炮——对轰开始</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>💥 子弹永远从炮口、朝车头方向飞</li><li>🔫 连按不会变成机关枪（0.4 秒冷却）</li><li>♻️ 子弹出界即删不堆积</li><li>↩️ 绿旗一切复原</li>
+</ul>
+<p>能开炮了，但战场上没有掩体——下一课砌墙。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>弹道手感</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">移动 12 步改 20 步</div><div class="lb-guess">猜猜看：躲得掉吗？</div><div class="lb-why">弹速=交锋节奏</div></div>
+<div class="lab-card"><div class="lb-do">冷却 0.4 改 1.0</div><div class="lb-guess">猜猜看：打法变谨慎了？</div><div class="lb-why">冷却=火力经济</div></div>
+<div class="lab-card"><div class="lb-do">同屏只许一颗</div><div class="lb-guess">猜猜看：怎么用变量计数？</div><div class="lb-why">弹匣=策略深度</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>开炮两怪</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹原地打转</div>「面向」用了坦克造型名而不是方向变量。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>面向的椭圆里放 <b>(绿方向)</b> 变量。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按住空格弹如雨下</div>没做冷却。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>发射前查「计时器 &gt; 0.4」，发完立刻归零。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">炮口火花</div><div class="ad-what">开炮瞬间的闪光</div><div class="ad-how">发射时克隆爆炸角色闪 0.1 秒<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">炮声</div><div class="ad-what">"piu"一声</div><div class="ad-how">发射时播放 laser<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">双向炮管</div><div class="ad-what">前后同时发两颗</div><div class="ad-how">克隆两次，第二次面向+180<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="v3">第 3 课 · 土墙与钢墙</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 掩体与推土机</span><span class="st-text">战场上砌起两种墙：土墙挡路也能被轰开，钢墙谁也轰不动——躲哪边，是个问题。</span></div>
+<div class="hb-goal">只解决一件事：<em>地形攻防</em>——坦克撞墙回退；子弹碰土墙双方一起消失（墙被打碎），碰钢墙只有子弹消失。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">🧱 手动摆阵地</span><span class="chip">✅ 墙挡得住车、土墙挨得起炮</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><i class="sp-abs" data-sp="钢墙" style="left:22%; top:18%;"></i><i class="sp-abs" data-sp="钢墙" style="left:24%; top:24%;"></i><i class="sp-abs" data-sp="钢墙" style="right:22%; bottom:18%;"></i><i class="sp-abs" data-sp="钢墙" style="right:24%; bottom:24%;"></i><i class="sp-abs" data-sp="土墙" style="left:40%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:48%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:40%; top:56%; opacity:.4;"></i><i class="sp-abs" data-sp="坦克-绿-上" style="left:8%; bottom:8%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:8%; top:8%;"></i><span class="sl-tag" style="left:8%; top:8%;">钢墙：打不动</span><span class="sl-tag" style="right:5%; top:38%;">土墙：被轰开一个口（淡掉那块）</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">撞墙回退</span><span class="td-note">— 先记旧位置，碰墙就弹回</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">只删被打中的那块</span><span class="td-note">— 广播后每块墙自查</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到角色</span><span class="td-note">— 判定主力</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆体删除</span><span class="td-note">— 子弹消亡同款</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">坦克撞墙不能穿过去：移动前把当前位置存进「旧x/旧y」，动完发现碰到墙，就<b>移回旧位置</b>。打碎土墙有个坑：子弹广播"墙被打"，所有土墙都会听见——所以每块墙收到广播后<b>自查"碰到子弹了吗"</b>，只有真正挨打的那块消失。这一招"广播+自查"以后到处用得上。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：土墙、钢墙复制几块摆到场地中间（对齐格线），先试试车撞上去会发生什么；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>摆阵地</strong>
+<p><div class="sl-sub">土墙右键「复制」× 8、钢墙 × 4：对齐背景格线摆——中央留条走廊，两边各留个掩体角。摆完先开一局看看顺不顺手</div></p>
+<div class="see">✅ 场地像模像样：有掩体、有通道</div>
+</li>
+<li><strong>坦克：撞墙回退</strong>
+<pre class="blocks">    将 [旧x] 设为 (x 坐标)
+    将 [旧y] 设为 (y 坐标)
+    …四个方向的"如果 按下…移动"照旧…
+    如果 <<碰到 [土墙]?> 或 <碰到 [钢墙]?>> 那么
+        移到 x: (旧x) y: (旧y)</pre>
+<div class="sl-where">🧰 积木在：旧x/旧y 设在移动<b>前</b>，回退判定在移动<b>后</b>——两辆坦克都要加</div>
+<div class="see">✅ 车撞墙即停，不再穿墙</div>
+</li>
+<li><strong>子弹：土墙碎、钢墙硬</strong>
+<pre class="blocks">    如果 <碰到 [土墙]?> 那么
+        广播 [土墙被打]
+        删除此克隆体
+    如果 <碰到 [钢墙]?> 那么
+        删除此克隆体</pre>
+<div class="sl-path">接在子弹分身的"移动"循环里——钢墙连广播都不用发：它压根不会坏</div>
+<div class="see">✅ 炮弹打土墙炸开口，打钢墙只留个火花</div>
+</li>
+<li><strong>土墙：收到广播先自查</strong>
+<pre class="blocks">当绿旗被点击
+显示
+当接收到 [土墙被打]
+    如果 <<碰到 [子弹-绿]?> 或 <碰到 [子弹-蓝]?>> 那么
+        播放声音 [explosion]
+        隐藏
+        停止 [这个脚本]</pre>
+<div class="sl-where">🧰 积木在：广播是"大喇叭"，自查是"点名"——两步合起来才会只碎一块</div>
+<div class="see">✅ 只有真正挨炮的那块墙消失，别处安然无恙</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🚗 车撞墙回退，不穿墙</li><li>🧱 土墙挨一炮碎一块、只碎一块</li><li>⛓️ 钢墙怎么打都完好</li><li>↩️ 绿旗墙全复原</li>
+</ul>
+<p>有掩体了，但打中坦克还什么都不会发生——下一课让它掉血。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>阵地实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">把中央走廊堵死</div><div class="lb-guess">猜猜看：还有人敢冲锋吗？</div><div class="lb-why">通道=交火线</div></div>
+<div class="lab-card"><div class="lb-do">给出生点围一圈土墙</div><div class="lb-guess">猜猜看：龟缩能赢吗？</div><div class="lb-why">掩体=节奏器</div></div>
+<div class="lab-card"><div class="lb-do">土墙全换成钢墙</div><div class="lb-guess">猜猜看：战场变什么样？</div><div class="lb-why">可破坏=呼吸感</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>砌墙两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一炮全场的墙都碎</div>墙收到广播没自查。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「当接收到」里先问"碰到子弹了吗"，是才隐藏。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 车贴墙抖个不停</div>回退位置存晚了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「旧x/旧y」必须在移动之前存。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">碎墙飞屑</div><div class="ad-what">碎时弹几粒碎块</div><div class="ad-how">克隆小方块随机方向飞散<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">草丛隐身</div><div class="ad-what">进草丛半透明</div><div class="ad-how">碰到草丛色→虚像 50<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+<div class="addon-card"><div class="ad-t">补给箱</div><div class="ad-what">打碎掉加速</div><div class="ad-how">土墙随机变补给箱，碰车加速 5 秒<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="v4">第 4 课 · 血条与爆炸</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 疼，才会躲</span><span class="st-text">坦克有三条血：挨一炮掉一格、闪一下；血打空——轰的一声，只剩一团火光。</span></div>
+<div class="hb-goal">只解决一件事：<em>血量系统</em>——中弹掉血+受击闪烁；血空阵亡：隐藏坦克、爆炸动画、广播胜负。</div>
+<div class="hb-chips"><span class="chip">⏱ 30–40 分钟</span><span class="chip">✅ 打得疼、炸得响</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><i class="sp-abs" data-sp="坦克-蓝-左" style="left:30%; bottom:24%;"></i><span class="sl-tag" style="left:8%; top:8%;">蓝血 ●●○</span></div><div class="fx-cap">挨一炮：掉一格、闪一下</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><i class="sp-abs" data-sp="爆炸-2" style="left:34%; bottom:20%;"></i><span class="sl-tag" style="left:8%; top:8%;">蓝血 ●○○ → 0</span></div><div class="fx-cap">血空：爆炸退场</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">血量变量</span><span class="td-note">— 蓝血/绿血 各 3</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">受击反馈</span><span class="td-note">— 颜色特效闪 0.3 秒</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">阵亡演出</span><span class="td-note">— 爆炸两帧 + 广播胜负</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">读别人坐标</span><span class="td-note">— 爆炸找得到坦克</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">血量就是倒着数的分数：子弹碰到坦克，把对方的血 −1，再广播"某方中弹"让坦克自己闪一下（颜色特效）；坦克收到广播先查自己的血，<b>血 &lt;1 就阵亡</b>：隐藏、广播"某方阵亡"。爆炸角色听着阵亡广播，跑到那辆坦克的位置放两帧动画——打的人爽，被打的服气。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：给双方各做一个血变量，试着让子弹打中坦克时血减一；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>子弹：打中就掉血</strong>
+<pre class="blocks">    如果 <碰到 [坦克-蓝]?> 那么
+        将 [蓝血] 增加 (-1)
+        广播 [蓝方中弹]
+        删除此克隆体</pre>
+<p><div class="sl-sub">写在子弹-绿的分身循环里；子弹-蓝 打的是 [坦克-绿]，减 [绿血]、广播 [绿方中弹]。绿旗里先把 蓝血/绿血 都设为 (3)</div></p>
+<div class="see">✅ 一炮一格血，子弹同归于尽</div>
+</li>
+<li><strong>坦克：挨打闪烁，血空阵亡</strong>
+<pre class="blocks">当接收到 [蓝方中弹]
+    将 [颜色] 特效增加 (100)
+    等待 (0.3) 秒
+    将 [颜色] 特效设为 (0)
+    如果 <(蓝血) < (1)> 那么
+        隐藏
+        广播 [蓝方阵亡]</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#9966FF;">外观</span>特效一闪，玩家立刻知道"我挨打了"；绿坦克同款，广播换成绿方</div>
+<div class="see">✅ 挨炮闪白光，三炮打空当场消失</div>
+</li>
+<li><strong>爆炸：赶到现场放两帧</strong>
+<pre class="blocks">当接收到 [蓝方阵亡]
+移到 x: ([坦克-蓝] 的 [x 坐标]) y: ([坦克-蓝] 的 [y 坐标])
+换成 [炸1] 造型
+显示
+播放声音 [explosion]
+等待 (0.15) 秒
+换成 [炸2] 造型
+等待 (0.25) 秒
+隐藏</pre>
+<p><div class="sl-sub">再复制一段「当接收到 [绿方阵亡]」——坐标读 坦克-绿。注意：要在坦克隐藏<b>前</b>记住它的位置，把阵亡广播放在隐藏之前发就没事</div></p>
+<div class="see">✅ 阵亡位置轰出两帧爆炸+"轰"声</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>❤️ 三炮定胜负，血量数得清</li><li>✨ 挨打有闪烁反馈</li><li>💥 阵亡有爆炸有声音</li><li>↩️ 绿旗血回 3、坦克归位</li>
+</ul>
+<p>能分胜负了——最后一课，把它变成一场正式比赛。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>数值实验</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">血量 3 改 5</div><div class="lb-guess">猜猜看：战斗拖长了多少？</div><div class="lb-why">血量=回合时长</div></div>
+<div class="lab-card"><div class="lb-do">挨打后加 1 秒无敌</div><div class="lb-guess">猜猜看：连发还有用吗？</div><div class="lb-why">无敌帧=反打机会</div></div>
+<div class="lab-card"><div class="lb-do">爆炸震屏</div><div class="lb-guess">猜猜看：全场抖三下</div><div class="lb-why">演出=打击感</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>血条两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一炮直接秒</div>血变量设成了"仅当前角色"，子弹读不到、坦克读的是另一个。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>蓝血/绿血 选「适用于所有角色」，全项目只有一个。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 爆炸出现在角落</div>广播时坦克已经隐藏、坐标读到旧值。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>坦克先广播阵亡、再隐藏，顺序别反。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">头顶血条</div><div class="ad-what">跟着坦克的血格</div><div class="ad-how">画笔扩展在坦克上方画格子<br><span class="cat" style="background:#00B4C6;">画笔扩展</span></div></div>
+<div class="addon-card"><div class="ad-t">残血冒烟</div><div class="ad-what">血=1 时坦克冒烟</div><div class="ad-how">循环克隆小烟圈往上飘<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">修复模式</div><div class="ad-what">不动 5 秒回 1 血</div><div class="ad-how">计时器检测静止，回血上限 3<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="v5">第 5 课 · 决斗时刻</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 正式比赛</span><span class="st-text">倒计时 3·2·1 才准动车；赢一局记一分，先拿两分夺冠——最后，办一场家庭颁奖礼。</span></div>
+<div class="hb-goal">只解决一件事：<em>赛制</em>——开局倒计时；一局结束计分、自动开下一局；先胜两局夺冠，全家颁奖。</div>
+<div class="hb-chips"><span class="chip">⏱ 45 分钟</span><span class="chip">🎤 颁奖发布会</span><span class="chip">✅ 完整比赛流程</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/坦克大战/沙场阵地.svg" alt="沙场阵地" loading="lazy"><i class="sp-abs" data-sp="坦克-绿-上" style="left:10%; bottom:8%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:10%; top:8%;"></i><span class="sl-tag" style="left:8%; top:8%;">3 · 2 · 1 · 开战！</span><span class="sl-tag" style="right:5%; top:8%;">绿 1 : 0 蓝（先胜两局）</span><span class="sl-tag" style="left:36%; top:46%;">一局完 → 自动下一局</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">开局倒计时</span><span class="td-note">— 广播开战前不许动</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">局与场</span><span class="td-note">— 一局=一次血量清零；一场=先胜两局</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播串联</span><span class="td-note">— 阵亡→计分→新局</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">比赛建立在"局"上：一局从「广播 新的一局」开始——复位血量、摆回坦克、数 3·2·1、再广播「开战」，坦克的主循环从<b>当接收到[开战]</b>才启动。有人阵亡→对方+1 分→没到 2 分就再来一局，到 2 分就广播夺冠。<b>局内循环、场间计分</b>，两层套起来就是赛制。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：让坦克"听到开战才动"，倒计时怎么做都行；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 局与场</span></p>
+<p><strong>两层循环的比赛</strong></p><div class="cp-analogy">类比：下棋一盘是"局"，三局两胜是"场"。程序里也一样：局里管打架（血量、子弹），场里管记账（胜场数）——局结束广播给场，场决定"再来"还是"收官"。</div><ul class="cp-points">
+<li>一局的开始=广播「新的一局」：复位一切、倒计时</li><li>一局的结束=有坦克阵亡：对方胜场 +1</li><li>场结束=胜场到 2：广播夺冠、定格</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:12px;"><div class="dg"><div class="dg-box">🏁 新的一局</div><span class="dg-arr">➜</span><div class="dg-box">3·2·1</div><span class="dg-arr">➜</span><div class="dg-box ok">开战</div></div><div class="dg"><div class="dg-box">💥 阵亡</div><span class="dg-arr">➜</span><div class="dg-box">胜场+1</div><span class="dg-arr">➜</span><div class="dg-box no">到 2？夺冠：再来</div></div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>舞台：倒计时与开战</strong>
+<pre class="blocks">当接收到 [新的一局]
+说 [3] (0.7) 秒
+说 [2] (0.7) 秒
+说 [1] (0.7) 秒
+说 [开战！] (0.5) 秒
+广播 [开战]</pre>
+<p><div class="sl-sub">绿旗脚本里只做两件事：胜场归零、广播「新的一局」</div></p>
+<div class="see">✅ 每局开场 3·2·1，喊完才能动</div>
+</li>
+<li><strong>坦克：听到开战才启动</strong>
+<pre class="blocks">当接收到 [新的一局]
+移到 x: (-180) y: (-120)
+显示
+将 [绿血] 设为 (3)
+当接收到 [开战]
+重复执行
+    …第 1 课的移动循环原样搬进来…</pre>
+<div class="sl-where">🧰 积木在：把原来「当绿旗被点击…重复执行」改成「当接收到[开战]…重复执行」——倒计时期间车是锁住的</div>
+<div class="see">✅ 倒计时时按 W 没反应，开战瞬间冲出去</div>
+</li>
+<li><strong>舞台：记账与夺冠</strong>
+<pre class="blocks">当接收到 [蓝方阵亡]
+将 [绿胜场] 增加 (1)
+说 (连接 [绿方胜一局！ 比分 ] 和 (连接 (绿胜场) (连接 [ : ] (蓝胜场)))) (2) 秒
+如果 <(绿胜场) > (1)> 那么
+    说 [绿方夺冠！🏆] (3) 秒
+    停止 [全部脚本]
+广播 [新的一局]</pre>
+<p><div class="sl-sub">再来一段「当接收到 [绿方阵亡]」给蓝方记分——两段对称</div></p>
+<div class="see">✅ 一局完自动下一局，先到 2 分全场庆祝定格</div>
+</li>
+<li><strong>颁奖礼：三句话</strong>
+<p><div class="dg"><div class="dg-box ok">1️⃣ 今天最险的一炮</div><div class="dg-box ok">2️⃣ 输的那局输在哪</div><div class="dg-box ok">3️⃣ 想加什么新规则</div></div><div class="sl-sub">冠军发言、败方也发言——然后真的打一场表演赛</div></p>
+<div class="see">✅ 两边都讲满三句，本作收官</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>⏱️ 倒计时没喊完车不动</li><li>🧮 胜场记分准确、比分看得见</li><li>🏆 先胜两局夺冠定格</li><li>🎤 颁奖礼两边都发言</li>
+</ul>
+<p>八门游戏课，全部毕业——去游戏厅把你做的每一款都再玩一遍。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>规则实验室</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">三局两胜改五局三胜</div><div class="lb-guess">猜猜看：翻盘变难还是容易？</div><div class="lb-why">赛制=悬念</div></div>
+<div class="lab-card"><div class="lb-do">输家先手开战</div><div class="lb-guess">猜猜看：让一让更激烈？</div><div class="lb-why">让先=平衡阀</div></div>
+<div class="lab-card"><div class="lb-do">限时 60 秒一局</div><div class="lb-guess">猜猜看：血多者胜怎么算？</div><div class="lb-why">时限=逼进攻</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>收官两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 倒计时也能开车</div>主循环还挂在绿旗下。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>移动循环的帽子换成「当接收到 [开战]」。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 夺冠了还在打</div>夺冠分支忘了停。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>说夺冠之后「停止 全部脚本」，别再广播新的一局。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">观战模式</div><div class="ad-what">第三个人当裁判</div><div class="ad-how">裁判按 R 强制重开本局<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+<div class="addon-card"><div class="ad-t">换地图</div><div class="ad-what">每局随机一张阵</div><div class="ad-how">几张墙阵用列表存坐标轮流摆<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">双人合作</div><div class="ad-what">一起打 AI 坦克</div><div class="ad-how">敌坦克随机移动+朝玩家开炮<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一款真双人对战游戏：一套键盘两辆车、带方向的炮弹、能拆的掩体、三格血与爆炸，外加倒计时和三局两胜的完整赛制——做完就能拉全家开战。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">🕹️ 双人操控 / 🎬 造型朝向</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">🔫 带方向的子弹</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">🧱 可破坏地形</span></li><li class="td-item"><span class="td-mark new">第 4 课</span><span class="td-name">❤️ 血量系统</span></li><li class="td-item"><span class="td-mark new">第 5 课</span><span class="td-name">🏆 赛制回合</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>双人 = 两段一样的脚本：复制、改名、换按键</li><li>广播 + 自查：大喇叭喊话，各自核对——只删被打中的那块墙</li><li>局与场两层循环：局内打架、场间记账，赛制就立起来了</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 8 关 · 双人对战</div>
+        <div class="sl-cover-title">坦克大战</div>
+        <div class="sl-cover-desc">五次课做出双人对战游戏：绿坦克 WASD+空格，蓝坦克方向键+回车——土墙能拆、钢墙打不动，三局两胜，拉上家人开战。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="钢墙" style="left:24%; top:16%;"></i><i class="sp-abs" data-sp="钢墙" style="right:24%; bottom:16%;"></i><i class="sp-abs" data-sp="土墙" style="left:44%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:52%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:44%; top:58%;"></i><i class="sp-abs" data-sp="坦克-绿-上" style="left:10%; bottom:10%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:10%; top:10%;"></i><span class="sl-tag" style="left:4%; top:6%;">绿：W A S D ＋ 空格</span><span class="sl-tag" style="right:4%; top:6%;">蓝：← ↑ ↓ → ＋ 回车</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。这门课要两个人：孩子和家长各开一辆坦克。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>绿坦克 WASD 开、空格开炮；蓝坦克方向键开、回车开炮。土墙能打碎、钢墙打不动，先打光对方三条血的一方赢一局，三局两胜。</div>
+        <div class="log-card"><span class="lg-t">操作</span>绿：W A S D ＋ 空格 ｜ 蓝：← ↑ ↓ → ＋ 回车</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>藏身土墙后 vs 一炮轰开掩体——攻和守都要算</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——先和家长真枪实弹打一局，看看谁负责防守谁负责拆墙。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🕹️ 双人操控<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">一套键盘两个人：WASD vs 方向键</div></div>
+        <div class="lab-card"><div class="lb-do">💥 开炮弹道<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">子弹带着坦克朝向飞出去</div></div>
+        <div class="lab-card"><div class="lb-do">🧱 地形攻防<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">土墙能拆、钢墙不能——掩体即战术</div></div>
+        <div class="lab-card"><div class="lb-do">❤️ 血量爆炸<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">中弹掉血、阵亡爆炸</div></div>
+        <div class="lab-card"><div class="lb-do">🏆 赛制颁奖<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">倒计时、三局两胜、颁奖</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：前七门都是"你一个人玩"；这门课把键盘掰成两半——<b>两个角色、两套按键、同一个舞台</b>。编程上没有新魔法，难的是"同时":两辆坦克、两路子弹同时跑。抓住"双人 + 回合"两条线索，对战游戏就想通了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">六个角色加一块背景：坦克-绿、坦克-蓝（各带上/右/下/左四个造型）、子弹、土墙、钢墙、爆炸（两帧造型）——素材包全有。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="坦克-绿-上"></i><span class="a-name">坦克-绿</span><span class="a-tag ">4 造型：上/右/下/左</span></div><div class="asset-card"><i class="sp-md" data-sp="坦克-蓝-上"></i><span class="a-name">坦克-蓝</span><span class="a-tag ">4 造型：上/右/下/左</span></div><div class="asset-card"><i class="sp-md" data-sp="子弹"></i><span class="a-name">子弹</span><span class="a-tag ">上传两次：子弹-绿/蓝</span></div><div class="asset-card"><i class="sp-md" data-sp="土墙"></i><span class="a-name">土墙</span><span class="a-tag ">能被打碎</span></div><div class="asset-card"><i class="sp-md" data-sp="钢墙"></i><span class="a-name">钢墙</span><span class="a-tag ">打不动</span></div><div class="asset-card"><i class="sp-md" data-sp="爆炸-2"></i><span class="a-name">爆炸</span><span class="a-tag ">2 造型：炸1/炸2</span></div><div class="asset-card"><i class="sp-md" data-sp="沙场阵地"></i><span class="a-name">背景</span><span class="a-tag own">素材包自带</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/坦克大战/</b> 里的 .sprite3；<b>子弹上传两次</b>，改名 子弹-绿 / 子弹-蓝；音效搜 <b>laser</b> / <b>explosion</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🕹️ 双人操控</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎬 造型朝向</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🔫 带方向的子弹</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🧱 可破坏地形</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">❤️ 血量系统</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🏆 赛制回合</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="v1" data-map="🚗 两辆坦克">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 钢铁双雄</span><span class="st-text">绿坦克守左下角，蓝坦克守右上角——同一块键盘，两个人各开各的车。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>双人操控</em>——绿方 WASD、蓝方方向键，四向移动 + 换朝向造型，不许开出场地。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30 分钟</span><span class="sl-chip">🎮 家长一起开</span><span class="sl-chip">✅ 两辆车同时动、朝向对</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="坦克-绿-上"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="坦克-蓝-上"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="坦克-绿-上" style="left:12%; bottom:10%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:12%; top:10%;"></i><span class="sl-tag" style="left:8%; top:8%;">绿：W A S D</span><span class="sl-tag" style="right:5%; top:8%;">蓝：← ↑ ↓ →</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">按键检测</span><span class="td-note">— 射击课开飞船同款</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">一套键盘分两半</span><span class="td-note">— 字母键 vs 方向键互不打架</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">造型即朝向</span><span class="td-note">— 换上/右/下/左四个造型</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">场地边界</span><span class="td-note">— 坐标夹住不许出界</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">坦克不转向、不漂移，像棋子一样四方移动——所以不用"面向方向"，直接<b>换造型</b>：按 W 换"上"再 y+3。两套脚本几乎一样，只是按键不同：写好绿坦克，复制给蓝坦克，把 W A S D 改成方向键——这就是"双人"的全部秘密。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>两辆坦克导入、各就各位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>先让绿坦克动起来，再想蓝坦克怎么办</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">概念 · 双人 = 两段一样的脚本</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">复制、改名、换按键</div>
+          <div class="cp-analogy">类比：双胞胎穿一样的衣服，靠帽子颜色区分。绿坦克和蓝坦克的脚本一字不差地复制，只有按键（WASD ↔ 方向键）和变量名不同。</div>
+          <ul class="cp-points">
+<li>绿用字母键、蓝用方向键——键盘左右两半，互不打架</li><li>朝向用造型换，不用旋转：像素坦克看得清清楚楚</li><li>边界判定四条"如果"，把 x、y 夹在场地里</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box ok">🟢 坦克-绿<br><small>W A S D</small></div><span class="dg-arr">复制 ➜</span><div class="dg-box ok">🔵 坦克-蓝<br><small>← ↑ ↓ →</small></div><span class="dg-arr">只改按键</span><div class="dg-box ok">双人成立</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">绿坦克：先会上下</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (-180) y: (-120)
+重复执行
+    如果 <按下 [w] 键?> 那么
+        换成 [上] 造型
+        将y坐标增加 (3)
+    如果 <按下 [s] 键?> 那么
+        换成 [下] 造型
+        将y坐标增加 (-3)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#9966FF;">外观</span><span class="cat" style="background:#4C97FF;">运动</span>——两件事一起做：换朝向造型 + 动坐标</div>
+          <div class="stepv-see">✅ W 向上 S 向下，车头跟着转向</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">再加左右，凑齐四方</div>
+          <pre class="blocks">    如果 <按下 [a] 键?> 那么
+        换成 [左] 造型
+        将x坐标增加 (-3)
+    如果 <按下 [d] 键?> 那么
+        换成 [右] 造型
+        将x坐标增加 (3)</pre>
+          <div class="sl-path">接在刚才那个循环里——四个"如果"平级排，谁按谁动</div>
+          <div class="stepv-see">✅ W A S D 四个方向全通，车头永远朝前进方向</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">别开出场地</div>
+          <pre class="blocks">    如果 <(x 坐标) > (215)> 那么
+        将x坐标设为 (215)
+    如果 <(x 坐标) < (-215)> 那么
+        将x坐标设为 (-215)
+    如果 <(y 坐标) > (155)> 那么
+        将y坐标设为 (155)
+    如果 <(y 坐标) < (-155)> 那么
+        将y坐标设为 (-155)</pre>
+          <div class="sl-where">🧰 积木在：接在移动积木后面同一个循环里——四堵看不见的墙</div>
+          <div class="stepv-see">✅ 撞到场地边就停，不会消失在屏幕外</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">蓝坦克：复制粘贴改按键</div>
+          <div class="sl-sub">右键绿坦克脚本区 → 复制到 <b>坦克-蓝</b>：移到 x:(180) y:(120)；把 W/S/A/D 全换成 <b>↑/↓/←/→</b>——其他一个字都不用改</div>
+          <div class="stepv-see">✅ 两人同时开，互不干扰——双人对战的地基打好了</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🎮 两人同时开车互不卡顿</li><li>🧭 车头朝向永远和移动方向一致</li><li>🚧 谁都开不出场地</li><li>↩️ 绿旗双方回出生点</li>
+      </ul>
+<div class="sl-sub">车会动了——但还不会打架。下一课装炮。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">驾驶手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">速度 3 改 5</div><div class="lb-guess">猜猜看：像跑车还是像坦克？</div><div class="lb-why">速度=载具性格</div></div>
+          <div class="lab-card"><div class="lb-do">斜着按（W+D）</div><div class="lb-guess">猜猜看：会斜着走吗？为什么？</div><div class="lb-why">造型只有一个朝向</div></div>
+          <div class="lab-card"><div class="lb-do">出生点互换</div><div class="lb-guess">猜猜看：谁的地形更有利？</div><div class="lb-why">出生点=平衡性</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">双开两病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按键串门</div>蓝坦克也用了 W A S D。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>复制脚本后逐个检查按键下拉框，W→↑、S→↓……</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 车头不转身</div>只改坐标忘换造型。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每个"如果"里两件事：换造型 + 动坐标。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">车辙印</div><div class="ad-what">开过留下印子</div><div class="ad-how">落笔+抬笔，画笔颜色暗绿<br><span class="cat" style="background:#00B4C6;">画笔扩展</span></div></div>
+          <div class="addon-card"><div class="ad-t">引擎声</div><div class="ad-what">一动就突突突</div><div class="ad-how">移动时循环播放 pop，停了停播<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">对角出生</div><div class="ad-what">换个战场格局</div><div class="ad-how">出生点改成上下对角<br><span class="cat" style="background:#4C97FF;">运动</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 开炮！</div>
+      <div class="sl-next-why">车会动了——装炮。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="v2" data-map="💥 开炮！">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 第一发炮弹</span><span class="st-text">空格、回车各管一炮——子弹从炮口出发，朝车头方向一路飞到墙边。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>带方向的子弹</em>——按发射键从坦克炮口克隆一颗子弹，朝坦克朝向直飞、出界消失、有冷却。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">⚠️ 两个子弹角色</span><span class="sl-chip">✅ 两边都能开火、不会机关枪</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="子弹"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">💥</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="坦克-绿-右" style="left:14%; bottom:38%;"></i><i class="sp-abs" data-sp="子弹" style="left:34%; bottom:42%;"></i><i class="sp-abs" data-sp="子弹" style="left:52%; bottom:42%; opacity:.6;"></i><i class="sp-abs" data-sp="坦克-蓝-左" style="right:14%; bottom:34%;"></i><span class="sl-tag" style="left:8%; top:8%;">空格 ➜ 绿方炮弹</span><span class="sl-tag" style="right:5%; top:8%;">回车 ➜ 蓝方炮弹</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 老朋友了</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">读别人的坐标</span><span class="td-note">— ([坦克-绿] 的 x 坐标)</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">面向变量</span><span class="td-note">— 坦克把朝向存进变量</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">发射冷却</span><span class="td-note">— 计时器管住机关枪</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">子弹怎么知道从哪、朝哪飞？两步：坦克换造型时把 0/90/−90/180 存进「绿方向」变量；子弹发射前先<b>读坦克的坐标</b>站上炮口，再「面向 (绿方向)」——然后一路"移动 12 步"就够了。冷却用计时器：刚打完 0.4 秒内不许再打。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>给坦克加上"方向变量"</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>让子弹从炮口飞出去</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">坦克：换造型时记下方向</div>
+          <pre class="blocks">    如果 <按下 [w] 键?> 那么
+        换成 [上] 造型
+        将 [绿方向] 设为 (0)
+        将y坐标增加 (3)</pre>
+          <div class="sl-where">🧰 积木在：四个方向都加一行——上=0、右=90、下=180、左=−90；蓝坦克用 <b>蓝方向</b></div>
+          <div class="stepv-see">✅ 绿方向/蓝方向 始终等于车头朝向</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹-绿：站上炮口，朝向发射</div>
+          <pre class="blocks">当按下 [空格] 键
+如果 <(计时器) > (0.4)> 那么
+    计时器归零
+    移到 x: ([坦克-绿] 的 [x 坐标]) y: ([坦克-绿] 的 [y 坐标])
+    面向 (绿方向) 度
+    克隆 [自己]</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span><span class="cat" style="background:#5CB1D6;">侦测</span>——「…的 x 坐标」在侦测抽屉，下拉选 坦克-绿</div>
+          <div class="stepv-see">✅ 空格一按，子弹从炮口冒头</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身：一路直飞，出界删除</div>
+          <pre class="blocks">当作为克隆体启动时
+    显示
+    重复执行直到 <碰到 [边缘]?>
+        移动 (12) 步
+    删除此克隆体</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span>——「碰到边缘?」在侦测抽屉，下拉选 边缘</div>
+          <div class="stepv-see">✅ 炮弹笔直飞出屏幕自动消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹-蓝：同款改三个字</div>
+          <div class="sl-sub">复制 子弹-绿 → 改名 子弹-蓝：触发键换 <b>回车</b>、坐标读 <b>坦克-蓝</b>、面向 <b>蓝方向</b></div>
+          <div class="stepv-see">✅ 回车也能开炮——对轰开始</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-split">
+        <div class="sl-split-txt">
+          <ul class="sl-check ok">
+<li>💥 子弹永远从炮口、朝车头方向飞</li><li>🔫 连按不会变成机关枪（0.4 秒冷却）</li><li>♻️ 子弹出界即删不堆积</li><li>↩️ 绿旗一切复原</li>
+          </ul>
+        </div>
+        <div class="sl-split-vis">
+<div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="坦克-绿-右" style="left:10%; bottom:12%;"></i><i class="sp-abs" data-sp="子弹" style="left:34%; bottom:16%;"></i><i class="sp-abs" data-sp="子弹" style="left:58%; bottom:16%; opacity:.5;"></i></div>
+<div class="vis-cap">坦克 → 方向变量 → 子弹：炮口的秘密</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">弹道手感</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">移动 12 步改 20 步</div><div class="lb-guess">猜猜看：躲得掉吗？</div><div class="lb-why">弹速=交锋节奏</div></div>
+          <div class="lab-card"><div class="lb-do">冷却 0.4 改 1.0</div><div class="lb-guess">猜猜看：打法变谨慎了？</div><div class="lb-why">冷却=火力经济</div></div>
+          <div class="lab-card"><div class="lb-do">同屏只许一颗</div><div class="lb-guess">猜猜看：怎么用变量计数？</div><div class="lb-why">弹匣=策略深度</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">开炮两怪</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 子弹原地打转</div>「面向」用了坦克造型名而不是方向变量。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>面向的椭圆里放 <b>(绿方向)</b> 变量。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 按住空格弹如雨下</div>没做冷却。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>发射前查「计时器 &gt; 0.4」，发完立刻归零。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">炮口火花</div><div class="ad-what">开炮瞬间的闪光</div><div class="ad-how">发射时克隆爆炸角色闪 0.1 秒<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">炮声</div><div class="ad-what">"piu"一声</div><div class="ad-how">发射时播放 laser<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">双向炮管</div><div class="ad-what">前后同时发两颗</div><div class="ad-how">克隆两次，第二次面向+180<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 土墙与钢墙</div>
+      <div class="sl-next-why">能开炮了——战场上该有掩体了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="v3" data-map="🧱 土墙与钢墙">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 掩体与推土机</span><span class="st-text">战场上砌起两种墙：土墙挡路也能被轰开，钢墙谁也轰不动——躲哪边，是个问题。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>地形攻防</em>——坦克撞墙回退；子弹碰土墙双方一起消失（墙被打碎），碰钢墙只有子弹消失。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">🧱 手动摆阵地</span><span class="sl-chip">✅ 墙挡得住车、土墙挨得起炮</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="土墙"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="钢墙"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="钢墙" style="left:22%; top:18%;"></i><i class="sp-abs" data-sp="钢墙" style="left:24%; top:24%;"></i><i class="sp-abs" data-sp="钢墙" style="right:22%; bottom:18%;"></i><i class="sp-abs" data-sp="钢墙" style="right:24%; bottom:24%;"></i><i class="sp-abs" data-sp="土墙" style="left:40%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:48%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:40%; top:56%; opacity:.4;"></i><i class="sp-abs" data-sp="坦克-绿-上" style="left:8%; bottom:8%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:8%; top:8%;"></i><span class="sl-tag" style="left:8%; top:8%;">钢墙：打不动</span><span class="sl-tag" style="right:5%; top:38%;">土墙：被轰开一个口（淡掉那块）</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">撞墙回退</span><span class="td-note">— 先记旧位置，碰墙就弹回</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">只删被打中的那块</span><span class="td-note">— 广播后每块墙自查</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到角色</span><span class="td-note">— 判定主力</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆体删除</span><span class="td-note">— 子弹消亡同款</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">坦克撞墙不能穿过去：移动前把当前位置存进「旧x/旧y」，动完发现碰到墙，就<b>移回旧位置</b>。打碎土墙有个坑：子弹广播"墙被打"，所有土墙都会听见——所以每块墙收到广播后<b>自查"碰到子弹了吗"</b>，只有真正挨打的那块消失。这一招"广播+自查"以后到处用得上。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>土墙钢墙复制几块，摆到场地中间</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>先试试车撞上去会发生什么</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">摆阵地</div>
+          <div class="sl-sub">土墙右键「复制」× 8、钢墙 × 4：对齐背景格线摆——中央留条走廊，两边各留个掩体角。摆完先开一局看看顺不顺手</div>
+          <div class="stepv-see">✅ 场地像模像样：有掩体、有通道</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">坦克：撞墙回退</div>
+          <pre class="blocks">    将 [旧x] 设为 (x 坐标)
+    将 [旧y] 设为 (y 坐标)
+    …四个方向的"如果 按下…移动"照旧…
+    如果 <<碰到 [土墙]?> 或 <碰到 [钢墙]?>> 那么
+        移到 x: (旧x) y: (旧y)</pre>
+          <div class="sl-where">🧰 积木在：旧x/旧y 设在移动<b>前</b>，回退判定在移动<b>后</b>——两辆坦克都要加</div>
+          <div class="stepv-see">✅ 车撞墙即停，不再穿墙</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹：土墙碎、钢墙硬</div>
+          <pre class="blocks">    如果 <碰到 [土墙]?> 那么
+        广播 [土墙被打]
+        删除此克隆体
+    如果 <碰到 [钢墙]?> 那么
+        删除此克隆体</pre>
+          <div class="sl-where">🧰 积木在：接在子弹分身的"移动"循环里——钢墙连广播都不用发：它压根不会坏</div>
+          <div class="stepv-see">✅ 炮弹打土墙炸开口，打钢墙只留个火花</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">土墙：收到广播先自查</div>
+          <pre class="blocks">当绿旗被点击
+显示
+当接收到 [土墙被打]
+    如果 <<碰到 [子弹-绿]?> 或 <碰到 [子弹-蓝]?>> 那么
+        播放声音 [explosion]
+        隐藏
+        停止 [这个脚本]</pre>
+          <div class="sl-where">🧰 积木在：广播是"大喇叭"，自查是"点名"——两步合起来才会只碎一块</div>
+          <div class="stepv-see">✅ 只有真正挨炮的那块墙消失，别处安然无恙</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🚗 车撞墙回退，不穿墙</li><li>🧱 土墙挨一炮碎一块、只碎一块</li><li>⛓️ 钢墙怎么打都完好</li><li>↩️ 绿旗墙全复原</li>
+      </ul>
+<div class="sl-sub">有掩体了，但打中坦克还什么都不会发生——下一课让它掉血。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">阵地实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">把中央走廊堵死</div><div class="lb-guess">猜猜看：还有人敢冲锋吗？</div><div class="lb-why">通道=交火线</div></div>
+          <div class="lab-card"><div class="lb-do">给出生点围一圈土墙</div><div class="lb-guess">猜猜看：龟缩能赢吗？</div><div class="lb-why">掩体=节奏器</div></div>
+          <div class="lab-card"><div class="lb-do">土墙全换成钢墙</div><div class="lb-guess">猜猜看：战场变什么样？</div><div class="lb-why">可破坏=呼吸感</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">砌墙两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一炮全场的墙都碎</div>墙收到广播没自查。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「当接收到」里先问"碰到子弹了吗"，是才隐藏。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 车贴墙抖个不停</div>回退位置存晚了。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>「旧x/旧y」必须在移动之前存。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">碎墙飞屑</div><div class="ad-what">碎时弹几粒碎块</div><div class="ad-how">克隆小方块随机方向飞散<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">草丛隐身</div><div class="ad-what">进草丛半透明</div><div class="ad-how">碰到草丛色→虚像 50<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+          <div class="addon-card"><div class="ad-t">补给箱</div><div class="ad-what">打碎掉加速</div><div class="ad-how">土墙随机变补给箱，碰车加速 5 秒<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 血条与爆炸</div>
+      <div class="sl-next-why">打得中，还要打得疼。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="v4" data-map="❤️ 血条与爆炸">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 疼，才会躲</span><span class="st-text">坦克有三条血：挨一炮掉一格、闪一下；血打空——轰的一声，只剩一团火光。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>血量系统</em>——中弹掉血+受击闪烁；血空阵亡：隐藏坦克、爆炸动画、广播胜负。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30–40 分钟</span><span class="sl-chip">✅ 打得疼、炸得响</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="爆炸-2"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">❤️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="坦克-蓝-左" style="left:30%; bottom:24%;"></i><span class="sl-tag" style="left:8%; top:8%;">蓝血 ●●○</span></div><div class="fx-cap">挨一炮：掉一格、闪一下</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="爆炸-2" style="left:34%; bottom:20%;"></i><span class="sl-tag" style="left:8%; top:8%;">蓝血 ●○○ → 0</span></div><div class="fx-cap">血空：爆炸退场</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">血量变量</span><span class="td-note">— 蓝血/绿血 各 3</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">受击反馈</span><span class="td-note">— 颜色特效闪 0.3 秒</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">阵亡演出</span><span class="td-note">— 爆炸两帧 + 广播胜负</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">读别人坐标</span><span class="td-note">— 爆炸找得到坦克</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">血量就是倒着数的分数：子弹碰到坦克，把对方的血 −1，再广播"某方中弹"让坦克自己闪一下（颜色特效）；坦克收到广播先查自己的血，<b>血 &lt;1 就阵亡</b>：隐藏、广播"某方阵亡"。爆炸角色听着阵亡广播，跑到那辆坦克的位置放两帧动画——打的人爽，被打的服气。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>给双方各做一个血变量</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>让子弹打中坦克时血减一</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">子弹：打中就掉血</div>
+          <pre class="blocks">    如果 <碰到 [坦克-蓝]?> 那么
+        将 [蓝血] 增加 (-1)
+        广播 [蓝方中弹]
+        删除此克隆体</pre>
+          <div class="sl-where">🧰 积木在：写在子弹-绿的分身循环里；子弹-蓝 打 [坦克-绿]、减 [绿血]、广播 [绿方中弹]；绿旗里 蓝血/绿血 都设为 (3)</div>
+          <div class="stepv-see">✅ 一炮一格血，子弹同归于尽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">坦克：挨打闪烁，血空阵亡</div>
+          <pre class="blocks">当接收到 [蓝方中弹]
+    将 [颜色] 特效增加 (100)
+    等待 (0.3) 秒
+    将 [颜色] 特效设为 (0)
+    如果 <(蓝血) < (1)> 那么
+        广播 [蓝方阵亡]
+        隐藏</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#9966FF;">外观</span>——特效一闪，玩家立刻知道"我挨打了"；绿坦克同款换绿方；<b>先广播再隐藏</b>，爆炸才找得到位置</div>
+          <div class="stepv-see">✅ 挨炮闪白光，三炮打空当场消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">爆炸：赶到现场放两帧</div>
+          <pre class="blocks">当接收到 [蓝方阵亡]
+移到 x: ([坦克-蓝] 的 [x 坐标]) y: ([坦克-蓝] 的 [y 坐标])
+换成 [炸1] 造型
+显示
+播放声音 [explosion]
+等待 (0.15) 秒
+换成 [炸2] 造型
+等待 (0.25) 秒
+隐藏</pre>
+          <div class="sl-where">🧰 积木在：再复制一段「当接收到 [绿方阵亡]」——坐标读 坦克-绿</div>
+          <div class="stepv-see">✅ 阵亡位置轰出两帧爆炸+"轰"声</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>❤️ 三炮定胜负，血量数得清</li><li>✨ 挨打有闪烁反馈</li><li>💥 阵亡有爆炸有声音</li><li>↩️ 绿旗血回 3、坦克归位</li>
+      </ul>
+<div class="sl-sub">能分胜负了——最后一课，把它变成一场正式比赛。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">数值实验</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">血量 3 改 5</div><div class="lb-guess">猜猜看：战斗拖长了多少？</div><div class="lb-why">血量=回合时长</div></div>
+          <div class="lab-card"><div class="lb-do">挨打后加 1 秒无敌</div><div class="lb-guess">猜猜看：连发还有用吗？</div><div class="lb-why">无敌帧=反打机会</div></div>
+          <div class="lab-card"><div class="lb-do">爆炸震屏</div><div class="lb-guess">猜猜看：全场抖三下</div><div class="lb-why">演出=打击感</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">血条两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 一炮直接秒</div>血变量设成了"仅当前角色"，两边读的不是同一个。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>蓝血/绿血 选「适用于所有角色」，全项目只有一个。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 爆炸出现在角落</div>坦克先隐藏了，坐标读到旧值。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>先广播阵亡、再隐藏，顺序别反。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">头顶血条</div><div class="ad-what">跟着坦克的血格</div><div class="ad-how">画笔扩展在坦克上方画格子<br><span class="cat" style="background:#00B4C6;">画笔扩展</span></div></div>
+          <div class="addon-card"><div class="ad-t">残血冒烟</div><div class="ad-what">血=1 时坦克冒烟</div><div class="ad-how">循环克隆小烟圈往上飘<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">修复模式</div><div class="ad-what">不动 5 秒回 1 血</div><div class="ad-how">计时器检测静止，回血上限 3<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 决斗时刻</div>
+      <div class="sl-next-why">最后一课：把它变成正式比赛。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="v5" data-map="🏆 决斗时刻">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 正式比赛</span><span class="st-text">倒计时 3·2·1 才准动车；赢一局记一分，先拿两分夺冠——最后，办一场家庭颁奖礼。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>赛制</em>——开局倒计时；一局结束计分、自动开下一局；先胜两局夺冠，全家颁奖。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 45 分钟</span><span class="sl-chip">🎤 颁奖发布会</span><span class="sl-chip">✅ 完整比赛流程</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><span class="emo">🏆</span></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🎤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="坦克-绿-上" style="left:10%; bottom:8%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:10%; top:8%;"></i><span class="sl-tag" style="left:8%; top:8%;">3 · 2 · 1 · 开战！</span><span class="sl-tag" style="right:5%; top:8%;">绿 1 : 0 蓝（先胜两局）</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">开局倒计时</span><span class="td-note">— 广播开战前不许动</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">局与场</span><span class="td-note">— 一局=一次血量清零；一场=先胜两局</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">广播串联</span><span class="td-note">— 阵亡→计分→新局</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">比赛建立在"局"上：一局从「广播 新的一局」开始——复位血量、摆回坦克、数 3·2·1、再广播「开战」，坦克的主循环从<b>当接收到[开战]</b>才启动。有人阵亡→对方+1 分→没到 2 分就再来一局，到 2 分就广播夺冠。<b>局内循环、场间计分</b>，两层套起来就是赛制。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>想清楚"一局"从哪开始到哪结束</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>让坦克"听到开战才动"</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">概念 · 局与场</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">两层循环的比赛</div>
+          <div class="cp-analogy">类比：下棋一盘是"局"，三局两胜是"场"。程序里也一样：局里管打架（血量、子弹），场里管记账（胜场数）——局结束广播给场，场决定"再来"还是"收官"。</div>
+          <ul class="cp-points">
+<li>一局的开始=广播「新的一局」：复位一切、倒计时</li><li>一局的结束=有坦克阵亡：对方胜场 +1</li><li>场结束=胜场到 2：广播夺冠、定格</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:12px;"><div class="dg"><div class="dg-box">🏁 新的一局</div><span class="dg-arr">➜</span><div class="dg-box">3·2·1</div><span class="dg-arr">➜</span><div class="dg-box ok">开战</div></div><div class="dg"><div class="dg-box">💥 阵亡</div><span class="dg-arr">➜</span><div class="dg-box">胜场+1</div><span class="dg-arr">➜</span><div class="dg-box no">到 2？夺冠：再来</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">舞台：倒计时与开战</div>
+          <pre class="blocks">当接收到 [新的一局]
+说 [3] (0.7) 秒
+说 [2] (0.7) 秒
+说 [1] (0.7) 秒
+说 [开战！] (0.5) 秒
+广播 [开战]</pre>
+          <div class="sl-where">🧰 积木在：绿旗脚本里只做两件事——胜场归零、广播「新的一局」</div>
+          <div class="stepv-see">✅ 每局开场 3·2·1，喊完才能动</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">坦克：听到开战才启动</div>
+          <pre class="blocks">当接收到 [新的一局]
+移到 x: (-180) y: (-120)
+显示
+将 [绿血] 设为 (3)
+当接收到 [开战]
+重复执行
+    …第 1 课的移动循环原样搬进来…</pre>
+          <div class="sl-where">🧰 积木在：把原来「当绿旗被点击…重复执行」改成「当接收到[开战]…重复执行」——倒计时期间车是锁住的</div>
+          <div class="stepv-see">✅ 倒计时时按 W 没反应，开战瞬间冲出去</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">舞台：记账与夺冠</div>
+          <pre class="blocks">当接收到 [蓝方阵亡]
+将 [绿胜场] 增加 (1)
+说 (连接 [绿方胜一局！ 比分 ] 和 (连接 (绿胜场) (连接 [ : ] (蓝胜场)))) (2) 秒
+如果 <(绿胜场) > (1)> 那么
+    说 [绿方夺冠！🏆] (3) 秒
+    停止 [全部脚本]
+广播 [新的一局]</pre>
+          <div class="sl-where">🧰 积木在：再来一段「当接收到 [绿方阵亡]」给蓝方记分——两段对称</div>
+          <div class="stepv-see">✅ 一局完自动下一局，先到 2 分全场庆祝定格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">颁奖礼：三句话</div>
+          <div class="dg"><div class="dg-box ok">1️⃣ 今天最险的一炮</div><div class="dg-box ok">2️⃣ 输的那局输在哪</div><div class="dg-box ok">3️⃣ 想加什么新规则</div></div>
+          <div class="sl-sub">冠军发言、败方也发言——然后真的打一场表演赛</div>
+          <div class="stepv-see">✅ 两边都讲满三句，本作收官</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>⏱️ 倒计时没喊完车不动</li><li>🧮 胜场记分准确、比分看得见</li><li>🏆 先胜两局夺冠定格</li><li>🎤 颁奖礼两边都发言</li>
+      </ul>
+<div class="sl-sub">八门游戏课，全部毕业——去游戏厅把你做的每一款都再玩一遍。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">规则实验室</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">三局两胜改五局三胜</div><div class="lb-guess">猜猜看：翻盘变难还是容易？</div><div class="lb-why">赛制=悬念</div></div>
+          <div class="lab-card"><div class="lb-do">输家先手开战</div><div class="lb-guess">猜猜看：让一让更激烈？</div><div class="lb-why">让先=平衡阀</div></div>
+          <div class="lab-card"><div class="lb-do">限时 60 秒一局</div><div class="lb-guess">猜猜看：血多者胜怎么算？</div><div class="lb-why">时限=逼进攻</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">收官两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 倒计时也能开车</div>主循环还挂在绿旗下。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>移动循环的帽子换成「当接收到 [开战]」。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 夺冠了还在打</div>夺冠分支忘了停。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>说夺冠之后「停止 全部脚本」，别再广播新的一局。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">观战模式</div><div class="ad-what">第三个人当裁判</div><div class="ad-how">裁判按 R 强制重开本局<br><span class="cat" style="background:#FFBF00;">事件</span></div></div>
+          <div class="addon-card"><div class="ad-t">换地图</div><div class="ad-what">每局随机一张阵</div><div class="ad-how">几张墙阵用列表存坐标轮流摆<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">双人合作</div><div class="ad-what">一起打 AI 坦克</div><div class="ad-how">敌坦克随机移动+朝玩家开炮<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 5 关达成</div>
+      <div class="sl-next-label">本作收官</div>
+      <div class="sl-next-title">坦克大战 · 完成</div>
+      <div class="sl-next-why">八门全通关——先去总结页，再拉全家打一场。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><i class="sp-fill" data-sp="沙场阵地"></i><i class="sp-abs" data-sp="钢墙" style="left:24%; top:16%;"></i><i class="sp-abs" data-sp="钢墙" style="right:24%; bottom:16%;"></i><i class="sp-abs" data-sp="土墙" style="left:44%; top:30%;"></i><i class="sp-abs" data-sp="土墙" style="left:52%; top:30%;"></i><i class="sp-abs" data-sp="坦克-绿-上" style="left:10%; bottom:10%;"></i><i class="sp-abs" data-sp="坦克-蓝-下" style="right:10%; top:10%;"></i><i class="sp-abs" data-sp="子弹" style="left:30%; bottom:14%;"></i></div>
+            <div class="cp-analogy" style="flex:1;">一款真双人对战游戏：一套键盘两辆车、带方向的炮弹、能拆的掩体、三格血与爆炸，外加倒计时和三局两胜的完整赛制——做完就能拉全家开战。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>🕹️ 双人操控 <span class="td-note">— 第 1 课</span></li><li>🎬 造型朝向 <span class="td-note">— 第 1 课</span></li><li>🔫 带方向的子弹 <span class="td-note">— 第 2 课</span></li><li>🧱 可破坏地形 <span class="td-note">— 第 3 课</span></li><li>❤️ 血量系统 <span class="td-note">— 第 4 课</span></li><li>🏆 赛制回合 <span class="td-note">— 第 5 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">双人 = 两段一样的脚本：复制、改名、换按键</li><li class="">广播 + 自查：大喇叭喊话，各自核对——只删被打中的那块墙</li><li class="">局与场两层循环：局内打架、场间记账，赛制就立起来了</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">坦克大战收官</div>
+      <div class="sl-next-label">八门全通</div>
+      <div class="sl-next-title">去游戏厅，把它们全部再玩一遍</div>
+      <div class="sl-next-why">八款全是自己亲手做的——这次玩，你看到的全是积木。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-platform.html"><div class="dir">← 上一篇</div><div class="pager-title">⑦ 跳跳冒险</div></a>
+<a class="next" href="games.html"><div class="dir">下一篇 →</div><div class="pager-title">游戏厅 · 把它们全部再玩一遍</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 八门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   var canvas = document.getElementById('shooterCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var W = 480, H = 360;
+  var W = 480, H = 360, SCALE = canvas.width / W;
   var ship, bullets, rocks, stars, score, shield, state, fireCd = 0, spawnT = 0, speed = 90;
   var drops, weaponT = 0;  // 宝物掉落 + 火力计时
 
@@ -94,6 +94,7 @@
   }
 
   function draw() {
+    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     ctx.fillStyle = '#0b1026'; ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#fff';
     stars.forEach(function (s) { ctx.globalAlpha = s.s / 2; ctx.fillRect(s.x, s.y, s.s, s.s); });

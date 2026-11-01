@@ -19,14 +19,14 @@
 <aside class="sidebar">
   <a class="brand" href="../index.html">
     <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
-    <span class="brand-sub">六门游戏课 · 给 9 岁探险家</span>
+    <span class="brand-sub">八门游戏课 · 给 9 岁探险家</span>
   </a>
   <button class="theme-btn">🌙</button>
   <nav class="nav">
 <div class="nav-zone learn">
-<div class="nav-label">六门游戏课</div>
+<div class="nav-label">八门游戏课</div>
 <a href="outline.html">开始之前（家长读）</a>
-<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html" class="active">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html" class="active">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a><a href="handbook-platform.html">⑦ 跳跳冒险</a><a href="handbook-tank.html">⑧ 坦克大战</a>
 </div>
 <div class="nav-zone play">
 <div class="nav-label">玩</div>
@@ -79,7 +79,7 @@
 <h3 id="play">先玩 1 分钟</h3>
 <p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
 <p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
-<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>敌人沿路进攻基地，你花金币造炮塔自动开火——击杀掉宝（金袋/红心），守住 3 波就赢。</div><div class="log-card"><span class="lg-t">操作</span>点击造炮塔；点击掉落的宝物拾取</div><div class="log-card"><span class="lg-t">玩点在哪</span>攒钱摆阵的算账乐趣；看炮塔自动守家的踏实</div></div>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>敌人沿路进攻基地，你花金币造炮塔自动开火——击杀掉宝（金袋/红心），守住 3 波就赢。</div><div class="log-card"><span class="lg-t">操作</span>点击造炮塔；击杀掉的宝物落地自动入账</div><div class="log-card"><span class="lg-t">玩点在哪</span>攒钱摆阵的算账乐趣；看炮塔自动守家的踏实</div></div>
 <div class="sl-path">在哪玩：游戏厅里直接玩——先摆一座塔感受下。</div>
 <h3 id="anatomy">游戏解剖图</h3>
 <p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
@@ -91,7 +91,7 @@
 <div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/炮塔.svg" alt="炮塔" loading="lazy"><span class="a-name">炮塔</span><span class="a-tag">素材包导入</span></div>
 <div class="asset-card"><img class="sp-md" src="../assets/sprites/公用/子弹.svg" alt="子弹" loading="lazy"><span class="a-name">子弹</span><span class="a-tag">素材包导入</span></div>
 <div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/基地.svg" alt="基地" loading="lazy"><span class="a-name">基地</span><span class="a-tag">素材包导入</span></div>
-<div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/金币.svg" alt="金币" loading="lazy"><span class="a-name">金币</span><span class="a-tag">计分用（可只做变量）</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/公用/金币.svg" alt="金币" loading="lazy"><span class="a-name">金币</span><span class="a-tag">计分用（可只做变量）</span></div>
 <div class="asset-card"><img class="sp-md" src="../assets/sprites/塔防/荒漠要道.svg" alt="荒漠要道" loading="lazy"><span class="a-name">背景</span><span class="a-tag">素材包自带</span></div>
 </div><div class="sl-path">导入：<b>示例项目/素材包/塔防/</b> 里的 .sprite3；背景也在素材包里（背景-塔防.svg：「选择一个背景」→ 上传）<b>Desert / Castle</b>；音效 <b>laser</b>、<b>pop</b>。</div>
 <h3 id="starmap">课程进度表</h3>
@@ -405,17 +405,22 @@
 <p><div class="sl-sub">击杀奖励从固定 +5 金升级为"可能掉宝"——打怪有了惊喜</div></p>
 <div class="see">✅ 敌人倒下可能弹出一个金袋或红心</div>
 </li>
-<li><strong>宝物分身：小跳落地 + 点击拾取</strong>
+<li><strong>宝物分身：落地自动入账</strong>
 <pre class="blocks">当作为克隆体启动时
     将 [宝物类型] 设为 (在 (1) 和 (2) 之间取随机数)
     如果 <(宝物类型) = (1)> 那么
         换成 [火力宝物] 造型
     显示
-    重复执行直到 <(计时器) > (4)>
-        等待 (0.05) 秒
+    等待 (0.8) 秒
+    如果 <(宝物类型) = (1)> 那么
+        将 [金币] 增加 (10)
+    否则
+        将 [基地血] 增加 (1)
+    播放声音 [coin]
     删除此克隆体</pre>
-<p><div class="sl-sub">宝物本体加「当角色被点击」→ 广播 [拾取]：类型 1→金币+10，类型 2→基地血+1（上限 12）；<b>4 秒不捡就消失</b>（闪烁提醒）</div></p>
-<div class="see">✅ 点击金袋 +10 金；点击红心回一格基地血</div>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#FF8C1A;">变量</span>——落定 0.8 秒自动入账，不用追着点</div>
+<div class="sl-path">类型 1→金币+10，类型 2→基地血+1（上限 12）；（想留点手感？把 0.8 改成 2，宝物会闪两下再入账）</div>
+<div class="see">✅ 金袋 +10 金、红心 +1 血，落地自动到账</div>
 </li>
 </ol>
 <p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
@@ -543,7 +548,7 @@
       <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
       <div class="log-grid" style="margin-top:24px;">
         <div class="log-card"><span class="lg-t">怎么玩</span>敌人沿路进攻基地，你花金币造炮塔自动开火——击杀掉宝（金袋/红心），守住 3 波就赢。</div>
-        <div class="log-card"><span class="lg-t">操作</span>点击造炮塔；点击掉落的宝物拾取</div>
+        <div class="log-card"><span class="lg-t">操作</span>点击造炮塔；击杀掉的宝物落地自动入账</div>
         <div class="log-card"><span class="lg-t">玩点在哪</span>攒钱摆阵的算账乐趣；看炮塔自动守家的踏实</div>
       </div>
       <div class="sl-path">在哪玩：游戏厅里直接玩——先摆一座塔感受下。</div>
@@ -1564,17 +1569,21 @@
     <div class="slide-body stepv-body">
       <div class="stepv-side"><span class="stepv-n">6</span></div>
       <div class="stepv-main">
-          <div class="stepv-say">宝物分身：小跳落地 + 点击拾取</div>
+          <div class="stepv-say">宝物分身：落地自动入账</div>
           <pre class="blocks">当作为克隆体启动时
     将 [宝物类型] 设为 (在 (1) 和 (2) 之间取随机数)
     如果 <(宝物类型) = (1)> 那么
         换成 [火力宝物] 造型
     显示
-    重复执行直到 <(计时器) > (4)>
-        等待 (0.05) 秒
+    等待 (0.8) 秒
+    如果 <(宝物类型) = (1)> 那么
+        将 [金币] 增加 (10)
+    否则
+        将 [基地血] 增加 (1)
+    播放声音 [coin]
     删除此克隆体</pre>
-          <div class="sl-sub">宝物本体加「当角色被点击」→ 广播 [拾取]：类型 1→金币+10，类型 2→基地血+1（上限 12）；<b>4 秒不捡就消失</b>（闪烁提醒）</div>
-          <div class="stepv-see">✅ 点击金袋 +10 金；点击红心回一格基地血</div>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#FF8C1A;">变量</span>——落定 0.8 秒自动入账，不用追着点</div>
+          <div class="stepv-see">✅ 金袋 +10 金、红心 +1 血，落地自动到账</div>
       </div>
     </div>
   </div>
@@ -1952,7 +1961,7 @@
 </div>
   </article>
   <footer class="site-footer">
-    Scratch 冒险乐园 · 六门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+    Scratch 冒险乐园 · 八门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
   </footer>
 </main>
 

@@ -6,7 +6,7 @@
   var canvas = document.getElementById('snakeCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var W = 480, H = 360, CELL = 20;
+  var W = 480, H = 360, CELL = 20, SCALE = canvas.width / W;
   var GW = 22, GH = 15, OX = (W - GW * CELL) / 2, OY = (H - GH * CELL) / 2;
   var snake, dir, nextDir, food, score, best = 0, state, stepT, speed;
 
@@ -66,6 +66,7 @@
   }
 
   function draw() {
+    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     ctx.fillStyle = '#1d2b22'; ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#16211a'; ctx.fillRect(OX, OY, GW * CELL, GH * CELL);
     ctx.strokeStyle = 'rgba(126,224,168,.08)';

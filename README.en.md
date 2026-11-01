@@ -1,6 +1,6 @@
-# 🎮 Scratch Game Course · Build Six Games With Your Own Hands
+# 🎮 Scratch Game Course · Build Eight Games With Your Own Hands
 
-> A complete Scratch 3 curriculum for kids (~age 9): six classic arcade games, five lessons each, **built entirely by the child** — play the finished game first, tear it apart, then build it yourself.
+> A complete Scratch 3 curriculum for kids (~age 9): eight classic arcade games, five lessons each, **built entirely by the child** — play the finished game first, tear it apart, then build it yourself.
 
 [中文](README.md) | Pure static site · Double-click to run · No install · No internet needed
 
@@ -23,7 +23,7 @@ Play the finished game (1 min) → Anatomy diagram (top-down breakdown)
 - 👨‍👩‍👦 **Parent/child roles**: every section is tagged (parent-read / together / kid-alone), with one-click filtering in the web handbook
 - ⭐ **Progress system**: check off each lesson, stars light up on the home page (stored in localStorage)
 
-## 🕹️ The Six Courses
+## 🕹️ The Eight Courses
 
 | # | Course | Level | What You Build | Core Skills |
 |---|--------|-------|----------------|-------------|
@@ -33,8 +33,10 @@ Play the finished game (1 min) → Anatomy diagram (top-down breakdown)
 | ④ | Snake | Intermediate | Grid world, grow by eating | Grid movement · lists as the snake's memory |
 | ⑤ | Tower Defense | Intermediate | Build towers, defend the castle | Path navigation · economy loop · auto-combat |
 | ⑥ | Tetris | Grand finale | A complete Tetris | Map lists · shape data · line-clear algorithm |
+| ⑦ | Jump Adventure | Intermediate | A Mario-style platformer | Touching color · platform collision · stomp detection · level design |
+| ⑧ | Tank Battle | Intermediate · 2P | Head-to-head tank duels | Two-player controls · direction-aware bullets · destructible cover · match rounds |
 
-Each course = **one presentation deck (427 slides total) + one full-text handbook**, generated from the same source — edit once, both update.
+Each course = **one presentation deck (577 slides total) + one full-text handbook**, generated from the same source — edit once, both update.
 
 ![Presentation deck](docs/img/deck.png)
 
@@ -46,7 +48,7 @@ Each course = **one presentation deck (427 slides total) + one full-text handboo
 
 ## 🎮 Arcade: Play Before You Build
 
-All six finished games are **playable web demos** — every course starts by playing the real thing, then building your own.
+All eight finished games are **playable web demos** — every course starts by playing the real thing, then building your own.
 
 ![Arcade](docs/img/arcade.png)
 
@@ -56,15 +58,15 @@ All six finished games are **playable web demos** — every course starts by pla
 ├── index.html              # Home: course hub
 ├── 页面/ (pages)
 │   ├── outline.html        # Before You Start (for parents)
-│   ├── handbook-brick … tetra.html   # Six full-text handbooks
-│   ├── games.html          # Arcade (six playable demos)
+│   ├── handbook-brick … tank.html    # Eight full-text handbooks
+│   ├── games.html          # Arcade (eight playable demos)
 │   ├── toolbox.html        # Explorer's toolbox
 │   └── resources.html      # Resource vault
-├── 放映版/ (decks)          # Six presentation decks (main teaching UI)
+├── 放映版/ (decks)          # Eight presentation decks (main teaching UI)
 ├── assets/
-│   ├── sprites/<game>/     # 31 pixel-art SVGs, organized per game
+│   ├── sprites/<game>/     # 54 pixel-art SVGs, organized per game
 │   └── vendor/             # scratchblocks (works offline)
-├── 示例项目/素材包/<game>/   # 17 .sprite3 asset packs (one-click import)
+├── 示例项目/素材包/<game>/   # 29 .sprite3 asset packs (one-click import)
 ├── 生成讲义PPT.py           # Regenerate decks: python3 生成讲义PPT.py
 └── 示例项目/生成素材包.py     # Repackage .sprite3 assets
 ```
@@ -104,14 +106,14 @@ Tech: pure HTML/CSS/JS, zero dependencies, zero build steps; blocks rendered by 
 
 ## 🗓️ Pace
 
-- 5 lessons × 30–45 min per course, 30 lessons total
-- Recommended order ①→⑥ (difficulty ramps up), or let the kid pick
-- ~7 months at one lesson per week; ~2 months fast track
+- 5 lessons × 30–45 min per course, 40 lessons total
+- Recommended order ①→⑧ (difficulty ramps up; ⑥ Tetris is the algorithm finale, ⑦⑧ are hands-on battle courses), or let the kid pick
+- ~9 months at one lesson per week; ~2.5 months fast track
 
 ## 🤝 Contributing
 
 - Found a wrong block image, link, or typo? Open an issue or PR
-- Want to add a 7th game? Write content into a handbook template and run the generator
+- Want to add a 9th game? Write content into a handbook template, register it in both generator scripts, and rerun them
 - Ideas to improve the pedagogy (play→breakdown→DIY→reference)? Especially welcome
 
 ## 📄 License

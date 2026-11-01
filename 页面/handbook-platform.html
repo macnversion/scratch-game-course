@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>跳跳冒险 · 完整手册 · Scratch 冒险乐园</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>document.documentElement.dataset.theme=(function(){try{var t=localStorage.getItem('scratch-theme');if(t)return t;}catch(e){}return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';})();</script>
+</head>
+<body data-page="handbook-platform">
+
+<header class="topbar">
+  <button class="menu-btn" aria-label="打开菜单">☰</button>
+  <span class="topbar-title">Scratch 冒险乐园 · 跳跳冒险</span>
+  <span class="spacer"></span>
+  <button class="theme-btn">🌙</button>
+</header>
+
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <span class="brand-title"><span class="cube"></span>Scratch 冒险乐园</span>
+    <span class="brand-sub">八门游戏课 · 给 9 岁探险家</span>
+  </a>
+  <button class="theme-btn">🌙</button>
+  <nav class="nav">
+<div class="nav-zone learn">
+<div class="nav-label">八门游戏课</div>
+<a href="outline.html">开始之前（家长读）</a>
+<a href="handbook-brick.html">① 弹球打砖块</a><a href="handbook-flappy.html">② 飞扬的小鸟</a><a href="handbook-shooter.html">③ 太空射击</a><a href="handbook-snake.html">④ 贪吃蛇</a><a href="handbook-tower.html">⑤ 城堡塔防</a><a href="handbook-tetra.html">⑥ 俄罗斯方块</a><a href="handbook-platform.html" class="active">⑦ 跳跳冒险</a><a href="handbook-tank.html">⑧ 坦克大战</a>
+</div>
+<div class="nav-zone play">
+<div class="nav-label">玩</div>
+<a href="games.html">游戏厅 · 试玩</a>
+</div>
+<div class="nav-zone lookup">
+<div class="nav-label">查</div>
+<a href="toolbox.html">探索工具箱</a>
+<a href="resources.html">资源百宝箱</a>
+</div>
+  </nav>
+  <div class="progress-line" id="progressLine"></div>
+  <div class="sidebar-foot">纯静态小站<br>双击 index.html 开始</div>
+</aside>
+
+<aside class="toc-rail" id="tocRail" aria-label="本页目录">
+  <div class="toc-wrap" id="tocWrap">
+    <div class="toc-title">本页目录</div>
+    <div class="toc" id="toc"></div>
+  </div>
+</aside>
+
+<main class="main">
+  <article class="doc">
+
+  <div class="hero">
+    <div class="kicker">游戏课 · ⑦ · 进阶 · 完整手册</div>
+    <h1>跳跳冒险</h1>
+    <p class="lead">五次课做出一个马里奥式的平台跳跃游戏——<strong>先玩成品 → 拆解 → 自己试 → 卡住才看参考做法</strong>。上课请用 <a href="../放映版/deck-platform.html">放映版</a>；本页是全文与进度。</p>
+    <div class="chips">
+      <span class="chip">5 次课 · 每次 30–45 分钟</span>
+      <span class="chip">素材包直接导入</span>
+      <span class="chip">第 5 课自己设计关卡</span>
+    </div>
+    <a class="start-go" href="../放映版/deck-platform.html">▶ 打开放映版，开始上课</a>
+  </div>
+
+  <div class="md-content">
+
+  <div class="start-here" id="start">
+    <div class="start-title">▶ 三步开始</div>
+    <div class="start-steps">
+      <div class="start-step"><span class="n">1</span><strong>导入素材包</strong>：角色区 ⊕ 上传角色 → 选 示例项目/素材包/跳跳冒险/ 里的 .sprite3。</div>
+      <div class="start-step"><span class="n">2</span><strong>打开放映版上课</strong>：<a href="../放映版/deck-platform.html">▶ 跳跳冒险 · 放映版</a>。</div>
+      <div class="start-step"><span class="n">3</span><strong>回来勾进度</strong>：每课上完勾一格，首页星星同步亮。</div>
+    </div>
+  </div>
+
+<h2>一、开课之前</h2>
+<h3 id="play">先玩 1 分钟</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 先玩 1 分钟</span></p>
+<p>先把成品玩一遍——<strong>你接下来五次课，就是要亲手做出它</strong>。</p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">怎么玩</span>←→ 跑、空格跳。踩扁蘑菇敌、顶问号砖吃金币、摸到终点旗过关；碰敌人掉命，掉坑也掉命。</div><div class="log-card"><span class="lg-t">操作</span>← → / A D 跑动 · 空格 / ↑ 跳</div><div class="log-card"><span class="lg-t">玩点在哪</span>每一跳都要掂量：跳得上去吗？落点有没有蘑菇？</div></div>
+<div class="sl-path">在哪玩：游戏厅里直接玩——试着踩扁一只蘑菇，再试着从下面顶一块问号砖。</div>
+<h3 id="anatomy">游戏解剖图</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 游戏解剖图（自上而下）</span></p>
+<p>整个游戏 = 五大模块，五次课各做一块：</p><div class="lab-grid"><div class="lab-card"><div class="lb-do">🏃 操控手感<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">左右走+跳跃+重力：跳得像自己</div></div><div class="lab-card"><div class="lb-do">🧱 平台世界<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">画在背景里的平台：站得住、会撞头</div></div><div class="lab-card"><div class="lb-do">🍄 敌我判定<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">同一只蘑菇：踩=得分，碰=掉命</div></div><div class="lab-card"><div class="lb-do">🪙 收集奖励<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">金币捡起来、问号砖从下顶开</div></div><div class="lab-card"><div class="lb-do">🏁 过关与关卡<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">旗杆判定胜负 + 自己摆一关</div></div></div><div class="cp-analogy">总思路：小鸟课的重力是"往下掉"；这门课把它升级成"<b>掉到东西上就站住</b>"——落地、撞头、踩敌人、顶砖，全是同一个物理的四种结局。抓住"重力 + 碰到颜色"两条线索，平台游戏就想通了。</div>
+<h3 id="assets">素材清单</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 素材</span></p>
+<p>五个角色加一块背景：小勇者（站/跑造型）、蘑菇敌、问号砖（满/空造型）、金币、终点旗——素材包全有；地面和平台直接画在背景里。</p><div class="asset-grid">
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/跳跳冒险/小勇者-站.svg" alt="小勇者" loading="lazy"><span class="a-name">小勇者</span><span class="a-tag">3 造型：站/跑1/跑2</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/跳跳冒险/蘑菇敌-走1.svg" alt="蘑菇敌" loading="lazy"><span class="a-name">蘑菇敌</span><span class="a-tag">2 造型：走1/走2</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/跳跳冒险/问号砖.svg" alt="问号砖" loading="lazy"><span class="a-name">问号砖</span><span class="a-tag">2 造型：满/空</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/公用/金币.svg" alt="金币" loading="lazy"><span class="a-name">金币</span><span class="a-tag">素材包导入</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/跳跳冒险/终点旗.svg" alt="终点旗" loading="lazy"><span class="a-name">终点旗</span><span class="a-tag">过关判定</span></div>
+<div class="asset-card"><img class="sp-md" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><span class="a-name">背景</span><span class="a-tag own">自带 + 课上画平台</span></div>
+</div><div class="sl-path">导入：<b>示例项目/素材包/跳跳冒险/</b> 里的 .sprite3；背景「选择一个背景」上传 <b>背景-跳跳冒险.svg</b>；音效搜 <b>coin</b> / <b>pop</b>。</div>
+<h3 id="starmap">课程进度表</h3>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 课程进度表</span></p>
+<div class="starmap"><div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🎨 碰到颜色</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🏃 跑动动画</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🧱 平台与撞头</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">👟 踩踏判定</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🪙 金币收集</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div></div><div class="sm-row" style="--cols:5"><div class="sm-name">🖌️ 关卡设计</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div></div><div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+<h2>二、五次课</h2>
+
+<h3 id="p1">第 1 课 · 走和跳</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第一章 · 会跳的小勇者</span><span class="st-text">小勇者来到草原：←→ 能跑，空格能跳，松开手就稳稳落回草地。</span></div>
+<div class="hb-goal">只解决一件事：<em>跑跳手感</em>——左右键跑动 + 空格起跳 + 重力下落 + 落回草地站住。</div>
+<div class="hb-chips"><span class="chip">⏱ 30–40 分钟</span><span class="chip">✅ 能跑能跳，落地站得住</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><i class="sp-abs" data-sp="小勇者-站" style="left:40%; bottom:28%;"></i><span class="sl-tag" style="left:8%; top:8%;">悬在半空</span></div><div class="fx-cap">现在：站着不动</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><i class="sp-abs" data-sp="小勇者-跑2" style="left:46%; bottom:12%;"></i><span class="sl-tag" style="left:8%; top:8%;">←→ 跑 · 空格跳</span></div><div class="fx-cap">本课后：跑起来、跳起来、落回草地</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重力与速度</span><span class="td-note">— 小鸟课的看家本领</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">碰到颜色</span><span class="td-note">— 落回草地就站住</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">只在地面才能跳</span><span class="td-note">— 空中连按无效</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">跑动换造型</span><span class="td-note">— 站/跑1/跑2 动起来</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">小鸟课的重力原样搬来（每帧：y 吃速度、速度吃重力）。新的只有一件事：<b>怎么知道"落地了"</b>？答案不用角色碰撞——草地是背景上的一块颜色，用「碰到颜色」直接问舞台。跳也升级了：只有 y速度 为 0（=站在地上）时按空格才有效，不然能无限上天。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：素材包里全有，先导入摆好；想怎么做就怎么做，改坏了绿旗能复原；卡住超过 5 分钟，再看下面的参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 碰到颜色</span></p>
+<p><strong>颜色也是一堵看不见的墙</strong></p><div class="cp-analogy">类比：背景上的绿草地、灰平台，画出来是"景"，用「碰到颜色」一问，它们就都成了"墙"。平台游戏的地面，就是这么来的。</div><ul class="cp-points">
+<li>「碰到颜色 ◻?」在侦测抽屉：点小方块 → 用吸管点舞台上的草地</li><li>落地 = 正在下降 <b>且</b> 碰到草地色，两缺一不可</li><li>颜色要挑"只属于地面"的色，别挑到处都有的天空蓝</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg" style="flex-direction:column;gap:12px;"><div class="dg"><div class="dg-box">每帧：y 吃速度</div><span class="dg-arr">碰到草地色 ➜</span><div class="dg-box ok">速度归零 = 站住</div></div><div class="dg"><div class="dg-box">按空格</div><span class="dg-arr">且 速度=0 ➜</span><div class="dg-box ok">才允许起跳</div></div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>小勇者登场，先会跑</strong>
+<pre class="blocks">当绿旗被点击
+移到 x: (-180) y: (0)
+重复执行
+    如果 <按下 [→] 键?> 那么
+        将x坐标增加 (3)
+        面向 (90) 度
+    如果 <按下 [←] 键?> 那么
+        将x坐标增加 (-3)
+        面向 (-90) 度</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#FFAB19;">控制</span></div>
+<div class="sl-path">角色左下「旋转方式」选 <b>左右翻转</b>，转身才不倒立</div>
+<div class="see">✅ ←→ 一按就跑，脸朝前进方向</div>
+</li>
+<li><strong>重力 + 只在地面才能跳</strong>
+<pre class="blocks">    如果 <<按下 [空格] 键?> 且 <(y速度) = (0)>> 那么
+        将 [y速度] 设为 (11)
+    将y坐标增加 (y速度)
+    将 [y速度] 增加 (-1)</pre>
+<div class="sl-where">🧰 积木在：接在跑步积木后面同一个循环里；变量 <b>y速度</b> 这次选「适用于所有角色」（第 3 课蘑菇要用）</div>
+<div class="see">✅ 空格起跳、越升越慢、开始下坠</div>
+</li>
+<li><strong>碰到草地色，站住</strong>
+<pre class="blocks">    如果 <<(y速度) < (0)> 且 <碰到颜色 [#5aa46f]?>> 那么
+        重复直到 <<碰到颜色 [#5aa46f]?> 不成立>
+            将y坐标增加 (1)
+        将 [y速度] 设为 (0)</pre>
+<div class="sl-path">点积木里的颜色小方块 → <b>吸管</b> 去舞台点草地绿（背景左下角那片深绿）</div>
+<div class="see">✅ 落回草地稳稳站住，再按空格又能跳</div>
+</li>
+<li><strong>跑起来要像跑：换造型</strong>
+<pre class="blocks">    如果 <<按下 [→] 键?> 或 <按下 [←] 键?>> 那么
+        换成 [跑1] 造型
+        等待 (0.1) 秒
+        换成 [跑2] 造型
+        等待 (0.1) 秒
+    否则
+        换成 [站] 造型</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#9966FF;">外观</span>——造型在素材包里已配好</div>
+<div class="see">✅ 跑起来迈腿，停下站好</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🏃 ←→ 跑动流畅、脸朝前进方向</li><li>⬆️ 空格起跳，空中再按没反应</li><li>🛑 落回草地站住不抖动</li><li>↩️ 绿旗回到起点满血复活</li>
+</ul>
+<p>能跑能跳，小勇者活了——下一课给草原长出平台。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>跳跃手感配方</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">起跳 11 改 15</div><div class="lb-guess">猜猜看：能跳多高？</div><div class="lb-why">初速度=跳跃高度</div></div>
+<div class="lab-card"><div class="lb-do">重力 −1 改 −0.6</div><div class="lb-guess">猜猜看：月亮上的感觉？</div><div class="lb-why">重力小=飘</div></div>
+<div class="lab-card"><div class="lb-do">跑速 3 改 6</div><div class="lb-guess">猜猜看：还跳得准吗？</div><div class="lb-why">速度与跳高要配平</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>跑跳三病</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 空中连跳上天</div>没加"y速度=0 才能跳"。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>空格条件里加上 <b>且 (y速度)=(0)</b>。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 落地后疯狂抖</div>碰到色还在反复触发。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>重复直到"不碰到"把角色顶出颜色，再速度归零。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 吸管点了没颜色</div>舞台被角色挡住/选错层。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>先把角色拖开，再点背景草地。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">土狼时间</div><div class="ad-what">离开平台一小步还能跳</div><div class="ad-how">落地时计时器归零，空格条件放宽到 计时器&lt;0.15<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+<div class="addon-card"><div class="ad-t">跳跃音效</div><div class="ad-what">"啵"一声起跳</div><div class="ad-how">起跳成功里播放 pop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+<div class="addon-card"><div class="ad-t">长按高跳</div><div class="ad-what">按得久跳得高</div><div class="ad-how">按住时重力减半（乘 0.5）<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="p2">第 2 课 · 站上平台</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第二章 · 长出平台的世界</span><span class="st-text">草原上凭空长出几块灰色平台：从上面落下能站住，从下面顶上去会撞头。</span></div>
+<div class="hb-goal">只解决一件事：<em>平台</em>——把平台画进背景，站得住、会撞头、掉进坑里会重生。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">🎨 自己画地形</span><span class="chip">✅ 能跳上平台，能掉坑重来</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><div style="position:absolute;left:6%;top:52%;width:30%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:44%;top:34%;width:24%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:70%;top:16%;width:20%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="小勇者-站" style="left:12%; top:40%;"></i><span class="sl-tag" style="left:8%; top:8%;">跳上平台 → 再跳一层</span><span class="sl-tag" style="right:5%; top:60%;">最高处放什么？第 4 课说</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到颜色</span><span class="td-note">— 第 1 课刚学会</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">第二种地面色</span><span class="td-note">— 灰平台和草地一样站得住</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">撞头处理</span><span class="td-note">— 上升中顶到平台，速度归零</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">掉坑重生</span><span class="td-note">— y 太低就回起点</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">平台不用新角色、不用克隆——<b>画在背景上就是地形</b>。用绘图编辑器给背景加几块同一种灰色（#95a5a6），落地判定从"碰到草地色"扩成"碰到草地色 <b>或</b> 平台色"。撞头是落地的好兄弟：一个管下降，一个管上升。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：先动手在背景上画 3 块平台（等会儿有画法），再让小勇者跳上去；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>把平台画进背景</strong>
+<p><div class="sl-sub">舞台左下角「背景」标签 → 选中背景 → 切到「造型」页 → 用 <b>矩形</b> 工具画横条，填充色定成 <b>#95a5a6</b>、描边 <b>#6c7a7d</b>。画 3 块，从低到高像台阶（记住：一次最多跳 3 个身位高）</div></p>
+<div class="see">✅ 背景上出现三块灰色台阶</div>
+</li>
+<li><strong>两种颜色都站得住</strong>
+<pre class="blocks">    如果 <<(y速度) < (0)> 且 <<碰到颜色 [#5aa46f]?> 或 <碰到颜色 [#95a5a6]?>>> 那么
+        重复直到 <<<<碰到颜色 [#5aa46f]?> 或 <碰到颜色 [#95a5a6]?>>> 不成立>
+            将y坐标增加 (1)
+        将 [y速度] 设为 (0)</pre>
+<div class="sl-where">🧰 积木在：就在第 1 课落地判定那行上改——条件从 1 个色变 2 个色</div>
+<div class="see">✅ 草地和平台随便落，全都站得住</div>
+</li>
+<li><strong>撞头：上升中顶到平台</strong>
+<pre class="blocks">    如果 <<(y速度) > (0)> 且 <碰到颜色 [#95a5a6]?>> 那么
+        将 [y速度] 设为 (0)</pre>
+<div class="sl-path">顶到头速度归零，下一帧重力自然把他拉回来——"咚"一下的感觉就有了</div>
+<div class="see">✅ 从下往上跳顶到平台，不再穿过去</div>
+</li>
+<li><strong>掉出屏幕 = 回起点</strong>
+<pre class="blocks">    如果 <(y 坐标) < (-170)> 那么
+        移到 x: (-180) y: (0)
+        将 [y速度] 设为 (0)</pre>
+<div class="sl-where">🧰 积木在：加在主循环末尾；想扣命？下一课一起做</div>
+<div class="see">✅ 掉下去不死循环，摔回起点重来</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🪜 三块平台一层一层跳得上</li><li>🧱 从下面顶到平台会停住</li><li>🕳️ 掉出屏幕回起点重来</li><li>↩️ 绿旗全部复原</li>
+</ul>
+<p>地形有了——但草原太安静了，下一课放蘑菇出来。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>地形设计课</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">平台间距拉大 1.5 倍</div><div class="lb-guess">猜猜看：还跳得过去吗？</div><div class="lb-why">间距=难度旋钮</div></div>
+<div class="lab-card"><div class="lb-do">画一段竖着的灰墙</div><div class="lb-guess">猜猜看：能挡住小勇者吗？</div><div class="lb-why">同色即同墙</div></div>
+<div class="lab-card"><div class="lb-do">草地上挖个坑（擦掉一块）</div><div class="lb-guess">猜猜看：坑是障碍还是捷径？</div><div class="lb-why">擦除=造陷阱</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>平台两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 平台站不住穿过去</div>画的灰色和判定色不一致。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>重新用吸管点你画的平台，别手输色号。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 平台跳不上去</div>层高超过了跳跃高度。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每层最多 3 个身位（约 40 像素），或调大起跳速度。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">单向平台</div><div class="ad-what">从下面能穿上去</div><div class="ad-how">撞头判定只在"平台色 且 正在上升且没按↓"时触发<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+<div class="addon-card"><div class="ad-t">移动平台</div><div class="ad-what">平台左右飘</div><div class="ad-how">平台色块换成克隆角色来回走，站上去跟随<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">弹簧垫</div><div class="ad-what">踩上超弹跳</div><div class="ad-how">背景画黄块，碰到且下落→速度设 18<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="p3">第 3 课 · 蘑菇来袭</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第三章 · 草原有了危险</span><span class="st-text">红帽子蘑菇在草地上巡逻：从头顶踩下去扁掉，从侧面撞上去——你掉一条命。</span></div>
+<div class="hb-goal">只解决一件事：<em>踩与碰</em>——同一只蘑菇，从上踩=扁掉+弹起，侧碰=掉命+短暂无敌。</div>
+<div class="hb-chips"><span class="chip">⏱ 40 分钟</span><span class="chip">⚠️ 判定要分上下</span><span class="chip">✅ 有敌人、有生命、有风险</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><i class="sp-abs" data-sp="蘑菇敌-走1" style="left:60%; bottom:10%;"></i><i class="sp-abs" data-sp="小勇者-跑2" style="left:44%; bottom:38%;"></i><span class="sl-tag" style="left:8%; top:8%;">从头顶落下 ⬇</span></div><div class="fx-cap">踩：蘑菇扁掉，弹起</div></div><div class="fx-arrow">VS</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><i class="sp-abs" data-sp="蘑菇敌-走1" style="left:52%; bottom:10%;"></i><i class="sp-abs" data-sp="小勇者-站" style="left:40%; bottom:10%;"></i><span class="sl-tag" style="left:8%; top:8%;">侧面撞上 ❌</span></div><div class="fx-cap">碰：掉一条命</div></div></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 打砖块/射击的老朋友</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">y速度（全局）</span><span class="td-note">— 第 1 课特意留给蘑菇看</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">踩踏判定</span><span class="td-note">— 碰到 且 正在下落 = 踩</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">生命与无敌</span><span class="td-note">— 计时器做 1 秒无敌闪烁</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">踩和碰是<b>同一次接触的两种结局</b>，怎么区分？看 y速度：小于 0 说明正在下落，脚在下→踩；否则就是平撞→受伤。蘑菇自己也能读到这个变量（第 1 课设成了全局），所以判定的活儿可以分给蘑菇做。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：把蘑菇敌导入、克隆 2 只在草地上巡逻；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>蘑菇巡逻（本体+分身）</strong>
+<pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    克隆 [自己]
+    等待 (3) 秒</pre>
+<pre class="blocks">当作为克隆体启动时
+显示
+移到 x: (在 (-100) 和 (150) 之间取随机数) y: (-128)
+将 [巡逻方向] 设为 (1)
+重复执行
+    如果 <(巡逻方向) = (1)> 那么
+        将x坐标增加 (2)
+        面向 (90) 度
+    否则
+        将x坐标增加 (-2)
+        面向 (-90) 度
+    等待 (0.15) 秒
+    换成 [下一个] 造型</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#9966FF;">外观</span>；蘑菇也选「左右翻转」——巡逻方向=1 向右、=2 向左</div>
+<div class="see">✅ 蘑菇迈着小碎步换造型，走得有模有样</div>
+</li>
+<li><strong>到边界就掉头</strong>
+<pre class="blocks">    如果 <<(x 坐标) > (200)> 或 <(x 坐标) < (-200)>> 那么
+        将 [巡逻方向] 设为 (3 - (巡逻方向))</pre>
+<div class="sl-path">插在上面的循环里："否则…面向"之后、"等待"之前。3−巡逻方向：1 变 2、2 变 1——一个小开关</div>
+<div class="see">✅ 蘑菇三三两两出来溜达，到边界掉头</div>
+</li>
+<li><strong>踩扁：蘑菇自己看 y速度</strong>
+<pre class="blocks">    如果 <<碰到 [小勇者]?> 且 <(y速度) < (0)>> 那么
+        换成 [走1] 造型
+        将大小增加 (-40)
+        等待 (0.3) 秒
+        删除此克隆体</pre>
+<div class="sl-path">被踩先压扁缩小再删——"啪叽"的演出感；<b>y速度 是全局变量</b>，所以蘑菇读得到</div>
+<div class="see">✅ 从头顶踩下，蘑菇压扁消失</div>
+</li>
+<li><strong>被撞：小勇者掉命 + 1 秒无敌</strong>
+<pre class="blocks">    如果 <<碰到 [蘑菇敌]?> 且 <<不是 <(y速度) < (0)>> 且 <(计时器) > (1)>>> 那么
+        将 [生命] 增加 (-1)
+        计时器归零
+        将 [y速度] 设为 (7)</pre>
+<pre class="blocks">当绿旗被点击
+将 [生命] 设为 (3)
+计时器归零</pre>
+<div class="sl-where">🧰 积木在：第一段加进小勇者主循环；第二段写在绿旗开头；别用 ≥，用「不是 &lt;(y速度)&lt;(0)&gt;」拼——不然站着被撞不掉命</div>
+<div class="see">✅ 撞蘑菇掉命弹开，1 秒内无敌不再连扣</div>
+</li>
+<li><strong>生命归零 = 本局结束</strong>
+<pre class="blocks">    如果 <(生命) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+<div class="see">✅ 三条命用完，全场定格</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>👟 头顶踩下蘑菇压扁消失</li><li>❤️ 侧撞掉命弹开、有无敌时间</li><li>💀 三命用完游戏定格</li><li>↩️ 绿旗生命回 3、蘑菇重刷</li>
+</ul>
+<p>有风险了，该有奖励了——下一课放金币。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>敌人调校</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">巡逻速度 2 改 4</div><div class="lb-guess">猜猜看：还敢正面跳吗？</div><div class="lb-why">敌速=压迫感</div></div>
+<div class="lab-card"><div class="lb-do">无敌时间 1 秒改 2 秒</div><div class="lb-guess">猜猜看：变简单多少？</div><div class="lb-why">无敌=容错率</div></div>
+<div class="lab-card"><div class="lb-do">蘑菇也放到平台上巡逻</div><div class="lb-guess">猜猜看：出生 y 要改哪？</div><div class="lb-why">巡逻线=关卡语言</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>踩碰两糊涂</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 想踩却总是掉命</div>踩踏判定写在了小勇者身上，但 y速度 一帧就变。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>踩的判定给蘑菇做（它每帧自查），碰的判定给小勇者做。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 掉命掉成秒杀</div>无敌没生效。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>受伤时立刻「计时器归零」，条件里查「计时器 &gt; 1」。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">连踩计分</div><div class="ad-what">不落地连踩翻倍</div><div class="ad-how">连踩数变量，落地归零，分数 += 连踩数<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+<div class="addon-card"><div class="ad-t">追踪蘑菇</div><div class="ad-what">慢慢朝小勇者蹭</div><div class="ad-how">巡逻方向按两者 x 大小定期更新<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+<div class="addon-card"><div class="ad-t">受伤闪烁</div><div class="ad-what">无敌期一闪一闪</div><div class="ad-how">虚像特效 50↔100 每 0.1 秒切换<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="p4">第 4 课 · 金币与问号砖</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第四章 · 草原的宝藏</span><span class="st-text">平台顶上闪着金币，半空挂着问号砖——从下面一顶，"叮"，金币+1。</span></div>
+<div class="hb-goal">只解决一件事：<em>收集</em>——碰到金币就收走计数；从下顶到问号砖，砖变"空"、金币+1。</div>
+<div class="hb-chips"><span class="chip">⏱ 30–40 分钟</span><span class="chip">✅ 金币数会涨、顶砖有演出</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><div style="position:absolute;left:28%;top:46%;width:14%;height:5%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="问号砖" style="left:56%; top:44%;"></i><i class="sp-abs" data-sp="金币" style="left:33%; top:38%;"></i><i class="sp-abs" data-sp="金币" style="left:40%; top:30%;"></i><i class="sp-abs" data-sp="小勇者-跑1" style="left:48%; bottom:14%;"></i><span class="sl-tag" style="left:8%; top:8%;">金币 = 收集进度</span><span class="sl-tag" style="right:5%; top:8%;">从下往上顶 ⬆</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到角色</span><span class="td-note">— 前六门课用烂了的招</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">角色自己收自己</span><span class="td-note">— 金币碰到小勇者就隐藏</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">顶砖判定</span><span class="td-note">— 碰到 且 正在上升 = 顶</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">造型切换</span><span class="td-note">— 满 → 空</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">金币的判定写给<b>金币自己</b>：它每帧问"碰到小勇者了吗？"，碰到就 +1、隐藏、收工——比让小勇者点名每颗金币省事得多。顶砖是踩踏的镜像：<b>碰到 且 y速度&gt;0（正在上升）</b>，顶完砖从"满"换成"空"，再也不给。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：金币复制几颗摆到平台上，问号砖挂到半空；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>金币：碰到就收</strong>
+<pre class="blocks">当绿旗被点击
+显示
+重复执行
+    如果 <碰到 [小勇者]?> 那么
+        将 [金币数] 增加 (1)
+        播放声音 [coin]
+        隐藏
+        停止 [这个脚本]</pre>
+<div class="sl-where">🧰 积木在：写在金币上；再右键金币「复制」摆 4–6 颗到平台上方——脚本跟着一起复制</div>
+<div class="see">✅ 碰到金币"叮"一声消失，金币数 +1</div>
+</li>
+<li><strong>问号砖：从下面顶</strong>
+<pre class="blocks">当绿旗被点击
+显示
+换成 [满] 造型
+重复执行
+    如果 <<碰到 [小勇者]?> 且 <(y速度) > (0)>> 那么
+        换成 [空] 造型
+        将 [金币数] 增加 (1)
+        播放声音 [coin]</pre>
+<div class="sl-path">满/空两个造型素材包已配好；顶过的砖再顶没反应（造型已是"空"也不再加？——试着想想怎么防重复顶）</div>
+<div class="see">✅ 一顶出金币，砖变成空铁砖</div>
+</li>
+<li><strong>防重复顶：只给一次</strong>
+<pre class="blocks">        如果 <(造型名) = [满]> 那么
+            换成 [空] 造型
+            将 [金币数] 增加 (1)</pre>
+<div class="sl-where">🧰 积木在：把第 2 步的加分包一层「如果 造型名=满」——空砖白顶</div>
+<div class="see">✅ 每块问号砖只掉一次金币</div>
+</li>
+<li><strong>顶砖把小勇者也弹一下</strong>
+<pre class="blocks">    如果 <<(y速度) > (0)> 且 <碰到 [问号砖]?>> 那么
+        将 [y速度] 设为 (-5)</pre>
+<div class="sl-path">这段写在小勇者主循环里——顶到砖被弹回落，手感更像马里奥</div>
+<div class="see">✅ 顶砖"咚"地回落，不再贴着砖抖</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🪙 金币碰到就收、计数正确</li><li>🧱 问号砖只从下面顶才出金币</li><li>1️⃣ 每块砖只给一次</li><li>↩️ 绿旗金币归零、砖和金币复原</li>
+</ul>
+<p>收集有了，最后一课：给这一切一个终点——旗杆，和你自己的关卡。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>奖励设计</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">金币藏到最难跳的位置</div><div class="lb-guess">猜猜看：玩家会冒险吗？</div><div class="lb-why">风险=价值感</div></div>
+<div class="lab-card"><div class="lb-do">问号砖顶出 5 金币</div><div class="lb-guess">猜猜看：改成连续 5 次加分</div><div class="lb-why">重复 5 次=奖励雨</div></div>
+<div class="lab-card"><div class="lb-do">金币旋转动画</div><div class="lb-guess">猜猜看：三个造型来回切</div><div class="lb-why">闪的东西勾眼睛</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>收集两怪</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 金币收了又冒出来</div>隐藏后脚本还在转。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>隐藏后「停止 这个脚本」，绿旗再唤醒。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 站在砖上也算顶</div>顶砖判定没查方向。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>条件加 <b>且 (y速度)&gt;(0)</b>——上升才算顶。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">顶出蘑菇补给</div><div class="ad-what">顶砖掉红心+1命</div><div class="ad-how">随机数决定掉金币还是红心<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+<div class="addon-card"><div class="ad-t">金币雨</div><div class="ad-what">过关前金币下落</div><div class="ad-how">金币克隆+重力循环<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+<div class="addon-card"><div class="ad-t">计分板</div><div class="ad-what">左上角常驻金币数</div><div class="ad-how">金币数「在舞台显示」，或自绘计分角色<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+
+<h3 id="p5">第 5 课 · 旗杆与你自己的关卡</h3>
+
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 本章目标</span></p>
+<div class="story-strip"><span class="st-badge">第五章 · 属于你的一关</span><span class="st-text">终点旗在最高处等你。摸到它=过关；然后，把整张地图推倒重来——按你的想法摆一关。</span></div>
+<div class="hb-goal">只解决一件事：<em>过关与关卡设计</em>——旗杆判定胜利；然后用三条设计准则，亲手摆一个自己的关卡，办发布会。</div>
+<div class="hb-chips"><span class="chip">⏱ 45 分钟</span><span class="chip">🎨 孩子当设计师</span><span class="chip">🎤 作品发布会</span></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 效果与拆解</span></p>
+<div class="hb-visual">
+<div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+<div class="fx-vis"><div class="sl-stage" style="width:500px;"><img class="sp-fill" src="../assets/sprites/跳跳冒险/草原晨光.svg" alt="草原晨光" loading="lazy"><div style="position:absolute;left:8%;top:58%;width:18%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:34%;top:44%;width:18%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:62%;top:30%;width:20%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="终点旗" style="left:82%; top:16%;"></i><i class="sp-abs" data-sp="金币" style="left:12%; top:50%;"></i><i class="sp-abs" data-sp="蘑菇敌-走2" style="left:42%; bottom:8%;"></i><i class="sp-abs" data-sp="小勇者-站" style="left:4%; bottom:8%;"></i><span class="sl-tag" style="left:8%; top:8%;">起点 → 一路向上 → 旗杆</span></div></div>
+<div class="fx-sec">倒推一下：这个效果需要哪些能力</div><ul class="td-list">
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">胜利判定</span><span class="td-note">— 碰到旗杆=过关</span></li>
+<li class="td-item"><span class="td-mark new">新学</span><span class="td-name">关卡设计</span><span class="td-note">— 用地形/敌人/金币写"话"</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">背景绘制</span><span class="td-note">— 第 2 课画的平台</span></li>
+<li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+</ul>
+<div class="fx-sec">思路：怎么从效果推到积木</div><div class="cp-analogy">旗杆就是一块"倒过来的蘑菇"：碰到→不扣命，而是广播过关、定格、宣布。真正的压轴是<b>关卡设计</b>：地形是句子，金币是标点，敌人是悬念——三条准则摆出来，你就是这关的作者。</div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 自己试试（先别翻答案）</span></p>
+<p>先自己试 10 分钟：把旗杆放到地图右上，试着做出"碰到就赢"；卡住超过 5 分钟，再看参考做法。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 概念 · 关卡设计三准则</span></p>
+<p><strong>每一关都是一句话</strong></p><div class="cp-analogy">类比：好关卡像一句话：平台是路（读得通）、金币是引导（逗号，告诉你往哪走）、敌人是悬念（转折，逼你做选择）。三样摆好，玩家自然照你设计的路走。</div><ul class="cp-points">
+<li><b>跳得到</b>：每块平台间距 ≤ 一次跳跃，高处放台阶</li><li><b>看得懂</b>：金币连成一条线，就是路标</li><li><b>有取舍</b>：最值钱的金币放在最危险的地方</li>
+</ul><div class="hb-visual"><div class="fx-vis"><div class="dg"><div class="dg-box ok">🪜 地形=路</div><span class="dg-arr">＋</span><div class="dg-box ok">🪙 金币=路标</div><span class="dg-arr">＋</span><div class="dg-box ok">🍄 敌人=悬念</div><span class="dg-arr">＝</span><div class="dg-box ok">一关</div></div></div></div>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 参考做法（卡住才看）</span></p>
+<ol>
+<li><strong>旗杆：碰到就广播</strong>
+<pre class="blocks">当绿旗被点击
+显示
+重复执行
+    如果 <碰到 [小勇者]?> 那么
+        广播 [过关]
+        停止 [这个脚本]</pre>
+<div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span>——写在旗杆上，只管喊"有人过关了"</div>
+<div class="see">✅ 碰到旗杆的一瞬间发出广播</div>
+</li>
+<li><strong>小勇者：宣布过关</strong>
+<pre class="blocks">当接收到 [过关]
+说 [过关啦！] (3) 秒
+停止 [全部脚本]</pre>
+<div class="sl-path">写在小勇者上：听到广播就宣布、定格全场；再配一段背景音乐收尾更棒</div>
+<div class="see">✅ 摸到旗杆，宣布过关全场定格</div>
+</li>
+<li><strong>推倒重来：摆你自己的关</strong>
+<p><div class="sl-sub">背景绘制里擦掉旧平台，重新画——<b>这次你是设计师</b>：先画主路（起点到旗杆），再放 5–8 颗金币当路标，最后挪 2–3 只蘑菇守要道</div></p>
+<div class="see">✅ 一张全新地图，自己能通关，家人也能通关</div>
+</li>
+<li><strong>试玩验收：让别人玩你的关</strong>
+<p><div class="dg"><div class="dg-box">1️⃣ 家长试玩一次</div><span class="dg-arr">➜</span><div class="dg-box">2️⃣ 孩子在旁只看不说</div><span class="dg-arr">➜</span><div class="dg-box ok">3️⃣ 卡住的地方=要改的地方</div></div><div class="sl-sub">设计者的话不解释——玩家卡哪，就修哪</div></p>
+<div class="see">✅ 至少迭代一轮再开发布会</div>
+</li>
+<li><strong>发布会：三句话</strong>
+<p><div class="dg"><div class="dg-box ok">1️⃣ 我这关想让你走哪条路</div><div class="dg-box ok">2️⃣ 最刁的设计在哪</div><div class="dg-box ok">3️⃣ 下一个版本想加什么</div></div><div class="sl-sub">全家围观通关你设计的关</div></p>
+<div class="see">✅ 讲满三句，本作收官</div>
+</li>
+</ol>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 验收</span></p>
+<ul class="check">
+<li>🏁 碰到旗杆宣布过关</li><li>🗺️ 自己的关：自己能通、别人也能通</li><li>🔁 按试玩反馈至少改过一处</li><li>🎤 发布会讲满三句</li>
+</ul>
+<p>第七门毕业——下一门，拉上家人开坦克对战。</p>
+<p><span class="role-tag r-both">👨‍👩‍👦 一起 · 试一试</span></p>
+<p><strong>设计实验室</strong></p><div class="lab-grid">
+<div class="lab-card"><div class="lb-do">只留一条命的关</div><div class="lb-guess">猜猜看：家人能过吗？</div><div class="lb-why">容错=受众</div></div>
+<div class="lab-card"><div class="lb-do">把金币全藏进死角</div><div class="lb-guess">猜猜看：还有人去捡吗？</div><div class="lb-why">引导失灵=白摆</div></div>
+<div class="lab-card"><div class="lb-do">做一条"秘密近道"</div><div class="lb-guess">猜猜看：谁会发现？</div><div class="lb-why">彩蛋=记忆点</div></div>
+</div>
+<p><span class="role-tag r-parent">🧑 家长先看 · 常见错误</span></p>
+<p><strong>收官两坑</strong></p>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 过关后还能动</div>定格不干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播后「停止 全部脚本」再宣布。</div></div>
+<div class="err-row"><div class="err-box no"><div class="eb-t">❌ 自己能通，别人全灭</div>设计者忘了自己是"作者"不是"玩家"。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>让家人先试玩一轮再定稿——卡哪修哪。</div></div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 进阶挑战 · 三选一</span></p>
+<div class="addon-grid">
+<div class="addon-card"><div class="ad-t">第二关</div><div class="ad-what">背景2 + 关卡切换</div><div class="ad-how">过关后「换成 背景2」+ 广播重摆<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+<div class="addon-card"><div class="ad-t">时间挑战</div><div class="ad-what">通关用时排名</div><div class="ad-how">计时器随绿旗归零，过关时报时<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+<div class="addon-card"><div class="ad-t">自动卷屏</div><div class="ad-what">镜头跟着走</div><div class="ad-how">所有角色 x 每帧 −(小勇者x−100)×0.1<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+</div>
+<p><span class="role-tag r-kid">👦 孩子自己 · 课后回顾</span></p>
+<div class="log-grid"><div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div><div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div><div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div></div><div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+<h2>三、本作总结</h2>
+<div class="cp-analogy"><strong>你做出了什么：</strong>一个马里奥式的平台跳跃游戏：跑跳手感、画在背景里的地形、踩扁的蘑菇、顶开的问号砖、一面终点旗，和一张你自己设计的关卡地图。</div>
+<div class="fx-sec">点亮的能力（对照进度表 ★）</div><ul class="td-list"><li class="td-item"><span class="td-mark new">第 1 课</span><span class="td-name">🎨 碰到颜色 / 跑动动画</span></li><li class="td-item"><span class="td-mark new">第 2 课</span><span class="td-name">🧱 平台与撞头</span></li><li class="td-item"><span class="td-mark new">第 3 课</span><span class="td-name">👟 踩踏判定</span></li><li class="td-item"><span class="td-mark new">第 4 课</span><span class="td-name">🪙 金币收集</span></li><li class="td-item"><span class="td-mark new">第 5 课</span><span class="td-name">🖌️ 关卡设计</span></li></ul>
+<div class="fx-sec">三个值得记住的思路</div><ul class="cp-points"><li>颜色就是地形：背景上的一块色，用「碰到颜色」一问就是墙</li><li>方向区分结局：同一碰撞，看 y速度 正负，就是踩或碰、落地或撞头</li><li>关卡是写给玩家的话：地形=路，金币=路标，敌人=悬念</li></ul>
+  </div><!-- /md-content -->
+
+  <template class="deck-src">
+<section class="slide cover">
+  <div class="slide-canvas">
+    <div class="slide-body cover-hero">
+      <div class="cover-txt">
+        <div class="sl-cover-kicker">游戏课 · 第 7 关</div>
+        <div class="sl-cover-title">跳跳冒险</div>
+        <div class="sl-cover-desc">五次课做出马里奥式平台跳跃：跑、跳、踩蘑菇、顶砖吃金币、摸旗过关——最后一关，地图由你自己设计。</div>
+      </div>
+      <div class="sl-stage" style="width:640px;"><i class="sp-fill" data-sp="草原晨光"></i><div style="position:absolute;left:10%;top:56%;width:22%;height:5%;background:#95a5a6;border:3px solid #6c7a7d;"></div><div style="position:absolute;left:42%;top:40%;width:20%;height:5%;background:#95a5a6;border:3px solid #6c7a7d;"></div><div style="position:absolute;left:68%;top:24%;width:20%;height:5%;background:#95a5a6;border:3px solid #6c7a7d;"></div><i class="sp-abs" data-sp="终点旗" style="left:84%; top:12%;"></i><i class="sp-abs" data-sp="金币" style="left:14%; top:48%;"></i><i class="sp-abs" data-sp="金币" style="left:20%; top:44%;"></i><i class="sp-abs" data-sp="蘑菇敌-走1" style="left:48%; bottom:6%;"></i><i class="sp-abs" data-sp="小勇者-跑2" style="left:6%; bottom:6%;"></i><span class="sl-tag" style="left:4%; top:6%;">←→ 跑 · 空格跳</span><span class="sl-tag" style="right:4%; top:6%;">金币 7</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">先玩 1 分钟</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">先把成品玩一遍——<em>你接下来五次课，就是要亲手做出它</em>。</div>
+      <div class="log-grid" style="margin-top:24px;">
+        <div class="log-card"><span class="lg-t">怎么玩</span>←→ 跑、空格跳。踩扁蘑菇敌、顶问号砖吃金币、摸到终点旗过关；碰敌人掉命，掉坑也掉命。</div>
+        <div class="log-card"><span class="lg-t">操作</span>← → / A D 跑动 · 空格 / ↑ 跳</div>
+        <div class="log-card"><span class="lg-t">玩点在哪</span>每一跳都要掂量：跳得上去吗？落点有没有蘑菇？</div>
+      </div>
+      <div class="sl-path">在哪玩：游戏厅里直接玩——试着踩扁一只蘑菇，再试着从下面顶一块问号砖。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开课之前</span>
+        <span class="sl-title">游戏解剖图</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">自上而下拆：整个游戏 = 五大模块</div>
+      <div class="lab-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="lab-card"><div class="lb-do">🏃 操控手感<br><small style="font-weight:700;color:var(--accent);">第 1 课</small></div><div class="lb-guess">左右走+跳跃+重力：跳得像自己</div></div>
+        <div class="lab-card"><div class="lb-do">🧱 平台世界<br><small style="font-weight:700;color:var(--accent);">第 2 课</small></div><div class="lb-guess">画在背景里的平台：站得住、会撞头</div></div>
+        <div class="lab-card"><div class="lb-do">🍄 敌我判定<br><small style="font-weight:700;color:var(--accent);">第 3 课</small></div><div class="lb-guess">同一只蘑菇：踩=得分，碰=掉命</div></div>
+        <div class="lab-card"><div class="lb-do">🪙 收集奖励<br><small style="font-weight:700;color:var(--accent);">第 4 课</small></div><div class="lb-guess">金币捡起来、问号砖从下顶开</div></div>
+        <div class="lab-card"><div class="lb-do">🏁 过关与关卡<br><small style="font-weight:700;color:var(--accent);">第 5 课</small></div><div class="lb-guess">旗杆判定胜负 + 自己摆一关</div></div>
+      </div>
+      <div class="cp-analogy" style="margin-top:26px;">总思路：小鸟课的重力是"往下掉"；这门课把它升级成"<b>掉到东西上就站住</b>"——落地、撞头、踩敌人、顶砖，全是同一个物理的四种结局。抓住"重力 + 碰到颜色"两条线索，平台游戏就想通了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">开工之前</span>
+        <span class="sl-title">全项目素材</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五个角色加一块背景：小勇者（站/跑造型）、蘑菇敌、问号砖（满/空造型）、金币、终点旗——素材包全有；地面和平台直接画在背景里。</div>
+      <div class="asset-grid">
+<div class="asset-card"><i class="sp-md" data-sp="小勇者-站"></i><span class="a-name">小勇者</span><span class="a-tag ">3 造型：站/跑1/跑2</span></div><div class="asset-card"><i class="sp-md" data-sp="蘑菇敌-走1"></i><span class="a-name">蘑菇敌</span><span class="a-tag ">2 造型：走1/走2</span></div><div class="asset-card"><i class="sp-md" data-sp="问号砖"></i><span class="a-name">问号砖</span><span class="a-tag ">2 造型：满/空</span></div><div class="asset-card"><i class="sp-md" data-sp="金币"></i><span class="a-name">金币</span><span class="a-tag ">素材包导入</span></div><div class="asset-card"><i class="sp-md" data-sp="终点旗"></i><span class="a-name">终点旗</span><span class="a-tag ">过关判定</span></div><div class="asset-card"><i class="sp-md" data-sp="草原晨光"></i><span class="a-name">背景</span><span class="a-tag own">自带 + 课上画平台</span></div>
+      </div>
+      <div class="sl-path">导入：<b>示例项目/素材包/跳跳冒险/</b> 里的 .sprite3；背景「选择一个背景」上传 <b>背景-跳跳冒险.svg</b>；音效搜 <b>coin</b> / <b>pop</b>。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">这一阶段</span>
+        <span class="sl-title">课程进度表</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-goal">五次课点亮的技能。</div>
+      <div class="starmap">
+<div class="sm-row sm-head" style="--cols:5"><div></div><div class="sm-cell">1</div><div class="sm-cell">2</div><div class="sm-cell">3</div><div class="sm-cell">4</div><div class="sm-cell">5</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🎨 碰到颜色</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🏃 跑动动画</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🧱 平台与撞头</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">👟 踩踏判定</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🪙 金币收集</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div><div class="sm-cell on">●</div></div>
+<div class="sm-row" style="--cols:5"><div class="sm-name">🖌️ 关卡设计</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell" style="opacity:.25;">·</div><div class="sm-cell"><span class="sm-new">★</span></div></div>
+      </div>
+      <div class="sm-legend">★ 第一次学会　● 继续在用　· 还没遇到</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="p1" data-map="🏃 走和跳">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第一章 · 会跳的小勇者</span><span class="st-text">小勇者来到草原：←→ 能跑，空格能跳，松开手就稳稳落回草地。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>跑跳手感</em>——左右键跑动 + 空格起跳 + 重力下落 + 落回草地站住。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30–40 分钟</span><span class="sl-chip">✅ 能跑能跳，落地站得住</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="小勇者-站"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🏃</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="草原晨光"></i><i class="sp-abs" data-sp="小勇者-站" style="left:40%; bottom:28%;"></i><span class="sl-tag" style="left:8%; top:8%;">悬在半空</span></div><div class="fx-cap">现在：站着不动</div></div><div class="fx-arrow">➜</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="草原晨光"></i><i class="sp-abs" data-sp="小勇者-跑2" style="left:46%; bottom:12%;"></i><span class="sl-tag" style="left:8%; top:8%;">←→ 跑 · 空格跳</span></div><div class="fx-cap">本课后：跑起来、跳起来、落回草地</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">重力与速度</span><span class="td-note">— 小鸟课的看家本领</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">碰到颜色</span><span class="td-note">— 落回草地就站住</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">只在地面才能跳</span><span class="td-note">— 空中连按无效</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">跑动换造型</span><span class="td-note">— 站/跑1/跑2 动起来</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">小鸟课的重力原样搬来（每帧：y 吃速度、速度吃重力）。新的只有一件事：<b>怎么知道"落地了"</b>？答案不用角色碰撞——草地是背景上的一块颜色，用「碰到颜色」直接问舞台。跳也升级了：只有 y速度 为 0（=站在地上）时按空格才有效，不然能无限上天。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>素材包里全有，先导入、摆到位</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>想怎么做就怎么做，改坏了绿旗能复原</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻后面的「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">概念 · 碰到颜色</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">颜色也是一堵看不见的墙</div>
+          <div class="cp-analogy">类比：背景上的绿草地、灰平台，画出来是"景"，用「碰到颜色」一问，它们就都成了"墙"。平台游戏的地面，就是这么来的。</div>
+          <ul class="cp-points">
+<li>「碰到颜色 ◻?」在侦测抽屉：点小方块 → 用吸管点舞台上的草地</li><li>落地 = 正在下降 <b>且</b> 碰到草地色，两缺一不可</li><li>颜色要挑"只属于地面"的色，别挑到处都有的天空蓝</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg" style="flex-direction:column;gap:12px;"><div class="dg"><div class="dg-box">每帧：y 吃速度</div><span class="dg-arr">碰到草地色 ➜</span><div class="dg-box ok">速度归零 = 站住</div></div><div class="dg"><div class="dg-box">按空格</div><span class="dg-arr">且 速度=0 ➜</span><div class="dg-box ok">才允许起跳</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">小勇者登场，先会跑</div>
+          <pre class="blocks">当绿旗被点击
+移到 x: (-180) y: (0)
+重复执行
+    如果 <按下 [→] 键?> 那么
+        将x坐标增加 (3)
+        面向 (90) 度
+    如果 <按下 [←] 键?> 那么
+        将x坐标增加 (-3)
+        面向 (-90) 度</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#5CB1D6;">侦测</span><span class="cat" style="background:#FFAB19;">控制</span>（角色左下「旋转方式」选左右翻转）</div>
+          <div class="stepv-see">✅ ←→ 一按就跑，脸朝前进方向</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">重力 + 只在地面才能跳</div>
+          <pre class="blocks">    如果 <<按下 [空格] 键?> 且 <(y速度) = (0)>> 那么
+        将 [y速度] 设为 (11)
+    将y坐标增加 (y速度)
+    将 [y速度] 增加 (-1)</pre>
+          <div class="sl-where">🧰 积木在：接在跑步积木后面同一个循环里；变量 <b>y速度</b> 选「适用于所有角色」（第 3 课蘑菇要用）</div>
+          <div class="stepv-see">✅ 空格起跳、越升越慢、开始下坠</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">碰到草地色，站住</div>
+          <pre class="blocks">    如果 <<(y速度) < (0)> 且 <碰到颜色 [#5aa46f]?>> 那么
+        重复直到 <<碰到颜色 [#5aa46f]?> 不成立>
+            将y坐标增加 (1)
+        将 [y速度] 设为 (0)</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#5CB1D6;">侦测</span>——点颜色小方块，用吸管去舞台点草地绿</div>
+          <div class="stepv-see">✅ 落回草地稳稳站住，再按空格又能跳</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">跑起来要像跑：换造型</div>
+          <pre class="blocks">    如果 <<按下 [→] 键?> 或 <按下 [←] 键?>> 那么
+        换成 [跑1] 造型
+        等待 (0.1) 秒
+        换成 [跑2] 造型
+        等待 (0.1) 秒
+    否则
+        换成 [站] 造型</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#9966FF;">外观</span>——造型在素材包里已配好</div>
+          <div class="stepv-see">✅ 跑起来迈腿，停下站好</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🏃 ←→ 跑动流畅、脸朝前进方向</li><li>⬆️ 空格起跳，空中再按没反应</li><li>🛑 落回草地站住不抖动</li><li>↩️ 绿旗回到起点满血复活</li>
+      </ul>
+<div class="sl-sub">能跑能跳，小勇者活了——下一课给草原长出平台。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">跳跃手感配方</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">起跳 11 改 15</div><div class="lb-guess">猜猜看：能跳多高？</div><div class="lb-why">初速度=跳跃高度</div></div>
+          <div class="lab-card"><div class="lb-do">重力 −1 改 −0.6</div><div class="lb-guess">猜猜看：月亮上的感觉？</div><div class="lb-why">重力小=飘</div></div>
+          <div class="lab-card"><div class="lb-do">跑速 3 改 6</div><div class="lb-guess">猜猜看：还跳得准吗？</div><div class="lb-why">速度与跳高要配平</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">跑跳三病</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 空中连跳上天</div>没加"y速度=0 才能跳"。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>空格条件里加上 <b>且 (y速度)=(0)</b>。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 落地后疯狂抖</div>碰到色还在反复触发。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>重复直到"不碰到"把角色顶出颜色，再速度归零。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 吸管点了没颜色</div>舞台被角色挡住/选错层。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>先把角色拖开，再点背景草地。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">土狼时间</div><div class="ad-what">离开平台一小步还能跳</div><div class="ad-how">落地时计时器归零，空格条件放宽到 计时器&lt;0.15<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+          <div class="addon-card"><div class="ad-t">跳跃音效</div><div class="ad-what">"啵"一声起跳</div><div class="ad-how">起跳成功里播放 pop<br><span class="cat" style="background:#CF63CF;">声音</span></div></div>
+          <div class="addon-card"><div class="ad-t">长按高跳</div><div class="ad-what">按得久跳得高</div><div class="ad-how">按住时重力减半（乘 0.5）<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 1 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 1 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 2 课 · 站上平台</div>
+      <div class="sl-next-why">会跑会跳了——草原该长出平台了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="p2" data-map="🧱 站上平台">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第二章 · 长出平台的世界</span><span class="st-text">草原上凭空长出几块灰色平台：从上面落下能站住，从下面顶上去会撞头。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>平台</em>——把平台画进背景，站得住、会撞头、掉进坑里会重生。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">🎨 自己画地形</span><span class="sl-chip">✅ 能跳上平台，能掉坑重来</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="地面砖"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🪜</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="草原晨光"></i><div style="position:absolute;left:6%;top:52%;width:30%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:44%;top:34%;width:24%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:70%;top:16%;width:20%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="小勇者-站" style="left:12%; top:40%;"></i><span class="sl-tag" style="left:8%; top:8%;">跳上平台 → 再跳一层</span><span class="sl-tag" style="right:5%; top:60%;">最高处放什么？第 4 课说</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到颜色</span><span class="td-note">— 第 1 课刚学会</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">第二种地面色</span><span class="td-note">— 灰平台和草地一样站得住</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">撞头处理</span><span class="td-note">— 上升中顶到平台，速度归零</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">掉坑重生</span><span class="td-note">— y 太低就回起点</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">平台不用新角色、不用克隆——<b>画在背景上就是地形</b>。用绘图编辑器给背景加几块同一种灰色（#95a5a6），落地判定从"碰到草地色"扩成"碰到草地色 <b>或</b> 平台色"。撞头是落地的好兄弟：一个管下降，一个管上升。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>先在背景上画 3 块平台（画法下一页）</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>让小勇者跳上去、再从下面顶顶看</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 1/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">把平台画进背景</div>
+          <div class="sl-sub">舞台左下「背景」标签 → 选中背景 → 「造型」页 → 用 <b>矩形</b> 画横条：填充 <b>#95a5a6</b>、描边 <b>#6c7a7d</b>。画 3 块从低到高像台阶（每层 ≤ 3 个身位高）</div>
+          <div class="stepv-see">✅ 背景上出现三块灰色台阶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 2/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">两种颜色都站得住</div>
+          <pre class="blocks">    如果 <<(y速度) < (0)> 且 <<碰到颜色 [#5aa46f]?> 或 <碰到颜色 [#95a5a6]?>>> 那么
+        重复直到 <<<<碰到颜色 [#5aa46f]?> 或 <碰到颜色 [#95a5a6]?>>> 不成立>
+            将y坐标增加 (1)
+        将 [y速度] 设为 (0)</pre>
+          <div class="sl-where">🧰 积木在：就在第 1 课落地判定那行上改——条件从 1 个色变 2 个色</div>
+          <div class="stepv-see">✅ 草地和平台随便落，全都站得住</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 3/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">撞头：上升中顶到平台</div>
+          <pre class="blocks">    如果 <<(y速度) > (0)> 且 <碰到颜色 [#95a5a6]?>> 那么
+        将 [y速度] 设为 (0)</pre>
+          <div class="sl-where">🧰 积木在：顶到头速度归零，下一帧重力自然拉回——"咚"一下的感觉</div>
+          <div class="stepv-see">✅ 从下往上跳顶到平台，不再穿过去</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">参考做法 · 4/4</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">掉出屏幕 = 回起点</div>
+          <pre class="blocks">    如果 <(y 坐标) < (-170)> 那么
+        移到 x: (-180) y: (0)
+        将 [y速度] 设为 (0)</pre>
+          <div class="sl-where">🧰 积木在：加在主循环末尾；想扣命？下一课一起做</div>
+          <div class="stepv-see">✅ 掉下去不死循环，摔回起点重来</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="sl-split">
+        <div class="sl-split-txt">
+          <ul class="sl-check ok">
+<li>🪜 三块平台一层一层跳得上</li><li>🧱 从下面顶到平台会停住</li><li>🕳️ 掉出屏幕回起点重来</li><li>↩️ 绿旗全部复原</li>
+          </ul>
+        </div>
+        <div class="sl-split-vis">
+<div class="sl-stage" style="width:460px;"><i class="sp-fill" data-sp="草原晨光"></i><div style="position:absolute;left:8%;top:58%;width:22%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:40%;top:42%;width:22%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:68%;top:26%;width:22%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="小勇者-跑1" style="left:44%; top:34%;"></i></div>
+<div class="vis-cap">背景即地形：三块色 = 三级台阶</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">地形设计课</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">平台间距拉大 1.5 倍</div><div class="lb-guess">猜猜看：还跳得过去吗？</div><div class="lb-why">间距=难度旋钮</div></div>
+          <div class="lab-card"><div class="lb-do">画一段竖着的灰墙</div><div class="lb-guess">猜猜看：能挡住小勇者吗？</div><div class="lb-why">同色即同墙</div></div>
+          <div class="lab-card"><div class="lb-do">草地上挖个坑（擦掉一块）</div><div class="lb-guess">猜猜看：坑是障碍还是捷径？</div><div class="lb-why">擦除=造陷阱</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">平台两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 平台站不住穿过去</div>画的灰色和判定色不一致。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>重新用吸管点你画的平台，别手输色号。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 平台跳不上去</div>层高超过了跳跃高度。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>每层最多 3 个身位（约 40 像素），或调大起跳速度。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">单向平台</div><div class="ad-what">从下面能穿上去</div><div class="ad-how">撞头判定加"且没按↓"再触发<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+          <div class="addon-card"><div class="ad-t">移动平台</div><div class="ad-what">平台左右飘</div><div class="ad-how">平台色块换成克隆角色来回走<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">弹簧垫</div><div class="ad-what">踩上超弹跳</div><div class="ad-how">背景画黄块，碰到且下落→速度设 18<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 2 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 2 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 3 课 · 蘑菇来袭</div>
+      <div class="sl-next-why">地形有了——草原太安静，放蘑菇出来。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="p3" data-map="🍄 蘑菇来袭">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第三章 · 草原有了危险</span><span class="st-text">红帽子蘑菇在草地上巡逻：从头顶踩下去扁掉，从侧面撞上去——你掉一条命。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>踩与碰</em>——同一只蘑菇，从上踩=扁掉+弹起，侧碰=掉命+短暂无敌。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 40 分钟</span><span class="sl-chip">⚠️ 判定要分上下</span><span class="sl-chip">✅ 有敌人、有生命、有风险</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="蘑菇敌-走1"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">👟</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="fx-vis"><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="草原晨光"></i><i class="sp-abs" data-sp="蘑菇敌-走1" style="left:60%; bottom:10%;"></i><i class="sp-abs" data-sp="小勇者-跑2" style="left:44%; bottom:38%;"></i><span class="sl-tag" style="left:8%; top:8%;">从头顶落下 ⬇</span></div><div class="fx-cap">踩：蘑菇扁掉，弹起</div></div><div class="fx-arrow">VS</div><div class="fx-ba"><div class="sl-stage" style="width:300px;"><i class="sp-fill" data-sp="草原晨光"></i><i class="sp-abs" data-sp="蘑菇敌-走1" style="left:52%; bottom:10%;"></i><i class="sp-abs" data-sp="小勇者-站" style="left:40%; bottom:10%;"></i><span class="sl-tag" style="left:8%; top:8%;">侧面撞上 ❌</span></div><div class="fx-cap">碰：掉一条命</div></div></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">克隆</span><span class="td-note">— 打砖块/射击的老朋友</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">y速度（全局）</span><span class="td-note">— 第 1 课特意留给蘑菇看</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">踩踏判定</span><span class="td-note">— 碰到 且 正在下落 = 踩</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">生命与无敌</span><span class="td-note">— 计时器做 1 秒无敌</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">踩和碰是<b>同一次接触的两种结局</b>，怎么区分？看 y速度：小于 0 说明正在下落，脚在下→踩；否则就是平撞→受伤。蘑菇自己也能读到这个变量（第 1 课设成了全局），所以判定的活儿可以分给蘑菇做。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>蘑菇敌导入，摆到草地上</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>先让它来回走起来，再试着跳到它头上</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 1/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">蘑菇巡逻：本体发车</div>
+          <pre class="blocks">当绿旗被点击
+隐藏
+重复执行
+    克隆 [自己]
+    等待 (3) 秒</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span>（和打砖块的砖块"发车"同款）</div>
+          <div class="stepv-see">✅ 每隔 3 秒冒出一只新蘑菇</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 2/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">分身：先朝一个方向溜达</div>
+          <pre class="blocks">当作为克隆体启动时
+显示
+移到 x: (在 (-100) 和 (150) 之间取随机数) y: (-128)
+将 [巡逻方向] 设为 (1)
+重复执行
+    如果 <(巡逻方向) = (1)> 那么
+        将x坐标增加 (2)
+        面向 (90) 度
+    否则
+        将x坐标增加 (-2)
+        面向 (-90) 度
+    等待 (0.15) 秒
+    换成 [下一个] 造型</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFAB19;">控制</span><span class="cat" style="background:#4C97FF;">运动</span><span class="cat" style="background:#9966FF;">外观</span>；蘑菇也选「左右翻转」——巡逻方向=1 向右、=2 向左</div>
+          <div class="stepv-see">✅ 蘑菇迈着小碎步换造型，走得有模有样</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 3/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">到边界就掉头</div>
+          <pre class="blocks">    如果 <<(x 坐标) > (200)> 或 <(x 坐标) < (-200)>> 那么
+        将 [巡逻方向] 设为 (3 - (巡逻方向))</pre>
+          <div class="sl-path">插在刚才的循环里："否则…面向"之后、"等待"之前。3−巡逻方向：1 变 2、2 变 1——一个小开关</div>
+          <div class="stepv-see">✅ 蘑菇到边界自己掉头，永不出巡逻区</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 4/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">踩扁：蘑菇自己看 y速度</div>
+          <pre class="blocks">    如果 <<碰到 [小勇者]?> 且 <(y速度) < (0)>> 那么
+        换成 [走1] 造型
+        将大小增加 (-40)
+        等待 (0.3) 秒
+        删除此克隆体</pre>
+          <div class="sl-where">🧰 积木在：接在蘑菇分身循环里；<b>y速度 是全局变量</b>，蘑菇读得到；小勇者那边别忘了踩扁时弹起</div>
+          <div class="stepv-see">✅ 从头顶踩下，蘑菇压扁消失</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">参考做法 · 5/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">5</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">被撞：小勇者掉命 + 1 秒无敌</div>
+          <pre class="blocks">    如果 <<碰到 [蘑菇敌]?> 且 <<不是 <(y速度) < (0)>> 且 <(计时器) > (1)>>> 那么
+        将 [生命] 增加 (-1)
+        计时器归零
+        将 [y速度] 设为 (7)
+    如果 <(生命) < (1)> 那么
+        广播 [游戏结束]
+        停止 [全部脚本]</pre>
+          <div class="sl-where">🧰 积木在：加进小勇者主循环；绿旗开头「生命 设为 3」「计时器归零」</div>
+          <div class="stepv-see">✅ 撞蘑菇掉命弹开；三命用完定格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>👟 头顶踩下蘑菇压扁消失</li><li>❤️ 侧撞掉命弹开、有无敌时间</li><li>💀 三命用完游戏定格</li><li>↩️ 绿旗生命回 3、蘑菇重刷</li>
+      </ul>
+<div class="sl-sub">有风险了，该有奖励了——下一课放金币。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">敌人调校</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">巡逻速度 2 改 4</div><div class="lb-guess">猜猜看：还敢正面跳吗？</div><div class="lb-why">敌速=压迫感</div></div>
+          <div class="lab-card"><div class="lb-do">无敌时间 1 秒改 2 秒</div><div class="lb-guess">猜猜看：变简单多少？</div><div class="lb-why">无敌=容错率</div></div>
+          <div class="lab-card"><div class="lb-do">蘑菇放到平台上巡逻</div><div class="lb-guess">猜猜看：出生 y 要改哪？</div><div class="lb-why">巡逻线=关卡语言</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">踩碰两糊涂</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 想踩却总是掉命</div>踩和碰的判定挤在同一处。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>踩给蘑菇判（y速度&lt;0），碰给小勇者判（y速度&gt;0）。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 掉命掉成秒杀</div>无敌没生效。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>受伤时立刻「计时器归零」，条件里查「计时器 &gt; 1」。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">连踩计分</div><div class="ad-what">不落地连踩翻倍</div><div class="ad-how">连踩数变量，落地归零<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+          <div class="addon-card"><div class="ad-t">追踪蘑菇</div><div class="ad-what">慢慢朝小勇者蹭</div><div class="ad-how">巡逻方向按两者 x 定期更新<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+          <div class="addon-card"><div class="ad-t">受伤闪烁</div><div class="ad-what">无敌期一闪一闪</div><div class="ad-how">虚像特效 50↔100 每 0.1 秒<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 3 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 3 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 4 课 · 金币与问号砖</div>
+      <div class="sl-next-why">有风险了——该有奖励了。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="p4" data-map="🪙 金币与问号砖">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第四章 · 草原的宝藏</span><span class="st-text">平台顶上闪着金币，半空挂着问号砖——从下面一顶，"叮"，金币+1。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>收集</em>——碰到金币就收走计数；从下顶到问号砖，砖变"空"、金币+1。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 30–40 分钟</span><span class="sl-chip">✅ 金币数会涨、顶砖有演出</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="金币"></i></div><span class="cast-plus">＋</span><div class="cast-item"><i class="sp-md" data-sp="问号砖"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="草原晨光"></i><div style="position:absolute;left:28%;top:46%;width:14%;height:5%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="问号砖" style="left:56%; top:44%;"></i><i class="sp-abs" data-sp="金币" style="left:33%; top:38%;"></i><i class="sp-abs" data-sp="金币" style="left:40%; top:30%;"></i><i class="sp-abs" data-sp="小勇者-跑1" style="left:48%; bottom:14%;"></i><span class="sl-tag" style="left:8%; top:8%;">金币 = 收集进度</span><span class="sl-tag" style="right:5%; top:8%;">从下往上顶 ⬆</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">碰到角色</span><span class="td-note">— 前六门课用烂了的招</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">角色自己收自己</span><span class="td-note">— 金币碰到小勇者就隐藏</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">顶砖判定</span><span class="td-note">— 碰到 且 正在上升 = 顶</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">造型切换</span><span class="td-note">— 满 → 空</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">金币的判定写给<b>金币自己</b>：它每帧问"碰到小勇者了吗？"，碰到就 +1、隐藏、收工。顶砖是踩踏的镜像：<b>碰到 且 y速度&gt;0（正在上升）</b>，顶完砖从"满"换成"空"，再也不给。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>金币复制几颗摆到平台上</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>问号砖挂到半空，试着从下面顶它</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 1/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">金币：碰到就收</div>
+          <pre class="blocks">当绿旗被点击
+显示
+重复执行
+    如果 <碰到 [小勇者]?> 那么
+        将 [金币数] 增加 (1)
+        播放声音 [coin]
+        隐藏
+        停止 [这个脚本]</pre>
+          <div class="sl-where">🧰 积木在：写在金币上；再右键金币「复制」摆 4–6 颗——脚本跟着一起复制</div>
+          <div class="stepv-see">✅ 碰到金币"叮"一声消失，金币数 +1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 2/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">问号砖：从下面顶，只给一次</div>
+          <pre class="blocks">当绿旗被点击
+显示
+换成 [满] 造型
+重复执行
+    如果 <<碰到 [小勇者]?> 且 <(y速度) > (0)>> 那么
+        如果 <(造型名) = [满]> 那么
+            换成 [空] 造型
+            将 [金币数] 增加 (1)
+            播放声音 [coin]</pre>
+          <div class="sl-where">🧰 积木在：满/空造型素材包已配好；外层判方向、内层判"还是满的"——防重复顶</div>
+          <div class="stepv-see">✅ 一顶出金币变空砖，再顶白顶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">参考做法 · 3/3</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">顶砖把小勇者也弹一下</div>
+          <pre class="blocks">    如果 <<(y速度) > (0)> 且 <碰到 [问号砖]?>> 那么
+        将 [y速度] 设为 (-5)</pre>
+          <div class="sl-where">🧰 积木在：写在小勇者主循环里——顶到砖被弹回落，手感更像马里奥</div>
+          <div class="stepv-see">✅ 顶砖"咚"地回落，不再贴着砖抖</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🪙 金币碰到就收、计数正确</li><li>🧱 问号砖只从下面顶才出金币</li><li>1️⃣ 每块砖只给一次</li><li>↩️ 绿旗金币归零、砖和金币复原</li>
+      </ul>
+<div class="sl-sub">收集有了，最后一课：旗杆，和你自己的关卡。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">奖励设计</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">金币藏到最难跳的位置</div><div class="lb-guess">猜猜看：玩家会冒险吗？</div><div class="lb-why">风险=价值感</div></div>
+          <div class="lab-card"><div class="lb-do">问号砖顶出 5 金币</div><div class="lb-guess">猜猜看：改成连续 5 次加分</div><div class="lb-why">重复 5 次=奖励雨</div></div>
+          <div class="lab-card"><div class="lb-do">金币旋转动画</div><div class="lb-guess">猜猜看：三个造型来回切</div><div class="lb-why">闪的东西勾眼睛</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">收集两怪</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 金币收了又冒出来</div>隐藏后脚本还在转。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>隐藏后「停止 这个脚本」，绿旗再唤醒。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 站在砖上也算顶</div>顶砖判定没查方向。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>条件加 <b>且 (y速度)&gt;(0)</b>——上升才算顶。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">顶出蘑菇补给</div><div class="ad-what">顶砖掉红心+1命</div><div class="ad-how">随机数决定掉金币还是红心<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+          <div class="addon-card"><div class="ad-t">金币雨</div><div class="ad-what">过关前金币下落</div><div class="ad-how">金币克隆+重力循环<br><span class="cat" style="background:#FFAB19;">控制</span></div></div>
+          <div class="addon-card"><div class="ad-t">计分板</div><div class="ad-what">左上角常驻金币数</div><div class="ad-how">金币数「在舞台显示」<br><span class="cat" style="background:#FF8C1A;">变量</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 4 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 4 关达成</div>
+      <div class="sl-next-label">下一课</div>
+      <div class="sl-next-title">第 5 课 · 旗杆与你自己的关卡</div>
+      <div class="sl-next-why">最后一步：给这一切一个终点。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-anchor="p5" data-map="🏁 旗杆与你自己的关卡">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">本章目标</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="story-strip"><span class="st-badge">第五章 · 属于你的一关</span><span class="st-text">终点旗在最高处等你。摸到它=过关；然后，把整张地图推倒重来——按你的想法摆一关。</span></div>
+      <div class="sl-goal-row">
+        <div class="sl-goal-col">
+          <div class="sl-goal">只解决一件事：<em>过关与关卡设计</em>——旗杆判定胜利；然后用三条设计准则，亲手摆一个自己的关卡，办发布会。</div>
+          <div class="sl-chips">
+<span class="sl-chip">⏱ 45 分钟</span><span class="sl-chip">🎨 孩子当设计师</span><span class="sl-chip">🎤 作品发布会</span>
+          </div>
+        </div>
+        <div class="sl-cast">
+<div class="cast-item"><i class="sp-md" data-sp="终点旗"></i></div><span class="cast-plus">＋</span><div class="cast-item"><span class="emo">🗺️</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">效果与拆解</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">这节课结束时，你的游戏会变成这样</div>
+          <div class="fx-vis" style="margin-top:14px;"><div class="sl-stage" style="width:500px;"><i class="sp-fill" data-sp="草原晨光"></i><div style="position:absolute;left:8%;top:58%;width:18%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:34%;top:44%;width:18%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><div style="position:absolute;left:62%;top:30%;width:20%;height:4%;background:#95a5a6;border:2px solid #6c7a7d;"></div><i class="sp-abs" data-sp="终点旗" style="left:82%; top:16%;"></i><i class="sp-abs" data-sp="金币" style="left:12%; top:50%;"></i><i class="sp-abs" data-sp="蘑菇敌-走2" style="left:42%; bottom:8%;"></i><i class="sp-abs" data-sp="小勇者-站" style="left:4%; bottom:8%;"></i><span class="sl-tag" style="left:8%; top:8%;">起点 → 一路向上 → 旗杆</span></div></div>
+        </div>
+        <div>
+          <div class="fx-sec">倒推一下：这个效果需要哪些能力</div>
+          <ul class="td-list" style="margin-top:8px;">
+          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">胜利判定</span><span class="td-note">— 碰到旗杆=过关</span></li>          <li class="td-item"><span class="td-mark new">新学</span><span class="td-name">关卡设计</span><span class="td-note">— 用地形/敌人/金币写"话"</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">背景绘制</span><span class="td-note">— 第 2 课画的平台</span></li>          <li class="td-item"><span class="td-mark old">已有</span><span class="td-name">发布会</span><span class="td-note">— 三句话</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="fx-sec">思路：怎么从效果推到积木</div>
+          <div class="cp-analogy" style="margin-top:8px;">旗杆就是一块"倒过来的蘑菇"：碰到→不扣命，而是广播过关、定格、宣布。真正的压轴是<b>关卡设计</b>：地形是句子，金币是标点，敌人是悬念——三条准则摆出来，你就是这关的作者。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">自己试试</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">先自己试 10 分钟</div>
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">① 备料</span>旗杆放到地图右上</div>
+        <div class="log-card"><span class="lg-t">② 动手</span>试着做出"碰到就赢"</div>
+        <div class="log-card"><span class="lg-t">③ 卡住才看</span>卡住超过 5 分钟，再翻「参考做法」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">概念 · 关卡设计三准则</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="concept">
+        <div class="cp-def">
+          <div class="cp-title">每一关都是一句话</div>
+          <div class="cp-analogy">类比：好关卡像一句话：平台是路（读得通）、金币是引导（逗号，告诉你往哪走）、敌人是悬念（转折，逼你做选择）。三样摆好，玩家自然照你设计的路走。</div>
+          <ul class="cp-points">
+<li><b>跳得到</b>：每块平台间距 ≤ 一次跳跃，高处放台阶</li><li><b>看得懂</b>：金币连成一条线，就是路标</li><li><b>有取舍</b>：最值钱的金币放在最危险的地方</li>
+          </ul>
+        </div>
+        <div class="cp-vis">
+<div class="dg"><div class="dg-box ok">🪜 地形=路</div><span class="dg-arr">＋</span><div class="dg-box ok">🪙 金币=路标</div><span class="dg-arr">＋</span><div class="dg-box ok">🍄 敌人=悬念</div><span class="dg-arr">＝</span><div class="dg-box ok">一关</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 1/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">1</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">旗杆：碰到就广播</div>
+          <pre class="blocks">当绿旗被点击
+显示
+重复执行
+    如果 <碰到 [小勇者]?> 那么
+        广播 [过关]
+        停止 [这个脚本]</pre>
+          <div class="sl-where">🧰 积木在：<span class="cat" style="background:#FFBF00;">事件</span>——写在旗杆上，只管喊"有人过关了"</div>
+          <div class="stepv-see">✅ 碰到旗杆的一瞬间发出广播</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 2/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">2</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">小勇者：宣布过关</div>
+          <pre class="blocks">当接收到 [过关]
+说 [过关啦！] (3) 秒
+停止 [全部脚本]</pre>
+          <div class="sl-path">写在小勇者上：听到广播就宣布、定格全场；再配一段背景音乐收尾更棒</div>
+          <div class="stepv-see">✅ 摸到旗杆，宣布过关全场定格</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 3/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">3</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">推倒重来：摆你自己的关</div>
+          <div class="sl-sub">背景绘制里擦掉旧平台，重新画——<b>这次你是设计师</b>：先画主路（起点到旗杆），再放 5–8 颗金币当路标，最后挪 2–3 只蘑菇守要道</div>
+          <div class="stepv-see">✅ 一张全新地图，自己能通关，家人也能通关</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 4/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">4</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">试玩验收：让别人玩你的关</div>
+          <div class="dg"><div class="dg-box">1️⃣ 家长试玩一次</div><span class="dg-arr">➜</span><div class="dg-box">2️⃣ 孩子在旁只看不说</div><span class="dg-arr">➜</span><div class="dg-box ok">3️⃣ 卡住的地方=要改的地方</div></div>
+          <div class="sl-sub">设计者的话不解释——玩家卡哪，就修哪</div>
+          <div class="stepv-see">✅ 至少迭代一轮再开发布会</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide stepv">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">参考做法 · 5/5</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body stepv-body">
+      <div class="stepv-side"><span class="stepv-n">5</span></div>
+      <div class="stepv-main">
+          <div class="stepv-say">发布会：三句话</div>
+          <div class="dg"><div class="dg-box ok">1️⃣ 我这关想让你走哪条路</div><div class="dg-box ok">2️⃣ 最刁的设计在哪</div><div class="dg-box ok">3️⃣ 下一个版本想加什么</div></div>
+          <div class="sl-sub">全家围观通关你设计的关</div>
+          <div class="stepv-see">✅ 讲满三句，本作收官</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">验收</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <ul class="sl-check ok">
+<li>🏁 碰到旗杆宣布过关</li><li>🗺️ 自己的关：自己能通、别人也能通</li><li>🔁 按试玩反馈至少改过一处</li><li>🎤 发布会讲满三句</li>
+      </ul>
+<div class="sl-sub">第七门毕业——下一门，拉上家人开坦克对战。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">试一试</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">设计实验室</div>
+      <div class="lab-grid">
+          <div class="lab-card"><div class="lb-do">只留一条命的关</div><div class="lb-guess">猜猜看：家人能过吗？</div><div class="lb-why">容错=受众</div></div>
+          <div class="lab-card"><div class="lb-do">把金币全藏进死角</div><div class="lb-guess">猜猜看：还有人去捡吗？</div><div class="lb-why">引导失灵=白摆</div></div>
+          <div class="lab-card"><div class="lb-do">做一条"秘密近道"</div><div class="lb-guess">猜猜看：谁会发现？</div><div class="lb-why">彩蛋=记忆点</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">常见错误</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="err-say">收官两坑</div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 过关后还能动</div>定格不干净。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>广播后「停止 全部脚本」再宣布。</div></div>
+        <div class="err-row"><div class="err-box no"><div class="eb-t">❌ 自己能通，别人全灭</div>设计者忘了自己是"作者"不是"玩家"。</div><div class="err-box ok"><div class="eb-t">✅ 药方</div>让家人先试玩一轮再定稿——卡哪修哪。</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">进阶挑战 · 三选一</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="lab-say">挑一个加上去，让它更像你自己的游戏</div>
+      <div class="addon-grid">
+          <div class="addon-card"><div class="ad-t">第二关</div><div class="ad-what">背景2 + 关卡切换</div><div class="ad-how">过关后「换成 背景2」+ 广播重摆<br><span class="cat" style="background:#9966FF;">外观</span></div></div>
+          <div class="addon-card"><div class="ad-t">时间挑战</div><div class="ad-what">通关用时排名</div><div class="ad-how">计时器随绿旗归零，过关时报时<br><span class="cat" style="background:#5CB1D6;">侦测</span></div></div>
+          <div class="addon-card"><div class="ad-t">自动卷屏</div><div class="ad-what">镜头跟着走</div><div class="ad-how">所有角色 x 每帧 −(小勇者x−100)×0.1<br><span class="cat" style="background:#59C059;">运算</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">第 5 课</span>
+        <span class="sl-title">课后回顾</span>
+        <span class="sl-role kid">👦 孩子自己</span>
+      </div>
+    <div class="slide-body">
+      <div class="log-grid">
+        <div class="log-card"><span class="lg-t">最得意的一步</span>今天哪一步做出来的时候，你想喊"看！"？</div>
+        <div class="log-card"><span class="lg-t">卡住又解开的地方</span>哪里卡住了？最后是怎么解开的？</div>
+        <div class="log-card"><span class="lg-t">下次想先试什么</span>下一次开课，你想动的第一个地方是哪？</div>
+      </div>
+      <div class="log-free">自由改造 5 分钟：随便改，绿旗能复原。然后在笔记本写两行。</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">第 5 关达成</div>
+      <div class="sl-next-label">本作收官</div>
+      <div class="sl-next-title">跳跳冒险 · 完成</div>
+      <div class="sl-next-why">会跳的孩子什么游戏都能做——先去总结页领毕业证。</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide">
+  <div class="slide-canvas">
+          <div class="sl-head">
+        <span class="sl-lesson">本作总结</span>
+        <span class="sl-title">你做出了什么</span>
+        <span class="sl-role both">👨‍👩‍👦 一起</span>
+      </div>
+    <div class="slide-body">
+      <div class="fx-wrap">
+        <div>
+          <div class="fx-sec">五个课次、一门手艺，全部装进这一个作品</div>
+          <div class="fx-vis" style="margin-top:14px; justify-content:flex-start;">
+            <div class="sl-stage" style="width:420px;"><i class="sp-fill" data-sp="草原晨光"></i><div style="position:absolute;left:10%;top:56%;width:22%;height:5%;background:#95a5a6;border:3px solid #6c7a7d;"></div><div style="position:absolute;left:42%;top:40%;width:20%;height:5%;background:#95a5a6;border:3px solid #6c7a7d;"></div><div style="position:absolute;left:68%;top:24%;width:20%;height:5%;background:#95a5a6;border:3px solid #6c7a7d;"></div><i class="sp-abs" data-sp="终点旗" style="left:84%; top:12%;"></i><i class="sp-abs" data-sp="金币" style="left:14%; top:48%;"></i><i class="sp-abs" data-sp="蘑菇敌-走1" style="left:48%; bottom:6%;"></i><i class="sp-abs" data-sp="小勇者-跑2" style="left:6%; bottom:6%;"></i></div>
+            <div class="cp-analogy" style="flex:1;">一个马里奥式的平台跳跃游戏：跑跳手感、画在背景里的地形、踩扁的蘑菇、顶开的问号砖、一面终点旗，和一张你自己设计的关卡地图。</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:50px;">
+          <div style="flex:1;">
+            <div class="fx-sec">点亮的能力（对照进度表 ★）</div>
+            <ul class="td-list" style="margin-top:8px;">
+<li>🎨 碰到颜色 <span class="td-note">— 第 1 课</span></li><li>🏃 跑动动画 <span class="td-note">— 第 1 课</span></li><li>🧱 平台与撞头 <span class="td-note">— 第 2 课</span></li><li>👟 踩踏判定 <span class="td-note">— 第 3 课</span></li><li>🪙 金币收集 <span class="td-note">— 第 4 课</span></li><li>🖌️ 关卡设计 <span class="td-note">— 第 5 课</span></li>
+            </ul>
+          </div>
+          <div style="flex:1;">
+            <div class="fx-sec">三个值得记住的思路</div>
+            <ul class="cp-points" style="margin-top:8px;">
+<li class="">颜色就是地形：背景上的一块色，用「碰到颜色」一问就是墙</li><li class="">方向区分结局：同一碰撞，看 y速度 正负，就是踩或碰、落地或撞头</li><li class="">关卡是写给玩家的话：地形=路，金币=路标，敌人=悬念</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="slide bridge">
+  <div class="slide-canvas">
+    <div class="slide-body">
+      <div class="sl-next-badge">跳跳冒险收官</div>
+      <div class="sl-next-label">下一关</div>
+      <div class="sl-next-title">第 8 关 · 坦克大战</div>
+      <div class="sl-next-why">单打独斗练够了——最后一门，拉上家人双人对战。</div>
+    </div>
+  </div>
+</section>
+
+  </template>
+
+<div class="pager">
+<a href="handbook-tetra.html"><div class="dir">← 上一篇</div><div class="pager-title">⑥ 俄罗斯方块</div></a>
+<a class="next" href="handbook-tank.html"><div class="dir">下一篇 →</div><div class="pager-title">⑧ 坦克大战</div></a>
+</div>
+  </article>
+  <footer class="site-footer">
+    Scratch 冒险乐园 · 八门游戏课 · 素材包在 示例项目/素材包/ · 积木图由 scratchblocks 渲染
+  </footer>
+</main>
+
+<button class="to-top" aria-label="返回顶部">↑</button>
+<script src="../assets/vendor/scratchblocks.min.js"></script>
+<script src="../assets/vendor/zh-cn.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>
